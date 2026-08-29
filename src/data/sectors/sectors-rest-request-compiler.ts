@@ -28,6 +28,7 @@ export type RXSectorsRestCompileResult =
 
 const VERIFIED_CREDIT_COST = {
   GET_MINING_OPERATIONAL_CONTEXT: 1,
+  GET_MINING_HISTORICAL_PERFORMANCE: 1,
   GET_COMMODITY_PRICE_HISTORY: 1,
   GET_COMPANY_MARKET_TRANSACTION_HISTORY: 1,
 } as const;
@@ -151,23 +152,51 @@ export function compileSectorsRestRequest(
       };
     }
 
-    case "GET_MINING_HISTORICAL_PERFORMANCE":
+    case "GET_MINING_HISTORICAL_PERFORMANCE": {
+      const {
+        sectorsSlug,
+        period,
+      } = operationRequest.params;
+
       /**
-       * Endpoint semantics are known, but this compiler
-       * intentionally refuses to create an executable
-       * SectorsJsonRequest until the endpoint credit cost
-       * has been independently verified.
-       *
-       * Never invent estimatedCredits merely to satisfy
-       * the HTTP client contract.
+       * Temporal eligibility already requires YEAR for
+       * this operation. Keep this compiler defensive:
+       * never synthesize or guess a year.
        */
+      if (
+        period.kind !== "YEAR" ||
+        period.year === undefined
+      ) {
+        return {
+          status: "REJECTED",
+          request: null,
+          issues: [
+            "INVALID_OPERATION_REQUEST",
+          ],
+        };
+      }
+
+      const slug =
+        encodePathPart(sectorsSlug);
+
+      const query = buildQuery([
+        ["year", period.year],
+      ]);
+
       return {
-        status: "REJECTED",
-        request: null,
-        issues: [
-          "CREDIT_COST_UNVERIFIED",
-        ],
+        status: "COMPILED",
+        request: {
+          path:
+            `/v2/mining/companies/performance/${slug}/?${query}`,
+          purpose:
+            operationRequest.purpose,
+          estimatedCredits:
+            VERIFIED_CREDIT_COST
+              .GET_MINING_HISTORICAL_PERFORMANCE,
+        },
+        issues: [],
       };
+    }
 
     case "GET_COMMODITY_PRICE_HISTORY": {
       const period =

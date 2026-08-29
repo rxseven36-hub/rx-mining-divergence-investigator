@@ -129,36 +129,7 @@ describe(
     );
 
     it(
-      "blocks execution when the local credit allowance is insufficient",
-      () => {
-        const result =
-          evaluateLiveReconGuard({
-            operationRequest:
-              operationalRequest,
-            apiKeyPresent: true,
-            liveExecutionConfirmed:
-              true,
-            maxCredits: 0,
-          });
-
-        expect(result.status).toBe(
-          "BLOCKED"
-        );
-
-        expect(
-          result.issues
-        ).toContain(
-          "CREDIT_LIMIT_EXCEEDED"
-        );
-
-        expect(
-          result.estimatedCredits
-        ).toBe(1);
-      }
-    );
-
-    it(
-      "blocks a request that cannot be compiled",
+      "blocks compiled historical performance because live recon permission remains operation-specific",
       () => {
         const result =
           evaluateLiveReconGuard({
@@ -185,10 +156,38 @@ describe(
           status: "BLOCKED",
           issues: [
             "OPERATION_NOT_ALLOWED",
-            "REQUEST_NOT_COMPILED",
           ],
-          estimatedCredits: null,
+          estimatedCredits: 1,
         });
+      }
+    );
+
+    it(
+      "blocks execution when the local credit allowance is insufficient",
+      () => {
+        const result =
+          evaluateLiveReconGuard({
+            operationRequest:
+              operationalRequest,
+            apiKeyPresent: true,
+            liveExecutionConfirmed:
+              true,
+            maxCredits: 0,
+          });
+
+        expect(result.status).toBe(
+          "BLOCKED"
+        );
+
+        expect(
+          result.issues
+        ).toContain(
+          "CREDIT_LIMIT_EXCEEDED"
+        );
+
+        expect(
+          result.estimatedCredits
+        ).toBe(1);
       }
     );
 

@@ -72,7 +72,7 @@ describe(
     );
 
     it(
-      "fails closed for historical performance while credit cost is unverified",
+      "compiles historical mining performance using the Sectors slug and explicit year",
       () => {
         const result =
           compileSectorsRestRequest({
@@ -81,7 +81,8 @@ describe(
             purpose:
               "Collect historical mining performance.",
             params: {
-              sectorsSlug: "aadi",
+              sectorsSlug:
+                "pt-adaro-andalan-indonesia-tbk",
               period: {
                 kind: "YEAR",
                 year: 2024,
@@ -90,12 +91,55 @@ describe(
           });
 
         expect(result).toEqual({
-          status: "REJECTED",
-          request: null,
-          issues: [
-            "CREDIT_COST_UNVERIFIED",
-          ],
+          status: "COMPILED",
+          request: {
+            path:
+              "/v2/mining/companies/performance/pt-adaro-andalan-indonesia-tbk/?year=2024",
+            purpose:
+              "Collect historical mining performance.",
+            estimatedCredits: 1,
+          },
+          issues: [],
         });
+      }
+    );
+
+    it(
+      "encodes historical performance slug as a path component",
+      () => {
+        const result =
+          compileSectorsRestRequest({
+            operation:
+              "GET_MINING_HISTORICAL_PERFORMANCE",
+            purpose:
+              "Verify historical path encoding.",
+            params: {
+              sectorsSlug:
+                "company slug/test",
+              period: {
+                kind: "YEAR",
+                year: 2024,
+              },
+            },
+          });
+
+        expect(result.status).toBe(
+          "COMPILED"
+        );
+
+        if (
+          result.status === "COMPILED"
+        ) {
+          expect(
+            result.request.path
+          ).toBe(
+            "/v2/mining/companies/performance/company%20slug%2Ftest/?year=2024"
+          );
+
+          expect(
+            result.request.estimatedCredits
+          ).toBe(1);
+        }
       }
     );
 

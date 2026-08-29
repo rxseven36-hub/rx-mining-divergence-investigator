@@ -84,10 +84,9 @@ describe(
     );
 
     it(
-      "does not call the adapter when compilation rejects the operation",
+      "executes compiled historical performance through the Sectors adapter",
       async () => {
-        const requestJson =
-          vi.fn();
+        const requestJson = vi.fn();
 
         const adapter: SectorsAdapter = {
           async requestJson<T>(
@@ -95,9 +94,14 @@ describe(
           ) {
             requestJson(request);
 
-            throw new Error(
-              "Adapter must not be called"
-            );
+            return {
+              year: 2024,
+              available_years: [
+                2023,
+                2024,
+              ],
+              data: [],
+            } as T;
           },
         };
 
@@ -110,7 +114,8 @@ describe(
               purpose:
                 "Collect historical mining performance.",
               params: {
-                sectorsSlug: "aadi",
+                sectorsSlug:
+                  "pt-adaro-andalan-indonesia-tbk",
                 period: {
                   kind: "YEAR",
                   year: 2024,
@@ -119,18 +124,25 @@ describe(
             }
           );
 
-        expect(result).toEqual({
-          status: "REJECTED",
-          data: null,
-          issues: [
-            "CREDIT_COST_UNVERIFIED",
-          ],
-          cause: null,
-        });
+        expect(
+          result.status
+        ).toBe(
+          "EXECUTED"
+        );
 
         expect(
           requestJson
-        ).not.toHaveBeenCalled();
+        ).toHaveBeenCalledTimes(1);
+
+        expect(
+          requestJson
+        ).toHaveBeenCalledWith({
+          path:
+            "/v2/mining/companies/performance/pt-adaro-andalan-indonesia-tbk/?year=2024",
+          purpose:
+            "Collect historical mining performance.",
+          estimatedCredits: 1,
+        });
       }
     );
 
