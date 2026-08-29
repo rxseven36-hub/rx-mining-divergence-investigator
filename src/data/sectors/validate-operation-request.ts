@@ -1,6 +1,7 @@
 import type {
   RXSectorsTypedOperationRequest,
 } from "./sectors-operation-request";
+
 import {
   evaluateOperationTemporalEligibility,
 } from "./operation-temporal-eligibility";
@@ -75,6 +76,32 @@ function hasValidPeriod(
   }
 }
 
+function validateTemporalPeriod(
+  request: Exclude<
+    RXSectorsTypedOperationRequest,
+    {
+      operation:
+        "GET_MINING_OPERATIONAL_CONTEXT";
+    }
+  >,
+  issues: RXSectorsOperationRequestIssue[]
+): void {
+  if (!hasValidPeriod(request.params.period)) {
+    issues.push("PERIOD_INVALID");
+    return;
+  }
+
+  const temporalEligibility =
+    evaluateOperationTemporalEligibility(
+      request.operation,
+      request.params.period
+    );
+
+  if (!temporalEligibility.eligible) {
+    issues.push("PERIOD_INVALID");
+  }
+}
+
 export function validateSectorsOperationRequest(
   request: RXSectorsTypedOperationRequest
 ): RXSectorsOperationRequestValidation {
@@ -87,37 +114,43 @@ export function validateSectorsOperationRequest(
 
   switch (request.operation) {
     case "GET_MINING_OPERATIONAL_CONTEXT":
+      if (!request.params.companyId.trim()) {
+        issues.push("COMPANY_ID_REQUIRED");
+      }
+      break;
+
     case "GET_MINING_HISTORICAL_PERFORMANCE":
       if (!request.params.companyId.trim()) {
         issues.push("COMPANY_ID_REQUIRED");
       }
+
+      validateTemporalPeriod(
+        request,
+        issues
+      );
       break;
 
     case "GET_COMMODITY_PRICE_HISTORY":
       if (!request.params.commodity) {
         issues.push("COMMODITY_REQUIRED");
       }
+
+      validateTemporalPeriod(
+        request,
+        issues
+      );
       break;
 
     case "GET_COMPANY_MARKET_TRANSACTION_HISTORY":
       if (!request.params.ticker.trim()) {
         issues.push("TICKER_REQUIRED");
       }
-      break;
-  }
 
-  if (!hasValidPeriod(request.params.period)) {
-    issues.push("PERIOD_INVALID");
-  } else {
-    const temporalEligibility =
-      evaluateOperationTemporalEligibility(
-        request.operation,
-        request.params.period
+      validateTemporalPeriod(
+        request,
+        issues
       );
-
-    if (!temporalEligibility.eligible) {
-      issues.push("PERIOD_INVALID");
-    }
+      break;
   }
 
   return {

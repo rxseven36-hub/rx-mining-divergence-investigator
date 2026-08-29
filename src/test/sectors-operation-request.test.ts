@@ -26,10 +26,6 @@ describe(
             "Collect operational context.",
           params: {
             companyId: "company-aadi",
-            period: {
-              kind: "YEAR",
-              year: 2024,
-            },
           },
         };
 
@@ -187,7 +183,7 @@ describe(
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
-            "GET_MINING_OPERATIONAL_CONTEXT",
+            "GET_MINING_HISTORICAL_PERFORMANCE",
           purpose:
             "Collect operational context.",
           params: {
@@ -212,7 +208,7 @@ describe(
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
-            "GET_MINING_OPERATIONAL_CONTEXT",
+            "GET_MINING_HISTORICAL_PERFORMANCE",
           purpose:
             "Collect operational context.",
           params: {
@@ -239,7 +235,7 @@ describe(
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
-            "GET_MINING_OPERATIONAL_CONTEXT",
+            "GET_MINING_HISTORICAL_PERFORMANCE",
           purpose:
             "Collect operational context.",
           params: {

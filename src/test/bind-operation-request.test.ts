@@ -40,7 +40,6 @@ describe(
               "Collect operational context.",
             params: {
               companyId: "company-aadi",
-              period: context.period,
             },
           },
           issues: [],

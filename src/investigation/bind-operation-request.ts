@@ -61,7 +61,6 @@ export function bindInvestigationOperationRequest(
           purpose,
           params: {
             companyId: context.companyId,
-            period: context.period,
           },
         },
         issues: [],
