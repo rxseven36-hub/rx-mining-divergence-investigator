@@ -1,4 +1,7 @@
 import type {
+  RXInvestigationCapability,
+} from "./capability";
+import type {
   RXInvestigationCase,
 } from "./investigation-case";
 
@@ -53,7 +56,7 @@ function requirement(
 function request(
   requestId: string,
   requirementId: string,
-  capability: string,
+  capability: RXInvestigationCapability,
   purpose: string
 ): RXInvestigationDataRequest {
   return {

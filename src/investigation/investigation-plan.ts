@@ -1,3 +1,6 @@
+import type {
+  RXInvestigationCapability,
+} from "./capability";
 export type RXInvestigationQuestionKind =
   | "OPERATIONAL_CONTEXT"
   | "HISTORICAL_COMPARISON"
@@ -67,7 +70,7 @@ export interface RXInvestigationDataRequest {
    * Logical capability requested from the data layer.
    * This is intentionally NOT a raw URL.
    */
-  capability: string;
+  capability: RXInvestigationCapability;
 
   purpose: string;
 
