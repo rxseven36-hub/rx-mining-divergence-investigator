@@ -1,12 +1,33 @@
-/**
- * SectorsAdapter boundary.
- *
- * Runtime direction:
- * REST-FIRST, MCP-READY.
- *
- * Actual API calls are intentionally NOT implemented in Sprint 001.
- */
+import {
+  SectorsHttpClient,
+  type SectorsJsonRequest,
+} from "./sectors-http-client";
 
 export interface SectorsAdapter {
-  healthCheck(): Promise<boolean>;
+  requestJson<T>(
+    request: SectorsJsonRequest
+  ): Promise<T>;
+}
+
+/**
+ * Official REST boundary for RX.
+ *
+ * Intelligence, investigation, and presentation
+ * layers must not call Sectors directly.
+ */
+export class RestSectorsAdapter
+  implements SectorsAdapter
+{
+  constructor(
+    private readonly client:
+      SectorsHttpClient
+  ) {}
+
+  requestJson<T>(
+    request: SectorsJsonRequest
+  ): Promise<T> {
+    return this.client.requestJson<T>(
+      request
+    );
+  }
 }
