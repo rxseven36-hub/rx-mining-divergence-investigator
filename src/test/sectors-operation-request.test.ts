@@ -16,19 +16,16 @@ describe(
   "validateSectorsOperationRequest",
   () => {
     it(
-      "accepts a valid company operation request",
+      "accepts a valid mining company operation",
       () => {
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_MINING_OPERATIONAL_CONTEXT",
-
           purpose:
-            "Collect operational context for a divergence investigation.",
-
+            "Collect operational context.",
           params: {
-            companyId: "AADI",
-
+            companyId: "company-aadi",
             period: {
               kind: "YEAR",
               year: 2024,
@@ -48,19 +45,16 @@ describe(
     );
 
     it(
-      "accepts a valid commodity operation request",
+      "accepts a valid commodity operation",
       () => {
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_COMMODITY_PRICE_HISTORY",
-
           purpose:
             "Collect coal price context.",
-
           params: {
             commodity: "COAL",
-
             period: {
               kind: "RANGE",
               start: "2024-01-01",
@@ -78,18 +72,45 @@ describe(
     );
 
     it(
-      "rejects an empty purpose",
+      "accepts market transaction request with ticker",
+      () => {
+        const request:
+          RXSectorsTypedOperationRequest = {
+          operation:
+            "GET_COMPANY_MARKET_TRANSACTION_HISTORY",
+          purpose:
+            "Collect market reaction.",
+          params: {
+            ticker: "AADI",
+            period: {
+              kind: "RANGE",
+              start: "2024-12-01",
+              end: "2024-12-31",
+            },
+          },
+        };
+
+        expect(
+          validateSectorsOperationRequest(
+            request
+          )
+        ).toEqual({
+          valid: true,
+          issues: [],
+        });
+      }
+    );
+
+    it(
+      "rejects empty purpose",
       () => {
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_MINING_HISTORICAL_PERFORMANCE",
-
           purpose: "   ",
-
           params: {
-            companyId: "AADI",
-
+            companyId: "company-aadi",
             period: {
               kind: "YEAR",
               year: 2024,
@@ -106,19 +127,16 @@ describe(
     );
 
     it(
-      "rejects an empty company id",
+      "rejects empty mining company id",
       () => {
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
-            "GET_COMPANY_MARKET_TRANSACTION_HISTORY",
-
+            "GET_MINING_HISTORICAL_PERFORMANCE",
           purpose:
-            "Collect market reaction evidence.",
-
+            "Collect historical evidence.",
           params: {
             companyId: "   ",
-
             period: {
               kind: "YEAR",
               year: 2024,
@@ -137,19 +155,43 @@ describe(
     );
 
     it(
+      "rejects empty market ticker",
+      () => {
+        const request:
+          RXSectorsTypedOperationRequest = {
+          operation:
+            "GET_COMPANY_MARKET_TRANSACTION_HISTORY",
+          purpose:
+            "Collect market evidence.",
+          params: {
+            ticker: "   ",
+            period: {
+              kind: "RANGE",
+              start: "2024-12-01",
+              end: "2024-12-31",
+            },
+          },
+        };
+
+        expect(
+          validateSectorsOperationRequest(
+            request
+          ).issues
+        ).toContain("TICKER_REQUIRED");
+      }
+    );
+
+    it(
       "rejects UNKNOWN period",
       () => {
         const request:
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_MINING_OPERATIONAL_CONTEXT",
-
           purpose:
             "Collect operational context.",
-
           params: {
-            companyId: "AADI",
-
+            companyId: "company-aadi",
             period: {
               kind: "UNKNOWN",
             },
@@ -171,13 +213,10 @@ describe(
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_MINING_OPERATIONAL_CONTEXT",
-
           purpose:
             "Collect operational context.",
-
           params: {
-            companyId: "AADI",
-
+            companyId: "company-aadi",
             period: {
               kind: "MONTH",
               year: 2024,
@@ -201,13 +240,10 @@ describe(
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_MINING_OPERATIONAL_CONTEXT",
-
           purpose:
             "Collect operational context.",
-
           params: {
-            companyId: "AADI",
-
+            companyId: "company-aadi",
             period: {
               kind: "QUARTER",
               year: 2024,
@@ -231,13 +267,10 @@ describe(
           RXSectorsTypedOperationRequest = {
           operation:
             "GET_COMMODITY_PRICE_HISTORY",
-
           purpose:
             "Collect commodity context.",
-
           params: {
             commodity: "GOLD",
-
             period: {
               kind: "RANGE",
               start: "2024-01-01",

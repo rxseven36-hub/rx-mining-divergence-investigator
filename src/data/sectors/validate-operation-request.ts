@@ -5,6 +5,7 @@ import type {
 export type RXSectorsOperationRequestIssue =
   | "PURPOSE_REQUIRED"
   | "COMPANY_ID_REQUIRED"
+  | "TICKER_REQUIRED"
   | "COMMODITY_REQUIRED"
   | "PERIOD_INVALID";
 
@@ -81,17 +82,25 @@ export function validateSectorsOperationRequest(
     issues.push("PURPOSE_REQUIRED");
   }
 
-  if (
-    request.operation ===
-      "GET_COMMODITY_PRICE_HISTORY"
-  ) {
-    if (!request.params.commodity) {
-      issues.push("COMMODITY_REQUIRED");
-    }
-  } else {
-    if (!request.params.companyId.trim()) {
-      issues.push("COMPANY_ID_REQUIRED");
-    }
+  switch (request.operation) {
+    case "GET_MINING_OPERATIONAL_CONTEXT":
+    case "GET_MINING_HISTORICAL_PERFORMANCE":
+      if (!request.params.companyId.trim()) {
+        issues.push("COMPANY_ID_REQUIRED");
+      }
+      break;
+
+    case "GET_COMMODITY_PRICE_HISTORY":
+      if (!request.params.commodity) {
+        issues.push("COMMODITY_REQUIRED");
+      }
+      break;
+
+    case "GET_COMPANY_MARKET_TRANSACTION_HISTORY":
+      if (!request.params.ticker.trim()) {
+        issues.push("TICKER_REQUIRED");
+      }
+      break;
   }
 
   if (!hasValidPeriod(request.params.period)) {

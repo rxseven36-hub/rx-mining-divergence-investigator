@@ -10,7 +10,7 @@ import type {
   RXTimePeriod,
 } from "../../types/time";
 
-export interface RXCompanyOperationParams {
+export interface RXMiningCompanyOperationParams {
   companyId: RXCompany["id"];
   period: RXTimePeriod;
 }
@@ -20,18 +20,27 @@ export interface RXCommodityOperationParams {
   period: RXTimePeriod;
 }
 
+export interface RXMarketTransactionOperationParams {
+  /**
+   * Sectors daily transaction endpoint uses
+   * an IDX ticker, not the mining company ID.
+   */
+  ticker: NonNullable<RXCompany["symbol"]>;
+  period: RXTimePeriod;
+}
+
 export interface RXSectorsOperationParamsMap {
   GET_MINING_OPERATIONAL_CONTEXT:
-    RXCompanyOperationParams;
+    RXMiningCompanyOperationParams;
 
   GET_MINING_HISTORICAL_PERFORMANCE:
-    RXCompanyOperationParams;
+    RXMiningCompanyOperationParams;
 
   GET_COMMODITY_PRICE_HISTORY:
     RXCommodityOperationParams;
 
   GET_COMPANY_MARKET_TRANSACTION_HISTORY:
-    RXCompanyOperationParams;
+    RXMarketTransactionOperationParams;
 }
 
 export type RXSectorsOperationParams<
