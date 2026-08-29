@@ -2,6 +2,7 @@ import type { RXCommodity } from "@/types/commodity";
 import type { RXMetricKind, RXUnit } from "@/types/metrics";
 import type { RXTimePeriod } from "@/types/time";
 import type { RXSourceEvidence } from "@/truth/evidence";
+import type { RXSemanticKnowledge } from "./semantic-state";
 
 export interface RXNormalizedObservation {
   id: string;
@@ -44,7 +45,16 @@ export interface RXNormalizedObservation {
   sourceField?: string;
 
   /**
-   * Human-readable semantic description when known.
+   * Human-readable description only.
+   *
+   * Presence of this field MUST NEVER be interpreted as proof
+   * that the observation semantics are known.
    */
   semanticDescription?: string;
+
+  /**
+   * Explicit semantic knowledge used by eligibility and
+   * comparability decisions.
+   */
+  semantic: RXSemanticKnowledge;
 }

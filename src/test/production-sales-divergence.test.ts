@@ -44,6 +44,13 @@ function observation(
 
     semanticDescription:
       "Nickel ore production",
+    semantic: {
+    state: "KNOWN",
+    description:
+        "Nickel ore production",
+    basis:
+        "Test fixture with explicitly validated mining-performance semantics.",
+    },
 
     ...overrides,
   };

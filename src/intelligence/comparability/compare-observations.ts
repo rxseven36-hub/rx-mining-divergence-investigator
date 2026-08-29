@@ -1,5 +1,7 @@
 import type { RXNormalizedObservation } from "@/data/normalization/normalized-observation";
 
+import { isSemanticKnowledgeKnown } from "../../data/normalization/semantic-state";
+
 import {
   evaluateComparability,
   type ComparabilityResult,
@@ -28,9 +30,15 @@ export function compareObservations(
     left.value !== null &&
     right.value !== null;
 
+  /**
+   * semanticDescription is intentionally ignored here.
+   *
+   * Descriptive text is not evidence that RX understands
+   * the business semantics of a source field.
+   */
   const semanticsKnown =
-    Boolean(left.semanticDescription) &&
-    Boolean(right.semanticDescription);
+    isSemanticKnowledgeKnown(left.semantic) &&
+    isSemanticKnowledgeKnown(right.semantic);
 
   const unitsComparable =
     left.unit.dimension !== "UNKNOWN" &&

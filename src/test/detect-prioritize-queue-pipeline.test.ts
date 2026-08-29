@@ -68,6 +68,16 @@ function observation(
       "PRODUCTION"
         ? "Coal production"
         : "Coal sales",
+     semantic: {
+    state: "KNOWN",
+    description:
+        input.metric ===
+        "PRODUCTION"
+            ? "Coal production"
+            : "Coal sales",
+    basis:
+       "Test fixture with explicitly validated mining-performance semantics.",
+},
   };
 }
 

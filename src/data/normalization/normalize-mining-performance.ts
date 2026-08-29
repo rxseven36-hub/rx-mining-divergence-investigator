@@ -1,4 +1,5 @@
 import type { RXNormalizedObservation } from "./normalized-observation";
+import type { RXSemanticKnowledge } from "./semantic-state";
 
 import type { SectorsMiningPerformanceRow } from "../schemas/sectors-mining-performance";
 
@@ -36,6 +37,36 @@ function semanticDescription(
   return `${scope} ${metric.toLowerCase()}`;
 }
 
+function semanticKnowledge(
+  metric: string,
+  description: string
+): RXSemanticKnowledge {
+  /**
+   * Production and sales are the only mining-performance
+   * semantics activated for the current detector.
+   *
+   * Resource/reserve fields remain conservative until their
+   * exact field-level unit and geological semantics are
+   * validated against live Sectors data.
+   */
+  if (
+    metric === "PRODUCTION" ||
+    metric === "SALES"
+  ) {
+    return {
+      state: "KNOWN",
+      description,
+      basis:
+        "Validated RX mapping from the Sectors mining performance production/sales source field.",
+    };
+  }
+
+  return {
+    state: "UNKNOWN",
+    description,
+  };
+}
+
 export function normalizeMiningPerformanceRow(
   input: NormalizeMiningPerformanceInput
 ): RXNormalizedObservation[] {
@@ -60,62 +91,71 @@ export function normalizeMiningPerformanceRow(
 
   const metrics = extractMiningMetrics(input.row);
 
-  return metrics.map((metric, index) => ({
-    id: [
-      input.companyId,
-      commodity,
-      subtype ?? "GENERAL",
-      metric.sourceField,
-      input.row.year ?? "UNKNOWN-YEAR",
-      index,
-    ].join(":"),
-
-    companyId: input.companyId,
-
-    commodity,
-
-    commoditySubtype: subtype,
-
-    metric: metric.metric,
-
-    value: metric.value,
-
-    unit,
-
-    period: {
-      kind:
-        typeof input.row.year === "number"
-          ? "YEAR"
-          : "UNKNOWN",
-
-      year: input.row.year,
-
-      measurementYear:
-        input.row.measurement_year ?? undefined,
-    },
-
-    evidence: [
-      {
-        id: [
-          "sectors",
-          input.companyId,
-          metric.sourceField,
-          input.row.year ?? "unknown",
-        ].join(":"),
-
-        provider: "SECTORS",
-        source: input.source,
-        retrievedAt: input.retrievedAt,
-        truthClass: "SOURCE_FACT",
-      },
-    ],
-
-    sourceField: metric.sourceField,
-
-    semanticDescription: semanticDescription(
+  return metrics.map((metric, index) => {
+    const description = semanticDescription(
       metric.metric,
       commodity,
       subtype
-    ),
-  }));
+    );
+
+    return {
+      id: [
+        input.companyId,
+        commodity,
+        subtype ?? "GENERAL",
+        metric.sourceField,
+        input.row.year ?? "UNKNOWN-YEAR",
+        index,
+      ].join(":"),
+
+      companyId: input.companyId,
+
+      commodity,
+
+      commoditySubtype: subtype,
+
+      metric: metric.metric,
+
+      value: metric.value,
+
+      unit,
+
+      period: {
+        kind:
+          typeof input.row.year === "number"
+            ? "YEAR"
+            : "UNKNOWN",
+
+        year: input.row.year,
+
+        measurementYear:
+          input.row.measurement_year ?? undefined,
+      },
+
+      evidence: [
+        {
+          id: [
+            "sectors",
+            input.companyId,
+            metric.sourceField,
+            input.row.year ?? "unknown",
+          ].join(":"),
+
+          provider: "SECTORS",
+          source: input.source,
+          retrievedAt: input.retrievedAt,
+          truthClass: "SOURCE_FACT",
+        },
+      ],
+
+      sourceField: metric.sourceField,
+
+      semanticDescription: description,
+
+      semantic: semanticKnowledge(
+        metric.metric,
+        description
+      ),
+    };
+  });
 }
