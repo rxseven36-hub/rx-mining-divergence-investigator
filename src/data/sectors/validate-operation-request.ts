@@ -1,6 +1,9 @@
 import type {
   RXSectorsTypedOperationRequest,
 } from "./sectors-operation-request";
+import {
+  evaluateOperationTemporalEligibility,
+} from "./operation-temporal-eligibility";
 
 export type RXSectorsOperationRequestIssue =
   | "PURPOSE_REQUIRED"
@@ -105,6 +108,16 @@ export function validateSectorsOperationRequest(
 
   if (!hasValidPeriod(request.params.period)) {
     issues.push("PERIOD_INVALID");
+  } else {
+    const temporalEligibility =
+      evaluateOperationTemporalEligibility(
+        request.operation,
+        request.params.period
+      );
+
+    if (!temporalEligibility.eligible) {
+      issues.push("PERIOD_INVALID");
+    }
   }
 
   return {
