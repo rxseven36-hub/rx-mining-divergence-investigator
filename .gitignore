@@ -43,3 +43,14 @@ temp/
 *.key
 secrets/
 credentials/
+
+# Next.js deployment
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Prisma generated/local
+prisma/*.db
+prisma/*.db-journal
