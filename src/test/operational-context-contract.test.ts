@@ -25,7 +25,7 @@ describe(
             purpose:
               "Collect current mining operational context",
             params: {
-              companyId: "AADI",
+              sectorsSlug: "aadi",
             },
           };
 
@@ -50,7 +50,7 @@ describe(
             purpose:
               "Collect current mining operational context",
             params: {
-              companyId: "",
+              sectorsSlug: "",
             },
           };
 
@@ -61,7 +61,7 @@ describe(
 
         expect(result.valid).toBe(false);
         expect(result.issues).toContain(
-          "COMPANY_ID_REQUIRED"
+          "SECTORS_SLUG_REQUIRED"
         );
 
         expect(result.issues).not.toContain(
@@ -80,7 +80,7 @@ describe(
             purpose:
               "Collect annual mining performance",
             params: {
-              companyId: "AADI",
+              sectorsSlug: "aadi",
               period: {
                 kind: "YEAR",
                 year: 2024,

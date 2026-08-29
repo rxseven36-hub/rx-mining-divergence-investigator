@@ -10,6 +10,7 @@ import {
 
 const context = {
   companyId: "company-aadi",
+  sectorsSlug: "aadi",
   ticker: "AADI",
   commodity: "COAL" as const,
   period: {
@@ -39,7 +40,7 @@ describe(
             purpose:
               "Collect operational context.",
             params: {
-              companyId: "company-aadi",
+              sectorsSlug: "aadi",
             },
           },
           issues: [],
@@ -68,7 +69,7 @@ describe(
         }
 
         expect(result.request.params).toEqual({
-          companyId: "company-aadi",
+          sectorsSlug: "aadi",
           period: context.period,
         });
       }

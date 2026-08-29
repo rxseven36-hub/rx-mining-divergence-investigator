@@ -8,7 +8,7 @@ import {
 
 export type RXSectorsOperationRequestIssue =
   | "PURPOSE_REQUIRED"
-  | "COMPANY_ID_REQUIRED"
+  | "SECTORS_SLUG_REQUIRED"
   | "TICKER_REQUIRED"
   | "COMMODITY_REQUIRED"
   | "PERIOD_INVALID";
@@ -114,14 +114,14 @@ export function validateSectorsOperationRequest(
 
   switch (request.operation) {
     case "GET_MINING_OPERATIONAL_CONTEXT":
-      if (!request.params.companyId.trim()) {
-        issues.push("COMPANY_ID_REQUIRED");
+      if (!request.params.sectorsSlug.trim()) {
+        issues.push("SECTORS_SLUG_REQUIRED");
       }
       break;
 
     case "GET_MINING_HISTORICAL_PERFORMANCE":
-      if (!request.params.companyId.trim()) {
-        issues.push("COMPANY_ID_REQUIRED");
+      if (!request.params.sectorsSlug.trim()) {
+        issues.push("SECTORS_SLUG_REQUIRED");
       }
 
       validateTemporalPeriod(

@@ -25,7 +25,7 @@ describe(
           purpose:
             "Collect operational context.",
           params: {
-            companyId: "company-aadi",
+            sectorsSlug: "aadi",
           },
         };
 
@@ -106,7 +106,7 @@ describe(
             "GET_MINING_HISTORICAL_PERFORMANCE",
           purpose: "   ",
           params: {
-            companyId: "company-aadi",
+            sectorsSlug: "aadi",
             period: {
               kind: "YEAR",
               year: 2024,
@@ -132,7 +132,7 @@ describe(
           purpose:
             "Collect historical evidence.",
           params: {
-            companyId: "   ",
+            sectorsSlug: "   ",
             period: {
               kind: "YEAR",
               year: 2024,
@@ -145,7 +145,7 @@ describe(
             request
           ).issues
         ).toContain(
-          "COMPANY_ID_REQUIRED"
+          "SECTORS_SLUG_REQUIRED"
         );
       }
     );
@@ -187,7 +187,7 @@ describe(
           purpose:
             "Collect operational context.",
           params: {
-            companyId: "company-aadi",
+            sectorsSlug: "aadi",
             period: {
               kind: "UNKNOWN",
             },
@@ -212,7 +212,7 @@ describe(
           purpose:
             "Collect operational context.",
           params: {
-            companyId: "company-aadi",
+            sectorsSlug: "aadi",
             period: {
               kind: "MONTH",
               year: 2024,
@@ -239,7 +239,7 @@ describe(
           purpose:
             "Collect operational context.",
           params: {
-            companyId: "company-aadi",
+            sectorsSlug: "aadi",
             period: {
               kind: "QUARTER",
               year: 2024,

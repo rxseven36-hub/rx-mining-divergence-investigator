@@ -21,7 +21,7 @@ describe(
             purpose:
               "Investigate historical mining performance",
             params: {
-              companyId: "AADI",
+              sectorsSlug: "aadi",
               period: {
                 kind: "YEAR",
                 year: 2024,
@@ -46,7 +46,7 @@ describe(
             purpose:
               "Investigate historical mining performance",
             params: {
-              companyId: "AADI",
+              sectorsSlug: "aadi",
               period: {
                 kind: "RANGE",
                 start: "2023-01-01",

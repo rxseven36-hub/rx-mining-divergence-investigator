@@ -11,22 +11,19 @@ import type {
 } from "../../types/time";
 
 /**
- * Current mining company operational context is
- * company-scoped rather than period-scoped.
- *
- * Do not add a synthetic period merely to satisfy
- * another endpoint's temporal contract.
+ * Sectors mining company endpoints use the
+ * Sectors company slug, not RX's internal company ID.
  */
 export interface RXMiningOperationalContextParams {
-  companyId: RXCompany["id"];
+  sectorsSlug: NonNullable<RXCompany["sectorsSlug"]>;
 }
 
 /**
- * Historical mining performance is explicitly
- * period-scoped.
+ * Historical mining performance is period-scoped
+ * and uses the Sectors company slug.
  */
 export interface RXMiningHistoricalPerformanceParams {
-  companyId: RXCompany["id"];
+  sectorsSlug: NonNullable<RXCompany["sectorsSlug"]>;
   period: RXTimePeriod;
 }
 
@@ -38,7 +35,7 @@ export interface RXCommodityOperationParams {
 export interface RXMarketTransactionOperationParams {
   /**
    * Sectors daily transaction endpoint uses
-   * an IDX ticker, not the mining company ID.
+   * an IDX ticker, not RX's internal company ID.
    */
   ticker: NonNullable<RXCompany["symbol"]>;
   period: RXTimePeriod;

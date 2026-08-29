@@ -24,12 +24,14 @@ import type {
 
 export interface RXInvestigationOperationContext {
   companyId: RXCompany["id"];
+  sectorsSlug?: RXCompany["sectorsSlug"];
   ticker?: RXCompany["symbol"];
   commodity: RXCommodity;
   period: RXTimePeriod;
 }
 
 export type RXBindOperationRequestIssue =
+  | "SECTORS_SLUG_REQUIRED"
   | "TICKER_REQUIRED";
 
 export type RXBindOperationRequestResult =
@@ -54,26 +56,48 @@ export function bindInvestigationOperationRequest(
 
   switch (operation) {
     case "GET_MINING_OPERATIONAL_CONTEXT":
+      if (
+        !context.sectorsSlug ||
+        !context.sectorsSlug.trim()
+      ) {
+        return {
+          status: "REJECTED",
+          request: null,
+          issues: ["SECTORS_SLUG_REQUIRED"],
+        };
+      }
+
       return {
         status: "BOUND",
         request: {
           operation,
           purpose,
           params: {
-            companyId: context.companyId,
+            sectorsSlug: context.sectorsSlug,
           },
         },
         issues: [],
       };
 
     case "GET_MINING_HISTORICAL_PERFORMANCE":
+      if (
+        !context.sectorsSlug ||
+        !context.sectorsSlug.trim()
+      ) {
+        return {
+          status: "REJECTED",
+          request: null,
+          issues: ["SECTORS_SLUG_REQUIRED"],
+        };
+      }
+
       return {
         status: "BOUND",
         request: {
           operation,
           purpose,
           params: {
-            companyId: context.companyId,
+            sectorsSlug: context.sectorsSlug,
             period: context.period,
           },
         },
