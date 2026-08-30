@@ -817,7 +817,7 @@ describe(
     );
 
     it(
-      "does not manufacture evidence for an executable capability without an admission contract",
+      "routes executed commodity price history through its evidence admission boundary",
       async () => {
         const request =
           createReadyCommodityRequest();
@@ -826,9 +826,18 @@ describe(
           adapter,
           requestJsonSpy,
         } = createAdapter(
-          async () => ({
-            data: [],
-          })
+          async () => [
+            {
+              name:
+                "Coal",
+
+              date:
+                "2024-01-01",
+
+              price_usd_per_ton:
+                125.85,
+            },
+          ]
         );
 
         const result =
@@ -841,6 +850,9 @@ describe(
 
               sourceReference:
                 "sectors:commodity:coal:2024",
+
+              retrievedAt:
+                "2026-08-30T00:00:00.000Z",
             }
           );
 
@@ -851,7 +863,7 @@ describe(
         expect(
           result.status
         ).toBe(
-          "ADMISSION_NOT_SUPPORTED"
+          "EVIDENCE_ADMITTED"
         );
 
         expect(
@@ -860,17 +872,44 @@ describe(
 
         expect(
           result.evidenceCollection
-        ).toBeNull();
+            ?.status
+        ).toBe(
+          "AVAILABLE"
+        );
 
         expect(
-          result.issue
+          result.evidenceCollection
+            ?.issues
+        ).toEqual([]);
+
+        expect(
+          result.evidenceCollection
+            ?.evidence
+        ).toHaveLength(1);
+
+        expect(
+          result.evidenceCollection
+            ?.evidence.every(
+              (item) =>
+                item.source ===
+                  "SECTORS" &&
+                item.truthClass ===
+                  "SOURCE_FACT"
+            )
+        ).toBe(true);
+
+        expect(
+          result.evidenceCollection
+            ?.causalConclusion
         ).toBe(
-          "CAPABILITY_ADMISSION_NOT_SUPPORTED"
+          "UNKNOWN"
         );
 
         expect(
           result.causalConclusion
-        ).toBe("UNKNOWN");
+        ).toBe(
+          "UNKNOWN"
+        );
       }
     );
 

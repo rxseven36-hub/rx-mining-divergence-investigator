@@ -304,6 +304,19 @@ const liveMiningPayload = {
   ],
 };
 
+const liveCommodityPayload = [
+  {
+    name:
+      "Coal",
+
+    date:
+      "2024-01-01",
+
+    price_usd_per_ton:
+      125.85,
+  },
+];
+
 describe(
   "executePreparedInvestigation",
   () => {
@@ -332,9 +345,7 @@ describe(
               return liveMiningPayload;
             }
 
-            return {
-              data: [],
-            };
+            return liveCommodityPayload;
           }
         );
 
@@ -370,7 +381,7 @@ describe(
           )
         ).toEqual([
           "EVIDENCE_ADMITTED",
-          "ADMISSION_NOT_SUPPORTED",
+          "EVIDENCE_ADMITTED",
           "SKIPPED",
         ]);
 
@@ -380,7 +391,7 @@ describe(
           totalCount: 3,
 
           evidenceAdmittedCount:
-            1,
+            2,
 
           evidenceRejectedCount:
             0,
@@ -394,7 +405,7 @@ describe(
           skippedCount: 1,
 
           admissionNotSupportedCount:
-            1,
+            0,
         });
 
         expect(
@@ -428,9 +439,7 @@ describe(
               );
             }
 
-            return {
-              data: [],
-            };
+            return liveCommodityPayload;
           }
         );
 
@@ -459,7 +468,7 @@ describe(
           result.outcomes[1]
             ?.status
         ).toBe(
-          "ADMISSION_NOT_SUPPORTED"
+          "EVIDENCE_ADMITTED"
         );
 
         expect(
@@ -469,8 +478,13 @@ describe(
 
         expect(
           result.summary
-            .admissionNotSupportedCount
+            .evidenceAdmittedCount
         ).toBe(1);
+
+        expect(
+          result.summary
+            .admissionNotSupportedCount
+        ).toBe(0);
       }
     );
 
@@ -548,9 +562,7 @@ describe(
               return liveMiningPayload;
             }
 
-            return {
-              data: [],
-            };
+            return liveCommodityPayload;
           }
         );
 
@@ -578,6 +590,20 @@ describe(
             .request.requestId
         ).toBe(
           commodity.request.requestId
+        );
+
+        expect(
+          result.outcomes[0]
+            ?.status
+        ).toBe(
+          "EVIDENCE_ADMITTED"
+        );
+
+        expect(
+          result.outcomes[1]
+            ?.status
+        ).toBe(
+          "EVIDENCE_ADMITTED"
         );
       }
     );

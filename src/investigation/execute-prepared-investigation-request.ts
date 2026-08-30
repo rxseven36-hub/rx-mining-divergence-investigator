@@ -26,6 +26,10 @@ import {
   admitMiningOperationalContextEvidence,
 } from "./admit-mining-operational-context-evidence";
 
+import {
+  admitCommodityPriceEvidence,
+} from "./admit-commodity-price-evidence";
+
 export interface RXPreparedInvestigationExecutionContext {
   companyId: string;
 
@@ -366,12 +370,84 @@ export async function executePreparedInvestigationRequest(
       };
     }
 
-    case "COMMODITY_PRICE_HISTORY":
+    case "COMMODITY_PRICE_HISTORY": {
+      /**
+       * Commodity and temporal relationship are taken
+       * from the prepared typed operation itself.
+       *
+       * Do not derive either value from company context
+       * or from the returned payload.
+       */
+      if (
+        preparedRequest.operation.operation !==
+        "GET_COMMODITY_PRICE_HISTORY"
+      ) {
+        return {
+          status:
+            "EVIDENCE_REJECTED",
+
+          preparedRequest,
+
+          execution,
+
+          evidenceCollection: null as never,
+
+          issue: null,
+
+          causalConclusion:
+            "UNKNOWN",
+        };
+      }
+
+      const admission =
+        admitCommodityPriceEvidence({
+          request:
+            preparedRequest.request,
+
+          requestedCommodity:
+            preparedRequest.operation.params
+              .commodity,
+
+          requestedPeriod:
+            preparedRequest.operation.params
+              .period,
+
+          sourceReference:
+            context.sourceReference,
+
+          payload:
+            execution.data,
+
+          retrievedAt:
+            context.retrievedAt,
+        });
+
+      return {
+        status:
+          admission.status ===
+          "ADMITTED"
+            ? "EVIDENCE_ADMITTED"
+            : "EVIDENCE_REJECTED",
+
+        preparedRequest,
+
+        execution,
+
+        evidenceCollection:
+          admission.collection,
+
+        issue: null,
+
+        causalConclusion:
+          "UNKNOWN",
+      };
+    }
+
     case "COMPANY_MARKET_TRANSACTION_HISTORY":
       /**
-       * These capabilities have executable Sectors
-       * operations, but their evidence admission
-       * contracts are not yet activated.
+       * Market transaction history has an executable
+       * Sectors operation, but its evidence admission
+       * contract is not yet activated.
        *
        * Do not manufacture generic evidence.
        */
