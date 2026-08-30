@@ -17,6 +17,16 @@ export interface RXLiveReconGuardInput {
   operationRequest:
     RXSectorsTypedOperationRequest;
 
+  /**
+   * The exact operation this specific runner
+   * is authorized to execute live.
+   *
+   * Authorization is explicit per execution
+   * boundary. There is no implicit fallback.
+   */
+  authorizedOperation:
+    RXSectorsTypedOperationRequest["operation"];
+
   apiKeyPresent: boolean;
 
   /**
@@ -44,9 +54,6 @@ export type RXLiveReconGuardResult =
       estimatedCredits: number | null;
     };
 
-const ALLOWED_LIVE_RECON_OPERATION =
-  "GET_MINING_OPERATIONAL_CONTEXT" as const;
-
 /**
  * Final deterministic safety guard before a controlled
  * live reconnaissance request is allowed to execute.
@@ -73,7 +80,7 @@ export function evaluateLiveReconGuard(
 
   if (
     input.operationRequest.operation !==
-    ALLOWED_LIVE_RECON_OPERATION
+    input.authorizedOperation
   ) {
     issues.push(
       "OPERATION_NOT_ALLOWED"

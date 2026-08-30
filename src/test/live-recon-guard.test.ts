@@ -22,15 +22,21 @@ describe(
     } as const;
 
     it(
-      "allows the single verified operational-context recon when every guard passes",
+      "allows an explicitly authorized operational-context recon when every guard passes",
       () => {
         const result =
           evaluateLiveReconGuard({
             operationRequest:
               operationalRequest,
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: true,
+
             liveExecutionConfirmed:
               true,
+
             maxCredits: 1,
           });
 
@@ -49,9 +55,15 @@ describe(
           evaluateLiveReconGuard({
             operationRequest:
               operationalRequest,
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: true,
+
             liveExecutionConfirmed:
               false,
+
             maxCredits: 1,
           });
 
@@ -74,9 +86,15 @@ describe(
           evaluateLiveReconGuard({
             operationRequest:
               operationalRequest,
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: false,
+
             liveExecutionConfirmed:
               true,
+
             maxCredits: 1,
           });
 
@@ -93,26 +111,35 @@ describe(
     );
 
     it(
-      "blocks operations outside the explicitly allowed recon operation",
+      "blocks an operation that was not explicitly authorized by the runner",
       () => {
         const result =
           evaluateLiveReconGuard({
             operationRequest: {
               operation:
                 "GET_COMMODITY_PRICE_HISTORY",
+
               purpose:
                 "Attempt an unapproved live recon operation.",
+
               params: {
                 commodity: "COAL",
+
                 period: {
                   kind: "YEAR",
                   year: 2024,
                 },
               },
             },
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: true,
+
             liveExecutionConfirmed:
               true,
+
             maxCredits: 1,
           });
 
@@ -129,35 +156,127 @@ describe(
     );
 
     it(
-      "blocks compiled historical performance because live recon permission remains operation-specific",
+      "blocks compiled historical performance when the runner authorizes only operational context",
       () => {
         const result =
           evaluateLiveReconGuard({
             operationRequest: {
               operation:
                 "GET_MINING_HISTORICAL_PERFORMANCE",
+
               purpose:
                 "Attempt historical recon.",
+
               params: {
                 sectorsSlug: "aadi",
+
                 period: {
                   kind: "YEAR",
                   year: 2024,
                 },
               },
             },
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: true,
+
             liveExecutionConfirmed:
               true,
+
             maxCredits: 1,
           });
 
         expect(result).toEqual({
           status: "BLOCKED",
+
           issues: [
             "OPERATION_NOT_ALLOWED",
           ],
+
           estimatedCredits: 1,
+        });
+      }
+    );
+
+    it(
+      "allows historical performance only when that exact operation is explicitly authorized",
+      () => {
+        const result =
+          evaluateLiveReconGuard({
+            operationRequest: {
+              operation:
+                "GET_MINING_HISTORICAL_PERFORMANCE",
+
+              purpose:
+                "Collect controlled historical mining performance evidence.",
+
+              params: {
+                sectorsSlug: "aadi",
+
+                period: {
+                  kind: "YEAR",
+                  year: 2024,
+                },
+              },
+            },
+
+            authorizedOperation:
+              "GET_MINING_HISTORICAL_PERFORMANCE",
+
+            apiKeyPresent: true,
+
+            liveExecutionConfirmed:
+              true,
+
+            maxCredits: 1,
+          });
+
+        expect(result).toEqual({
+          status: "READY",
+          issues: [],
+          estimatedCredits: 1,
+        });
+      }
+    );
+
+    it(
+      "blocks a request that cannot be compiled",
+      () => {
+        const result =
+          evaluateLiveReconGuard({
+            operationRequest: {
+              operation:
+                "GET_MINING_OPERATIONAL_CONTEXT",
+
+              purpose:
+                "Attempt invalid operational recon.",
+
+              params: {
+                sectorsSlug: "   ",
+              },
+            },
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
+            apiKeyPresent: true,
+
+            liveExecutionConfirmed:
+              true,
+
+            maxCredits: 1,
+          });
+
+        expect(result).toEqual({
+          status: "BLOCKED",
+
+          issues: [
+            "REQUEST_NOT_COMPILED",
+          ],
+
+          estimatedCredits: null,
         });
       }
     );
@@ -169,9 +288,15 @@ describe(
           evaluateLiveReconGuard({
             operationRequest:
               operationalRequest,
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: true,
+
             liveExecutionConfirmed:
               true,
+
             maxCredits: 0,
           });
 
@@ -198,19 +323,27 @@ describe(
           evaluateLiveReconGuard({
             operationRequest:
               operationalRequest,
+
+            authorizedOperation:
+              "GET_MINING_OPERATIONAL_CONTEXT",
+
             apiKeyPresent: false,
+
             liveExecutionConfirmed:
               false,
+
             maxCredits: 0,
           });
 
         expect(result).toEqual({
           status: "BLOCKED",
+
           issues: [
             "LIVE_EXECUTION_NOT_CONFIRMED",
             "API_KEY_MISSING",
             "CREDIT_LIMIT_EXCEEDED",
           ],
+
           estimatedCredits: 1,
         });
       }

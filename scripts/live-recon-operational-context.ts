@@ -39,6 +39,7 @@ function printSafeJson(
   value: unknown
 ): void {
   console.log(label);
+
   console.log(
     JSON.stringify(
       value,
@@ -50,12 +51,15 @@ function printSafeJson(
 
 async function main(): Promise<void> {
   console.log("");
+
   console.log(
     "============================================"
   );
+
   console.log(
     " RX FIRST ENGINE START - B2B4-B"
   );
+
   console.log(
     "============================================"
   );
@@ -104,6 +108,10 @@ async function main(): Promise<void> {
   const guard =
     evaluateLiveReconGuard({
       operationRequest,
+
+      authorizedOperation:
+        "GET_MINING_OPERATIONAL_CONTEXT",
+
       apiKeyPresent:
         apiKey.length > 0,
 
@@ -116,6 +124,7 @@ async function main(): Promise<void> {
     });
 
   console.log("");
+
   printSafeJson(
     "LIVE RECON GUARD:",
     guard
@@ -123,6 +132,7 @@ async function main(): Promise<void> {
 
   if (guard.status !== "READY") {
     console.log("");
+
     console.log(
       "BLOCKED: No Sectors API request was made."
     );
@@ -152,6 +162,7 @@ async function main(): Promise<void> {
     );
 
   console.log("");
+
   console.log(
     "FIRING RX CONTROLLED REQUEST #1..."
   );
@@ -163,12 +174,15 @@ async function main(): Promise<void> {
     );
 
   console.log("");
+
   console.log(
     "============================================"
   );
+
   console.log(
     " EXECUTION RESULT"
   );
+
   console.log(
     "============================================"
   );
@@ -207,24 +221,29 @@ async function main(): Promise<void> {
   }
 
   console.log("");
+
   printSafeJson(
     "LOCAL CREDIT BUDGET:",
     creditBudget.snapshot()
   );
 
   console.log("");
+
   printSafeJson(
     "REQUEST LEDGER:",
     ledger.snapshot()
   );
 
   console.log("");
+
   console.log(
     "============================================"
   );
+
   console.log(
     " FIRST ENGINE START COMPLETE"
   );
+
   console.log(
     "============================================"
   );
