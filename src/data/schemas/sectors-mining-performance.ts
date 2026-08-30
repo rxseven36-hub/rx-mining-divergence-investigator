@@ -10,50 +10,243 @@ import { z } from "zod";
  * Unknown fields are preserved with passthrough().
  */
 
-export const sectorsMiningPerformanceRowSchema = z
+const nullableNumber = z
+  .number()
+  .nullable()
+  .optional();
+
+const nullableRangeSchema = z
   .object({
-    year: z.number().int().optional(),
+    min: z.number().nullable().optional(),
+    max: z.number().nullable().optional(),
+  })
+  .passthrough()
+  .nullable()
+  .optional();
 
-    commodity: z.string().nullable().optional(),
-    commodity_type: z.string().nullable().optional(),
+export const sectorsMiningProductSchema = z
+  .object({
+    product_name:
+      z.string().nullable().optional(),
 
-    product: z.string().nullable().optional(),
-    product_type: z.string().nullable().optional(),
-    subtype: z.string().nullable().optional(),
+    calorific_value_kcal:
+      nullableRangeSchema,
 
-    unit: z.string().nullable().optional(),
+    total_moisture_pct:
+      nullableRangeSchema,
 
-    production: z.number().nullable().optional(),
-    sales: z.number().nullable().optional(),
+    ash_content_arb:
+      nullableRangeSchema,
 
-    overburden: z.number().nullable().optional(),
-    strip_ratio: z.number().nullable().optional(),
+    total_sulphur_arb:
+      nullableRangeSchema,
 
-    resources: z.number().nullable().optional(),
-    reserves: z.number().nullable().optional(),
+    ash_content_adb:
+      nullableRangeSchema,
 
-    total_resources_Mt: z.number().nullable().optional(),
-    total_reserves_Mt: z.number().nullable().optional(),
+    total_sulphur_adb:
+      nullableRangeSchema,
 
-    measurement_year: z.number().int().nullable().optional(),
+    volatile_matter_adb:
+      nullableRangeSchema,
+
+    fixed_carbon_adb:
+      nullableRangeSchema,
   })
   .passthrough();
 
-export const sectorsMiningPerformanceResponseSchema = z
-  .object({
-    company_name: z.string().optional(),
-    symbol: z.string().nullable().optional(),
+export const sectorsMiningResourcesReservesSchema =
+  z
+    .object({
+      measurement_year:
+        z.number().int().nullable().optional(),
 
-    available_years: z.array(z.number().int()).optional(),
+      probable_reserves_Mt:
+        nullableNumber,
 
-    data: z.array(sectorsMiningPerformanceRowSchema).optional(),
-  })
-  .passthrough();
+      proven_reserves_Mt:
+        nullableNumber,
 
-export type SectorsMiningPerformanceRow = z.infer<
-  typeof sectorsMiningPerformanceRowSchema
->;
+      total_reserves_Mt:
+        nullableNumber,
 
-export type SectorsMiningPerformanceResponse = z.infer<
-  typeof sectorsMiningPerformanceResponseSchema
->;
+      inferred_resources_Mt:
+        nullableNumber,
+
+      indicated_resources_Mt:
+        nullableNumber,
+
+      measured_resources_Mt:
+        nullableNumber,
+
+      total_resources_Mt:
+        nullableNumber,
+    })
+    .passthrough();
+
+export const sectorsMiningCommodityStatsSchema =
+  z
+    .object({
+      unit:
+        z.string().nullable().optional(),
+
+      mining_operation_status:
+        z.string().nullable().optional(),
+
+      production_volume:
+        nullableNumber,
+
+      sales_volume:
+        nullableNumber,
+
+      overburden_removal_volume:
+        nullableNumber,
+
+      strip_ratio:
+        nullableNumber,
+
+      resources_reserves:
+        sectorsMiningResourcesReservesSchema
+          .nullable()
+          .optional(),
+
+      products:
+        z
+          .array(
+            sectorsMiningProductSchema
+          )
+          .nullable()
+          .optional(),
+    })
+    .passthrough();
+
+export const sectorsMiningPerformanceRowSchema =
+  z
+    .object({
+      year:
+        z.number().int().optional(),
+
+      commodity_type:
+        z.string().nullable().optional(),
+
+      commodity_sub_type:
+        z.string().nullable().optional(),
+
+      commodity_stats:
+        sectorsMiningCommodityStatsSchema
+          .nullable()
+          .optional(),
+
+      /**
+       * Legacy/provisional transport fields.
+       *
+       * Keep these temporarily so existing fixtures and
+       * tests remain compatible while RX transitions to
+       * the verified live Sectors contract.
+       *
+       * They MUST NOT take precedence over verified live
+       * fields when both are present.
+       */
+      commodity:
+        z.string().nullable().optional(),
+
+      product:
+        z.string().nullable().optional(),
+
+      product_type:
+        z.string().nullable().optional(),
+
+      subtype:
+        z.string().nullable().optional(),
+
+      unit:
+        z.string().nullable().optional(),
+
+      production:
+        nullableNumber,
+
+      sales:
+        nullableNumber,
+
+      overburden:
+        nullableNumber,
+
+      strip_ratio:
+        nullableNumber,
+
+      resources:
+        nullableNumber,
+
+      reserves:
+        nullableNumber,
+
+      total_resources_Mt:
+        nullableNumber,
+
+      total_reserves_Mt:
+        nullableNumber,
+
+      measurement_year:
+        z.number().int().nullable().optional(),
+    })
+    .passthrough();
+
+export const sectorsMiningPerformanceResponseSchema =
+  z
+    .object({
+      /**
+       * Verified from live historical-performance
+       * response captured for AADI 2024.
+       */
+      year:
+        z.number().int().optional(),
+
+      available_years:
+        z
+          .array(
+            z.number().int()
+          )
+          .optional(),
+
+      data:
+        z
+          .array(
+            sectorsMiningPerformanceRowSchema
+          )
+          .optional(),
+
+      /**
+       * Retained as optional compatibility fields.
+       */
+      company_name:
+        z.string().optional(),
+
+      symbol:
+        z.string().nullable().optional(),
+    })
+    .passthrough();
+
+export type SectorsMiningProduct =
+  z.infer<
+    typeof sectorsMiningProductSchema
+  >;
+
+export type SectorsMiningResourcesReserves =
+  z.infer<
+    typeof sectorsMiningResourcesReservesSchema
+  >;
+
+export type SectorsMiningCommodityStats =
+  z.infer<
+    typeof sectorsMiningCommodityStatsSchema
+  >;
+
+export type SectorsMiningPerformanceRow =
+  z.infer<
+    typeof sectorsMiningPerformanceRowSchema
+  >;
+
+export type SectorsMiningPerformanceResponse =
+  z.infer<
+    typeof sectorsMiningPerformanceResponseSchema
+  >;
