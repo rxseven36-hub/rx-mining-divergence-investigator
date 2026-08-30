@@ -22,6 +22,10 @@ import {
   admitMiningHistoricalPerformanceEvidence,
 } from "./admit-mining-historical-performance-evidence";
 
+import {
+  admitMiningOperationalContextEvidence,
+} from "./admit-mining-operational-context-evidence";
+
 export interface RXPreparedInvestigationExecutionContext {
   companyId: string;
 
@@ -322,7 +326,46 @@ export async function executePreparedInvestigationRequest(
       };
     }
 
-    case "MINING_OPERATIONAL_CONTEXT":
+    case "MINING_OPERATIONAL_CONTEXT": {
+      const admission =
+        admitMiningOperationalContextEvidence({
+          request:
+            preparedRequest.request,
+
+          companyId:
+            context.companyId,
+
+          sourceReference:
+            context.sourceReference,
+
+          payload:
+            execution.data,
+
+          retrievedAt:
+            context.retrievedAt,
+        });
+
+      return {
+        status:
+          admission.status ===
+          "ADMITTED"
+            ? "EVIDENCE_ADMITTED"
+            : "EVIDENCE_REJECTED",
+
+        preparedRequest,
+
+        execution,
+
+        evidenceCollection:
+          admission.collection,
+
+        issue: null,
+
+        causalConclusion:
+          "UNKNOWN",
+      };
+    }
+
     case "COMMODITY_PRICE_HISTORY":
     case "COMPANY_MARKET_TRANSACTION_HISTORY":
       /**

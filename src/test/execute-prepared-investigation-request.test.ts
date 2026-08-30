@@ -123,6 +123,68 @@ function createReadyMiningRequest():
   };
 }
 
+function createReadyOperationalContextRequest():
+  RXPreparedInvestigationRequest {
+  return {
+    status:
+      "READY",
+
+    request: {
+      requestId:
+        "RX-TEST-R1",
+
+      requirementId:
+        "RX-TEST-E1",
+
+      source:
+        "SECTORS",
+
+      capability:
+        "MINING_OPERATIONAL_CONTEXT",
+
+      purpose:
+        "Collect mining operational context evidence.",
+
+      status:
+        "PLANNED",
+    },
+
+    executionDecision: {
+      requestId:
+        "RX-TEST-R1",
+
+      requirementId:
+        "RX-TEST-E1",
+
+      capability:
+        "MINING_OPERATIONAL_CONTEXT",
+
+      status:
+        "READY",
+
+      issues: [],
+
+      causalConclusion:
+        "UNKNOWN",
+    },
+
+    operation: {
+      operation:
+        "GET_MINING_OPERATIONAL_CONTEXT",
+
+      purpose:
+        "Collect mining operational context evidence.",
+
+      params: {
+        sectorsSlug:
+          "pt-adaro-andalan-indonesia-tbk",
+      },
+    },
+
+    bindingIssues: [],
+  };
+}
+
 function createReadyCommodityRequest():
   RXPreparedInvestigationRequest {
   return {
@@ -246,6 +308,56 @@ const liveShapedPayload = {
   ],
 };
 
+const operationalContextPayload = {
+  name:
+    "PT Adaro Andalan Indonesia Tbk",
+
+  slug:
+    "pt-adaro-andalan-indonesia-tbk",
+
+  symbol:
+    "AADI.JK",
+
+  company_type:
+    "Holding",
+
+  operation_province:
+    "Jakarta",
+
+  operation_district:
+    "Jakarta Selatan",
+
+  key_operation:
+    "Coal Trading",
+
+  activities: [
+    "Trading",
+  ],
+
+  commodity_type: [
+    "Coal",
+  ],
+
+  mining_license: [],
+
+  mining_contract: [],
+
+  mining_site_count:
+    0,
+
+  representative_address:
+    null,
+
+  website:
+    null,
+
+  phone_number:
+    null,
+
+  email:
+    null,
+};
+
 describe(
   "executePreparedInvestigationRequest",
   () => {
@@ -311,6 +423,178 @@ describe(
         expect(
           result.causalConclusion
         ).toBe("UNKNOWN");
+      }
+    );
+
+    it(
+      "routes executed mining operational context through its evidence admission boundary",
+      async () => {
+        const request =
+          createReadyOperationalContextRequest();
+
+        const {
+          adapter,
+          requestJsonSpy,
+        } = createAdapter(
+          async () =>
+            operationalContextPayload
+        );
+
+        const result =
+          await executePreparedInvestigationRequest(
+            adapter,
+            request,
+            {
+              companyId:
+                "company-internal-001",
+
+              sourceReference:
+                "sectors:mining-company:pt-adaro-andalan-indonesia-tbk",
+
+              retrievedAt:
+                "2026-08-30T00:00:00.000Z",
+            }
+          );
+
+        expect(
+          requestJsonSpy
+        ).toHaveBeenCalledTimes(1);
+
+        expect(
+          result.status
+        ).toBe(
+          "EVIDENCE_ADMITTED"
+        );
+
+        expect(
+          result.execution?.status
+        ).toBe(
+          "EXECUTED"
+        );
+
+        expect(
+          result.evidenceCollection
+            ?.status
+        ).toBe(
+          "AVAILABLE"
+        );
+
+        expect(
+          result.evidenceCollection
+            ?.issues
+        ).toEqual([]);
+
+        expect(
+          result.evidenceCollection
+            ?.evidence.length
+        ).toBeGreaterThan(0);
+
+        expect(
+          result.evidenceCollection
+            ?.evidence.every(
+              (item) =>
+                item.source ===
+                  "SECTORS" &&
+                item.truthClass ===
+                  "SOURCE_FACT"
+            )
+        ).toBe(true);
+
+        expect(
+          result.evidenceCollection
+            ?.evidence.some(
+              (item) =>
+                item.description ===
+                "mining_site_count: 0"
+            )
+        ).toBe(true);
+
+        expect(
+          result.evidenceCollection
+            ?.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+      }
+    );
+
+    it(
+      "rejects executed but invalid operational context at evidence admission",
+      async () => {
+        const request =
+          createReadyOperationalContextRequest();
+
+        const {
+          adapter,
+          requestJsonSpy,
+        } = createAdapter(
+          async () => ({
+            name:
+              "Incomplete payload",
+          })
+        );
+
+        const result =
+          await executePreparedInvestigationRequest(
+            adapter,
+            request,
+            {
+              companyId:
+                "company-internal-001",
+
+              sourceReference:
+                "sectors:mining-company:invalid",
+            }
+          );
+
+        expect(
+          requestJsonSpy
+        ).toHaveBeenCalledTimes(1);
+
+        expect(
+          result.status
+        ).toBe(
+          "EVIDENCE_REJECTED"
+        );
+
+        expect(
+          result.execution?.status
+        ).toBe(
+          "EXECUTED"
+        );
+
+        expect(
+          result.evidenceCollection
+            ?.status
+        ).toBe(
+          "INVALID"
+        );
+
+        expect(
+          result.evidenceCollection
+            ?.issues
+        ).toEqual([
+          "INVALID_RESPONSE",
+        ]);
+
+        expect(
+          result.evidenceCollection
+            ?.issues
+        ).not.toContain(
+          "NO_DATA"
+        );
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
       }
     );
 
