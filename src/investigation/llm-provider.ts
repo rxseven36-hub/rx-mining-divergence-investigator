@@ -1,5 +1,25 @@
+import type {
+  RXAIInvestigatorDecision,
+  RXAIInvestigatorInput,
+} from "./ai-investigator";
+
 export interface LLMProvider {
-  investigate(input: unknown): Promise<unknown>;
-  challengeHypothesis(input: unknown): Promise<unknown>;
-  synthesizeBrief(input: unknown): Promise<unknown>;
+  investigate(
+    input:
+      RXAIInvestigatorInput
+  ): Promise<
+    RXAIInvestigatorDecision
+  >;
+
+  /**
+   * These seams remain intentionally untyped in Sprint 012A.
+   * Their contracts belong to later investigation stages.
+   */
+  challengeHypothesis(
+    input: unknown
+  ): Promise<unknown>;
+
+  synthesizeBrief(
+    input: unknown
+  ): Promise<unknown>;
 }
