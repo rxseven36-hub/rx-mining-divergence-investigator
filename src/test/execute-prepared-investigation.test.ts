@@ -189,6 +189,58 @@ function createCommodityRequest():
   };
 }
 
+function createMarketRequest():
+  RXPreparedInvestigationRequest {
+  const requestId =
+    "RX-R4";
+
+  const requirementId =
+    "RX-E4";
+
+  const capability =
+    "COMPANY_MARKET_TRANSACTION_HISTORY" as const;
+
+  return {
+    status: "READY",
+
+    request: {
+      requestId,
+      requirementId,
+      source: "SECTORS",
+      capability,
+      purpose:
+        "Collect company market transaction history.",
+      status: "PLANNED",
+    },
+
+    executionDecision:
+      readyDecision(
+        requestId,
+        requirementId,
+        capability
+      ),
+
+    operation: {
+      operation:
+        "GET_COMPANY_MARKET_TRANSACTION_HISTORY",
+
+      purpose:
+        "Collect company market transaction history.",
+
+      params: {
+        ticker: "AADI",
+
+        period: {
+          kind: "RANGE",
+          start: "2024-12-01",
+          end: "2024-12-31",
+        },
+      },
+    },
+
+    bindingIssues: [],
+  };
+}
 function createRejectedRequest():
   RXPreparedInvestigationRequest {
   const mining =

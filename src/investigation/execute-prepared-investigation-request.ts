@@ -29,6 +29,9 @@ import {
 import {
   admitCommodityPriceEvidence,
 } from "./admit-commodity-price-evidence";
+import {
+  admitMarketTransactionEvidence,
+} from "./admit-market-transaction-evidence";
 
 export interface RXPreparedInvestigationExecutionContext {
   companyId: string;
@@ -443,29 +446,77 @@ export async function executePreparedInvestigationRequest(
       };
     }
 
-    case "COMPANY_MARKET_TRANSACTION_HISTORY":
+    case "COMPANY_MARKET_TRANSACTION_HISTORY": {
       /**
-       * Market transaction history has an executable
-       * Sectors operation, but its evidence admission
-       * contract is not yet activated.
+       * Market identity and temporal relationship are
+       * taken from the prepared typed operation itself.
        *
-       * Do not manufacture generic evidence.
+       * Do not derive either value from company context
+       * or from the returned payload.
        */
+      if (
+        preparedRequest.operation.operation !==
+        "GET_COMPANY_MARKET_TRANSACTION_HISTORY"
+      ) {
+        return {
+          status:
+            "EVIDENCE_REJECTED",
+
+          preparedRequest,
+
+          execution,
+
+          evidenceCollection: null as never,
+
+          issue: null,
+
+          causalConclusion:
+            "UNKNOWN",
+        };
+      }
+
+      const admission =
+        admitMarketTransactionEvidence({
+          request:
+            preparedRequest.request,
+
+          requestedTicker:
+            preparedRequest.operation.params
+              .ticker,
+
+          requestedPeriod:
+            preparedRequest.operation.params
+              .period,
+
+          sourceReference:
+            context.sourceReference,
+
+          payload:
+            execution.data,
+
+          retrievedAt:
+            context.retrievedAt,
+        });
+
       return {
         status:
-          "ADMISSION_NOT_SUPPORTED",
+          admission.status ===
+          "ADMITTED"
+            ? "EVIDENCE_ADMITTED"
+            : "EVIDENCE_REJECTED",
 
         preparedRequest,
 
         execution,
 
-        evidenceCollection: null,
+        evidenceCollection:
+          admission.collection,
 
-        issue:
-          "CAPABILITY_ADMISSION_NOT_SUPPORTED",
+        issue: null,
 
         causalConclusion:
           "UNKNOWN",
       };
+    }
   }
 }
