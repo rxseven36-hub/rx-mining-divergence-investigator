@@ -47,7 +47,25 @@ export type RXMiningHistoricalPerformanceEvidenceAdmissionResult =
       collection:
         RXEvidenceCollectionResult;
 
+      /**
+       * All normalized observations produced from the
+       * validated Sectors payload.
+       *
+       * This collection may contain observations that
+       * were not admitted as evidence.
+       */
       observations:
+        RXNormalizedObservation[];
+
+      /**
+       * Exact normalized subset accepted by this
+       * admission boundary.
+       *
+       * Downstream deterministic intelligence must use
+       * this subset rather than the broader normalized
+       * observation collection.
+       */
+      admittedObservations:
         RXNormalizedObservation[];
     }
   | {
@@ -56,8 +74,19 @@ export type RXMiningHistoricalPerformanceEvidenceAdmissionResult =
       collection:
         RXEvidenceCollectionResult;
 
+      /**
+       * Normalized observations may remain available for
+       * audit/debug purposes even when admission fails.
+       */
       observations:
         RXNormalizedObservation[];
+
+      /**
+       * Rejected admission never grants observations
+       * permission to enter downstream intelligence.
+       */
+      admittedObservations:
+        [];
     };
 
 function createEvidenceItems(
@@ -93,6 +122,8 @@ function finalizeCollection(
   collection:
     RXEvidenceCollectionResult,
   observations:
+    RXNormalizedObservation[],
+  admittedObservations:
     RXNormalizedObservation[]
 ): RXMiningHistoricalPerformanceEvidenceAdmissionResult {
   const validation =
@@ -100,22 +131,23 @@ function finalizeCollection(
       collection
     );
 
-  if (!validation.valid) {
+  if (
+    !validation.valid ||
+    collection.status !== "AVAILABLE"
+  ) {
     return {
       status: "REJECTED",
       collection,
       observations,
+      admittedObservations: [],
     };
   }
 
   return {
-    status:
-      collection.status === "AVAILABLE"
-        ? "ADMITTED"
-        : "REJECTED",
-
+    status: "ADMITTED",
     collection,
     observations,
+    admittedObservations,
   };
 }
 
@@ -142,6 +174,7 @@ export function admitMiningHistoricalPerformanceEvidence(
 
     return finalizeCollection(
       collection,
+      [],
       []
     );
   }
@@ -167,6 +200,7 @@ export function admitMiningHistoricalPerformanceEvidence(
 
     return finalizeCollection(
       collection,
+      [],
       []
     );
   }
@@ -190,6 +224,7 @@ export function admitMiningHistoricalPerformanceEvidence(
 
     return finalizeCollection(
       collection,
+      [],
       []
     );
   }
@@ -243,7 +278,8 @@ export function admitMiningHistoricalPerformanceEvidence(
 
     return finalizeCollection(
       collection,
-      observations
+      observations,
+      []
     );
   }
 
@@ -265,6 +301,7 @@ export function admitMiningHistoricalPerformanceEvidence(
 
   return finalizeCollection(
     collection,
-    observations
+    observations,
+    admissibleObservations
   );
 }

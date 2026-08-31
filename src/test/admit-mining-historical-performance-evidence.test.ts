@@ -209,7 +209,27 @@ describe(
             (item) =>
               item.description
           );
+	 const admittedObservationMetrics =
+          result.admittedObservations.map(
+            (observation) =>
+              observation.metric
+          );
 
+        expect(
+          admittedObservationMetrics
+        ).toContain("PRODUCTION");
+
+        expect(
+          admittedObservationMetrics
+        ).toContain("SALES");
+
+        expect(
+          admittedObservationMetrics
+        ).not.toContain("RESOURCE");
+
+        expect(
+          admittedObservationMetrics
+        ).not.toContain("RESERVE");
         expect(
           admittedMetrics.some(
             (description) =>
@@ -266,6 +286,10 @@ describe(
         ).toEqual([
           "INVALID_RESPONSE",
         ]);
+
+	expect(
+          result.admittedObservations
+        ).toEqual([]);
       }
     );
 
