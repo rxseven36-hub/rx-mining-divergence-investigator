@@ -1,3 +1,10 @@
+import {
+  normalizeCommodity,
+} from "../../data/normalization/normalize-commodity";
+
+import type {
+  RXCommodity,
+} from "../../types/commodity";
 import type {
   RXOperationalIntelligenceEvidence,
   RXTypedIntelligenceEvidence,
@@ -104,7 +111,7 @@ function descriptiveEvidence(
 function readCommodityValues(
   evidence:
     RXOperationalIntelligenceEvidence
-): string[] | null {
+): RXCommodity[] | null {
   if (
     !Array.isArray(
       evidence.value
@@ -123,17 +130,32 @@ function readCommodityValues(
     return null;
   }
 
-  return [
-    ...evidence.value,
-  ];
+  const normalized =
+    evidence.value.map(
+      (value) =>
+        normalizeCommodity(
+          value
+        )
+    );
+
+  if (
+    normalized.some(
+      (commodity) =>
+        commodity === null
+    )
+  ) {
+    return null;
+  }
+
+  return normalized as RXCommodity[];
 }
 
 function sharedCommodityValues(
   left:
-    string[],
+    RXCommodity[],
   right:
-    string[]
-): string[] {
+    RXCommodity[]
+): RXCommodity[] {
   const rightValues =
     new Set(
       right
@@ -234,10 +256,10 @@ export function evaluatePeerEligibility(
       : null;
 
   let leftCommodityValues:
-    string[] | null = null;
+  RXCommodity[] | null = null;
 
   let rightCommodityValues:
-    string[] | null = null;
+  RXCommodity[] | null = null;
 
   if (
     leftCommodityEvidence !==
@@ -278,7 +300,7 @@ export function evaluatePeerEligibility(
   }
 
   let sharedCommodities:
-    string[] = [];
+    RXCommodity[] = [];
 
   if (
     leftCommodityValues !==

@@ -215,7 +215,7 @@ describe(
         expect(
           result.sharedCommodities
         ).toEqual([
-          "Coal",
+          "COAL",
         ]);
 
         expect(
@@ -477,7 +477,7 @@ describe(
     );
 
     it(
-      "does not manufacture commodity normalization",
+      "uses canonical RX commodity identity for supported source labels",
       () => {
         const evidence = [
           ...companyEvidence({
@@ -533,17 +533,90 @@ describe(
         expect(
           result.status
         ).toBe(
+          "ELIGIBLE"
+        );
+
+        expect(
+          result.sharedCommodities
+        ).toEqual([
+          "COAL",
+        ]);
+      }
+    );
+
+    it(
+      "rejects unsupported commodity labels instead of manufacturing identity",
+      () => {
+        const evidence = [
+          ...companyEvidence({
+            companyId:
+              "COMPANY-A",
+
+            commodities: [
+              "Uranium",
+            ],
+
+            companyType:
+              "Holding",
+
+            keyOperation:
+              "Mining",
+
+            activities: [
+              "Mining",
+            ],
+          }),
+
+          ...companyEvidence({
+            companyId:
+              "COMPANY-B",
+
+            commodities: [
+              "Uranium",
+            ],
+
+            companyType:
+              "Operator",
+
+            keyOperation:
+              "Mining",
+
+            activities: [
+              "Mining",
+            ],
+          }),
+        ];
+
+        const result =
+          evaluatePeerEligibility({
+            leftCompanyId:
+              "COMPANY-A",
+
+            rightCompanyId:
+              "COMPANY-B",
+
+            evidence,
+          });
+
+        expect(
+          result.status
+        ).toBe(
           "REJECTED"
         );
 
         expect(
           result.issues
         ).toContain(
-          "NO_SHARED_COMMODITY"
+          "LEFT_COMMODITY_VALUE_INVALID"
+        );
+
+        expect(
+          result.issues
+        ).toContain(
+          "RIGHT_COMMODITY_VALUE_INVALID"
         );
       }
     );
-
     it(
       "rejects invalid commodity evidence values",
       () => {

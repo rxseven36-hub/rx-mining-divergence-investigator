@@ -1,4 +1,7 @@
 import type {
+  RXCommodity,
+} from "../../types/commodity";
+import type {
   RXOperationalIntelligenceEvidence,
 } from "../context/typed-intelligence-evidence";
 
@@ -34,7 +37,7 @@ export interface RXPeerEligibilityResult {
     string;
 
   sharedCommodities:
-    string[];
+    RXCommodity[];
 
   leftCommodityEvidence:
     RXOperationalIntelligenceEvidence | null;
