@@ -19,11 +19,35 @@ export interface RXPeerDivergencePriorityResult {
   rightCompanyId:
     string;
 
+  leftObservationId:
+    RXPeerDivergenceSignal["leftObservationId"];
+
+  rightObservationId:
+    RXPeerDivergenceSignal["rightObservationId"];
+
   metric:
     RXPeerDivergenceSignal["metric"];
 
   commodity:
     RXPeerDivergenceSignal["commodity"];
+
+  leftCommoditySubtype:
+    RXPeerDivergenceSignal["leftCommoditySubtype"];
+
+  rightCommoditySubtype:
+    RXPeerDivergenceSignal["rightCommoditySubtype"];
+
+  leftUnit:
+    RXPeerDivergenceSignal["leftUnit"];
+
+  rightUnit:
+    RXPeerDivergenceSignal["rightUnit"];
+
+  leftPeriod:
+    RXPeerDivergenceSignal["leftPeriod"];
+
+  rightPeriod:
+    RXPeerDivergenceSignal["rightPeriod"];
 
   status:
     RXPeerDivergencePriorityStatus;

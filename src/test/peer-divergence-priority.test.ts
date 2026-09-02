@@ -136,6 +136,18 @@ describe(
         );
 
         expect(
+          result.leftObservationId
+        ).toBe(
+          "obs-a"
+        );
+
+        expect(
+          result.rightObservationId
+        ).toBe(
+          "obs-b"
+        );
+
+        expect(
           result.metric
         ).toBe(
           "PRODUCTION"
@@ -146,6 +158,58 @@ describe(
         ).toBe(
           "COAL"
         );
+
+        expect(
+          result.leftCommoditySubtype
+        ).toBe(
+          "Sub-bituminous Coal"
+        );
+
+        expect(
+          result.rightCommoditySubtype
+        ).toBe(
+          "Sub-bituminous Coal"
+        );
+
+        expect(
+          result.leftUnit
+        ).toEqual({
+          symbol:
+            "Mt",
+
+          dimension:
+            "MASS",
+        });
+
+        expect(
+          result.rightUnit
+        ).toEqual({
+          symbol:
+            "Mt",
+
+          dimension:
+            "MASS",
+        });
+
+        expect(
+          result.leftPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
+
+        expect(
+          result.rightPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
 
         expect(
           result.divergenceMagnitude
@@ -170,6 +234,67 @@ describe(
           result.causalConclusion
         ).toBe(
           "UNKNOWN"
+        );
+      }
+    );
+
+    it(
+      "preserves comparison context without sharing mutable unit or period references",
+      () => {
+        const source =
+          signal();
+
+        const result =
+          scorePeerDivergence(
+            source
+          );
+
+        expect(
+          result.leftUnit
+        ).toEqual(
+          source.leftUnit
+        );
+
+        expect(
+          result.leftUnit
+        ).not.toBe(
+          source.leftUnit
+        );
+
+        expect(
+          result.rightUnit
+        ).toEqual(
+          source.rightUnit
+        );
+
+        expect(
+          result.rightUnit
+        ).not.toBe(
+          source.rightUnit
+        );
+
+        expect(
+          result.leftPeriod
+        ).toEqual(
+          source.leftPeriod
+        );
+
+        expect(
+          result.leftPeriod
+        ).not.toBe(
+          source.leftPeriod
+        );
+
+        expect(
+          result.rightPeriod
+        ).toEqual(
+          source.rightPeriod
+        );
+
+        expect(
+          result.rightPeriod
+        ).not.toBe(
+          source.rightPeriod
         );
       }
     );
@@ -239,6 +364,38 @@ describe(
         ).toEqual([
           "SIGNAL_NOT_COMPARABLE",
         ]);
+
+        expect(
+          result.leftObservationId
+        ).toBe(
+          "obs-a"
+        );
+
+        expect(
+          result.rightObservationId
+        ).toBe(
+          "obs-b"
+        );
+
+        expect(
+          result.leftPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
+
+        expect(
+          result.rightPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
 
         expect(
           result.causalConclusion

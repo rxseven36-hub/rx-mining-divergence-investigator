@@ -21,11 +21,39 @@ function basePeerPriorityResult(
     rightCompanyId:
       signal.rightCompanyId,
 
+    leftObservationId:
+      signal.leftObservationId,
+
+    rightObservationId:
+      signal.rightObservationId,
+
     metric:
       signal.metric,
 
     commodity:
       signal.commodity,
+
+    leftCommoditySubtype:
+      signal.leftCommoditySubtype,
+
+    rightCommoditySubtype:
+      signal.rightCommoditySubtype,
+
+    leftUnit: {
+      ...signal.leftUnit,
+    },
+
+    rightUnit: {
+      ...signal.rightUnit,
+    },
+
+    leftPeriod: {
+      ...signal.leftPeriod,
+    },
+
+    rightPeriod: {
+      ...signal.rightPeriod,
+    },
 
     causalConclusion:
       "UNKNOWN" as const,
