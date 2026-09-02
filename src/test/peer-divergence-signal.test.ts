@@ -192,6 +192,18 @@ describe(
         );
 
         expect(
+          result.leftObservationId
+        ).toBe(
+          "obs-a"
+        );
+
+        expect(
+          result.rightObservationId
+        ).toBe(
+          "obs-b"
+        );
+
+        expect(
           result.metric
         ).toBe(
           "PRODUCTION"
@@ -202,6 +214,58 @@ describe(
         ).toBe(
           "COAL"
         );
+
+        expect(
+          result.leftCommoditySubtype
+        ).toBe(
+          "Sub-bituminous Coal"
+        );
+
+        expect(
+          result.rightCommoditySubtype
+        ).toBe(
+          "Sub-bituminous Coal"
+        );
+
+        expect(
+          result.leftUnit
+        ).toEqual({
+          symbol:
+            "Mt",
+
+          dimension:
+            "MASS",
+        });
+
+        expect(
+          result.rightUnit
+        ).toEqual({
+          symbol:
+            "Mt",
+
+          dimension:
+            "MASS",
+        });
+
+        expect(
+          result.leftPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
+
+        expect(
+          result.rightPeriod
+        ).toEqual({
+          kind:
+            "YEAR",
+
+          year:
+            2024,
+        });
 
         expect(
           result.leftValue
@@ -232,6 +296,85 @@ describe(
           result.causalConclusion
         ).toBe(
           "UNKNOWN"
+        );
+      }
+    );
+
+    it(
+      "preserves source comparison context without sharing mutable unit or period references",
+      () => {
+        const left =
+          observation();
+
+        const right =
+          observation({
+            id:
+              "obs-b",
+
+            companyId:
+              "COMPANY-B",
+          });
+
+        const comparability =
+          comparePeerObservations(
+            left,
+            right,
+            eligibility()
+          );
+
+        const result =
+          createPeerDivergenceSignal(
+            left,
+            right,
+            comparability
+          );
+
+        expect(
+          result.leftUnit
+        ).toEqual(
+          left.unit
+        );
+
+        expect(
+          result.leftUnit
+        ).not.toBe(
+          left.unit
+        );
+
+        expect(
+          result.rightUnit
+        ).toEqual(
+          right.unit
+        );
+
+        expect(
+          result.rightUnit
+        ).not.toBe(
+          right.unit
+        );
+
+        expect(
+          result.leftPeriod
+        ).toEqual(
+          left.period
+        );
+
+        expect(
+          result.leftPeriod
+        ).not.toBe(
+          left.period
+        );
+
+        expect(
+          result.rightPeriod
+        ).toEqual(
+          right.period
+        );
+
+        expect(
+          result.rightPeriod
+        ).not.toBe(
+          right.period
         );
       }
     );
@@ -343,7 +486,103 @@ describe(
     );
 
     it(
-      "does not calculate divergence when observations are not comparable",
+      "preserves both observation contexts when observations are not comparable",
+      () => {
+        const left =
+          observation();
+
+        const right =
+          observation({
+            id:
+              "obs-b",
+
+            companyId:
+              "COMPANY-B",
+
+            commoditySubtype:
+              "Metallurgical Coal",
+          });
+
+        const comparability =
+          comparePeerObservations(
+            left,
+            right,
+            eligibility()
+          );
+
+        expect(
+          comparability.eligible
+        ).toBe(false);
+
+        expect(
+          comparability.issues
+        ).toContain(
+          "COMMODITY_SUBTYPE_NOT_ALIGNED"
+        );
+
+        const result =
+          createPeerDivergenceSignal(
+            left,
+            right,
+            comparability
+          );
+
+        expect(
+          result.status
+        ).toBe(
+          "NOT_COMPARABLE"
+        );
+
+        expect(
+          result.leftObservationId
+        ).toBe(
+          "obs-a"
+        );
+
+        expect(
+          result.rightObservationId
+        ).toBe(
+          "obs-b"
+        );
+
+        expect(
+          result.leftCommoditySubtype
+        ).toBe(
+          "Sub-bituminous Coal"
+        );
+
+        expect(
+          result.rightCommoditySubtype
+        ).toBe(
+          "Metallurgical Coal"
+        );
+
+        expect(
+          result.leftValue
+        ).toBeNull();
+
+        expect(
+          result.rightValue
+        ).toBeNull();
+
+        expect(
+          result.absoluteDifference
+        ).toBeNull();
+
+        expect(
+          result.relativeDifference
+        ).toBeNull();
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+      }
+    );
+
+    it(
+      "does not calculate divergence when data is missing",
       () => {
         const left =
           observation();
@@ -405,12 +644,6 @@ describe(
         expect(
           result.relativeDifference
         ).toBeNull();
-
-        expect(
-          result.causalConclusion
-        ).toBe(
-          "UNKNOWN"
-        );
       }
     );
 

@@ -26,11 +26,55 @@ function signal(
     rightCompanyId:
       "COMPANY-B",
 
+    leftObservationId:
+      "obs-a",
+
+    rightObservationId:
+      "obs-b",
+
     metric:
       "PRODUCTION",
 
     commodity:
       "COAL",
+
+    leftCommoditySubtype:
+      "Sub-bituminous Coal",
+
+    rightCommoditySubtype:
+      "Sub-bituminous Coal",
+
+    leftUnit: {
+      symbol:
+        "Mt",
+
+      dimension:
+        "MASS",
+    },
+
+    rightUnit: {
+      symbol:
+        "Mt",
+
+      dimension:
+        "MASS",
+    },
+
+    leftPeriod: {
+      kind:
+        "YEAR",
+
+      year:
+        2024,
+    },
+
+    rightPeriod: {
+      kind:
+        "YEAR",
+
+      year:
+        2024,
+    },
 
     leftValue:
       60,

@@ -20,11 +20,35 @@ export interface RXPeerDivergenceSignal {
   rightCompanyId:
     string;
 
+  leftObservationId:
+    RXNormalizedObservation["id"];
+
+  rightObservationId:
+    RXNormalizedObservation["id"];
+
   metric:
     RXNormalizedObservation["metric"] | null;
 
   commodity:
     RXNormalizedObservation["commodity"] | null;
+
+  leftCommoditySubtype:
+    RXNormalizedObservation["commoditySubtype"];
+
+  rightCommoditySubtype:
+    RXNormalizedObservation["commoditySubtype"];
+
+  leftUnit:
+    RXNormalizedObservation["unit"];
+
+  rightUnit:
+    RXNormalizedObservation["unit"];
+
+  leftPeriod:
+    RXNormalizedObservation["period"];
+
+  rightPeriod:
+    RXNormalizedObservation["period"];
 
   leftValue:
     number | null;

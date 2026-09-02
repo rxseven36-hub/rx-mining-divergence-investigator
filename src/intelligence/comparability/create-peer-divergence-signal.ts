@@ -26,6 +26,49 @@ function calculateRelativeDifference(
   ) / denominator;
 }
 
+function comparisonContext(
+  left:
+    RXNormalizedObservation,
+  right:
+    RXNormalizedObservation
+) {
+  return {
+    leftCompanyId:
+      left.companyId,
+
+    rightCompanyId:
+      right.companyId,
+
+    leftObservationId:
+      left.id,
+
+    rightObservationId:
+      right.id,
+
+    leftCommoditySubtype:
+      left.commoditySubtype,
+
+    rightCommoditySubtype:
+      right.commoditySubtype,
+
+    leftUnit: {
+      ...left.unit,
+    },
+
+    rightUnit: {
+      ...right.unit,
+    },
+
+    leftPeriod: {
+      ...left.period,
+    },
+
+    rightPeriod: {
+      ...right.period,
+    },
+  };
+}
+
 export function createPeerDivergenceSignal(
   left:
     RXNormalizedObservation,
@@ -34,6 +77,12 @@ export function createPeerDivergenceSignal(
   comparability:
     RXPeerObservationComparabilityResult
 ): RXPeerDivergenceSignal {
+  const context =
+    comparisonContext(
+      left,
+      right
+    );
+
   if (
     !comparability.eligible ||
     left.value === null ||
@@ -43,11 +92,7 @@ export function createPeerDivergenceSignal(
       status:
         "NOT_COMPARABLE",
 
-      leftCompanyId:
-        left.companyId,
-
-      rightCompanyId:
-        right.companyId,
+      ...context,
 
       metric:
         left.metric === right.metric
@@ -94,11 +139,7 @@ export function createPeerDivergenceSignal(
     status:
       "COMPARABLE",
 
-    leftCompanyId:
-      left.companyId,
-
-    rightCompanyId:
-      right.companyId,
+    ...context,
 
     metric:
       left.metric,
