@@ -34,7 +34,14 @@ import {
 } from "./admit-market-transaction-evidence";
 
 export interface RXPreparedInvestigationExecutionContext {
-  companyId: string;
+  /**
+   * Company identity is required only by company-bound
+   * execution/admission paths.
+   *
+   * Shared operation-bound evidence such as commodity
+   * history deliberately carries no company identity.
+   */
+  companyId?: string;
 
   /**
    * Human/audit-readable reference to the Sectors
@@ -62,6 +69,23 @@ export type RXPreparedInvestigationExecutionOutcome =
 
       issue:
         "PREPARED_REQUEST_REJECTED";
+
+      causalConclusion:
+        "UNKNOWN";
+    }
+  | {
+      status:
+        "EXECUTION_CONTEXT_REJECTED";
+
+      preparedRequest:
+        RXPreparedInvestigationRequest;
+
+      execution: null;
+
+      evidenceCollection: null;
+
+      issue:
+        "COMPANY_ID_REQUIRED";
 
       causalConclusion:
         "UNKNOWN";
@@ -219,7 +243,50 @@ export async function executePreparedInvestigationRequest(
         "UNKNOWN",
     };
   }
+    /**
+     * Company-bound capabilities must have canonical
+     * company identity before any Sectors execution.
+     *
+     * Rejecting here prevents an API/credit-consuming
+     * operation that could never be admitted safely.
+     *
+     * Shared operation-bound capabilities such as
+     * commodity history deliberately do not require
+     * companyId.
+     */
+  const requiresCompanyId =
+    preparedRequest.request.capability ===
+      "MINING_HISTORICAL_PERFORMANCE" ||
+    preparedRequest.request.capability ===
+      "MINING_OPERATIONAL_CONTEXT";
 
+  if (
+    requiresCompanyId &&
+    (
+      typeof context.companyId !== "string" ||
+      context.companyId.trim().length === 0
+    )
+  ) {
+    return {
+      status:
+        "EXECUTION_CONTEXT_REJECTED",
+
+      preparedRequest,
+
+      execution: null,
+
+      evidenceCollection: null,
+
+      issue:
+        "COMPANY_ID_REQUIRED",
+
+      causalConclusion:
+        "UNKNOWN",
+    };
+  }
+
+  const executionCompanyId =
+    context.companyId;
   const execution =
     await executeSectorsOperation<unknown>(
       adapter,
@@ -300,7 +367,7 @@ export async function executePreparedInvestigationRequest(
             preparedRequest.request,
 
           companyId:
-            context.companyId,
+            executionCompanyId!,
 
           sourceReference:
             context.sourceReference,
@@ -340,7 +407,7 @@ export async function executePreparedInvestigationRequest(
             preparedRequest.request,
 
           companyId:
-            context.companyId,
+            executionCompanyId!,
 
           sourceReference:
             context.sourceReference,

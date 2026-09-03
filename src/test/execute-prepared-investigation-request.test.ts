@@ -949,5 +949,122 @@ describe(
         ).toBe("UNKNOWN");
       }
     );
+    it(
+      "rejects historical execution without companyId before calling the adapter",
+      async () => {
+        const request =
+          createReadyMiningRequest();
+
+        const {
+          adapter,
+          requestJsonSpy,
+        } = createAdapter(
+          async () => {
+            throw new Error(
+              "adapter must not be called"
+            );
+          }
+        );
+
+        const result =
+          await executePreparedInvestigationRequest(
+            adapter,
+            request,
+            {
+              sourceReference:
+                "sectors:mining-performance:aadi:2024",
+            }
+          );
+
+        expect(
+          requestJsonSpy
+        ).not.toHaveBeenCalled();
+
+        expect(
+          result.status
+        ).toBe(
+          "EXECUTION_CONTEXT_REJECTED"
+        );
+
+        expect(
+          result.issue
+        ).toBe(
+          "COMPANY_ID_REQUIRED"
+        );
+
+        expect(
+          result.execution
+        ).toBeNull();
+
+        expect(
+          result.evidenceCollection
+        ).toBeNull();
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+      }
+    );
+
+    it(
+      "rejects operational execution without companyId before calling the adapter",
+      async () => {
+        const request =
+          createReadyOperationalContextRequest();
+
+        const {
+          adapter,
+          requestJsonSpy,
+        } = createAdapter(
+          async () => {
+            throw new Error(
+              "adapter must not be called"
+            );
+          }
+        );
+
+        const result =
+          await executePreparedInvestigationRequest(
+            adapter,
+            request,
+            {
+              sourceReference:
+                "sectors:mining-company:pt-adaro-andalan-indonesia-tbk",
+            }
+          );
+
+        expect(
+          requestJsonSpy
+        ).not.toHaveBeenCalled();
+
+        expect(
+          result.status
+        ).toBe(
+          "EXECUTION_CONTEXT_REJECTED"
+        );
+
+        expect(
+          result.issue
+        ).toBe(
+          "COMPANY_ID_REQUIRED"
+        );
+
+        expect(
+          result.execution
+        ).toBeNull();
+
+        expect(
+          result.evidenceCollection
+        ).toBeNull();
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+      }
+    );
   }
 );
