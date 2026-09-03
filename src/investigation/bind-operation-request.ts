@@ -30,6 +30,31 @@ export interface RXInvestigationOperationContext {
   period: RXTimePeriod;
 }
 
+/**
+ * Minimal context required by operation binding itself.
+ *
+ * Company identity is optional because shared peer context
+ * does not represent one company.
+ *
+ * When companyId is supplied by broader investigation
+ * context, the binder deliberately ignores it. It must
+ * never substitute companyId for sectorsSlug or ticker.
+ */
+export type RXInvestigationOperationBindingContext =
+  Pick<
+    RXInvestigationOperationContext,
+    | "sectorsSlug"
+    | "ticker"
+    | "commodity"
+    | "period"
+  > &
+  Partial<
+    Pick<
+      RXInvestigationOperationContext,
+      "companyId"
+    >
+  >;
+
 export type RXBindOperationRequestIssue =
   | "SECTORS_SLUG_REQUIRED"
   | "TICKER_REQUIRED";
@@ -47,12 +72,17 @@ export type RXBindOperationRequestResult =
     };
 
 export function bindInvestigationOperationRequest(
-  capability: RXInvestigationCapability,
-  purpose: string,
-  context: RXInvestigationOperationContext
+  capability:
+    RXInvestigationCapability,
+  purpose:
+    string,
+  context:
+    RXInvestigationOperationBindingContext
 ): RXBindOperationRequestResult {
   const operation =
-    resolveSectorsOperation(capability);
+    resolveSectorsOperation(
+      capability
+    );
 
   switch (operation) {
     case "GET_MINING_OPERATIONAL_CONTEXT":
@@ -63,7 +93,9 @@ export function bindInvestigationOperationRequest(
         return {
           status: "REJECTED",
           request: null,
-          issues: ["SECTORS_SLUG_REQUIRED"],
+          issues: [
+            "SECTORS_SLUG_REQUIRED",
+          ],
         };
       }
 
@@ -73,7 +105,8 @@ export function bindInvestigationOperationRequest(
           operation,
           purpose,
           params: {
-            sectorsSlug: context.sectorsSlug,
+            sectorsSlug:
+              context.sectorsSlug,
           },
         },
         issues: [],
@@ -87,7 +120,9 @@ export function bindInvestigationOperationRequest(
         return {
           status: "REJECTED",
           request: null,
-          issues: ["SECTORS_SLUG_REQUIRED"],
+          issues: [
+            "SECTORS_SLUG_REQUIRED",
+          ],
         };
       }
 
@@ -97,8 +132,11 @@ export function bindInvestigationOperationRequest(
           operation,
           purpose,
           params: {
-            sectorsSlug: context.sectorsSlug,
-            period: context.period,
+            sectorsSlug:
+              context.sectorsSlug,
+
+            period:
+              context.period,
           },
         },
         issues: [],
@@ -111,8 +149,11 @@ export function bindInvestigationOperationRequest(
           operation,
           purpose,
           params: {
-            commodity: context.commodity,
-            period: context.period,
+            commodity:
+              context.commodity,
+
+            period:
+              context.period,
           },
         },
         issues: [],
@@ -126,7 +167,9 @@ export function bindInvestigationOperationRequest(
         return {
           status: "REJECTED",
           request: null,
-          issues: ["TICKER_REQUIRED"],
+          issues: [
+            "TICKER_REQUIRED",
+          ],
         };
       }
 
@@ -136,8 +179,11 @@ export function bindInvestigationOperationRequest(
           operation,
           purpose,
           params: {
-            ticker: context.ticker,
-            period: context.period,
+            ticker:
+              context.ticker,
+
+            period:
+              context.period,
           },
         },
         issues: [],
