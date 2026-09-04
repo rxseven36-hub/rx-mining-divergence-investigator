@@ -2,6 +2,10 @@ import type {
   RXAIInvestigatorInput,
 } from "./ai-investigator";
 
+import type {
+  RXEvidenceBoundedHypothesisProviderInput,
+} from "../intelligence/hypothesis/evidence-bounded-hypothesis-provider-input";
+
 /**
  * Boundary to an external LLM provider.
  *
@@ -19,6 +23,19 @@ export interface LLMProvider {
   investigate(
     input:
       RXAIInvestigatorInput
+  ): Promise<unknown>;
+
+  /**
+   * Proposes an interpretation using only the
+   * AI-safe evidence pack supplied by RX.
+   *
+   * The result remains untrusted runtime data.
+   * Structural and deterministic validation belong
+   * to the evidence-bounded hypothesis boundary.
+   */
+  proposeHypothesis(
+    input:
+      RXEvidenceBoundedHypothesisProviderInput
   ): Promise<unknown>;
 
   /**

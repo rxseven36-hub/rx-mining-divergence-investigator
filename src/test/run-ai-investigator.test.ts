@@ -94,6 +94,12 @@ function providerWithOutput(
     LLMProvider = {
       investigate,
 
+      async proposeHypothesis(
+        _input: unknown
+      ): Promise<unknown> {
+        return null;
+      },
+
       async challengeHypothesis(
         _input: unknown
       ): Promise<unknown> {
