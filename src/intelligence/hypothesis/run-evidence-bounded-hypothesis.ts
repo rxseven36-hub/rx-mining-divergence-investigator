@@ -3,8 +3,8 @@ import type {
 } from "../../investigation/llm-provider";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../context/intelligence-evidence-pack";
 
 import type {
   RXEvidenceBoundedHypothesis,
@@ -21,10 +21,6 @@ import type {
 import {
   validateEvidenceBoundedHypothesis,
 } from "./validate-evidence-bounded-hypothesis";
-
-import {
-  projectPeerIntelligenceEvidencePack,
-} from "../context/project-peer-intelligence-evidence-pack";
 
 export type RXEvidenceBoundedHypothesisRunResult =
   | {
@@ -65,17 +61,12 @@ export type RXEvidenceBoundedHypothesisRunResult =
  */
 export async function runEvidenceBoundedHypothesis(
   provider: LLMProvider,
-  pack: RXPeerIntelligenceEvidencePack
+  pack: RXIntelligenceEvidencePack
 ): Promise<RXEvidenceBoundedHypothesisRunResult> {
-  const intelligencePack =
-    projectPeerIntelligenceEvidencePack(
-      pack
-    );
-
   const input:
     RXEvidenceBoundedHypothesisProviderInput = {
       evidencePack:
-        intelligencePack,
+        pack,
 
       causalConclusion:
         "UNKNOWN",
@@ -89,7 +80,7 @@ export async function runEvidenceBoundedHypothesis(
   const validation =
     validateEvidenceBoundedHypothesis(
       candidate,
-      intelligencePack
+      pack
     );
 
   if (!validation.valid) {

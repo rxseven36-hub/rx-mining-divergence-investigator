@@ -207,7 +207,7 @@ describe(
         const result =
           await runEvidenceBoundedHypothesis(
             provider,
-            pack
+            intelligencePack
           );
 
         expect(
@@ -250,6 +250,11 @@ describe(
         const pack =
           evidencePack();
 
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
+
         const {
           provider,
         } =
@@ -282,7 +287,7 @@ describe(
         const result =
           await runEvidenceBoundedHypothesis(
             provider,
-            pack
+            intelligencePack
           );
 
         expect(
@@ -308,6 +313,11 @@ describe(
       async () => {
         const pack =
           evidencePack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const {
           provider,
@@ -350,7 +360,7 @@ describe(
         const result =
           await runEvidenceBoundedHypothesis(
             provider,
-            pack
+            intelligencePack
           );
 
         expect(
@@ -374,6 +384,11 @@ describe(
       async () => {
         const pack =
           evidencePack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const {
           provider,
@@ -406,7 +421,7 @@ describe(
         const result =
           await runEvidenceBoundedHypothesis(
             provider,
-            pack
+            intelligencePack
           );
 
         expect(
@@ -433,6 +448,11 @@ describe(
       async () => {
         const pack =
           evidencePack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const {
           provider,
@@ -465,7 +485,7 @@ describe(
         const result =
           await runEvidenceBoundedHypothesis(
             provider,
-            pack
+            intelligencePack
           );
 
         expect(

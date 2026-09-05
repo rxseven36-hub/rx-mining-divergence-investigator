@@ -14,6 +14,10 @@ import {
   createPeerIntelligenceEvidencePack,
 } from "../context/create-peer-intelligence-evidence-pack";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../context/project-peer-intelligence-evidence-pack";
+
 import type {
   RXEvidenceBoundedHypothesis,
 } from "../hypothesis/evidence-bounded-hypothesis";
@@ -254,10 +258,15 @@ export async function runEvidenceBoundedIntelligenceSynthesis(
   const evidencePack =
     packResult.pack;
 
+  const intelligencePack =
+    projectPeerIntelligenceEvidencePack(
+      evidencePack
+    );
+
   const hypothesisRun =
     await runEvidenceBoundedHypothesis(
       provider,
-      evidencePack
+      intelligencePack
     );
 
   if (
@@ -297,7 +306,7 @@ export async function runEvidenceBoundedIntelligenceSynthesis(
     await runEvidenceBoundedHypothesisChallenge(
       provider,
       hypothesisRun,
-      evidencePack
+      intelligencePack
     );
 
   if (
@@ -337,7 +346,7 @@ export async function runEvidenceBoundedIntelligenceSynthesis(
       provider,
       hypothesisRun,
       challengeRun,
-      evidencePack
+      intelligencePack
     );
 
   if (

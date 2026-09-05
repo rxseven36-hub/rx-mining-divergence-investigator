@@ -38,80 +38,111 @@ function createPack():
   return {
     planId:
       "PLAN-001",
+
     caseId:
       "CASE-001",
+
     commodity:
       "GOLD",
+
     period: {
       kind:
         "RANGE",
+
       start:
         "2025-01-01",
+
       end:
         "2025-12-31",
     },
+
     firstCompany: [
       {
         evidenceId:
           "EVIDENCE-001",
+
         requestId:
           "REQUEST-001",
+
         target:
           "FIRST_COMPANY",
+
         companyId:
           "COMPANY-001",
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:first",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "First company evidence",
       },
     ],
+
     secondCompany: [
       {
         evidenceId:
           "EVIDENCE-002",
+
         requestId:
           "REQUEST-002",
+
         target:
           "SECOND_COMPANY",
+
         companyId:
           "COMPANY-002",
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:second",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "Second company evidence",
       },
     ],
+
     shared: [
       {
         evidenceId:
           "EVIDENCE-003",
+
         requestId:
           "REQUEST-003",
+
         target:
           "SHARED",
+
         companyId:
           null,
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:shared",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "Shared evidence",
       },
     ],
+
     evidenceCount:
       3,
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -122,34 +153,44 @@ function createHypothesis():
   return {
     caseId:
       "CASE-001",
+
     planId:
       "PLAN-001",
+
     hypothesisId:
       "HYPOTHESIS-001",
+
     statement:
       "Observed divergence may reflect different operating conditions.",
+
     supportingEvidence: [
       {
         evidenceId:
           "EVIDENCE-001",
+
         requestId:
           "REQUEST-001",
       },
     ],
+
     counterEvidence: [
       {
         evidenceId:
           "EVIDENCE-002",
+
         requestId:
           "REQUEST-002",
       },
     ],
+
     alternativeExplanations: [
       "Commodity exposure may differ.",
     ],
+
     uncertainties: [
       "The available evidence does not establish causality.",
     ],
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -160,9 +201,12 @@ function createAcceptedHypothesisRun():
   return {
     status:
       "ACCEPTED",
+
     hypothesis:
       createHypothesis(),
+
     issues: [],
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -172,25 +216,33 @@ function createValidChallenge() {
   return {
     caseId:
       "CASE-001",
+
     planId:
       "PLAN-001",
+
     hypothesisId:
       "HYPOTHESIS-001",
+
     challengeId:
       "CHALLENGE-001",
+
     critique:
       "The hypothesis remains vulnerable to evidence from the second company.",
+
     challengingEvidence: [
       {
         evidenceId:
           "EVIDENCE-002",
+
         requestId:
           "REQUEST-002",
       },
     ],
+
     unresolvedConcerns: [
       "Operating context remains incomplete.",
     ],
+
     causalConclusion:
       "UNKNOWN" as const,
   };
@@ -201,6 +253,7 @@ function createProvider(
 ): {
   provider:
     LLMProvider;
+
   challengeHypothesis:
     ReturnType<typeof vi.fn>;
 } {
@@ -271,7 +324,7 @@ describe(
           await runEvidenceBoundedHypothesisChallenge(
             provider,
             hypothesisRun,
-            pack
+            intelligencePack
           );
 
         expect(
@@ -285,8 +338,10 @@ describe(
         ).toHaveBeenCalledWith({
           evidencePack:
             intelligencePack,
+
           hypothesis:
             hypothesisRun.hypothesis,
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -322,11 +377,17 @@ describe(
     it(
       "rejects structurally invalid provider output",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const {
           provider,
         } =
           createProvider({
             ...createValidChallenge(),
+
             causalConclusion:
               "ESTABLISHED",
           });
@@ -335,17 +396,20 @@ describe(
           await runEvidenceBoundedHypothesisChallenge(
             provider,
             createAcceptedHypothesisRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           challenge:
             null,
+
           issues: [
             "INVALID_OUTPUT",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -355,11 +419,17 @@ describe(
     it(
       "rejects a challenge bound to the wrong hypothesis",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const {
           provider,
         } =
           createProvider({
             ...createValidChallenge(),
+
             hypothesisId:
               "HYPOTHESIS-OTHER",
           });
@@ -368,17 +438,20 @@ describe(
           await runEvidenceBoundedHypothesisChallenge(
             provider,
             createAcceptedHypothesisRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           challenge:
             null,
+
           issues: [
             "HYPOTHESIS_MISMATCH",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -388,15 +461,22 @@ describe(
     it(
       "rejects challenging evidence outside the exact evidence pack",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const {
           provider,
         } =
           createProvider({
             ...createValidChallenge(),
+
             challengingEvidence: [
               {
                 evidenceId:
                   "EVIDENCE-UNKNOWN",
+
                 requestId:
                   "REQUEST-UNKNOWN",
               },
@@ -407,17 +487,20 @@ describe(
           await runEvidenceBoundedHypothesisChallenge(
             provider,
             createAcceptedHypothesisRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           challenge:
             null,
+
           issues: [
             "UNKNOWN_EVIDENCE",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -471,7 +554,7 @@ describe(
           runEvidenceBoundedHypothesisChallenge(
             provider,
             hypothesisRun,
-            pack
+            intelligencePack
           )
         ).rejects.toThrow(
           "provider unavailable"

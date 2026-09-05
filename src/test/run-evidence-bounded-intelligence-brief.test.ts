@@ -33,82 +33,114 @@ function createPack():
   return {
     planId:
       "PLAN-017P",
+
     caseId:
       "CASE-017P",
+
     commodity:
       "GOLD",
+
     period: {
       kind:
         "QUARTER",
+
       year:
         2026,
+
       quarter:
         2,
+
       rawLabel:
         "2026-Q2",
     },
+
     firstCompany: [
       {
         evidenceId:
           "EV-FIRST-1",
+
         requestId:
           "REQ-FIRST-1",
+
         target:
           "FIRST_COMPANY",
+
         companyId:
           "COMPANY-A",
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:first:1",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "First company evidence.",
       },
     ],
+
     secondCompany: [
       {
         evidenceId:
           "EV-SECOND-1",
+
         requestId:
           "REQ-SECOND-1",
+
         target:
           "SECOND_COMPANY",
+
         companyId:
           "COMPANY-B",
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:second:1",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "Second company evidence.",
       },
     ],
+
     shared: [
       {
         evidenceId:
           "EV-SHARED-1",
+
         requestId:
           "REQ-SHARED-1",
+
         target:
           "SHARED",
+
         companyId:
           null,
+
         source:
           "SECTORS",
+
         sourceReference:
           "source:shared:1",
+
         truthClass:
           "SOURCE_FACT",
+
         description:
           "Shared evidence.",
       },
     ],
+
     evidenceCount:
       3,
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -119,41 +151,54 @@ function createHypothesisRun():
   return {
     status:
       "ACCEPTED",
+
     hypothesis: {
       caseId:
         "CASE-017P",
+
       planId:
         "PLAN-017P",
+
       hypothesisId:
         "HYPOTHESIS-017P",
+
       statement:
         "Observed peer divergence may warrant further investigation.",
+
       supportingEvidence: [
         {
           evidenceId:
             "EV-FIRST-1",
+
           requestId:
             "REQ-FIRST-1",
         },
       ],
+
       counterEvidence: [
         {
           evidenceId:
             "EV-SECOND-1",
+
           requestId:
             "REQ-SECOND-1",
         },
       ],
+
       alternativeExplanations: [
         "Operational timing may differ.",
       ],
+
       uncertainties: [
         "Available evidence does not establish causality.",
       ],
+
       causalConclusion:
         "UNKNOWN",
     },
+
     issues: [],
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -164,32 +209,43 @@ function createChallengeRun():
   return {
     status:
       "ACCEPTED",
+
     challenge: {
       caseId:
         "CASE-017P",
+
       planId:
         "PLAN-017P",
+
       hypothesisId:
         "HYPOTHESIS-017P",
+
       challengeId:
         "CHALLENGE-017P",
+
       critique:
         "The observed divergence may have non-causal operational explanations.",
+
       challengingEvidence: [
         {
           evidenceId:
             "EV-SHARED-1",
+
           requestId:
             "REQ-SHARED-1",
         },
       ],
+
       unresolvedConcerns: [
         "The evidence remains insufficient for causal attribution.",
       ],
+
       causalConclusion:
         "UNKNOWN",
     },
+
     issues: [],
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -199,39 +255,52 @@ function createValidBrief() {
   return {
     caseId:
       "CASE-017P",
+
     planId:
       "PLAN-017P",
+
     briefId:
       "BRIEF-017P",
+
     hypothesisId:
       "HYPOTHESIS-017P",
+
     challengeId:
       "CHALLENGE-017P",
+
     executiveSummary:
       "The evidence supports continued investigation while alternative explanations remain unresolved.",
+
     evidenceReferences: [
       {
         evidenceId:
           "EV-FIRST-1",
+
         requestId:
           "REQ-FIRST-1",
       },
+
       {
         evidenceId:
           "EV-SHARED-1",
+
         requestId:
           "REQ-SHARED-1",
       },
     ],
+
     alternativeExplanations: [
       "Operational timing may differ.",
     ],
+
     uncertainties: [
       "Available evidence does not establish causality.",
     ],
+
     unresolvedConcerns: [
       "The evidence remains insufficient for causal attribution.",
     ],
+
     causalConclusion:
       "UNKNOWN",
   };
@@ -272,6 +341,7 @@ describe(
       async () => {
         const pack =
           createPack();
+
         const intelligencePack =
           projectPeerIntelligenceEvidencePack(
             pack
@@ -304,16 +374,19 @@ describe(
             provider,
             hypothesisRun,
             challengeRun,
-            pack
+            intelligencePack
           );
 
         expect(receivedInput).toEqual({
           evidencePack:
             intelligencePack,
+
           hypothesis:
             hypothesisRun.hypothesis,
+
           challenge:
             challengeRun.challenge,
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -346,10 +419,16 @@ describe(
     it(
       "rejects provider output that attempts to establish causality",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const provider =
           createProvider(
             async () => ({
               ...createValidBrief(),
+
               causalConclusion:
                 "ESTABLISHED",
             })
@@ -360,17 +439,20 @@ describe(
             provider,
             createHypothesisRun(),
             createChallengeRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           brief:
             null,
+
           issues: [
             "INVALID_OUTPUT",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -380,10 +462,16 @@ describe(
     it(
       "rejects a brief bound to the wrong challenge",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const provider =
           createProvider(
             async () => ({
               ...createValidBrief(),
+
               challengeId:
                 "CHALLENGE-WRONG",
             })
@@ -394,17 +482,20 @@ describe(
             provider,
             createHypothesisRun(),
             createChallengeRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           brief:
             null,
+
           issues: [
             "CHALLENGE_MISMATCH",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -414,20 +505,29 @@ describe(
     it(
       "rejects evidence that exists in the pack but is outside the validated reasoning chain",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const provider =
           createProvider(
             async () => ({
               ...createValidBrief(),
+
               evidenceReferences: [
                 {
                   evidenceId:
                     "EV-FIRST-1",
+
                   requestId:
                     "REQ-FIRST-1",
                 },
+
                 {
                   evidenceId:
                     "EV-SECOND-1",
+
                   requestId:
                     "REQ-SECOND-1",
                 },
@@ -446,17 +546,20 @@ describe(
             provider,
             hypothesisRun,
             createChallengeRun(),
-            createPack()
+            intelligencePack
           );
 
         expect(result).toEqual({
           status:
             "REJECTED",
+
           brief:
             null,
+
           issues: [
             "EVIDENCE_OUTSIDE_REASONING_CHAIN",
           ],
+
           causalConclusion:
             "UNKNOWN",
         });
@@ -466,6 +569,11 @@ describe(
     it(
       "propagates provider runtime failures instead of converting them to REJECTED",
       async () => {
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            createPack()
+          );
+
         const provider =
           createProvider(
             async () => {
@@ -480,7 +588,7 @@ describe(
             provider,
             createHypothesisRun(),
             createChallengeRun(),
-            createPack()
+            intelligencePack
           )
         ).rejects.toThrow(
           "PROVIDER_FAILURE"

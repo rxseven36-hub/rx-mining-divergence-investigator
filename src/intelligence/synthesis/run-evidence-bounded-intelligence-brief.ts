@@ -3,8 +3,8 @@ import type {
 } from "../../investigation/llm-provider";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../context/intelligence-evidence-pack";
 
 import type {
   RXAcceptedEvidenceBoundedHypothesisRunResult,
@@ -26,10 +26,6 @@ import type {
 import {
   validateEvidenceBoundedIntelligenceBrief,
 } from "./validate-evidence-bounded-intelligence-brief";
-
-import {
-  projectPeerIntelligenceEvidencePack,
-} from "../context/project-peer-intelligence-evidence-pack";
 
 export type RXAcceptedEvidenceBoundedHypothesisChallengeRunResult =
   Extract<
@@ -90,21 +86,17 @@ export async function runEvidenceBoundedIntelligenceBrief(
   challengeRun:
     RXAcceptedEvidenceBoundedHypothesisChallengeRunResult,
   pack:
-    RXPeerIntelligenceEvidencePack
+    RXIntelligenceEvidencePack
 ): Promise<RXEvidenceBoundedIntelligenceBriefRunResult> {
   const hypothesis =
     hypothesisRun.hypothesis;
 
   const challenge =
     challengeRun.challenge;
-  const intelligencePack =
-    projectPeerIntelligenceEvidencePack(
-      pack
-    );
   const input:
     RXEvidenceBoundedIntelligenceBriefProviderInput = {
       evidencePack:
-        intelligencePack,
+        pack,
       hypothesis,
       challenge,
       causalConclusion:
@@ -121,7 +113,7 @@ export async function runEvidenceBoundedIntelligenceBrief(
       candidate,
       hypothesis,
       challenge,
-      intelligencePack
+      pack
     );
 
   if (!validation.valid) {
