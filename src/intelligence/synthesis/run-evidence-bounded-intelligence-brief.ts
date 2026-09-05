@@ -27,6 +27,10 @@ import {
   validateEvidenceBoundedIntelligenceBrief,
 } from "./validate-evidence-bounded-intelligence-brief";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../context/project-peer-intelligence-evidence-pack";
+
 export type RXAcceptedEvidenceBoundedHypothesisChallengeRunResult =
   Extract<
     RXEvidenceBoundedHypothesisChallengeRunResult,
@@ -93,11 +97,14 @@ export async function runEvidenceBoundedIntelligenceBrief(
 
   const challenge =
     challengeRun.challenge;
-
+  const intelligencePack =
+    projectPeerIntelligenceEvidencePack(
+      pack
+    );
   const input:
     RXEvidenceBoundedIntelligenceBriefProviderInput = {
       evidencePack:
-        pack,
+        intelligencePack,
       hypothesis,
       challenge,
       causalConclusion:
@@ -114,7 +121,7 @@ export async function runEvidenceBoundedIntelligenceBrief(
       candidate,
       hypothesis,
       challenge,
-      pack
+      intelligencePack
     );
 
   if (!validation.valid) {

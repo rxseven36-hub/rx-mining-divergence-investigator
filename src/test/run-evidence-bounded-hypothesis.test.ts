@@ -17,6 +17,10 @@ import {
   runEvidenceBoundedHypothesis,
 } from "../intelligence/hypothesis/run-evidence-bounded-hypothesis";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../intelligence/context/project-peer-intelligence-evidence-pack";
+
 function evidencePack():
   RXPeerIntelligenceEvidencePack {
   return {
@@ -149,10 +153,15 @@ describe(
   "runEvidenceBoundedHypothesis",
   () => {
     it(
-      "supplies the exact evidence pack through the guarded provider input",
+      "supplies the exact neutral evidence projection through the guarded provider input",
       async () => {
         const pack =
           evidencePack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const {
           provider,
@@ -211,7 +220,7 @@ describe(
           proposeHypothesis
         ).toHaveBeenCalledWith({
           evidencePack:
-            pack,
+            intelligencePack,
 
           causalConclusion:
             "UNKNOWN",

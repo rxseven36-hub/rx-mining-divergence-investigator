@@ -1,6 +1,6 @@
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../context/intelligence-evidence-pack";
 
 import type {
   RXEvidenceBoundedHypothesis,
@@ -35,7 +35,7 @@ import type {
  */
 export interface RXEvidenceBoundedIntelligenceBriefProviderInput {
   evidencePack:
-    RXPeerIntelligenceEvidencePack;
+    RXIntelligenceEvidencePack;
 
   hypothesis:
     RXEvidenceBoundedHypothesis;

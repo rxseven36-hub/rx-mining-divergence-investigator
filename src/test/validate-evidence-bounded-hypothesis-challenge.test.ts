@@ -5,8 +5,8 @@ import {
 } from "vitest";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../intelligence/context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../intelligence/context/intelligence-evidence-pack";
 
 import type {
   RXEvidenceBoundedHypothesis,
@@ -17,7 +17,7 @@ import {
 } from "../intelligence/hypothesis/validate-evidence-bounded-hypothesis-challenge";
 
 function createPack():
-  RXPeerIntelligenceEvidencePack {
+  RXIntelligenceEvidencePack {
   return {
     planId:
       "PLAN-001",
@@ -25,21 +25,7 @@ function createPack():
     caseId:
       "CASE-001",
 
-    commodity:
-      "GOLD",
-
-    period: {
-      kind:
-        "RANGE",
-
-      start:
-        "2025-01-01",
-
-      end:
-        "2025-12-31",
-    },
-
-    firstCompany: [
+    evidence: [
       {
         evidenceId:
           "EVIDENCE-001",
@@ -47,11 +33,8 @@ function createPack():
         requestId:
           "REQUEST-001",
 
-        target:
-          "FIRST_COMPANY",
-
         companyId:
-          "COMPANY-A",
+          "COMPANY-001",
 
         source:
           "SECTORS",
@@ -63,11 +46,9 @@ function createPack():
           "SOURCE_FACT",
 
         description:
-          "First company evidence.",
+          "First company evidence",
       },
-    ],
 
-    secondCompany: [
       {
         evidenceId:
           "EVIDENCE-002",
@@ -75,11 +56,8 @@ function createPack():
         requestId:
           "REQUEST-002",
 
-        target:
-          "SECOND_COMPANY",
-
         companyId:
-          "COMPANY-B",
+          "COMPANY-002",
 
         source:
           "SECTORS",
@@ -88,23 +66,18 @@ function createPack():
           "source:second",
 
         truthClass:
-          "COMPUTED_FACT",
+          "SOURCE_FACT",
 
         description:
-          "Second company evidence.",
+          "Second company evidence",
       },
-    ],
 
-    shared: [
       {
         evidenceId:
           "EVIDENCE-003",
 
         requestId:
           "REQUEST-003",
-
-        target:
-          "SHARED",
 
         companyId:
           null,
@@ -119,12 +92,9 @@ function createPack():
           "SOURCE_FACT",
 
         description:
-          "Shared evidence.",
+          "Shared evidence",
       },
     ],
-
-    evidenceCount:
-      3,
 
     causalConclusion:
       "UNKNOWN",
@@ -519,15 +489,12 @@ describe(
         const pack =
           createPack();
 
-        pack.shared.push({
+        pack.evidence.push({
           evidenceId:
             "EVIDENCE-002",
 
           requestId:
             "REQUEST-SHARED",
-
-          target:
-            "SHARED",
 
           companyId:
             null,
@@ -544,9 +511,6 @@ describe(
           description:
             "Same evidence id with distinct request lineage.",
         });
-
-        pack.evidenceCount =
-          4;
 
         const result =
           validateEvidenceBoundedHypothesisChallenge(

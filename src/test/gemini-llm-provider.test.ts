@@ -24,33 +24,13 @@ function createEvidencePack():
     caseId:
       "CASE-1",
 
-    commodity:
-      "NICKEL",
-
-    period: {
-      kind:
-        "YEAR",
-
-      year:
-        2025,
-
-      start:
-        "2025-01-01",
-
-      end:
-        "2025-12-31",
-    },
-
-    firstCompany: [
+    evidence: [
       {
         evidenceId:
           "EVIDENCE-A",
 
         requestId:
           "REQUEST-A",
-
-        target:
-          "FIRST_COMPANY",
 
         companyId:
           "COMPANY-A",
@@ -67,18 +47,13 @@ function createEvidencePack():
         description:
           "Company A production increased.",
       },
-    ],
 
-    secondCompany: [
       {
         evidenceId:
           "EVIDENCE-B",
 
         requestId:
           "REQUEST-B",
-
-        target:
-          "SECOND_COMPANY",
 
         companyId:
           "COMPANY-B",
@@ -96,11 +71,6 @@ function createEvidencePack():
           "Company B production declined.",
       },
     ],
-
-    shared: [],
-
-    evidenceCount:
-      2,
 
     causalConclusion:
       "UNKNOWN",

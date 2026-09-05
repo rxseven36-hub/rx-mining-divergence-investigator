@@ -18,9 +18,9 @@ import type {
 } from "../hypothesis/evidence-bounded-hypothesis-challenge";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-  RXPeerIntelligenceEvidencePackItem,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+  RXIntelligenceEvidencePackItem,
+} from "../context/intelligence-evidence-pack";
 
 export type RXEvidenceBoundedIntelligenceBriefIssue =
   | "INVALID_OUTPUT"
@@ -77,18 +77,14 @@ function hasDuplicateReferences(
 
 function flattenEvidence(
   pack:
-    RXPeerIntelligenceEvidencePack
-): RXPeerIntelligenceEvidencePackItem[] {
-  return [
-    ...pack.firstCompany,
-    ...pack.secondCompany,
-    ...pack.shared,
-  ];
+    RXIntelligenceEvidencePack
+): RXIntelligenceEvidencePackItem[] {
+  return pack.evidence;
 }
 
 function hasEvidenceId(
   evidence:
-    RXPeerIntelligenceEvidencePackItem[],
+    RXIntelligenceEvidencePackItem[],
   evidenceId:
     string
 ): boolean {
@@ -101,7 +97,7 @@ function hasEvidenceId(
 
 function hasExactEvidenceReference(
   evidence:
-    RXPeerIntelligenceEvidencePackItem[],
+    RXIntelligenceEvidencePackItem[],
   reference:
     RXIntelligenceBriefEvidenceReference
 ): boolean {
@@ -136,7 +132,7 @@ export function validateEvidenceBoundedIntelligenceBrief(
   challenge:
     RXEvidenceBoundedHypothesisChallenge,
   pack:
-    RXPeerIntelligenceEvidencePack
+    RXIntelligenceEvidencePack
 ): RXEvidenceBoundedIntelligenceBriefValidation {
   const parsed =
     RXEvidenceBoundedIntelligenceBriefSchema

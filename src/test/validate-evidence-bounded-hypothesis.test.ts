@@ -5,15 +5,15 @@ import {
 } from "vitest";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../intelligence/context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../intelligence/context/intelligence-evidence-pack";
 
 import {
   validateEvidenceBoundedHypothesis,
 } from "../intelligence/hypothesis/validate-evidence-bounded-hypothesis";
 
 function createPack():
-  RXPeerIntelligenceEvidencePack {
+  RXIntelligenceEvidencePack {
   return {
     planId:
       "PLAN-001",
@@ -21,30 +21,13 @@ function createPack():
     caseId:
       "CASE-001",
 
-    commodity:
-      "GOLD",
-
-    period: {
-      kind:
-        "RANGE",
-
-      start:
-        "2025-01-01",
-
-      end:
-        "2025-12-31",
-    },
-
-    firstCompany: [
+    evidence: [
       {
         evidenceId:
           "EVIDENCE-001",
 
         requestId:
           "REQUEST-001",
-
-        target:
-          "FIRST_COMPANY",
 
         companyId:
           "COMPANY-A",
@@ -61,18 +44,13 @@ function createPack():
         description:
           "First company evidence.",
       },
-    ],
 
-    secondCompany: [
       {
         evidenceId:
           "EVIDENCE-002",
 
         requestId:
           "REQUEST-002",
-
-        target:
-          "SECOND_COMPANY",
 
         companyId:
           "COMPANY-B",
@@ -89,18 +67,13 @@ function createPack():
         description:
           "Second company evidence.",
       },
-    ],
 
-    shared: [
       {
         evidenceId:
           "EVIDENCE-003",
 
         requestId:
           "REQUEST-003",
-
-        target:
-          "SHARED",
 
         companyId:
           null,
@@ -118,9 +91,6 @@ function createPack():
           "Shared evidence.",
       },
     ],
-
-    evidenceCount:
-      3,
 
     causalConclusion:
       "UNKNOWN",

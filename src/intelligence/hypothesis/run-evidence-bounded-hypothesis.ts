@@ -22,6 +22,10 @@ import {
   validateEvidenceBoundedHypothesis,
 } from "./validate-evidence-bounded-hypothesis";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../context/project-peer-intelligence-evidence-pack";
+
 export type RXEvidenceBoundedHypothesisRunResult =
   | {
       status: "ACCEPTED";
@@ -63,9 +67,16 @@ export async function runEvidenceBoundedHypothesis(
   provider: LLMProvider,
   pack: RXPeerIntelligenceEvidencePack
 ): Promise<RXEvidenceBoundedHypothesisRunResult> {
+  const intelligencePack =
+    projectPeerIntelligenceEvidencePack(
+      pack
+    );
+
   const input:
     RXEvidenceBoundedHypothesisProviderInput = {
-      evidencePack: pack,
+      evidencePack:
+        intelligencePack,
+
       causalConclusion:
         "UNKNOWN",
     };
@@ -78,7 +89,7 @@ export async function runEvidenceBoundedHypothesis(
   const validation =
     validateEvidenceBoundedHypothesis(
       candidate,
-      pack
+      intelligencePack
     );
 
   if (!validation.valid) {

@@ -9,8 +9,8 @@ import {
 } from "../intelligence/synthesis/validate-evidence-bounded-intelligence-brief";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../intelligence/context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../intelligence/context/intelligence-evidence-pack";
 
 import type {
   RXEvidenceBoundedHypothesis,
@@ -21,7 +21,7 @@ import type {
 } from "../intelligence/hypothesis/evidence-bounded-hypothesis-challenge";
 
 function createPack():
-  RXPeerIntelligenceEvidencePack {
+  RXIntelligenceEvidencePack {
   return {
     planId:
       "PLAN-017N",
@@ -29,21 +29,7 @@ function createPack():
     caseId:
       "CASE-017N",
 
-    commodity:
-      "COAL",
-
-    period: {
-      kind:
-        "RANGE",
-
-      start:
-        "2026-01-01",
-
-      end:
-        "2026-03-31",
-    },
-
-    firstCompany: [
+    evidence: [
       {
         evidenceId:
           "EVIDENCE-001",
@@ -51,52 +37,22 @@ function createPack():
         requestId:
           "REQUEST-001",
 
-        target:
-          "FIRST_COMPANY",
-
         companyId:
-          "COMPANY-A",
+          "COMPANY-001",
 
         source:
           "SECTORS",
 
         sourceReference:
-          "SOURCE-001",
+          "source:first",
 
         truthClass:
           "SOURCE_FACT",
 
         description:
-          "First admitted evidence.",
+          "First company evidence",
       },
-      {
-        evidenceId:
-          "EVIDENCE-003",
 
-        requestId:
-          "REQUEST-003",
-
-        target:
-          "FIRST_COMPANY",
-
-        companyId:
-          "COMPANY-A",
-
-        source:
-          "SECTORS",
-
-        sourceReference:
-          "SOURCE-003",
-
-        truthClass:
-          "SOURCE_FACT",
-
-        description:
-          "Canonical evidence not used by the reasoning chain.",
-      },
-    ],
-
-    secondCompany: [
       {
         evidenceId:
           "EVIDENCE-002",
@@ -104,36 +60,50 @@ function createPack():
         requestId:
           "REQUEST-002",
 
-        target:
-          "SECOND_COMPANY",
-
         companyId:
-          "COMPANY-B",
+          "COMPANY-002",
 
         source:
           "SECTORS",
 
         sourceReference:
-          "SOURCE-002",
+          "source:second",
 
         truthClass:
-          "COMPUTED_FACT",
+          "SOURCE_FACT",
 
         description:
-          "Second admitted evidence.",
+          "Second company evidence",
+      },
+
+      {
+        evidenceId:
+          "EVIDENCE-003",
+
+        requestId:
+          "REQUEST-003",
+
+        companyId:
+          null,
+
+        source:
+          "SECTORS",
+
+        sourceReference:
+          "source:shared",
+
+        truthClass:
+          "SOURCE_FACT",
+
+        description:
+          "Shared evidence",
       },
     ],
-
-    shared: [],
-
-    evidenceCount:
-      3,
 
     causalConclusion:
       "UNKNOWN",
   };
 }
-
 function createHypothesis():
   RXEvidenceBoundedHypothesis {
   return {

@@ -24,6 +24,10 @@ import type {
   RXAcceptedEvidenceBoundedHypothesisChallengeRunResult,
 } from "../intelligence/synthesis/run-evidence-bounded-intelligence-brief";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../intelligence/context/project-peer-intelligence-evidence-pack";
+
 function createPack():
   RXPeerIntelligenceEvidencePack {
   return {
@@ -268,6 +272,10 @@ describe(
       async () => {
         const pack =
           createPack();
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const hypothesisRun =
           createHypothesisRun();
@@ -301,7 +309,7 @@ describe(
 
         expect(receivedInput).toEqual({
           evidencePack:
-            pack,
+            intelligencePack,
           hypothesis:
             hypothesisRun.hypothesis,
           challenge:

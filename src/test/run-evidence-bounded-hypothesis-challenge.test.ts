@@ -29,6 +29,10 @@ import type {
   RXAcceptedEvidenceBoundedHypothesisRunResult,
 } from "../intelligence/hypothesis/run-evidence-bounded-hypothesis-challenge";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../intelligence/context/project-peer-intelligence-evidence-pack";
+
 function createPack():
   RXPeerIntelligenceEvidencePack {
   return {
@@ -242,10 +246,15 @@ describe(
   "runEvidenceBoundedHypothesisChallenge",
   () => {
     it(
-      "supplies the exact pack and accepted hypothesis through the guarded provider boundary",
+      "supplies the exact neutral evidence projection and accepted hypothesis through the guarded provider boundary",
       async () => {
         const pack =
           createPack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const hypothesisRun =
           createAcceptedHypothesisRun();
@@ -275,7 +284,7 @@ describe(
           challengeHypothesis
         ).toHaveBeenCalledWith({
           evidencePack:
-            pack,
+            intelligencePack,
           hypothesis:
             hypothesisRun.hypothesis,
           causalConclusion:
@@ -420,6 +429,11 @@ describe(
       async () => {
         const pack =
           createPack();
+
+        const intelligencePack =
+          projectPeerIntelligenceEvidencePack(
+            pack
+          );
 
         const hypothesisRun =
           createAcceptedHypothesisRun();

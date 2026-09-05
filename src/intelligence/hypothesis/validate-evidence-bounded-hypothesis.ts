@@ -8,9 +8,9 @@ import type {
 } from "./evidence-bounded-hypothesis";
 
 import type {
-  RXPeerIntelligenceEvidencePack,
-  RXPeerIntelligenceEvidencePackItem,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+  RXIntelligenceEvidencePackItem,
+} from "../context/intelligence-evidence-pack";
 
 export type RXEvidenceBoundedHypothesisIssue =
   | "INVALID_OUTPUT"
@@ -55,20 +55,13 @@ function hasDuplicateReferences(
 }
 
 function createEvidenceIndex(
-  pack: RXPeerIntelligenceEvidencePack
+  pack: RXIntelligenceEvidencePack
 ): Map<
   string,
-  RXPeerIntelligenceEvidencePackItem
+  RXIntelligenceEvidencePackItem
 > {
-  const evidence =
-    [
-      ...pack.firstCompany,
-      ...pack.secondCompany,
-      ...pack.shared,
-    ];
-
   return new Map(
-    evidence.map(
+    pack.evidence.map(
       (item) => [
         item.evidenceId,
         item,
@@ -79,7 +72,7 @@ function createEvidenceIndex(
 
 export function validateEvidenceBoundedHypothesis(
   candidate: unknown,
-  pack: RXPeerIntelligenceEvidencePack
+  pack: RXIntelligenceEvidencePack
 ): RXEvidenceBoundedHypothesisValidation {
   const parsed =
     RXEvidenceBoundedHypothesisSchema

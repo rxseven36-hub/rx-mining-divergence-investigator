@@ -1,6 +1,6 @@
 import type {
-  RXPeerIntelligenceEvidencePack,
-} from "../context/create-peer-intelligence-evidence-pack";
+  RXIntelligenceEvidencePack,
+} from "../context/intelligence-evidence-pack";
 
 /**
  * Explicit AI-provider boundary for proposing an
@@ -20,7 +20,7 @@ import type {
  */
 export interface RXEvidenceBoundedHypothesisProviderInput {
   evidencePack:
-    RXPeerIntelligenceEvidencePack;
+    RXIntelligenceEvidencePack;
 
   causalConclusion:
     "UNKNOWN";
