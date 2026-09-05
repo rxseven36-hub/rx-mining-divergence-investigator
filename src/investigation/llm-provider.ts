@@ -10,6 +10,10 @@ import type {
   RXEvidenceBoundedHypothesisChallengeProviderInput,
 } from "../intelligence/hypothesis/evidence-bounded-hypothesis-challenge-provider-input";
 
+import type {
+  RXEvidenceBoundedIntelligenceBriefProviderInput,
+} from "../intelligence/synthesis/evidence-bounded-intelligence-brief-provider-input";
+
 /**
  * Boundary to an external LLM provider.
  *
@@ -57,10 +61,15 @@ export interface LLMProvider {
   ): Promise<unknown>;
 
   /**
-   * This seam remains intentionally untyped.
-   * Its contract belongs to the later brief synthesis stage.
+   * Synthesizes an intelligence brief from the exact
+   * AI-safe evidence pack and already validated reasoning chain.
+   *
+   * The result remains untrusted runtime data.
+   * Structural and deterministic validation belong
+   * to the evidence-bounded intelligence-brief boundary.
    */
   synthesizeBrief(
-    input: unknown
+    input:
+      RXEvidenceBoundedIntelligenceBriefProviderInput
   ): Promise<unknown>;
 }
