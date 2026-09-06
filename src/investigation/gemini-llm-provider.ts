@@ -378,14 +378,17 @@ ABSOLUTE RULES:
 2. Do not invent facts, evidence, events, metrics, dates, entities, or causes.
 3. Do not establish causality.
 4. Do not provide BUY, SELL, HOLD, valuation, price-target, or investment recommendations.
-5. Every evidenceReferences entry MUST exactly match an evidenceId/requestId pair present in the evidence pack.
-6. Preserve material alternative explanations.
-7. Preserve material uncertainties.
-8. Preserve unresolved concerns raised by the challenge.
-9. Distinguish observed divergence or association from unproven causal explanation.
-10. Do not silently convert the hypothesis into a fact.
-11. Do not resolve missing evidence by speculation.
-12. Do not return identity fields or causalConclusion. RX owns those fields.
+5. Every evidenceReferences entry MUST exactly match an evidenceId/requestId pair that is BOTH present in the evidence pack AND already used in the validated reasoning chain.
+6. The validated reasoning chain consists ONLY of hypothesis.supportingEvidence, hypothesis.counterEvidence, and challenge.challengingEvidence.
+7. Do NOT introduce an evidence reference merely because it exists in the evidence pack. If it was not referenced by the validated hypothesis or validated challenge, it MUST NOT appear in evidenceReferences.
+8. evidenceReferences may be empty when the validated reasoning chain contains no evidence references.
+9. Preserve material alternative explanations.
+10. Preserve material uncertainties.
+11. Preserve unresolved concerns raised by the challenge.
+12. Distinguish observed divergence or association from unproven causal explanation.
+13. Do not silently convert the hypothesis into a fact.
+14. Do not resolve missing evidence by speculation.
+15. Do not return identity fields or causalConclusion. RX owns those fields.
 
 EVIDENCE PACK:
 

@@ -552,6 +552,178 @@ describe(
     );
 
     it(
+      "instructs brief generation to reference only evidence already used in the validated reasoning chain",
+      async () => {
+        const fetchImpl =
+          vi.fn(
+            async (
+              _input:
+                string | URL | Request,
+
+              _init?:
+                RequestInit
+            ) =>
+              createResponse({
+                executiveSummary:
+                  "Evidence-bounded summary.",
+
+                evidenceReferences: [
+                  {
+                    evidenceId:
+                      "EVIDENCE-A",
+
+                    requestId:
+                      "REQUEST-A",
+                  },
+                ],
+
+                alternativeExplanations:
+                  [],
+
+                uncertainties:
+                  [],
+
+                unresolvedConcerns:
+                  [],
+              })
+          );
+
+        const provider =
+          new GeminiLLMProvider({
+            apiKey:
+              "test-key",
+
+            fetchImpl,
+          });
+
+        const input:
+          Parameters<
+            LLMProvider["synthesizeBrief"]
+          >[0] = {
+          evidencePack:
+            createEvidencePack(),
+
+          hypothesis: {
+            caseId:
+              "CASE-1",
+
+            planId:
+              "PLAN-1",
+
+            hypothesisId:
+              "HYPOTHESIS-CASE-1",
+
+            statement:
+              "Candidate hypothesis",
+
+            supportingEvidence: [
+              {
+                evidenceId:
+                  "EVIDENCE-A",
+
+                requestId:
+                  "REQUEST-A",
+              },
+            ],
+
+            counterEvidence:
+              [],
+
+            alternativeExplanations:
+              [],
+
+            uncertainties:
+              [],
+
+            causalConclusion:
+              "UNKNOWN",
+          },
+
+          challenge: {
+            caseId:
+              "CASE-1",
+
+            planId:
+              "PLAN-1",
+
+            hypothesisId:
+              "HYPOTHESIS-CASE-1",
+
+            challengeId:
+              "CHALLENGE-HYPOTHESIS-CASE-1",
+
+            critique:
+              "Challenge",
+
+            challengingEvidence:
+              [],
+
+            unresolvedConcerns:
+              [],
+
+            causalConclusion:
+              "UNKNOWN",
+          },
+
+          causalConclusion:
+            "UNKNOWN",
+        };
+
+        await provider.synthesizeBrief(
+          input
+        );
+
+        expect(fetchImpl)
+          .toHaveBeenCalledTimes(
+            1
+          );
+
+        const [
+          ,
+          init,
+        ] =
+          fetchImpl.mock.calls[0];
+
+        const body =
+          JSON.parse(
+            String(
+              init?.body
+            )
+          );
+
+        const prompt =
+          String(
+            body.input
+          );
+
+        expect(prompt)
+          .toContain(
+            "already used in the validated reasoning chain"
+          );
+
+        expect(prompt)
+          .toContain(
+            "hypothesis.supportingEvidence, hypothesis.counterEvidence, and challenge.challengingEvidence"
+          );
+
+        expect(prompt)
+          .toContain(
+            "If it was not referenced by the validated hypothesis or validated challenge, it MUST NOT appear in evidenceReferences."
+          );
+
+        expect(prompt)
+          .toContain(
+            '"evidenceId": "EVIDENCE-A"'
+          );
+
+        expect(prompt)
+          .toContain(
+            '"evidenceId": "EVIDENCE-B"'
+          );
+      }
+    );
+
+    it(
       "propagates Gemini runtime failure without fabricating a fallback result",
       async () => {
         const provider =
