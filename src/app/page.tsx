@@ -1,175 +1,102 @@
 "use client";
 
 import {
+  useEffect,
   useState,
 } from "react";
 
-const pipeline = [
-  [
-    "01",
-    "Detect",
-    "Production-sales divergence identified",
-  ],
-  [
-    "02",
-    "Prioritize",
-    "Material case admitted for investigation",
-  ],
-  [
-    "03",
-    "Investigate",
-    "Sectors evidence collected",
-  ],
-  [
-    "04",
-    "Evidence",
-    "Canonical evidence bound",
-  ],
-  [
-    "05",
-    "Synthesize",
-    "Intelligence brief produced",
-  ],
+const loadingStories = [
+  ["01", "DETECTING MATERIAL DIVERGENCE", "Comparing reported production and sales."],
+  ["02", "GATHERING SECTORS EVIDENCE", "Collecting canonical operational and market facts."],
+  ["03", "BUILDING EVIDENCE CHAIN", "Binding admitted evidence to the investigation."],
+  ["04", "TESTING EXPLANATIONS", "AI proposes evidence-bounded possibilities."],
+  ["05", "CHALLENGING CLAIMS", "RX tests the explanation against admitted evidence."],
+  ["06", "SYNTHESIZING INTELLIGENCE", "Preparing the final defensible brief."],
+] as const;
+
+const resultPipeline = [
+  "DETECT",
+  "PRIORITIZE",
+  "INVESTIGATE",
+  "PROVE",
+  "BRIEF",
 ] as const;
 
 interface RXObservation {
-  metric?:
-    string;
-
-  value?:
-    number;
-
-  unit?:
-    string;
+  metric?: string;
+  value?: number;
+  unit?: unknown;
 }
 
 interface RXEvidenceItem {
-  evidenceId?:
-    string;
-
-  source?:
-    string;
-
-  truthClass?:
-    string;
-
-  description?:
-    string;
+  evidenceId?: string;
+  source?: string;
+  truthClass?: string;
+  description?: string;
 }
 
 interface RXAcceptedWorkspaceResult {
-  status:
-    "ACCEPTED";
-
-  stage:
-    "COMPLETE";
-
-  causalConclusion:
-    "UNKNOWN";
-
+  status: "ACCEPTED";
+  stage: "COMPLETE";
+  causalConclusion: "UNKNOWN";
   company: {
-    id:
-      string;
-
-    sectorsSlug:
-      string;
-
-    ticker:
-      string;
-
-    commodity:
-      string;
+    id: string;
+    sectorsSlug: string;
+    ticker: string;
+    commodity: string;
   };
-
-  year:
-    number;
-
+  year: number;
   divergence: {
-    production:
-      RXObservation | null;
-
-    sales:
-      RXObservation | null;
+    production: RXObservation | null;
+    sales: RXObservation | null;
   };
-
-  investigationCase:
-    unknown;
-
+  investigationCase: unknown;
   evidence: {
     pack: {
-      evidence?:
-        RXEvidenceItem[];
+      evidence?: RXEvidenceItem[];
     };
   };
-
-  hypothesis:
-    Record<string, unknown>;
-
-  challenge:
-    Record<string, unknown>;
-
-  brief:
-    Record<string, unknown>;
+  hypothesis: Record<string, unknown>;
+  challenge: Record<string, unknown>;
+  brief: Record<string, unknown>;
 }
 
 interface RXRejectedWorkspaceResult {
-  status:
-    "REJECTED";
-
-  stage?:
-    string;
-
-  causalConclusion?:
-    "UNKNOWN";
-
-  issues?:
-    string[];
+  status: "REJECTED";
+  stage?: string;
+  causalConclusion?: "UNKNOWN";
+  issues?: string[];
 }
 
 type RXWorkspaceResult =
   | RXAcceptedWorkspaceResult
   | RXRejectedWorkspaceResult;
-
 function readText(
-  value:
-    unknown,
-  keys:
-    string[],
+  value: unknown,
+  keys: string[],
 ) {
   if (
-    typeof value ===
-      "string" &&
-    value.trim().length >
-      0
+    typeof value === "string" &&
+    value.trim().length > 0
   ) {
     return value;
   }
 
   if (
-    typeof value !==
-      "object" ||
-    value ===
-      null
+    typeof value !== "object" ||
+    value === null
   ) {
     return null;
   }
 
-  const record =
-    value as
-      Record<string, unknown>;
+  const record = value as Record<string, unknown>;
 
-  for (
-    const key
-    of keys
-  ) {
-    const candidate =
-      record[key];
+  for (const key of keys) {
+    const candidate = record[key];
 
     if (
-      typeof candidate ===
-        "string" &&
-      candidate.trim().length >
-        0
+      typeof candidate === "string" &&
+      candidate.trim().length > 0
     ) {
       return candidate;
     }
@@ -179,51 +106,29 @@ function readText(
 }
 
 function readTextList(
-  value:
-    unknown,
-  keys:
-    string[],
+  value: unknown,
+  keys: string[],
 ) {
   if (
-    typeof value !==
-      "object" ||
-    value ===
-      null
+    typeof value !== "object" ||
+    value === null
   ) {
     return [];
   }
 
-  const record =
-    value as
-      Record<string, unknown>;
+  const record = value as Record<string, unknown>;
 
-  for (
-    const key
-    of keys
-  ) {
-    const candidate =
-      record[key];
+  for (const key of keys) {
+    const candidate = record[key];
 
-    if (
-      Array.isArray(
-        candidate,
-      )
-    ) {
-      const values =
-        candidate.filter(
-          (
-            item,
-          ): item is string =>
-            typeof item ===
-              "string" &&
-            item.trim().length >
-              0,
-        );
+    if (Array.isArray(candidate)) {
+      const values = candidate.filter(
+        (item): item is string =>
+          typeof item === "string" &&
+          item.trim().length > 0,
+      );
 
-      if (
-        values.length >
-        0
-      ) {
+      if (values.length > 0) {
         return values;
       }
     }
@@ -232,215 +137,256 @@ function readTextList(
   return [];
 }
 
+function readUnit(
+  unit: unknown,
+) {
+  if (
+    typeof unit === "string" &&
+    unit.trim().length > 0
+  ) {
+    return unit;
+  }
+
+  if (
+    typeof unit !== "object" ||
+    unit === null
+  ) {
+    return "";
+  }
+
+  const record = unit as Record<string, unknown>;
+  const preferredKeys = [
+    "symbol",
+    "label",
+    "name",
+    "unit",
+    "value",
+  ];
+
+  for (const key of preferredKeys) {
+    const candidate = record[key];
+
+    if (
+      typeof candidate === "string" &&
+      candidate.trim().length > 0
+    ) {
+      return candidate;
+    }
+  }
+
+  return "";
+}
+
 function formatObservation(
-  observation:
-    RXObservation | null,
+  observation: RXObservation | null,
 ) {
   if (
     !observation ||
-    typeof observation.value !==
-      "number"
+    typeof observation.value !== "number"
   ) {
     return "—";
   }
 
-  return [
-    observation.value,
-    observation.unit,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const unit = readUnit(observation.unit);
+
+  return unit
+    ? `${observation.value} ${unit}`
+    : String(observation.value);
+}
+
+function evidenceGroup(
+  description: string,
+) {
+  const normalized = description.toLowerCase();
+
+  if (
+    normalized.includes("price") ||
+    normalized.includes("market")
+  ) {
+    return "Market / Commodity";
+  }
+
+  if (
+    normalized.includes("production") ||
+    normalized.includes("sales") ||
+    normalized.includes("historical") ||
+    normalized.includes("strip ratio") ||
+    normalized.includes("overburden")
+  ) {
+    return "Performance";
+  }
+
+  return "Company / Operations";
 }
 
 export default function Home() {
-  const [
-    result,
-    setResult,
-  ] =
-    useState<RXWorkspaceResult | null>(
-      null,
-    );
+  const [result, setResult] =
+    useState<RXWorkspaceResult | null>(null);
+  const [isRunning, setIsRunning] =
+    useState(false);
+  const [runtimeError, setRuntimeError] =
+    useState<string | null>(null);
+  const [loadingStep, setLoadingStep] =
+    useState(0);
+  const [showEvidence, setShowEvidence] =
+    useState(false);
 
-  const [
-    isRunning,
-    setIsRunning,
-  ] =
-    useState(
-      false,
-    );
+  useEffect(() => {
+    if (!isRunning) {
+      return;
+    }
 
-  const [
-    runtimeError,
-    setRuntimeError,
-  ] =
-    useState<string | null>(
-      null,
-    );
+    const interval =
+      window.setInterval(
+        () => {
+          setLoadingStep(
+            (current) =>
+              (current + 1) %
+              loadingStories.length,
+          );
+        },
+        3200,
+      );
 
-  const accepted =
-    result?.status ===
-      "ACCEPTED"
-      ? result
-      : null;
+    return () => {
+      window.clearInterval(
+        interval,
+      );
+    };
+  }, [isRunning]);
+
+const accepted =
+  result?.status === "ACCEPTED"
+    ? result
+    : null;
 
   const evidenceItems =
-    accepted?.evidence
-      .pack
-      .evidence ??
-    [];
+    accepted?.evidence.pack.evidence ?? [];
 
   const production =
-    accepted?.divergence
-      .production ??
-    null;
-
+    accepted?.divergence.production ?? null;
   const sales =
-    accepted?.divergence
-      .sales ??
-    null;
+    accepted?.divergence.sales ?? null;
 
   const productionValue =
     production &&
-    typeof production.value ===
-      "number"
+    typeof production.value === "number"
       ? production.value
       : null;
-
   const salesValue =
     sales &&
-    typeof sales.value ===
-      "number"
+    typeof sales.value === "number"
       ? sales.value
       : null;
-
   const divergenceValue =
-    productionValue !==
-      null &&
-    salesValue !==
-      null
-      ? salesValue -
-        productionValue
+    productionValue !== null &&
+    salesValue !== null
+      ? salesValue - productionValue
       : null;
 
-  const hypothesisText =
-    accepted
-      ? readText(
-          accepted.hypothesis,
-          [
-            "statement",
-            "hypothesis",
-            "summary",
-          ],
-        )
-      : null;
+  const productionUnit = readUnit(production?.unit);
+  const salesUnit = readUnit(sales?.unit);
+  const displayUnit = salesUnit || productionUnit;
 
-  const challengeText =
-    accepted
-      ? readText(
-          accepted.challenge,
-          [
-            "critique",
-            "challenge",
-            "summary",
-          ],
-        )
-      : null;
+  const chartMax = Math.max(
+    productionValue ?? 0,
+    salesValue ?? 0,
+    1,
+  );
+  const productionWidth =
+    productionValue === null
+      ? 0
+      : (productionValue / chartMax) * 100;
+  const salesWidth =
+    salesValue === null
+      ? 0
+      : (salesValue / chartMax) * 100;
 
-  const briefText =
-    accepted
-      ? readText(
-          accepted.brief,
-          [
-            "executiveSummary",
-            "summary",
-            "brief",
-          ],
-        )
-      : null;
+  const hypothesisText = accepted
+    ? readText(accepted.hypothesis, [
+        "statement",
+        "hypothesis",
+        "summary",
+      ])
+    : null;
+  const challengeText = accepted
+    ? readText(accepted.challenge, [
+        "critique",
+        "challenge",
+        "summary",
+      ])
+    : null;
+  const briefText = accepted
+    ? readText(accepted.brief, [
+        "executiveSummary",
+        "summary",
+        "brief",
+      ])
+    : null;
+  const alternatives = accepted
+    ? readTextList(accepted.brief, [
+        "alternativeExplanations",
+        "alternatives",
+      ])
+    : [];
+  const uncertainties = accepted
+    ? readTextList(accepted.brief, [
+        "uncertainties",
+      ])
+    : [];
+  const unresolved = accepted
+    ? readTextList(accepted.brief, [
+        "unresolvedConcerns",
+      ])
+    : [];
 
-  const alternatives =
-    accepted
-      ? readTextList(
-          accepted.brief,
-          [
-            "alternativeExplanations",
-            "alternatives",
-          ],
-        )
-      : [];
-
-  const uncertainties =
-    accepted
-      ? readTextList(
-          accepted.brief,
-          [
-            "uncertainties",
-          ],
-        )
-      : [];
+  const evidenceSummary = evidenceItems.reduce(
+    (summary, item) => {
+      const group = evidenceGroup(
+        item.description ?? "",
+      );
+      summary[group] =
+        (summary[group] ?? 0) + 1;
+      return summary;
+    },
+    {} as Record<string, number>,
+  );
 
   async function runInvestigation() {
-    setIsRunning(
-      true,
-    );
-
-    setRuntimeError(
-      null,
-    );
-
-    setResult(
-      null,
-    );
+    setLoadingStep(0);
+    setIsRunning(true);
+    setRuntimeError(null);
+    setResult(null);
+    setShowEvidence(false);
+    setLoadingStep(0);
 
     try {
-      const response =
-        await fetch(
-          "/api/investigate/production-sales",
-          {
-            method:
-              "POST",
-
-            headers: {
-              "content-type":
-                "application/json",
-            },
-
-            body:
-              JSON.stringify({
-                companyId:
-                  "rx-company-aadi",
-
-                sectorsSlug:
-                  "pt-adaro-andalan-indonesia-tbk",
-
-                ticker:
-                  "AADI.JK",
-
-                commodity:
-                  "COAL",
-
-                year:
-                  2024,
-              }),
+      const response = await fetch(
+        "/api/investigate/production-sales",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-        );
-
-      const payload =
-        await response.json() as
-          RXWorkspaceResult;
-
-      setResult(
-        payload,
+          body: JSON.stringify({
+            companyId: "rx-company-aadi",
+            sectorsSlug:
+              "pt-adaro-andalan-indonesia-tbk",
+            ticker: "AADI.JK",
+            commodity: "COAL",
+            year: 2024,
+          }),
+        },
       );
 
-      if (
-        payload.status ===
-          "REJECTED"
-      ) {
+      const payload =
+        await response.json() as RXWorkspaceResult;
+
+      setResult(payload);
+
+      if (payload.status === "REJECTED") {
         setRuntimeError(
-          payload.issues?.join(
-            ", ",
-          ) ??
+          payload.issues?.join(", ") ??
             "Investigation rejected.",
         );
       }
@@ -449,9 +395,7 @@ export default function Home() {
         "Unable to complete the live investigation.",
       );
     } finally {
-      setIsRunning(
-        false,
-      );
+      setIsRunning(false);
     }
   }
 
@@ -459,15 +403,11 @@ export default function Home() {
     <main className="rx-shell">
       <header className="rx-topbar">
         <div className="rx-brand">
-          <span className="rx-brand-mark">
-            RX
-          </span>
-
+          <span className="rx-brand-mark">RX</span>
           <div>
             <p className="rx-eyebrow">
               RXseven Intelligence
             </p>
-
             <p className="rx-brand-name">
               Mining Divergence Investigator
             </p>
@@ -477,7 +417,7 @@ export default function Home() {
         <div className="rx-topbar-status">
           <span className="rx-live-dot" />
           {isRunning
-            ? "INVESTIGATING"
+            ? "INVESTIGATION ACTIVE"
             : accepted
               ? "INTELLIGENCE READY"
               : "ENGINE READY"}
@@ -485,538 +425,388 @@ export default function Home() {
       </header>
 
       <div className="rx-workspace">
-        <section className="rx-hero">
-          <div>
-            <div className="rx-kicker-row">
-              <span className="rx-kicker">
-                SECTORS / MARKET INTELLIGENCE
-              </span>
-
-              <span className="rx-demo-badge">
-                AADI / FY 2024
-              </span>
-            </div>
-
-            <h1>
-              Investigate the divergence.
-              <span>
-                {" "}
-                Prove the intelligence.
-              </span>
-            </h1>
-
-            <p className="rx-hero-copy">
-              Evidence-first investigation for material mining
-              divergences. Deterministic analysis establishes the
-              facts. AI proposes explanations. RX challenges them
-              against the evidence.
-            </p>
-
-            <button
-              type="button"
-              className="rx-complete-badge"
-              disabled={
-                isRunning
-              }
-              onClick={
-                runInvestigation
-              }
-            >
-              {isRunning
-                ? "RUNNING INVESTIGATION..."
-                : accepted
-                  ? "RUN INVESTIGATION AGAIN"
-                  : "RUN AADI INVESTIGATION"}
-            </button>
-
-            {runtimeError ? (
-              <p className="rx-hero-copy">
-                Investigation status:{" "}
-                {runtimeError}
-              </p>
-            ) : null}
-          </div>
-
-          <div className="rx-doctrine">
-            <p>RX DOCTRINE</p>
-            <strong>
-              AI PROPOSES.
-            </strong>
-            <strong>
-              {" "}
-              RX PROVES.
-            </strong>
-            <span>
-              CAUSAL CONCLUSION REMAINS UNKNOWN
-            </span>
-          </div>
-        </section>
-
-        <section className="rx-case-grid">
-          <article className="rx-company-card">
-            <div className="rx-card-heading">
-              <span>
-                INVESTIGATION SUBJECT
-              </span>
-
-              <span className="rx-status-neutral">
-                CANONICAL
-              </span>
-            </div>
-
-            <h2>
-              PT Adaro Andalan Indonesia Tbk
-            </h2>
-
-            <div className="rx-company-meta">
-              <div>
-                <span>
-                  SYMBOL
+        {!accepted && !isRunning ? (
+          <section className="rx-launch">
+            <div className="rx-launch-copy">
+              <div className="rx-kicker-row">
+                <span className="rx-kicker">
+                  SECTORS / MARKET INTELLIGENCE
                 </span>
 
-                <strong>
-                  AADI.JK
-                </strong>
-              </div>
-
-              <div>
-                <span>
-                  COMMODITY
+                <span className="rx-engine-badge">
+                  LIVE INVESTIGATION ENGINE
                 </span>
-
-                <strong>
-                  COAL
-                </strong>
               </div>
 
-              <div>
-                <span>
-                  PERIOD
-                </span>
+              <h1>
+                Find the signal.
+                <span> Challenge the explanation.</span>
+              </h1>
 
-                <strong>
-                  FY 2024
-                </strong>
-              </div>
-            </div>
-          </article>
-
-          <article className="rx-divergence-card">
-            <p>
-              PRODUCTION / SALES
-            </p>
-
-            <strong>
-              {accepted
-                ? "DETECTED"
-                : "READY"}
-            </strong>
-
-            <div className="rx-divergence-line">
-              <span />
-              <i />
-              <span />
-            </div>
-
-            <small>
-              {accepted &&
-              divergenceValue !==
-                null
-                ? `Sales exceed production by ${divergenceValue.toFixed(
-                    2,
-                  )} ${
-                    sales?.unit ??
-                    production?.unit ??
-                    ""
-                  }`
-                : "Run the investigation to establish the live divergence"}
-            </small>
-          </article>
-
-          <article className="rx-company-card">
-            <div className="rx-card-heading">
-              <span>
-                SOURCE FACTS
-              </span>
-
-              <span className="rx-status-neutral">
-                SECTORS
-              </span>
-            </div>
-
-            <h2>
-              FY 2024 Operations
-            </h2>
-
-            <div className="rx-company-meta">
-              <div>
-                <span>
-                  PRODUCTION
-                </span>
-
-                <strong>
-                  {formatObservation(
-                    production,
-                  )}
-                </strong>
-              </div>
-
-              <div>
-                <span>
-                  SALES
-                </span>
-
-                <strong>
-                  {formatObservation(
-                    sales,
-                  )}
-                </strong>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section className="rx-panel">
-          <div className="rx-section-heading">
-            <div>
               <p>
-                INVESTIGATION PIPELINE
+                One live mining investigation. Sectors establishes
+                the evidence. AI proposes. RX challenges what the
+                evidence cannot prove.
               </p>
 
-              <h2>
-                From signal to defensible intelligence
-              </h2>
-            </div>
+              <button
+                type="button"
+                className="rx-run-button rx-demo-case-card"
+                onClick={runInvestigation}
+              >
+                <span className="rx-demo-case-label">
+                  <span className="rx-demo-case-dot" />
+                  FEATURED DEMO CASE
+                </span>
 
-            <span className="rx-complete-badge">
-              {accepted
-                ? "COMPLETE"
-                : isRunning
-                  ? "RUNNING"
-                  : "READY"}
-            </span>
-          </div>
-
-          <div className="rx-pipeline">
-            {pipeline.map(
-              ([
-                number,
-                title,
-                description,
-              ]) => (
-                <div
-                  className="rx-pipeline-step"
-                  key={number}
-                >
-                  <div className="rx-step-number">
-                    {number}
-                  </div>
-
-                  <div>
-                    <strong>
-                      {title}
-                    </strong>
-
-                    <span>
-                      {description}
+                <span className="rx-demo-case-main">
+                  <span className="rx-demo-case-company">
+                    <span className="rx-demo-case-symbol">
+                      AADI.JK
                     </span>
-                  </div>
 
-                  <div className="rx-step-check">
-                    {accepted
-                      ? "✓"
-                      : "·"}
-                  </div>
+                    <span className="rx-demo-case-name">
+                      PT Adaro Andalan Indonesia Tbk
+                    </span>
+                  </span>
+
+                  <span className="rx-demo-case-meta">
+                    COAL · FY2024
+                  </span>
+                </span>
+
+                <span className="rx-demo-case-action">
+                  <span>INITIATE INVESTIGATION</span>
+                  <span className="rx-demo-case-arrow">→</span>
+                </span>
+              </button>
+
+              {runtimeError ? (
+                <div className="rx-error">
+                  {runtimeError}
                 </div>
-              ),
-            )}
-          </div>
-        </section>
-
-        <section className="rx-panel">
-          <div className="rx-section-heading">
-            <div>
-              <p>
-                EVIDENCE LAYER
-              </p>
-
-              <h2>
-                Every claim remains traceable
-              </h2>
+              ) : null}
             </div>
 
-            <span className="rx-evidence-count">
-              {String(
-                evidenceItems.length,
-              ).padStart(
-                2,
-                "0",
-              )}{" "}
-              ADMITTED ITEMS
-            </span>
-          </div>
+            <div className="rx-launch-visual">
+              <div className="rx-orbit rx-orbit-one" />
+              <div className="rx-orbit rx-orbit-two" />
+              <div className="rx-core-mark">
+                <span>RX</span>
+                <small>INTELLIGENCE</small>
+              </div>
+              <div className="rx-launch-doctrine">
+                <span>AI PROPOSES.</span>
+                <strong>RX PROVES.</strong>
+                <small>CAUSALITY REMAINS UNKNOWN</small>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
-          <div className="rx-evidence-grid">
-            {evidenceItems.length >
-            0 ? (
-              evidenceItems.map(
-                (
-                  item,
-                  index,
-                ) => (
-                  <article
-                    className="rx-evidence-card"
-                    key={
-                      item.evidenceId ??
-                      index
-                    }
-                  >
-                    <div className="rx-evidence-card-top">
-                      <span>
-                        EVIDENCE
-                      </span>
+        {isRunning ? (
+          <section className="rx-running">
+            <div className="rx-running-head">
+              <span className="rx-kicker">
+                LIVE INVESTIGATION / AADI FY2024
+              </span>
+              <strong>RX INVESTIGATION ACTIVE</strong>
+              <p>
+                The sequence below is a visual narrative while the
+                live investigation completes.
+              </p>
+            </div>
 
-                      <strong>
-                        {String(
-                          index +
-                            1,
-                        ).padStart(
-                          2,
-                          "0",
-                        )}
-                      </strong>
-                    </div>
+            <div className="rx-investigation-visual">
+              <div className="rx-scan-ring">
+                <div className="rx-scan-core">RX</div>
+                <span className="rx-scan-dot dot-a" />
+                <span className="rx-scan-dot dot-b" />
+                <span className="rx-scan-dot dot-c" />
+              </div>
 
-                    <h3>
-                      {item.truthClass ??
-                        "ADMITTED"}
-                    </h3>
-
-                    <p>
-                      {item.description ??
-                        "Canonical admitted evidence"}
-                    </p>
-
-                    <div className="rx-source-row">
-                      <span>
-                        SOURCE
-                      </span>
-
-                      <strong>
-                        {item.source ??
-                          "SECTORS"}
-                      </strong>
-                    </div>
-                  </article>
-                ),
-              )
-            ) : (
-              <article className="rx-evidence-card">
-                <div className="rx-evidence-card-top">
-                  <span>
-                    EVIDENCE
-                  </span>
-
-                  <strong>
-                    00
-                  </strong>
-                </div>
-
-                <h3>
-                  Awaiting investigation
-                </h3>
-
+              <div className="rx-running-story">
+                <span>
+                  {loadingStories[loadingStep][0]} / 06
+                </span>
+                <h2>
+                  {loadingStories[loadingStep][1]}
+                </h2>
                 <p>
-                  Live admitted evidence will appear here after
-                  the investigation completes.
+                  {loadingStories[loadingStep][2]}
                 </p>
 
-                <div className="rx-source-row">
-                  <span>
-                    SOURCE
-                  </span>
-
-                  <strong>
-                    SECTORS
-                  </strong>
+                <div className="rx-story-rail">
+                  {loadingStories.map((story, index) => (
+                    <i
+                      key={story[0]}
+                      className={
+                        index <= loadingStep
+                          ? "active"
+                          : ""
+                      }
+                    />
+                  ))}
                 </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {accepted ? (
+          <>
+            <section className="rx-cockpit-head">
+              <div>
+                <div className="rx-kicker-row">
+                  <span className="rx-kicker">
+                    LIVE SECTORS INTELLIGENCE
+                  </span>
+                  <span className="rx-demo-badge">
+                    COMPLETE
+                  </span>
+                </div>
+                <h1>
+                  PT Adaro Andalan Indonesia Tbk
+                </h1>
+                <p>
+                  AADI.JK · COAL · FY {accepted.year}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className="rx-rerun-button"
+                onClick={runInvestigation}
+              >
+                RUN AGAIN
+              </button>
+            </section>
+
+            <section className="rx-signal-card">
+              <div className="rx-signal-title">
+                <div>
+                  <span>MATERIAL SIGNAL</span>
+                  <h2>Production / Sales Divergence</h2>
+                </div>
+                <strong>DETECTED</strong>
+              </div>
+
+              <div className="rx-divergence-chart">
+                <div className="rx-chart-row">
+                  <div className="rx-chart-label">
+                    <span>PRODUCTION</span>
+                    <strong>
+                      {formatObservation(production)}
+                    </strong>
+                  </div>
+                  <div className="rx-bar-track">
+                    <div
+                      className="rx-bar production"
+                      style={{
+                        width: `${productionWidth}%`,
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="rx-chart-row">
+                  <div className="rx-chart-label">
+                    <span>SALES</span>
+                    <strong>
+                      {formatObservation(sales)}
+                    </strong>
+                  </div>
+                  <div className="rx-bar-track">
+                    <div
+                      className="rx-bar sales"
+                      style={{
+                        width: `${salesWidth}%`,
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="rx-delta">
+                  <span>OBSERVED GAP</span>
+                  <strong>
+                    +{divergenceValue?.toFixed(2) ?? "—"}
+                    {displayUnit ? ` ${displayUnit}` : ""}
+                  </strong>
+                  <small>
+                    SALES ABOVE REPORTED PRODUCTION
+                  </small>
+                </div>
+              </div>
+            </section>
+
+            <section className="rx-rail">
+              {resultPipeline.map((step) => (
+                <div key={step}>
+                  <span>✓</span>
+                  <strong>{step}</strong>
+                </div>
+              ))}
+            </section>
+
+            <section className="rx-duel">
+              <article className="rx-duel-card rx-proposes">
+                <div className="rx-duel-label">
+                  <span>AI</span>
+                  <strong>AI PROPOSES</strong>
+                </div>
+                <p>
+                  {hypothesisText ??
+                    "No hypothesis produced."}
+                </p>
               </article>
-            )}
-          </div>
-        </section>
 
-        <section className="rx-intelligence-grid">
-          <article className="rx-panel rx-hypothesis">
-            <div className="rx-section-heading compact">
-              <div>
+              <div className="rx-versus">VS</div>
+
+              <article className="rx-duel-card rx-challenges">
+                <div className="rx-duel-label">
+                  <span>RX</span>
+                  <strong>RX CHALLENGES</strong>
+                </div>
                 <p>
-                  EVIDENCE-BOUNDED HYPOTHESIS
+                  {challengeText ??
+                    "No adversarial challenge produced."}
                 </p>
+              </article>
+            </section>
 
-                <h2>
-                  Proposed explanation
-                </h2>
+            <section className="rx-final-brief">
+              <div className="rx-final-heading">
+                <div>
+                  <span>FINAL INTELLIGENCE BRIEF</span>
+                  <h2>Evidence before explanation.</h2>
+                </div>
+                <div className="rx-unknown">
+                  <span>CAUSAL CONCLUSION</span>
+                  <strong>UNKNOWN</strong>
+                </div>
               </div>
 
-              <span className="rx-ai-badge">
-                AI
-              </span>
-            </div>
-
-            <blockquote>
-              {hypothesisText ??
-                "No hypothesis has been produced. Run the investigation to synthesize admitted evidence."}
-            </blockquote>
-          </article>
-
-          <article className="rx-panel rx-challenge">
-            <div className="rx-section-heading compact">
-              <div>
-                <p>
-                  ADVERSARIAL CHALLENGE
-                </p>
-
-                <h2>
-                  What could make it wrong?
-                </h2>
-              </div>
-
-              <span className="rx-challenge-badge">
-                {accepted
-                  ? "CHALLENGED"
-                  : "WAITING"}
-              </span>
-            </div>
-
-            <div className="rx-challenge-item">
-              <span>
-                01
-              </span>
-
-              <p>
-                {challengeText ??
-                  "The adversarial challenge will appear after evidence-bounded synthesis completes."}
-              </p>
-            </div>
-          </article>
-        </section>
-
-        <section className="rx-brief">
-          <div className="rx-brief-header">
-            <div>
-              <p>
-                FINAL INTELLIGENCE BRIEF
-              </p>
-
-              <h2>
-                Evidence before explanation.
-              </h2>
-            </div>
-
-            <div className="rx-causal">
-              <span>
-                CAUSAL CONCLUSION
-              </span>
-
-              <strong>
-                UNKNOWN
-              </strong>
-            </div>
-          </div>
-
-          <div className="rx-brief-body">
-            <div className="rx-summary">
-              <span className="rx-mini-title">
-                EXECUTIVE SUMMARY
-              </span>
-
-              <p>
+              <p className="rx-brief-summary">
                 {briefText ??
-                  "Run the AADI investigation to produce an evidence-bounded intelligence brief."}
+                  "No intelligence brief produced."}
               </p>
-            </div>
 
-            <div className="rx-brief-columns">
-              <div>
-                <span className="rx-mini-title">
-                  ALTERNATIVE EXPLANATIONS
-                </span>
-
-                {alternatives.length >
-                0 ? (
-                  alternatives.map(
-                    (
-                      item,
-                      index,
-                    ) => (
-                      <p
-                        key={
-                          `${item}-${index}`
-                        }
-                      >
-                        {item}
-                      </p>
-                    ),
-                  )
-                ) : (
+              <div className="rx-brief-facts">
+                <div>
+                  <span>MAY EXPLAIN IT</span>
                   <p>
-                    Awaiting synthesis
+                    {alternatives[0] ??
+                      "No supported alternative recorded."}
                   </p>
+                </div>
+                <div>
+                  <span>UNCERTAINTY</span>
+                  <p>
+                    {uncertainties[0] ??
+                      "Material uncertainty remains."}
+                  </p>
+                </div>
+                <div>
+                  <span>UNRESOLVED</span>
+                  <p>
+                    {unresolved[0] ??
+                      "Causal mechanism remains unresolved."}
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="rx-evidence-summary">
+              <div>
+                <span>EVIDENCE LAYER</span>
+                <strong>
+                  {evidenceItems.length} admitted facts
+                </strong>
+                <p>
+                  Canonical evidence stays available without
+                  overwhelming the investigation story.
+                </p>
+              </div>
+
+              <div className="rx-evidence-groups">
+                {Object.entries(evidenceSummary).map(
+                  ([group, count]) => (
+                    <div key={group}>
+                      <strong>{count}</strong>
+                      <span>{group}</span>
+                    </div>
+                  ),
                 )}
               </div>
 
-              <div>
-                <span className="rx-mini-title">
-                  UNCERTAINTIES
-                </span>
+              <button
+                type="button"
+                className="rx-evidence-toggle"
+                onClick={() =>
+                  setShowEvidence((current) => !current)
+                }
+              >
+                {showEvidence
+                  ? "HIDE EVIDENCE"
+                  : `EXPLORE ${evidenceItems.length} EVIDENCE`}
+              </button>
+            </section>
 
-                {uncertainties.length >
-                0 ? (
-                  uncertainties.map(
-                    (
-                      item,
-                      index,
-                    ) => (
-                      <p
-                        key={
-                          `${item}-${index}`
-                        }
-                      >
-                        {item}
-                      </p>
-                    ),
-                  )
-                ) : (
-                  <p>
-                    Awaiting synthesis
-                  </p>
-                )}
-              </div>
+            {showEvidence ? (
+              <section className="rx-evidence-drawer">
+                <div className="rx-drawer-heading">
+                  <div>
+                    <span>TRACEABLE SOURCE FACTS</span>
+                    <h2>Admitted evidence</h2>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowEvidence(false)}
+                  >
+                    CLOSE ×
+                  </button>
+                </div>
 
-              <div>
-                <span className="rx-mini-title">
-                  UNRESOLVED
-                </span>
+                <div className="rx-evidence-list">
+                  {evidenceItems.map((item, index) => (
+                    <article
+                      key={item.evidenceId ?? index}
+                    >
+                      <span>
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <strong>
+                          {item.truthClass ?? "ADMITTED"}
+                        </strong>
+                        <p>
+                          {item.description ??
+                            "Canonical admitted evidence"}
+                        </p>
+                      </div>
+                      <small>
+                        {item.source ?? "SECTORS"}
+                      </small>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+          </>
+        ) : null}
 
-                <p>
-                  Causal mechanism
-                </p>
-
-                <p>
-                  Relative contribution of each factor
-                </p>
-              </div>
-            </div>
+        {!isRunning && runtimeError ? (
+          <div className="rx-error rx-error-bottom">
+            Investigation status: {runtimeError}
           </div>
-        </section>
+        ) : null}
 
         <footer className="rx-footer">
           <span>
-            RXseven / RX Mining Divergence Investigator
+            RXseven / Mining Divergence Investigator
           </span>
-
           <span>
-            DETECT → PRIORITIZE → INVESTIGATE → EVIDENCE → INTELLIGENCE
+            AI PROPOSES · RX PROVES · CAUSALITY STAYS UNKNOWN
           </span>
         </footer>
       </div>
