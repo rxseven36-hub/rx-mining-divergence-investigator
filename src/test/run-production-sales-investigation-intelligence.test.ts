@@ -646,5 +646,252 @@ describe(
         ).toBe("UNKNOWN");
       }
     );
+        it(
+      "preserves admitted evidence and degrades when AI synthesis provider fails",
+      async () => {
+        executeMock.mockResolvedValueOnce({
+          planId:
+            "PLAN-AADI",
+
+          caseId:
+            "CASE-AADI",
+
+          outcomes: [
+            {
+              status:
+                "EVIDENCE_ADMITTED",
+
+              preparedRequest: {
+                status:
+                  "READY",
+
+                request: {
+                  requestId:
+                    "AADI-R2",
+
+                  requirementId:
+                    "AADI-E2",
+
+                  source:
+                    "SECTORS",
+
+                  capability:
+                    "MINING_HISTORICAL_PERFORMANCE",
+
+                  purpose:
+                    "Collect historical mining performance.",
+
+                  status:
+                    "PLANNED",
+                },
+
+                executionDecision: {
+                  requestId:
+                    "AADI-R2",
+
+                  requirementId:
+                    "AADI-E2",
+
+                  capability:
+                    "MINING_HISTORICAL_PERFORMANCE",
+
+                  status:
+                    "READY",
+
+                  issues: [],
+
+                  causalConclusion:
+                    "UNKNOWN",
+                },
+
+                operation: {
+                  operation:
+                    "GET_MINING_HISTORICAL_PERFORMANCE",
+
+                  purpose:
+                    "Collect historical mining performance.",
+
+                  params: {
+                    sectorsSlug:
+                      "pt-adaro-andalan-indonesia-tbk",
+
+                    period: {
+                      kind:
+                        "YEAR",
+
+                      year:
+                        2024,
+                    },
+                  },
+                },
+
+                bindingIssues: [],
+              },
+
+              execution: {
+                status:
+                  "EXECUTED",
+
+                data: {
+                  year:
+                    2024,
+                },
+
+                issues: [],
+
+                cause:
+                  null,
+              },
+
+              evidenceCollection: {
+                requestId:
+                  "AADI-R2",
+
+                requirementId:
+                  "AADI-E2",
+
+                capability:
+                  "MINING_HISTORICAL_PERFORMANCE",
+
+                status:
+                  "AVAILABLE",
+
+                evidence: [
+                  {
+                    evidenceId:
+                      "AADI-EVIDENCE-1",
+
+                    source:
+                      "SECTORS",
+
+                    sourceReference:
+                      "sectors:mining-performance:pt-adaro-andalan-indonesia-tbk:2024",
+
+                    truthClass:
+                      "SOURCE_FACT",
+
+                    description:
+                      "AADI 2024 coal production was 48.11 Mt and sales were 55.8 Mt.",
+                  },
+                ],
+
+                issues: [],
+
+                causalConclusion:
+                  "UNKNOWN",
+              },
+
+              issue:
+                null,
+
+              causalConclusion:
+                "UNKNOWN",
+            },
+          ],
+
+          summary: {
+            totalCount:
+              1,
+
+            evidenceAdmittedCount:
+              1,
+
+            evidenceRejectedCount:
+              0,
+
+            executionFailedCount:
+              0,
+
+            executionRejectedCount:
+              0,
+
+            skippedCount:
+              0,
+
+            admissionNotSupportedCount:
+              0,
+          },
+
+          causalConclusion:
+            "UNKNOWN",
+        });
+
+        synthesisMock.mockRejectedValueOnce(
+          new Error(
+            "Gemini interaction failed: quota exceeded"
+          )
+        );
+
+        const result =
+          await runProductionSalesInvestigationIntelligence(
+            adapter,
+            provider,
+            {
+              admissions: [
+                admittedResult(),
+              ],
+
+              operationContext,
+            }
+          );
+
+        expect(
+          result.status
+        ).toBe(
+          "DEGRADED"
+        );
+
+        expect(
+          executeMock
+        ).toHaveBeenCalledTimes(1);
+
+        expect(
+          synthesisMock
+        ).toHaveBeenCalledTimes(1);
+
+        if (
+          result.status !==
+          "DEGRADED"
+        ) {
+          throw new Error(
+            "Expected DEGRADED"
+          );
+        }
+
+        expect(
+          result.evidencePack.evidence
+        ).toHaveLength(1);
+
+        expect(
+          result.evidencePack
+            .evidence[0]
+            ?.evidenceId
+        ).toBe(
+          "AADI-EVIDENCE-1"
+        );
+
+        expect(
+          result.synthesis
+        ).toBeNull();
+
+        expect(
+          result.providerFailure.stage
+        ).toBe(
+          "SYNTHESIS"
+        );
+
+        expect(
+          result.providerFailure.message
+        ).toContain(
+          "quota exceeded"
+        );
+
+        expect(
+          result.causalConclusion
+        ).toBe(
+          "UNKNOWN"
+        );
+      }
+    );
   }
 );

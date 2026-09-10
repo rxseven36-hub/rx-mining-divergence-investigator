@@ -118,6 +118,36 @@ export type RXProductionSalesInvestigationIntelligenceRunResult =
     }
   | {
       status:
+        "DEGRADED";
+
+      queue:
+        RXProductionSalesInvestigationQueueResult;
+
+      plan:
+        RXProductionSalesInvestigationPlan;
+
+      execution:
+        RXPreparedInvestigationExecutionResult;
+
+      evidencePack:
+        RXIntelligenceEvidencePack;
+
+      synthesis:
+        null;
+
+      providerFailure: {
+        stage:
+          "SYNTHESIS";
+
+        message:
+          string;
+      };
+
+      causalConclusion:
+        "UNKNOWN";
+    }
+  | {
+      status:
         "COMPLETED";
 
       queue:
@@ -172,6 +202,11 @@ export type RXProductionSalesInvestigationIntelligenceRunResult =
  *
  * - AI synthesis is never called when no evidence was
  *   admitted by the investigation execution path.
+ *
+ * - Provider/runtime failure during synthesis does not
+ *   discard already-admitted evidence or deterministic
+ *   investigation results. The run degrades explicitly
+ *   instead of reporting the entire investigation as failed.
  *
  * - This runner never establishes causality.
  */
@@ -286,11 +321,45 @@ export async function runProductionSalesInvestigationIntelligence(
     };
   }
 
-  const synthesis =
-    await runNeutralIntelligenceSynthesis(
-      provider,
-      evidencePack
-    );
+  let synthesis:
+    RXNeutralIntelligenceSynthesisRunResult;
+
+  try {
+    synthesis =
+      await runNeutralIntelligenceSynthesis(
+        provider,
+        evidencePack
+      );
+  } catch (error) {
+    return {
+      status:
+        "DEGRADED",
+
+      queue,
+
+      plan,
+
+      execution,
+
+      evidencePack,
+
+      synthesis:
+        null,
+
+      providerFailure: {
+        stage:
+          "SYNTHESIS",
+
+        message:
+          error instanceof Error
+            ? error.message
+            : "Unknown LLM provider failure",
+      },
+
+      causalConclusion:
+        "UNKNOWN",
+    };
+  }
 
   return {
     status:
