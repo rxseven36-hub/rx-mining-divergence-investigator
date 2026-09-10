@@ -6,7 +6,7 @@ import {
 } from "react";
 
 const loadingStories = [
-  ["01", "DETECTING MATERIAL DIVERGENCE", "Comparing reported production and sales."],
+  ["01", "DETECTING PRODUCTION / SALES DIVERGENCE", "Comparing reported production and sales."],
   ["02", "GATHERING SECTORS EVIDENCE", "Collecting canonical operational and market facts."],
   ["03", "BUILDING EVIDENCE CHAIN", "Binding admitted evidence to the investigation."],
   ["04", "TESTING EXPLANATIONS", "AI proposes evidence-bounded possibilities."],
@@ -35,6 +35,42 @@ interface RXEvidenceItem {
   description?: string;
 }
 
+interface RXDegradedWorkspaceResult {
+  status: "DEGRADED";
+  stage: "SYNTHESIS";
+  causalConclusion: "UNKNOWN";
+  company: {
+    id: string;
+    sectorsSlug: string;
+    ticker: string;
+    commodity: string;
+  };
+  year: number;
+  divergence: {
+    production: RXObservation | null;
+    sales: RXObservation | null;
+  };
+  investigationCase: {
+    trigger: {
+      priorityScore: number;
+      divergenceRatio: number;
+      rank: number;
+      triggerType: "DETERMINISTIC_DIVERGENCE_PRIORITY";
+    };
+  } | null;
+  evidence: {
+    pack: {
+      evidence?: RXEvidenceItem[];
+    };
+  };
+  hypothesis: null;
+  challenge: null;
+  brief: null;
+  degradation: {
+    code: "AI_SYNTHESIS_PROVIDER_UNAVAILABLE";
+  };
+}
+
 interface RXAcceptedWorkspaceResult {
   status: "ACCEPTED";
   stage: "COMPLETE";
@@ -50,7 +86,14 @@ interface RXAcceptedWorkspaceResult {
     production: RXObservation | null;
     sales: RXObservation | null;
   };
-  investigationCase: unknown;
+  investigationCase: {
+    trigger: {
+      priorityScore: number;
+      divergenceRatio: number;
+      rank: number;
+      triggerType: "DETERMINISTIC_DIVERGENCE_PRIORITY";
+    };
+  } | null;
   evidence: {
     pack: {
       evidence?: RXEvidenceItem[];
@@ -70,6 +113,7 @@ interface RXRejectedWorkspaceResult {
 
 type RXWorkspaceResult =
   | RXAcceptedWorkspaceResult
+  | RXDegradedWorkspaceResult
   | RXRejectedWorkspaceResult;
 function readText(
   value: unknown,
@@ -256,9 +300,15 @@ export default function Home() {
   }, [isRunning]);
 
 const accepted =
-  result?.status === "ACCEPTED"
+  result?.status === "ACCEPTED" ||
+  result?.status === "DEGRADED"
     ? result
     : null;
+
+  const degraded =
+    result?.status === "DEGRADED"
+      ? result
+      : null;
 
   const evidenceItems =
     accepted?.evidence.pack.evidence ?? [];
@@ -283,6 +333,24 @@ const accepted =
     salesValue !== null
       ? salesValue - productionValue
       : null;
+
+  const investigationTrigger =
+    accepted?.investigationCase?.trigger ?? null;
+
+  const divergenceRatio =
+    investigationTrigger?.divergenceRatio ?? null;
+
+  const priorityScore =
+    investigationTrigger?.priorityScore ?? null;
+
+  const divergenceDirection =
+    divergenceValue === null
+      ? null
+      : divergenceValue > 0
+        ? "SALES ABOVE REPORTED PRODUCTION"
+        : divergenceValue < 0
+          ? "PRODUCTION ABOVE REPORTED SALES"
+          : "NO OBSERVED PRODUCTION / SALES GAP";
 
   const productionUnit = readUnit(production?.unit);
   const salesUnit = readUnit(sales?.unit);
@@ -418,9 +486,11 @@ const accepted =
           <span className="rx-live-dot" />
           {isRunning
             ? "INVESTIGATION ACTIVE"
-            : accepted
-              ? "INTELLIGENCE READY"
-              : "ENGINE READY"}
+            : degraded
+              ? "EVIDENCE READY / AI DEGRADED"
+              : accepted
+                ? "INTELLIGENCE READY"
+                : "ENGINE READY"}
         </div>
       </header>
 
@@ -562,7 +632,7 @@ const accepted =
                     LIVE SECTORS INTELLIGENCE
                   </span>
                   <span className="rx-demo-badge">
-                    COMPLETE
+                    {degraded ? "AI DEGRADED" : "COMPLETE"}
                   </span>
                 </div>
                 <h1>
@@ -585,7 +655,7 @@ const accepted =
             <section className="rx-signal-card">
               <div className="rx-signal-title">
                 <div>
-                  <span>MATERIAL SIGNAL</span>
+                  <span>OBSERVED DIVERGENCE</span>
                   <h2>Production / Sales Divergence</h2>
                 </div>
                 <strong>DETECTED</strong>
@@ -629,23 +699,54 @@ const accepted =
                 <div className="rx-delta">
                   <span>OBSERVED GAP</span>
                   <strong>
-                    +{divergenceValue?.toFixed(2) ?? "—"}
+                    {divergenceValue !== null
+                      ? `${divergenceValue > 0 ? "+" : ""}${divergenceValue.toFixed(2)}`
+                      : "N/A"}
                     {displayUnit ? ` ${displayUnit}` : ""}
                   </strong>
                   <small>
-                    SALES ABOVE REPORTED PRODUCTION
+                    {divergenceDirection ?? "DIRECTION UNAVAILABLE"}
+                  </small>
+                </div>
+
+                <div className="rx-delta">
+                  <span>RELATIVE GAP</span>
+                  <strong>
+                    {divergenceRatio !== null
+                      ? `${(divergenceRatio * 100).toFixed(2)}%`
+                      : "N/A"}
+                  </strong>
+                  <small>
+                    PRODUCTION / SALES DIVERGENCE MAGNITUDE
+                  </small>
+                </div>
+
+                <div className="rx-delta">
+                  <span>PRIORITY SCORE</span>
+                  <strong>
+                    {priorityScore?.toFixed(2) ?? "N/A"}
+                  </strong>
+                  <small>
+                    DETERMINISTIC INVESTIGATION PRIORITY
                   </small>
                 </div>
               </div>
             </section>
 
             <section className="rx-rail">
-              {resultPipeline.map((step) => (
-                <div key={step}>
-                  <span>✓</span>
-                  <strong>{step}</strong>
-                </div>
-              ))}
+              {resultPipeline.map((step) => {
+                const briefUnavailable =
+                  degraded && step === "BRIEF";
+
+                return (
+                  <div key={step}>
+                    <span>
+                      {briefUnavailable ? "!" : "\u2713"}
+                    </span>
+                    <strong>{step}</strong>
+                  </div>
+                );
+              })}
             </section>
 
             <section className="rx-duel">
@@ -655,8 +756,10 @@ const accepted =
                   <strong>AI PROPOSES</strong>
                 </div>
                 <p>
-                  {hypothesisText ??
-                    "No hypothesis produced."}
+                  {degraded
+                    ? "AI synthesis unavailable. No hypothesis was produced."
+                    : hypothesisText ??
+                      "No hypothesis produced."}
                 </p>
               </article>
 
@@ -668,8 +771,10 @@ const accepted =
                   <strong>RX CHALLENGES</strong>
                 </div>
                 <p>
-                  {challengeText ??
-                    "No adversarial challenge produced."}
+                  {degraded
+                    ? "AI synthesis unavailable. No adversarial challenge was produced."
+                    : challengeText ??
+                      "No adversarial challenge produced."}
                 </p>
               </article>
             </section>
@@ -687,8 +792,10 @@ const accepted =
               </div>
 
               <p className="rx-brief-summary">
-                {briefText ??
-                  "No intelligence brief produced."}
+                {degraded
+                  ? "AI synthesis is currently unavailable. Deterministic investigation results and admitted evidence remain available. No causal conclusion is asserted."
+                  : briefText ??
+                    "No intelligence brief produced."}
               </p>
 
               <div className="rx-brief-facts">

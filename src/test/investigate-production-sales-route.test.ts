@@ -549,6 +549,221 @@ describe(
     );
 
     it(
+      "preserves deterministic investigation when synthesis provider degrades",
+      async () => {
+        const production = {
+          observationId:
+            "aadi-production-2024",
+          metric:
+            "PRODUCTION",
+          value:
+            60,
+          unit:
+            "Mt",
+        };
+
+        const sales = {
+          observationId:
+            "aadi-sales-2024",
+          metric:
+            "SALES",
+          value:
+            55.8,
+          unit:
+            "Mt",
+        };
+
+        const investigationCase = {
+          caseId:
+            "aadi-production-sales-case",
+          trigger: {
+            priorityScore:
+              6.5420560747663545,
+            divergenceRatio:
+              0.07,
+            rank:
+              1,
+            triggerType:
+              "DETERMINISTIC_DIVERGENCE_PRIORITY",
+          },
+        };
+
+        const evidencePack = {
+          planId:
+            "aadi-plan",
+          caseId:
+            "aadi-production-sales-case",
+          evidence: [
+            {
+              evidenceId:
+                "evidence-1",
+              source:
+                "SECTORS",
+              truthClass:
+                "ADMITTED",
+              description:
+                "Admitted deterministic evidence",
+            },
+          ],
+          causalConclusion:
+            "UNKNOWN",
+        };
+
+        mocks
+          .runLiveProductionSalesIntelligence
+          .mockResolvedValue({
+            status:
+              "COMPLETED",
+
+            stage:
+              "INTELLIGENCE",
+
+            discovery: {
+              status:
+                "ADMITTED",
+
+              admittedObservations: [
+                production,
+                sales,
+              ],
+            },
+
+            intelligence: {
+              status:
+                "DEGRADED",
+
+              queue: {
+                queue: {
+                  cases: [
+                    investigationCase,
+                  ],
+                },
+              },
+
+              plan: {
+                planId:
+                  "aadi-plan",
+              },
+
+              execution: {
+                planId:
+                  "aadi-plan",
+              },
+
+              evidencePack,
+
+              synthesis:
+                null,
+
+              providerFailure: {
+                stage:
+                  "SYNTHESIS",
+
+                message:
+                  "provider failure containing test-llm-key",
+              },
+
+              causalConclusion:
+                "UNKNOWN",
+            },
+
+            issues: [],
+
+            causalConclusion:
+              "UNKNOWN",
+          });
+
+        const response =
+          await POST(
+            createRequest(
+              createValidBody(),
+            ),
+          );
+
+        expect(
+          response.status,
+        ).toBe(
+          200,
+        );
+
+        const payload =
+          await response.json();
+
+        expect(
+          payload,
+        ).toEqual({
+          status:
+            "DEGRADED",
+
+          stage:
+            "SYNTHESIS",
+
+          causalConclusion:
+            "UNKNOWN",
+
+          company: {
+            id:
+              "rx-company-aadi",
+
+            sectorsSlug:
+              "pt-adaro-andalan-indonesia-tbk",
+
+            ticker:
+              "AADI.JK",
+
+            commodity:
+              "COAL",
+          },
+
+          year:
+            2024,
+
+          divergence: {
+            production,
+            sales,
+          },
+
+          investigationCase,
+
+          evidence: {
+            pack:
+              evidencePack,
+          },
+
+          hypothesis:
+            null,
+
+          challenge:
+            null,
+
+          brief:
+            null,
+
+          degradation: {
+            code:
+              "AI_SYNTHESIS_PROVIDER_UNAVAILABLE",
+          },
+        });
+
+        expect(
+          JSON.stringify(
+            payload,
+          ),
+        ).not.toContain(
+          "provider failure containing test-llm-key",
+        );
+
+        expect(
+          JSON.stringify(
+            payload,
+          ),
+        ).not.toContain(
+          "test-llm-key",
+        );
+      },
+    );
+
+    it(
       "maps unexpected live runtime failures to a safe server response",
       async () => {
         mocks

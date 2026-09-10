@@ -223,6 +223,97 @@ export async function POST(
       result.intelligence;
 
     if (
+      intelligence.status ===
+        "DEGRADED"
+    ) {
+      const admittedObservations =
+        result.discovery
+          .admittedObservations;
+
+      const production =
+        admittedObservations.find(
+          (observation) =>
+            observation.metric ===
+            "PRODUCTION",
+        ) ?? null;
+
+      const sales =
+        admittedObservations.find(
+          (observation) =>
+            observation.metric ===
+            "SALES",
+        ) ?? null;
+
+      const investigationCase =
+        intelligence.queue
+          .queue
+          .cases[0] ??
+        null;
+
+      return NextResponse.json(
+        {
+          status:
+            "DEGRADED",
+
+          stage:
+            "SYNTHESIS",
+
+          causalConclusion:
+            "UNKNOWN",
+
+          company: {
+            id:
+              body.companyId.trim(),
+
+            sectorsSlug:
+              body.sectorsSlug.trim(),
+
+            ticker:
+              body.ticker.trim(),
+
+            commodity:
+              body.commodity,
+          },
+
+          year:
+            body.year,
+
+          divergence: {
+            production,
+
+            sales,
+          },
+
+          investigationCase,
+
+          evidence: {
+            pack:
+              intelligence
+                .evidencePack,
+          },
+
+          hypothesis:
+            null,
+
+          challenge:
+            null,
+
+          brief:
+            null,
+
+          degradation: {
+            code:
+              "AI_SYNTHESIS_PROVIDER_UNAVAILABLE",
+          },
+        },
+        {
+          status:
+            200,
+        },
+      );
+    }
+
+    if (
       intelligence.status !==
         "COMPLETED"
     ) {
