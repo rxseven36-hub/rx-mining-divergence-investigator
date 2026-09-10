@@ -16,6 +16,18 @@ import {
   runLiveProductionSalesIntelligence,
 } from "../investigation/run-live-production-sales-intelligence";
 
+import {
+  detectAdmittedProductionSalesDivergence,
+} from "../intelligence/detectors/detect-admitted-production-sales-divergence";
+
+import {
+  scoreAdmittedProductionSalesDivergence,
+} from "../intelligence/priority/score-admitted-production-sales-divergence";
+
+import {
+  buildAdmittedProductionSalesInvestigationQueue,
+} from "../investigation/build-admitted-production-sales-investigation-queue";
+
 const LIVE_CONFIRMED =
   process.env.RX_LIVE_CROSS_COMPANY === "YES";
 
@@ -67,6 +79,10 @@ const companies = [
     year: 2024,
   },
 ] as const;
+
+type RXSemanticOutcome =
+  | "INVESTIGATE"
+  | "NO_INVESTIGATION_CASE";
 
 describe(
   "Cross-company live generalization",
@@ -192,6 +208,200 @@ describe(
 
           const intelligence =
             result.intelligence;
+
+          const detection =
+            detectAdmittedProductionSalesDivergence(
+              result.discovery
+            );
+
+          const scoring =
+            scoreAdmittedProductionSalesDivergence(
+              result.discovery
+            );
+
+          const queueResult =
+            buildAdmittedProductionSalesInvestigationQueue(
+              [
+                result.discovery,
+              ]
+            );
+
+          const queueCaseCount =
+            queueResult.queue.cases.length;
+
+          const semanticOutcome:
+            RXSemanticOutcome =
+              queueCaseCount > 0
+                ? "INVESTIGATE"
+                : "NO_INVESTIGATION_CASE";
+
+          const detectorResult =
+            detection.detectorResult;
+
+          const priorityResult =
+            scoring.priorityResult;
+
+          console.log(
+            `${company.ticker} SEMANTIC AUDIT: ${JSON.stringify(
+              {
+                ticker:
+                  company.ticker,
+
+                detectionWrapperStatus:
+                  detection.status,
+
+                detectionNotRunReason:
+                  detection.status ===
+                  "NOT_RUN"
+                    ? detection.reason
+                    : null,
+
+                detectorStatus:
+                  detectorResult?.status ??
+                  null,
+
+                detectorSkipReasons:
+                  detectorResult?.skipReasons ??
+                  [],
+
+                production:
+                  detectorResult
+                    ?.calculation
+                    ?.production ??
+                  null,
+
+                sales:
+                  detectorResult
+                    ?.calculation
+                    ?.sales ??
+                  null,
+
+                signedDifference:
+                  detectorResult
+                    ?.calculation
+                    ?.signedDifference ??
+                  null,
+
+                divergenceRatio:
+                  detectorResult
+                    ?.calculation
+                    ?.differenceRatioOfProduction ??
+                  priorityResult
+                    ?.divergenceRatio ??
+                  null,
+
+                direction:
+                  detectorResult
+                    ?.calculation
+                    ?.direction ??
+                  null,
+
+                priorityWrapperStatus:
+                  scoring.status,
+
+                priorityStatus:
+                  priorityResult?.status ??
+                  null,
+
+                priorityScore:
+                  priorityResult?.score ??
+                  null,
+
+                queueCaseCount,
+
+                semanticOutcome,
+              }
+            )}`,
+          );
+
+          if (queueCaseCount > 0) {
+            expect(
+              semanticOutcome,
+              `${company.ticker} queued case must produce INVESTIGATE semantics`,
+            ).toBe(
+              "INVESTIGATE",
+            );
+
+            expect(
+              scoring.status,
+              `${company.ticker} queued case must come from deterministic scoring`,
+            ).toBe(
+              "SCORED",
+            );
+
+            if (
+              scoring.status !==
+              "SCORED"
+            ) {
+              throw new Error(
+                `${company.ticker} queued case without scoring result`,
+              );
+            }
+
+            expect(
+              scoring.priorityResult.status,
+              `${company.ticker} queued case must originate from SCORABLE priority`,
+            ).toBe(
+              "SCORABLE",
+            );
+          }
+
+          expect(
+            intelligence.queue.queue.cases.length,
+            `${company.ticker} production queue must match canonical deterministic queue`,
+          ).toBe(
+            queueCaseCount,
+          );
+
+          expect(
+            intelligence.queue.scorablePriorityCount,
+            `${company.ticker} production scorable priority count must match canonical deterministic queue`,
+          ).toBe(
+            queueResult.scorablePriorityCount,
+          );
+
+          if (
+            intelligence.status ===
+            "NO_INVESTIGATION_CASE"
+          ) {
+            expect(
+              queueCaseCount,
+              `${company.ticker} NO_INVESTIGATION_CASE requires an empty canonical queue`,
+            ).toBe(
+              0,
+            );
+
+            expect(
+              semanticOutcome,
+            ).toBe(
+              "NO_INVESTIGATION_CASE",
+            );
+          } else {
+            expect(
+              queueCaseCount,
+              `${company.ticker} downstream investigation status requires a canonical investigation case`,
+            ).toBeGreaterThan(
+              0,
+            );
+
+            expect(
+              semanticOutcome,
+            ).toBe(
+              "INVESTIGATE",
+            );
+          }
+
+          for (const investigationCase of queueResult
+            .queue
+            .cases) {
+            expect(
+              investigationCase.trigger
+                .triggerType,
+              `${company.ticker} queued case must retain deterministic trigger type`,
+            ).toBe(
+              "DETERMINISTIC_DIVERGENCE_PRIORITY",
+            );
+          }
 
           console.log(
             `${company.ticker} INTELLIGENCE RESULT: ${intelligence.status}`,
