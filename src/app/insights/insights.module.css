@@ -1,0 +1,276 @@
+.page {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 34px 0 76px;
+}
+
+.hero {
+  padding: 8px 0 24px;
+}
+
+.hero > span,
+.overview > div > span,
+.takeaway > span {
+  color: #48d7ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .15em;
+}
+
+.hero h1 {
+  margin: 9px 0 0;
+  color: #f2f7fa;
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.03;
+  letter-spacing: -.04em;
+}
+
+.hero h1 em {
+  color: #1aa9ff;
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 780px;
+  margin: 14px 0 0;
+  color: #819aa7;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.overview > div {
+  min-height: 122px;
+  padding: 16px;
+  border: 1px solid rgba(69, 138, 165, .18);
+  border-radius: 13px;
+  background: rgba(6, 25, 36, .76);
+}
+
+.overview strong {
+  display: block;
+  margin-top: 9px;
+  color: #edf6f9;
+  font-size: 19px;
+  letter-spacing: -.02em;
+}
+
+.overview p {
+  margin: 7px 0 0;
+  color: #66838f;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0 10px;
+}
+
+.filterBar button {
+  padding: 8px 11px;
+  border: 1px solid rgba(72, 143, 169, .16);
+  border-radius: 999px;
+  background: rgba(8, 31, 43, .58);
+  color: #718f9d;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filterBar .activeFilter {
+  border-color: rgba(38, 184, 240, .35);
+  background: rgba(18, 90, 119, .35);
+  color: #57d5ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.card {
+  padding: 18px;
+  border: 1px solid rgba(67, 136, 164, .19);
+  border-radius: 13px;
+  background:
+    radial-gradient(circle at 8% 5%, rgba(29, 164, 216, .055), transparent 30%),
+    linear-gradient(145deg, rgba(7, 29, 41, .96), rgba(5, 22, 33, .96));
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTop span {
+  color: #54c8f1;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.cardTop strong {
+  color: #65d8aa;
+  font-size: 11px;
+}
+
+.card h2 {
+  margin: 14px 0 0;
+  color: #edf6f9;
+  font-size: 21px;
+  line-height: 1.16;
+  letter-spacing: -.028em;
+}
+
+.card > p {
+  margin: 9px 0 0;
+  color: #718c98;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.takeaway {
+  margin-top: 15px;
+  padding: 12px;
+  border: 1px solid rgba(64, 188, 230, .11);
+  border-radius: 10px;
+  background: rgba(5, 31, 43, .72);
+}
+
+.takeaway > span {
+  font-size: 7px;
+}
+
+.takeaway strong {
+  display: block;
+  margin-top: 6px;
+  color: #a8c2cc;
+  font-size: 10px;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.companyRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.companyRow span {
+  padding: 5px 7px;
+  border-radius: 999px;
+  background: rgba(14, 49, 64, .68);
+  color: #87a4af;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.card footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(68, 130, 154, .12);
+}
+
+.card footer span {
+  color: #587482;
+  font-size: 8px;
+}
+
+.card footer a {
+  color: #49cfff;
+  font-size: 9px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(66, 200, 157, .13);
+  border-radius: 13px;
+  background: rgba(5, 27, 33, .68);
+}
+
+.flow > div {
+  min-width: 0;
+}
+
+.flow span {
+  color: #49cfff;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.flow strong {
+  display: block;
+  margin-top: 4px;
+  color: #d8ebeb;
+  font-size: 13px;
+}
+
+.flow p {
+  margin: 4px 0 0;
+  color: #617f86;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.flow b {
+  color: #32697b;
+  font-size: 18px;
+}
+
+@media (max-width: 850px) {
+  .overview,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    width: min(100% - 24px, 1240px);
+    padding-top: 24px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  .flow > b {
+    display: none;
+  }
+
+  .card footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,7 @@
 import type {
   RXInvestigationCapability,
 } from "./capability";
+
 import type {
   RXInvestigationCase,
 } from "./investigation-case";
@@ -56,7 +57,8 @@ function requirement(
 function request(
   requestId: string,
   requirementId: string,
-  capability: RXInvestigationCapability,
+  capability:
+    RXInvestigationCapability,
   purpose: string
 ): RXInvestigationDataRequest {
   return {
@@ -70,14 +72,18 @@ function request(
 }
 
 /**
- * Creates the deterministic baseline investigation plan
- * for the first RX detector.
+ * Creates the deterministic baseline investigation plan.
  *
  * IMPORTANT:
  * - No API call occurs here.
+ * - No MCP call occurs here.
  * - No LLM call occurs here.
  * - No cause is inferred here.
  * - Capabilities are logical data needs, not raw endpoints.
+ *
+ * Financial context is optional contextual evidence.
+ * Its execution boundary is resolved later by the
+ * capability registry and orchestration layer.
  */
 export function createInvestigationPlan(
   investigationCase:
@@ -112,6 +118,12 @@ export function createInvestigationPlan(
         `${prefix}-Q4`,
         "MARKET_REACTION",
         "What market reaction, if any, coincides with the detected divergence period?"
+      ),
+
+      question(
+        `${prefix}-Q5`,
+        "FINANCIAL_CONTEXT",
+        "What provider-supplied financial and valuation evidence provides context for the investigated company?"
       ),
     ];
 
@@ -148,6 +160,14 @@ export function createInvestigationPlan(
         "Company market transaction context aligned to the relevant period where coverage exists.",
         false
       ),
+
+      requirement(
+        `${prefix}-E5`,
+        `${prefix}-Q5`,
+        "FINANCIAL_REPORT",
+        "Provider-supplied historical financial statements, ratios, and valuation evidence where coverage exists.",
+        false
+      ),
     ];
 
   const dataRequests:
@@ -179,6 +199,13 @@ export function createInvestigationPlan(
         "COMPANY_MARKET_TRANSACTION_HISTORY",
         "Collect market reaction context without asserting causality."
       ),
+
+      request(
+        `${prefix}-R5`,
+        `${prefix}-E5`,
+        "COMPANY_FINANCIAL_REPORT",
+        "Collect provider-supplied financial and valuation context without asserting causality."
+      ),
     ];
 
   return {
@@ -188,7 +215,8 @@ export function createInvestigationPlan(
     caseId:
       investigationCase.caseId,
 
-    status: "PLANNED",
+    status:
+      "PLANNED",
 
     questions,
 

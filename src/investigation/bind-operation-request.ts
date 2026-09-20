@@ -19,8 +19,8 @@ import type {
 } from "../data/sectors/sectors-operation-request";
 
 import type {
-  RXInvestigationCapability,
-} from "./capability";
+  RXSectorsRestCapability,
+} from "../data/sectors/sectors-operation";
 
 export interface RXInvestigationOperationContext {
   companyId: RXCompany["id"];
@@ -57,7 +57,8 @@ export type RXInvestigationOperationBindingContext =
 
 export type RXBindOperationRequestIssue =
   | "SECTORS_SLUG_REQUIRED"
-  | "TICKER_REQUIRED";
+  | "TICKER_REQUIRED"
+  | "EXECUTION_BOUNDARY_NOT_SUPPORTED";
 
 export type RXBindOperationRequestResult =
   | {
@@ -73,7 +74,7 @@ export type RXBindOperationRequestResult =
 
 export function bindInvestigationOperationRequest(
   capability:
-    RXInvestigationCapability,
+    RXSectorsRestCapability,
   purpose:
     string,
   context:

@@ -54,3 +54,9 @@ next-env.d.ts
 # Prisma generated/local
 prisma/*.db
 prisma/*.db-journal
+
+# RX MDI local audit / backup artifacts
+RX_MDI_*.txt
+RX7_*.txt
+*.bak
+*.v2-*

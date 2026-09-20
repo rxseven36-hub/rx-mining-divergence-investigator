@@ -11,6 +11,9 @@ import type {
   RXSectorsTypedOperationRequest,
 } from "./sectors-operation-request";
 
+export type RXSectorsExecutionFailureIssue =
+  | string;
+
 export type RXSectorsExecutionResult<T> =
   | {
       status: "EXECUTED";
@@ -27,9 +30,63 @@ export type RXSectorsExecutionResult<T> =
   | {
       status: "FAILED";
       data: null;
-      issues: [];
+      issues: RXSectorsExecutionFailureIssue[];
       cause: unknown;
     };
+
+function projectExecutionFailureIssues(
+  cause: unknown,
+): RXSectorsExecutionFailureIssue[] {
+  if (
+    typeof cause !== "object" ||
+    cause === null
+  ) {
+    return [];
+  }
+
+  const record =
+    cause as {
+      code?: unknown;
+      status?: unknown;
+      message?: unknown;
+    };
+
+  const issues:
+    RXSectorsExecutionFailureIssue[] = [];
+
+  if (
+    typeof record.code === "string" &&
+    record.code.trim().length > 0
+  ) {
+    issues.push(
+      record.code.trim(),
+    );
+  }
+
+  if (
+    typeof record.status === "number" &&
+    Number.isInteger(record.status)
+  ) {
+    issues.push(
+      `HTTP_STATUS:${record.status}`,
+    );
+  }
+
+  if (
+    typeof record.message === "string" &&
+    record.message.trim().length > 0
+  ) {
+    issues.push(
+      `MESSAGE:${record.message.trim()}`,
+    );
+  }
+
+  return Array.from(
+    new Set(
+      issues,
+    ),
+  );
+}
 
 /**
  * Controlled runtime boundary between a typed RX operation
@@ -40,7 +97,9 @@ export type RXSectorsExecutionResult<T> =
  * - rejected requests never reach the adapter;
  * - no REST path can be supplied by the caller;
  * - adapter failures remain distinguishable from
- *   deterministic request rejection.
+ *   deterministic request rejection;
+ * - provider failures expose only bounded diagnostic issues;
+ * - the original cause remains available for internal debugging.
  */
 export async function executeSectorsOperation<T>(
   adapter: SectorsAdapter,
@@ -77,7 +136,10 @@ export async function executeSectorsOperation<T>(
     return {
       status: "FAILED",
       data: null,
-      issues: [],
+      issues:
+        projectExecutionFailureIssues(
+          cause,
+        ),
       cause,
     };
   }

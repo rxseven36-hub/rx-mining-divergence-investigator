@@ -1,0 +1,697 @@
+{
+  "company": {
+    "name": "PT Bayan Resources Tbk",
+    "symbol": "BYAN",
+    "type": "Holding",
+    "province": "Kalimantan Timur",
+    "keyOperation": "Mining",
+    "activities": [
+      "Holding",
+      "Wholesale Trade",
+      "Coal Terminal Management"
+    ],
+    "commodities": [
+      "Coal"
+    ],
+    "licenses": [
+      {
+        "license_type": "IUP",
+        "license_number": "02540102917540004",
+        "wiup_code": "2362120205122024033",
+        "province": "Kalimantan Tengah",
+        "city": "Kabupaten Murung Raya",
+        "license_effective_date": "2024-03-01",
+        "license_expiry_date": "2029-03-01",
+        "activity": "Operasi Produksi",
+        "licensed_area_ha": 49.43,
+        "cnc": "CNC",
+        "generation": null,
+        "location": "Kabupaten Murung Raya",
+        "commodity_type": "Non-Metallic Mineral"
+      }
+    ]
+  },
+  "financials": {
+    "year": 2024,
+    "assets": 3521000000,
+    "revenue": 3446000000,
+    "netProfit": 943000000,
+    "costRevenue": 2113430000,
+    "revenueBreakdown": {
+      "coal": 3425060000,
+      "non_coal": 21154000000
+    },
+    "costBreakdown": {
+      "royalty": 263839999.99999997,
+      "overburden_removal": 778020000,
+      "barging": 228220000
+    }
+  },
+  "performance": {
+    "year": 2024,
+    "commodityType": "Coal",
+    "commoditySubType": "Thermal Coal",
+    "unit": "Mt",
+    "status": "production",
+    "production": 50.5,
+    "sales": 56.2,
+    "overburden": null,
+    "stripRatio": null,
+    "reserves": 2031,
+    "resources": 4082,
+    "measurementYear": 2022,
+    "reserveDetail": {
+      "probable": 846,
+      "proven": 1185
+    },
+    "resourceDetail": {
+      "inferred": 1040,
+      "indicated": 1501,
+      "measured": 1540
+    },
+    "products": [
+      {
+        "product_name": "FSP - Tabang Block",
+        "calorific_value_kcal": {
+          "min": 4360,
+          "max": 4360
+        },
+        "total_moisture_pct": {
+          "min": 32.8,
+          "max": 32.8
+        },
+        "ash_content_adb": {
+          "min": 5.8,
+          "max": 5.8
+        },
+        "total_sulphur_adb": {
+          "min": 0.1,
+          "max": 0.1
+        }
+      },
+      {
+        "product_name": "BT - Tabang Block",
+        "calorific_value_kcal": {
+          "min": 4280,
+          "max": 4280
+        },
+        "total_moisture_pct": {
+          "min": 34.9,
+          "max": 34.9
+        },
+        "ash_content_adb": {
+          "min": 3.3,
+          "max": 3.3
+        },
+        "total_sulphur_adb": {
+          "min": 0.1,
+          "max": 0.1
+        }
+      },
+      {
+        "product_name": "TA - North Pakar Block",
+        "calorific_value_kcal": {
+          "min": 4150,
+          "max": 4150
+        },
+        "total_moisture_pct": {
+          "min": 34.8,
+          "max": 34.8
+        },
+        "ash_content_adb": {
+          "min": 5.4,
+          "max": 5.4
+        },
+        "total_sulphur_adb": {
+          "min": 0.1,
+          "max": 0.1
+        }
+      },
+      {
+        "product_name": "TJ - North Pakar Block",
+        "calorific_value_kcal": {
+          "min": 3950,
+          "max": 3950
+        },
+        "total_moisture_pct": {
+          "min": 37.5,
+          "max": 37.5
+        },
+        "ash_content_adb": {
+          "min": 4.8,
+          "max": 4.8
+        },
+        "total_sulphur_adb": {
+          "min": 0.1,
+          "max": 0.1
+        }
+      },
+      {
+        "product_name": "DE - North Pakar Block",
+        "calorific_value_kcal": {
+          "min": 3590,
+          "max": 3590
+        },
+        "total_moisture_pct": {
+          "min": 42.1,
+          "max": 42.1
+        },
+        "ash_content_adb": {
+          "min": 5.7,
+          "max": 5.7
+        },
+        "total_sulphur_adb": {
+          "min": 0.1,
+          "max": 0.1
+        }
+      },
+      {
+        "product_name": "BAS",
+        "calorific_value_kcal": {
+          "min": 3540,
+          "max": 3540
+        },
+        "total_moisture_pct": {
+          "min": 42.1,
+          "max": 42.1
+        },
+        "ash_content_adb": {
+          "min": 8,
+          "max": 8
+        },
+        "total_sulphur_adb": {
+          "min": 0.2,
+          "max": 0.2
+        }
+      },
+      {
+        "product_name": "SA - South Pakar Block",
+        "calorific_value_kcal": {
+          "min": 3140,
+          "max": 3140
+        },
+        "total_moisture_pct": {
+          "min": 46.8,
+          "max": 46.8
+        },
+        "ash_content_adb": {
+          "min": 5.9,
+          "max": 5.9
+        },
+        "total_sulphur_adb": {
+          "min": 0.2,
+          "max": 0.2
+        }
+      },
+      {
+        "product_name": "CA - South Pakar Block",
+        "calorific_value_kcal": {
+          "min": 3050,
+          "max": 3050
+        },
+        "total_moisture_pct": {
+          "min": 48.8,
+          "max": 48.8
+        },
+        "ash_content_adb": {
+          "min": 6,
+          "max": 6
+        },
+        "total_sulphur_adb": {
+          "min": 0.2,
+          "max": 0.2
+        }
+      },
+      {
+        "product_name": "BS - South Pakar Block",
+        "calorific_value_kcal": {
+          "min": 2500,
+          "max": 2500
+        },
+        "total_moisture_pct": {
+          "min": 49.9,
+          "max": 49.9
+        },
+        "ash_content_adb": {
+          "min": 5.8,
+          "max": 5.8
+        },
+        "total_sulphur_adb": {
+          "min": 0.2,
+          "max": 0.2
+        }
+      },
+      {
+        "product_name": "PIK",
+        "calorific_value_kcal": {
+          "min": 4780,
+          "max": 4780
+        },
+        "total_moisture_pct": {
+          "min": 29.9,
+          "max": 29.9
+        },
+        "ash_content_adb": {
+          "min": 3.5,
+          "max": 3.5
+        },
+        "total_sulphur_adb": {
+          "min": 1.29,
+          "max": 1.29
+        }
+      },
+      {
+        "product_name": "WBM",
+        "calorific_value_kcal": {
+          "min": 6540,
+          "max": 6540
+        },
+        "total_moisture_pct": {
+          "min": 7.2,
+          "max": 7.2
+        },
+        "ash_content_adb": {
+          "min": 9.7,
+          "max": 9.7
+        },
+        "total_sulphur_adb": {
+          "min": 0.58,
+          "max": 0.58
+        }
+      },
+      {
+        "product_name": "TSA",
+        "calorific_value_kcal": {
+          "min": 6110,
+          "max": 6110
+        },
+        "total_moisture_pct": {
+          "min": 13.7,
+          "max": 13.7
+        },
+        "ash_content_adb": {
+          "min": 6.5,
+          "max": 6.5
+        },
+        "total_sulphur_adb": {
+          "min": 1.25,
+          "max": 1.25
+        }
+      },
+      {
+        "product_name": "FKP",
+        "calorific_value_kcal": {
+          "min": 5610,
+          "max": 5610
+        },
+        "total_moisture_pct": {
+          "min": 18.6,
+          "max": 18.6
+        },
+        "ash_content_adb": {
+          "min": 6.4,
+          "max": 6.4
+        },
+        "total_sulphur_adb": {
+          "min": 0.83,
+          "max": 0.83
+        }
+      }
+    ]
+  },
+  "salesMarkets": [
+    {
+      "name": "Philippines",
+      "kind": "country",
+      "revenue_usd": null,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 26.81,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "Indonesia",
+      "kind": "country",
+      "revenue_usd": 527720000,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 23,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "China",
+      "kind": "country",
+      "revenue_usd": null,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 20.21,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "India",
+      "kind": "country",
+      "revenue_usd": null,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 8.38,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "Malaysia",
+      "kind": "country",
+      "revenue_usd": null,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 6.82,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "Vietnam",
+      "kind": "country",
+      "revenue_usd": null,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": 5.58,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "Southeast Asia (Malaysia, Philippines, Singapore and Vietnam)",
+      "kind": "region",
+      "revenue_usd": 1631700000,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": null,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "East Asia (China, Japan, Korea and Taiwan)",
+      "kind": "region",
+      "revenue_usd": 862200000,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": null,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    },
+    {
+      "name": "South Asia (India, Pakistan and Bangladesh)",
+      "kind": "region",
+      "revenue_usd": 424600000,
+      "percentage_of_total_revenue": null,
+      "volume": null,
+      "percentage_of_sales_volume": null,
+      "commodity_type": "Coal",
+      "unit": "Mt"
+    }
+  ],
+  "ownership": {
+    "subsidiaries": [
+      {
+        "name": "PT Wahana Baratama Mining",
+        "slug": "pt-wahana-baratama-mining",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Perkasa Inakakerta",
+        "slug": "pt-perkasa-inakakerta",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Teguh Sinarabadi",
+        "slug": "pt-teguh-sinarabadi",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Firman Ketaun Perkasa",
+        "slug": "pt-firman-ketaun-perkasa",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Mamahak Coal Mining",
+        "slug": "pt-mamahak-coal-mining",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Indonesia Pratama",
+        "slug": "pt-indonesia-pratama",
+        "symbol": null,
+        "percentage_ownership": 100
+      },
+      {
+        "name": "PT Tiwa Abadi",
+        "slug": "pt-tiwa-abadi",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Tanur Jaya",
+        "slug": "pt-tanur-jaya",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Dermaga Energi",
+        "slug": "pt-dermaga-energi",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Brian Anjat Sentosa",
+        "slug": "pt-brian-anjat-sentosa",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Orkida Makmur",
+        "slug": "pt-orkida-makmur",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Sumber Api",
+        "slug": "pt-sumber-api",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Cahaya Alam",
+        "slug": "pt-cahaya-alam",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Bara Sejati",
+        "slug": "pt-bara-sejati",
+        "symbol": null,
+        "percentage_ownership": 99
+      },
+      {
+        "name": "PT Gunungbayan Pratamacoal",
+        "slug": "pt-gunungbayan-pratamacoal",
+        "symbol": null,
+        "percentage_ownership": 93
+      },
+      {
+        "name": "PT Fajar Sakti Prima",
+        "slug": "pt-fajar-sakti-prima",
+        "symbol": null,
+        "percentage_ownership": 90
+      },
+      {
+        "name": "PT Bara Tabang",
+        "slug": "pt-bara-tabang",
+        "symbol": null,
+        "percentage_ownership": 90
+      },
+      {
+        "name": "PT Dermaga Perkasapratama",
+        "slug": "pt-dermaga-perkasapratama",
+        "symbol": null,
+        "percentage_ownership": 87.42
+      }
+    ]
+  },
+  "market": {
+    "latest": {
+      "symbol": "BYAN.JK",
+      "date": "2026-09-10",
+      "close": 13100,
+      "open": 13300,
+      "high": 13650,
+      "low": 13100,
+      "volume": 1567600,
+      "market_cap": 436666688500000
+    },
+    "move": -4.900181488203267,
+    "buyers": [
+      {
+        "rank": 1,
+        "broker_code": "CC",
+        "net_idr": 13796470000,
+        "buy_idr": 20781062500,
+        "sell_idr": 6984592500
+      },
+      {
+        "rank": 2,
+        "broker_code": "XL",
+        "net_idr": 6106145000,
+        "buy_idr": 20460272500,
+        "sell_idr": 14354127500
+      },
+      {
+        "rank": 3,
+        "broker_code": "XC",
+        "net_idr": 4242390000,
+        "buy_idr": 6167012500,
+        "sell_idr": 1924622500
+      },
+      {
+        "rank": 4,
+        "broker_code": "SQ",
+        "net_idr": 4226577500,
+        "buy_idr": 7138465000,
+        "sell_idr": 2911887500
+      },
+      {
+        "rank": 5,
+        "broker_code": "YP",
+        "net_idr": 1824455000,
+        "buy_idr": 8037387500,
+        "sell_idr": 6212932500
+      },
+      {
+        "rank": 6,
+        "broker_code": "OD",
+        "net_idr": 1805972500,
+        "buy_idr": 3816647500,
+        "sell_idr": 2010675000
+      },
+      {
+        "rank": 7,
+        "broker_code": "KK",
+        "net_idr": 1444082500,
+        "buy_idr": 2656380000,
+        "sell_idr": 1212297500
+      },
+      {
+        "rank": 8,
+        "broker_code": "AK",
+        "net_idr": 1427600000,
+        "buy_idr": 4899932500,
+        "sell_idr": 3472332500
+      },
+      {
+        "rank": 9,
+        "broker_code": "GR",
+        "net_idr": 1226127500,
+        "buy_idr": 2042147500,
+        "sell_idr": 816020000
+      },
+      {
+        "rank": 10,
+        "broker_code": "LS",
+        "net_idr": 1012357500,
+        "buy_idr": 1026332500,
+        "sell_idr": 13975000
+      }
+    ],
+    "sellers": [
+      {
+        "rank": 1,
+        "broker_code": "LG",
+        "net_idr": -19619355000,
+        "buy_idr": 1785527500,
+        "sell_idr": 21404882500
+      },
+      {
+        "rank": 2,
+        "broker_code": "YU",
+        "net_idr": -12283567500,
+        "buy_idr": 605090000,
+        "sell_idr": 12888657500
+      },
+      {
+        "rank": 3,
+        "broker_code": "ZP",
+        "net_idr": -2830645000,
+        "buy_idr": 1641785000,
+        "sell_idr": 4472430000
+      },
+      {
+        "rank": 4,
+        "broker_code": "BB",
+        "net_idr": -2548175000,
+        "buy_idr": 0,
+        "sell_idr": 2548175000
+      },
+      {
+        "rank": 5,
+        "broker_code": "DP",
+        "net_idr": -2105155000,
+        "buy_idr": 0,
+        "sell_idr": 2105155000
+      },
+      {
+        "rank": 6,
+        "broker_code": "NI",
+        "net_idr": -1952527500,
+        "buy_idr": 3988382500,
+        "sell_idr": 5940910000
+      },
+      {
+        "rank": 7,
+        "broker_code": "BQ",
+        "net_idr": -501630000,
+        "buy_idr": 447617500,
+        "sell_idr": 949247500
+      },
+      {
+        "rank": 8,
+        "broker_code": "AO",
+        "net_idr": -274000000,
+        "buy_idr": 0,
+        "sell_idr": 274000000
+      },
+      {
+        "rank": 9,
+        "broker_code": "PF",
+        "net_idr": -253900000,
+        "buy_idr": 0,
+        "sell_idr": 253900000
+      },
+      {
+        "rank": 10,
+        "broker_code": "AZ",
+        "net_idr": -198175000,
+        "buy_idr": 879472500,
+        "sell_idr": 1077647500
+      }
+    ],
+    "brokerStart": "2026-08-28",
+    "brokerEnd": "2026-09-10",
+    "foreign": {
+      "date": "2026-09-10",
+      "net_foreign_inflow": -2724137500
+    }
+  },
+  "sources": {
+    "detail": "tmp\\live-coverage-20260911\\company-detail\\BYAN.json",
+    "financials": "tmp\\live-coverage-20260911\\financials-2024\\BYAN-2024.json",
+    "performance": "tmp\\live-coverage-20260911\\performance-2024\\BYAN-2024.json",
+    "sales": "tmp\\live-coverage-20260911\\sales-destination-2024\\BYAN-2024.json",
+    "ownership": "tmp\\live-coverage-20260911\\ownership\\BYAN.json"
+  },
+  "salesMarketsYear": 2024
+}

@@ -32,6 +32,11 @@ function mapCapabilityToScope(
 
     case "COMPANY_MARKET_TRANSACTION_HISTORY":
       return "MARKET";
+
+    case "COMPANY_FINANCIAL_REPORT":
+      throw new Error(
+        "COMPANY_FINANCIAL_REPORT_REQUIRES_MCP_INTELLIGENCE_CONTEXT"
+      );
   }
 }
 

@@ -94,7 +94,9 @@ function semanticKnowledge(
    */
   if (
     metric === "PRODUCTION" ||
-    metric === "SALES"
+    metric === "SALES" ||
+    metric === "OVERBURDEN" ||
+    metric === "STRIP_RATIO"
   ) {
     return {
       state: "KNOWN",
@@ -190,7 +192,29 @@ export function normalizeMiningPerformanceRow(
         value:
           metric.value,
 
-        unit,
+        unit:
+
+          metric.metric === "OVERBURDEN"
+
+            ? {
+
+                symbol: "UNKNOWN",
+
+                dimension: "UNKNOWN",
+
+              }
+
+            : metric.metric === "STRIP_RATIO"
+
+              ? {
+
+                  symbol: "ratio",
+
+                  dimension: "RATIO",
+
+                }
+
+              : unit,
 
         period: {
           kind:

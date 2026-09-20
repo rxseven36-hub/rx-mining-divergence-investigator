@@ -1,0 +1,1082 @@
+.page {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 34px 0 74px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 8px 0 24px;
+}
+
+.kicker {
+  color: #45d8ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.hero h1 {
+  margin: 9px 0 0;
+  color: #eef7fb;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.hero h1 em {
+  color: #1caaff;
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: #7f9aa8;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.snapshot {
+  min-width: 180px;
+  padding: 14px 16px;
+  border: 1px solid rgba(68, 203, 160, .22);
+  border-radius: 12px;
+  background: rgba(7, 30, 35, .76);
+}
+
+.snapshot span,
+.snapshot small {
+  display: block;
+}
+
+.snapshot span {
+  color: #55a58d;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .11em;
+}
+
+.snapshot strong {
+  display: block;
+  margin-top: 5px;
+  color: #66e0ad;
+  font-size: 13px;
+}
+
+.snapshot small {
+  margin-top: 5px;
+  color: #668990;
+  font-size: 8px;
+}
+
+.topGrid,
+.middleGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.topGrid {
+  grid-template-columns: 1.55fr .85fr;
+}
+
+.middleGrid {
+  grid-template-columns: 1.15fr .85fr;
+  margin-top: 14px;
+}
+
+.panel {
+  border: 1px solid rgba(66, 136, 164, .2);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgba(7, 29, 41, .97), rgba(5, 22, 33, .97));
+  overflow: hidden;
+}
+
+.panelHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 14px;
+}
+
+.panelHead span {
+  color: #4fcff7;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.panelHead h2 {
+  margin: 5px 0 0;
+  color: #f0f7fa;
+  font-size: 18px;
+}
+
+.panelHead > strong {
+  color: #668a9a;
+  font-size: 8px;
+  letter-spacing: .08em;
+}
+
+.marketList {
+  padding: 0 10px 10px;
+}
+
+.marketRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 11px;
+  border-top: 1px solid rgba(66, 126, 150, .12);
+  text-decoration: none;
+  transition: background .16s ease;
+}
+
+.marketRow:hover {
+  background: rgba(24, 72, 92, .22);
+}
+
+.marketRow > div:first-child strong {
+  display: block;
+  color: #f6fbfd;
+  font-size: 16px;
+}
+
+.marketRow > div:first-child span {
+  display: block;
+  margin-top: 3px;
+  color: #617e8d;
+  font-size: 9px;
+}
+
+.marketMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.marketMeta span,
+.marketMeta i {
+  padding: 4px 6px;
+  border-radius: 999px;
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 850;
+}
+
+.marketMeta span {
+  border: 1px solid rgba(61, 143, 176, .16);
+  color: #6e92a2;
+}
+
+.marketMeta i {
+  border: 1px solid rgba(66, 218, 166, .2);
+  color: #62daa9;
+}
+
+.panelFoot {
+  padding: 10px 20px 16px;
+  color: #547382;
+  font-size: 8px;
+}
+
+.timelineItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 18px 14px;
+}
+
+.timelineItems div {
+  padding: 12px;
+  border: 1px solid rgba(72, 137, 162, .14);
+  border-radius: 9px;
+  background: rgba(9, 35, 47, .45);
+}
+
+.timelineItems span {
+  display: block;
+  color: #5b7b8a;
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.timelineItems strong {
+  display: block;
+  margin-top: 5px;
+  color: #dcebf1;
+  font-size: 11px;
+}
+
+.action,
+.primaryAction {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.action {
+  margin: 0 18px 18px;
+  color: #52cef6;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.signalPanel {
+  padding: 20px;
+  border-color: rgba(255, 84, 84, .22);
+  background:
+    radial-gradient(circle at 88% 15%, rgba(255, 67, 67, .08), transparent 30%),
+    linear-gradient(145deg, rgba(12, 28, 38, .98), rgba(7, 21, 31, .98));
+}
+
+.signalTag {
+  display: inline-flex;
+  padding: 5px 7px;
+  border: 1px solid rgba(255, 89, 89, .2);
+  border-radius: 999px;
+  color: #ff7777;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.signalPanel h2 {
+  max-width: 640px;
+  margin: 12px 0 0;
+  color: #f7f9fa;
+  font-size: 24px;
+  line-height: 1.08;
+}
+
+.signalPanel p {
+  max-width: 660px;
+  margin: 9px 0 0;
+  color: #77919e;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.signalStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.signalStats div {
+  padding: 10px 11px;
+  border: 1px solid rgba(82, 137, 159, .14);
+  border-radius: 9px;
+  background: rgba(7, 29, 41, .52);
+}
+
+.signalStats span {
+  display: block;
+  color: #567684;
+  font-size: 7px;
+  font-weight: 850;
+}
+
+.signalStats strong {
+  display: block;
+  margin-top: 4px;
+  color: #e8f2f6;
+  font-size: 11px;
+}
+
+.primaryAction {
+  margin-top: 15px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #d94d4d;
+  color: white;
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.coverageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 18px 14px;
+}
+
+.coverageGrid div {
+  padding: 12px;
+  border: 1px solid rgba(69, 137, 163, .14);
+  border-radius: 9px;
+  background: rgba(8, 31, 43, .5);
+}
+
+.coverageGrid strong,
+.coverageGrid span {
+  display: block;
+}
+
+.coverageGrid strong {
+  color: #eef6f9;
+  font-size: 14px;
+}
+
+.coverageGrid span {
+  margin-top: 4px;
+  color: #617f8d;
+  font-size: 8px;
+}
+
+.path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
+  padding: 15px 18px;
+  border: 1px solid rgba(66, 135, 162, .16);
+  border-radius: 12px;
+  background: rgba(7, 27, 39, .72);
+}
+
+.path span {
+  display: block;
+  color: #577886;
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: .1em;
+}
+
+.path strong {
+  display: block;
+  margin-top: 5px;
+  color: #bcd0d9;
+  font-size: 10px;
+}
+
+.path b {
+  color: #2bbcff;
+}
+
+.pathActions {
+  display: flex;
+  gap: 8px;
+}
+
+.pathActions a {
+  padding: 7px 9px;
+  border: 1px solid rgba(77, 150, 179, .19);
+  border-radius: 8px;
+  color: #79bdd8;
+  font-size: 8px;
+  text-decoration: none;
+}
+
+.disclaimer {
+  margin: 9px 0 0;
+  color: #4c6875;
+  font-size: 8px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .snapshot {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .topGrid,
+  .middleGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    width: min(100% - 24px, 1240px);
+    padding-top: 24px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .marketRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .marketMeta {
+    flex-wrap: wrap;
+  }
+
+  .timelineItems,
+  .coverageGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .signalStats {
+    grid-template-columns: 1fr;
+  }
+
+  .path {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* RX MDI UI18B — TODAY FONT BUMP ONLY
+   Scoped to /today through the existing CSS module.
+   No layout, color, spacing, route, landing, header, company, or investigator changes. */
+
+.hero p {
+  font-size: 14px;
+}
+
+.snapshot span {
+  font-size: 9px;
+}
+
+.snapshot strong {
+  font-size: 14px;
+}
+
+.snapshot small {
+  font-size: 9px;
+}
+
+.panelHead span {
+  font-size: 9px;
+}
+
+.panelHead h2 {
+  font-size: 20px;
+}
+
+.panelHead > strong {
+  font-size: 9px;
+}
+
+.marketRow > div:first-child strong {
+  font-size: 18px;
+}
+
+.marketRow > div:first-child span {
+  font-size: 10px;
+}
+
+.marketMeta span,
+.marketMeta i {
+  font-size: 8px;
+}
+
+.panelFoot {
+  font-size: 9px;
+}
+
+.timelineItems span {
+  font-size: 8px;
+}
+
+.timelineItems strong {
+  font-size: 12px;
+}
+
+.action {
+  font-size: 10px;
+}
+
+.signalTag {
+  font-size: 8px;
+}
+
+.signalPanel h2 {
+  font-size: 26px;
+}
+
+.signalPanel p {
+  font-size: 12px;
+}
+
+.signalStats span {
+  font-size: 8px;
+}
+
+.signalStats strong {
+  font-size: 12px;
+}
+
+.primaryAction {
+  font-size: 10px;
+}
+
+.coverageGrid strong {
+  font-size: 16px;
+}
+
+.coverageGrid span {
+  font-size: 9px;
+}
+
+.path span {
+  font-size: 8px;
+}
+
+.path strong {
+  font-size: 12px;
+}
+
+.pathActions a {
+  font-size: 9px;
+}
+
+.disclaimer {
+  font-size: 9px;
+}
+
+/* RX MDI UI18C — TODAY FONT BUMP PLUS
+   Readability pass only for /today.
+   No layout, spacing, color, route, landing, header, company, or investigator changes. */
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.snapshot span {
+  font-size: 10px;
+}
+
+.snapshot strong {
+  font-size: 16px;
+}
+
+.snapshot small {
+  font-size: 10px;
+}
+
+.panelHead span {
+  font-size: 10px;
+}
+
+.panelHead h2 {
+  font-size: 22px;
+}
+
+.panelHead > strong {
+  font-size: 10px;
+}
+
+.marketRow > div:first-child strong {
+  font-size: 20px;
+}
+
+.marketRow > div:first-child span {
+  font-size: 11px;
+}
+
+.marketMeta span,
+.marketMeta i {
+  font-size: 9px;
+}
+
+.panelFoot {
+  font-size: 10px;
+}
+
+.timelineItems span {
+  font-size: 9px;
+}
+
+.timelineItems strong {
+  font-size: 14px;
+}
+
+.action {
+  font-size: 11px;
+}
+
+.signalTag {
+  font-size: 9px;
+}
+
+.signalPanel h2 {
+  font-size: 28px;
+}
+
+.signalPanel p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.signalStats span {
+  font-size: 9px;
+}
+
+.signalStats strong {
+  font-size: 14px;
+}
+
+.primaryAction {
+  font-size: 11px;
+}
+
+.coverageGrid strong {
+  font-size: 18px;
+}
+
+.coverageGrid span {
+  font-size: 10px;
+}
+
+.path span {
+  font-size: 9px;
+}
+
+.path strong {
+  font-size: 14px;
+}
+
+.pathActions a {
+  font-size: 10px;
+}
+
+.disclaimer {
+  font-size: 10px;
+}
+
+
+/* RXMDI_UI24_REAL_FEED_INSTALLED */
+/* RX MDI UI24 — TODAY REAL INTELLIGENCE FEED */
+.marketNumbers{display:flex;align-items:center;gap:16px;margin-left:auto}.marketNumbers div{min-width:66px;text-align:right}.marketNumbers span{display:block;color:#567684;font-size:8px;font-weight:850}.marketNumbers strong{display:block;margin-top:3px;color:#dcebf1;font-size:12px}
+.newsList{padding:0 18px 8px}.newsItem{padding:10px 0;border-top:1px solid rgba(66,126,150,.12)}.newsItem>span{display:block;color:#4fcff7;font-size:8px;font-weight:850}.newsItem>strong{display:block;margin-top:4px;color:#dcebf1;font-size:11px;line-height:1.45}.newsItem>small{display:block;margin-top:4px;color:#587482;font-size:8px}
+.eventCounts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 18px 14px}.eventCounts div{padding:9px;border:1px solid rgba(72,137,162,.14);border-radius:8px;background:rgba(9,35,47,.45)}.eventCounts span{display:block;color:#5b7b8a;font-size:7px;font-weight:850}.eventCounts strong{display:block;margin-top:4px;color:#dcebf1;font-size:12px}
+.contextSteps{display:grid;gap:7px;padding:0 18px 14px}.contextSteps div{padding:10px 11px;border:1px solid rgba(69,137,163,.14);border-radius:9px;background:rgba(8,31,43,.5)}.contextSteps span{color:#49cfff;font-size:8px;font-weight:900}.contextSteps strong{display:block;margin-top:3px;color:#eef6f9;font-size:12px}.contextSteps p{margin:3px 0 0;color:#617f8d;font-size:9px;line-height:1.45}
+@media(max-width:650px){.marketNumbers{width:100%;margin-left:0;justify-content:space-between;gap:8px}.marketNumbers div{min-width:0;text-align:left}.eventCounts{grid-template-columns:1fr 1fr}}
+/* RXMDI_UI24E_REAL_FEED */
+.marketNumbers{display:flex;align-items:center;gap:16px;margin-left:auto}.marketNumbers div{min-width:66px;text-align:right}.marketNumbers span{display:block;color:#567684;font-size:8px;font-weight:850}.marketNumbers strong{display:block;margin-top:3px;color:#dcebf1;font-size:12px}
+.newsList{padding:0 18px 8px}.newsItem{padding:10px 0;border-top:1px solid rgba(66,126,150,.12)}.newsItem>span{display:block;color:#4fcff7;font-size:8px;font-weight:850}.newsItem>strong{display:block;margin-top:4px;color:#dcebf1;font-size:11px;line-height:1.45}.newsItem>small{display:block;margin-top:4px;color:#587482;font-size:8px}
+.eventCounts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 18px 14px}.eventCounts div{padding:9px;border:1px solid rgba(72,137,162,.14);border-radius:8px;background:rgba(9,35,47,.45)}.eventCounts span{display:block;color:#5b7b8a;font-size:7px;font-weight:850}.eventCounts strong{display:block;margin-top:4px;color:#dcebf1;font-size:12px}
+.contextSteps{display:grid;gap:7px;padding:0 18px 14px}.contextSteps div{padding:10px 11px;border:1px solid rgba(69,137,163,.14);border-radius:9px;background:rgba(8,31,43,.5)}.contextSteps span{color:#49cfff;font-size:8px;font-weight:900}.contextSteps strong{display:block;margin-top:3px;color:#eef6f9;font-size:12px}.contextSteps p{margin:3px 0 0;color:#617f8d;font-size:9px;line-height:1.45}
+@media(max-width:650px){.marketNumbers{width:100%;margin-left:0;justify-content:space-between;gap:8px}.marketNumbers div{min-width:0;text-align:left}.eventCounts{grid-template-columns:1fr 1fr}}
+/* RXMDI_UI24G_TODAY_LOCK */
+.newsHeadline{display:block;margin-top:4px;color:#dcebf1;font-size:11px;font-weight:800;line-height:1.45;text-decoration:none}.newsHeadline:hover{color:#48cfff;text-decoration:underline}.newsItem small{font-size:9px;font-weight:750;color:#668896;letter-spacing:.01em}
+
+/* RXMDI_UI25_EVENT_INTELLIGENCE_HUMAN_LAYER
+   Functional content upgrade only. Existing TODAY grid, panel geometry,
+   hero, market, divergence, context, path, header and mobile nav stay intact. */
+.eventLead{
+  margin:0 18px 12px;
+  padding:13px 14px;
+  border:1px solid rgba(79,207,247,.16);
+  border-radius:9px;
+  background:rgba(9,35,47,.45)
+}
+.eventLeadTop{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.eventLeadTop span{color:#4fcff7;font-size:9px;font-weight:850}
+.eventLeadTop strong{color:#66e0ad;font-size:8px;letter-spacing:.1em}
+.eventLead h3{margin:7px 0 0;color:#eef6f9;font-size:15px;line-height:1.3}
+.eventEvidence{display:flex;gap:10px;align-items:center;margin-top:8px}
+.eventEvidence strong{color:#dcebf1;font-size:10px}
+.eventEvidence span{color:#668896;font-size:9px}
+.eventDimensions{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.eventDimensions span{padding:4px 6px;border:1px solid rgba(79,207,247,.16);border-radius:999px;color:#79bdd8;font-size:7px;font-weight:850}
+.eventPublishers{margin-top:8px;color:#668896;font-size:8px;line-height:1.5}
+.eventSource{display:inline-block;margin-top:8px;color:#52cef6;font-size:9px;font-weight:800;text-decoration:none}
+.eventSource:hover{text-decoration:underline}
+.eventRule{display:block;margin-top:8px;color:#4f6d7a;font-size:8px;line-height:1.45}
+@media(max-width:650px){
+  .eventLead{margin-left:12px;margin-right:12px}
+  .eventLead h3{font-size:14px}
+}
+
+
+/* RXMDI_UI25B_TODAY_TYPOGRAPHY_COMFORT
+   Typography-only comfort pass.
+   No grid, card geometry, colors, data, navigation, or locked visual structure changed. */
+
+/* Readable labels / kickers */
+.page .panelHead span,
+.page .snapshot span,
+.page .marketNumbers span,
+.page .signalStats span,
+.page .eventLeadTop span,
+.page .eventLeadTop strong,
+.page .eventDimensions span,
+.page .eventCounts span {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* Secondary information */
+.page .snapshot small,
+.page .marketRow > div:first-child span,
+.page .marketMeta span,
+.page .panelFoot,
+.page .eventEvidence strong,
+.page .eventEvidence span,
+.page .eventPublishers,
+.page .eventSource,
+.page .eventRule,
+.page .contextSteps p,
+.page .disclaimer {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* Human-readable content */
+.page .eventLead h3 {
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.page .marketRow > div:first-child strong {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.page .marketNumbers strong {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.page .contextSteps strong {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Keep compact metadata compact, but never microscopic. */
+.page .eventDimensions span,
+.page .marketMeta span {
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile keeps the same readable floor instead of shrinking back down. */
+@media (max-width: 650px) {
+  .page .panelHead span,
+  .page .snapshot span,
+  .page .marketNumbers span,
+  .page .signalStats span,
+  .page .eventLeadTop span,
+  .page .eventLeadTop strong,
+  .page .eventDimensions span,
+  .page .eventCounts span {
+    font-size: 11px;
+  }
+
+  .page .snapshot small,
+  .page .marketRow > div:first-child span,
+  .page .marketMeta span,
+  .page .panelFoot,
+  .page .eventEvidence strong,
+  .page .eventEvidence span,
+  .page .eventPublishers,
+  .page .eventSource,
+  .page .eventRule,
+  .page .contextSteps p,
+  .page .disclaimer {
+    font-size: 12px;
+  }
+
+  .page .eventLead h3 {
+    font-size: 16px;
+  }
+
+  .page .marketRow > div:first-child strong {
+    font-size: 17px;
+  }
+
+  .page .marketNumbers strong {
+    font-size: 13px;
+  }
+}
+
+/* RXMDI_SHOT02B_FIVE_COMPANY_TODAY */
+
+.companyCoverage {
+  min-width: 178px;
+  padding: 9px 11px;
+  border: 1px solid rgba(74, 211, 255, .18);
+  border-radius: 10px;
+  background: rgba(8, 34, 47, .68);
+  text-align: right;
+}
+
+.companyCoverage span,
+.companyCoverage strong,
+.companyCoverage small {
+  display: block;
+}
+
+.companyCoverage span {
+  color: #5c91a5;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.companyCoverage strong {
+  margin-top: 3px;
+  color: #5bd9ff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.companyCoverage small {
+  margin-top: 6px;
+  color: #89a9b7;
+  font-size: 9px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.signalTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.signalTop h2 {
+  margin-top: 12px;
+}
+
+.signalCoverage {
+  flex: 0 0 auto;
+  min-width: 116px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 102, 102, .18);
+  border-radius: 9px;
+  background: rgba(70, 20, 25, .16);
+  text-align: right;
+}
+
+.signalCoverage span,
+.signalCoverage strong {
+  display: block;
+}
+
+.signalCoverage span {
+  color: #9b7276;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.signalCoverage strong {
+  margin-top: 4px;
+  color: #ff8585;
+  font-size: 18px;
+}
+
+.companySignalGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.companySignalCard {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(79, 146, 171, .18);
+  border-radius: 10px;
+  background: rgba(7, 30, 42, .62);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color .16s ease,
+    background .16s ease,
+    transform .16s ease;
+}
+
+.companySignalCard:hover {
+  border-color: rgba(72, 204, 255, .38);
+  background: rgba(11, 43, 57, .8);
+  transform: translateY(-2px);
+}
+
+.companySignalHead {
+  min-height: 38px;
+}
+
+.companySignalHead strong {
+  display: block;
+  color: #f3f8fa;
+  font-size: 17px;
+}
+
+.companySignalHead span {
+  display: block;
+  margin-top: 3px;
+  color: #7897a5;
+  font-size: 8px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.signalMetric {
+  margin-top: 11px;
+}
+
+.signalMetric > div:first-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.signalMetric span {
+  color: #638493;
+  font-size: 8px;
+  font-weight: 850;
+}
+
+.signalMetric strong {
+  color: #dcebf1;
+  font-size: 11px;
+}
+
+.signalTrack {
+  height: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(65, 112, 132, .16);
+}
+
+.signalTrack i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #36bfff;
+}
+
+.salesTrack i {
+  background: #66d6a7;
+}
+
+.companySignalFoot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 7px;
+  margin-top: 13px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(72, 130, 153, .14);
+}
+
+.companySignalFoot > span {
+  color: #607f8d;
+  font-size: 8px;
+  font-weight: 850;
+}
+
+.companySignalFoot > span strong {
+  display: block;
+  margin-top: 2px;
+  color: #eef6f9;
+  font-size: 12px;
+}
+
+.companySignalFoot b {
+  color: #55ccf7;
+  font-size: 9px;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.signalGuardrail {
+  display: block;
+  margin-top: 14px;
+  color: #607d89;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1100px) {
+  .companySignalGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .companyCoverage {
+    min-width: 0;
+    width: 100%;
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  .timelinePanel .panelHead {
+    flex-direction: column;
+  }
+
+  .signalTop {
+    flex-direction: column;
+  }
+
+  .signalCoverage {
+    width: 100%;
+    text-align: left;
+  }
+
+  .companySignalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .companySignalCard {
+    padding: 14px;
+  }
+
+  .companySignalHead {
+    min-height: 0;
+  }
+
+  .companySignalHead strong {
+    font-size: 19px;
+  }
+
+  .companySignalHead span {
+    font-size: 10px;
+  }
+
+  .signalMetric span {
+    font-size: 10px;
+  }
+
+  .signalMetric strong {
+    font-size: 13px;
+  }
+
+  .signalTrack {
+    height: 7px;
+  }
+
+  .companySignalFoot > span {
+    font-size: 9px;
+  }
+
+  .companySignalFoot > span strong {
+    font-size: 14px;
+  }
+
+  .companySignalFoot b {
+    font-size: 11px;
+  }
+
+  .signalGuardrail {
+    font-size: 11px;
+  }
+}

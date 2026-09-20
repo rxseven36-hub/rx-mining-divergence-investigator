@@ -1,0 +1,1042 @@
+{
+  "generatedAt": "2026-09-12T16:36:11.008Z",
+  "companies": {
+    "ADMR": {
+      "symbol": "ADMR",
+      "name": "PT Adaro Minerals Indonesia Tbk",
+      "companyType": "Holding",
+      "province": "Kalimantan Tengah",
+      "district": "Murung Raya",
+      "keyOperation": "Mining",
+      "activities": [
+        "Coal Mining",
+        "Mining Services",
+        "Aluminium Mining"
+      ],
+      "commodity": [
+        "Coal",
+        "Aluminium"
+      ],
+      "licenses": [
+        {
+          "license_type": "IUP",
+          "license_number": "570/14/ESDM-IUPOP/X/DPMPTSP-2023",
+          "wiup_code": "2362034332020105",
+          "province": "Kalimantan Tengah",
+          "city": "Kabupaten Kapuas",
+          "license_effective_date": "2020-08-29",
+          "license_expiry_date": "2030-08-28",
+          "activity": "Operasi Produksi",
+          "licensed_area_ha": 1007.23,
+          "cnc": "CNC",
+          "generation": null,
+          "location": "Kabupaten Kapuas",
+          "commodity_type": "Non-Metallic Mineral"
+        }
+      ],
+      "ownership": {
+        "parents": [
+          {
+            "name": "PT Alamtri Resources Indonesia Tbk",
+            "slug": "pt-alamtri-resources-indonesia-tbk",
+            "symbol": "ADRO.JK",
+            "percentage_ownership": 68.5
+          }
+        ],
+        "subsidiaries": [
+          {
+            "name": "PT Lahai Coal",
+            "slug": "pt-lahai-coal",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Maruwai Coal",
+            "slug": "pt-maruwai-coal",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Kalteng Coal",
+            "slug": "pt-kalteng-coal",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Juloi Coal",
+            "slug": "pt-juloi-coal",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Sumber Barito Coal",
+            "slug": "pt-sumber-barito-coal",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Kalimantan Aluminium Industry",
+            "slug": "pt-kalimantan-aluminium-industry",
+            "symbol": null,
+            "percentage_ownership": 65
+          }
+        ]
+      },
+      "financials": {
+        "year": 2024,
+        "assets": 2074000000,
+        "revenue": 1154000000,
+        "netProfit": 435000000,
+        "costRevenue": 576390000
+      },
+      "performance": {
+        "year": 2024,
+        "commodityType": "Coal",
+        "commoditySubType": "Metallurgical Coal",
+        "unit": "Mt",
+        "production": 6.63,
+        "sales": 5.62,
+        "overburden": 23.55,
+        "stripRatio": 3.55,
+        "reserves": 177.2,
+        "resources": 982.9,
+        "measurementYear": 2024,
+        "products": [
+          {
+            "product_name": "Bumbun Block",
+            "calorific_value_kcal": {
+              "min": 8317,
+              "max": 8317
+            }
+          },
+          {
+            "product_name": "Luon Block",
+            "calorific_value_kcal": {
+              "min": 7686,
+              "max": 7686
+            }
+          },
+          {
+            "product_name": "Dahlia Block",
+            "calorific_value_kcal": {
+              "min": 7488,
+              "max": 7488
+            }
+          },
+          {
+            "product_name": "Haju Block",
+            "calorific_value_kcal": {
+              "min": 7393,
+              "max": 7393
+            }
+          },
+          {
+            "product_name": "Bara Block",
+            "calorific_value_kcal": {
+              "min": 7717,
+              "max": 7717
+            }
+          },
+          {
+            "product_name": "Lumpunut Block",
+            "calorific_value_kcal": {
+              "min": 7536,
+              "max": 7536
+            }
+          }
+        ]
+      },
+      "salesMarkets": [],
+      "market": {
+        "latest": null,
+        "move": null
+      },
+      "sources": {
+        "company": "tmp\\live-coverage-20260911\\company-detail\\ADMR.json",
+        "ownership": "tmp\\live-coverage-20260911\\ownership\\ADMR.json",
+        "financials": "tmp\\live-coverage-20260911\\financials-2024\\ADMR-2024.json",
+        "performance": "tmp\\live-coverage-20260911\\performance-2024\\ADMR-2024.json",
+        "sales": null
+      }
+    },
+    "GEMS": {
+      "symbol": "GEMS",
+      "name": "PT Golden Energy Mines Tbk",
+      "companyType": "Holding",
+      "province": "Jakarta",
+      "district": "Jakarta Pusat",
+      "keyOperation": "Mining",
+      "activities": [
+        "Holding",
+        "Coal Trading",
+        "Coal Mining"
+      ],
+      "commodity": [
+        "Coal"
+      ],
+      "licenses": [
+        {
+          "license_type": "IUP",
+          "license_number": "54/DPMESDM-TRANS/IUP-OP/VI/2018",
+          "wiup_code": "3475012062014011",
+          "province": "Gorontalo",
+          "city": "Kabupaten Gorontalo",
+          "license_effective_date": "2018-06-07",
+          "license_expiry_date": "2038-06-06",
+          "activity": "Operasi Produksi",
+          "licensed_area_ha": 4981,
+          "cnc": "CNC-17",
+          "generation": null,
+          "location": "Kabupaten Gorontalo",
+          "commodity_type": "Gold"
+        }
+      ],
+      "ownership": {
+        "parents": [
+          {
+            "name": "PT Dian Swastatika Sentosa Tbk",
+            "slug": "pt-dian-swastatika-sentosa-tbk",
+            "symbol": "DSSA.JK",
+            "percentage_ownership": 100
+          }
+        ],
+        "subsidiaries": [
+          {
+            "name": "PT Borneo Indobara",
+            "slug": "pt-borneo-indobara",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Kuansing Inti Makmur",
+            "slug": "pt-kuansing-inti-makmur",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Barasentosa Lestari",
+            "slug": "pt-barasentosa-lestari",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Trisula Kencana Sakti",
+            "slug": "pt-trisula-kencana-sakti",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Era Mitra Selaras",
+            "slug": "pt-era-mitra-selaras",
+            "symbol": null,
+            "percentage_ownership": 99.87
+          }
+        ]
+      },
+      "financials": {
+        "year": 2024,
+        "assets": 1240000000,
+        "revenue": 2705000000,
+        "netProfit": 483000000,
+        "costRevenue": 1600940000
+      },
+      "performance": {
+        "year": 2024,
+        "commodityType": "Coal",
+        "commoditySubType": "Sub-bituminous",
+        "unit": "Mt",
+        "production": 50.69,
+        "sales": 51.86,
+        "overburden": 265.2,
+        "stripRatio": 5.23,
+        "reserves": 899.2,
+        "resources": null,
+        "measurementYear": 2024,
+        "products": [
+          {
+            "product_name": "BIB 4000-4200",
+            "calorific_value_kcal": {
+              "min": 4000,
+              "max": 4200
+            }
+          },
+          {
+            "product_name": "KIM 4600",
+            "calorific_value_kcal": {
+              "min": 4600,
+              "max": 4600
+            }
+          },
+          {
+            "product_name": "TKS 6600",
+            "calorific_value_kcal": {
+              "min": 6600,
+              "max": 6600
+            }
+          },
+          {
+            "product_name": "EMS Group 3000",
+            "calorific_value_kcal": {
+              "min": 3000,
+              "max": 3000
+            }
+          },
+          {
+            "product_name": "BSL 4800",
+            "calorific_value_kcal": {
+              "min": 4800,
+              "max": 4800
+            }
+          }
+        ]
+      },
+      "salesMarkets": [
+        {
+          "name": "Bangladesh",
+          "kind": "country",
+          "revenue_usd": 4711000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Cambodia",
+          "kind": "country",
+          "revenue_usd": 4034000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "China",
+          "kind": "country",
+          "revenue_usd": 1250070000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Hong Kong",
+          "kind": "country",
+          "revenue_usd": 9000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "India",
+          "kind": "country",
+          "revenue_usd": 327650000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Indonesia",
+          "kind": "country",
+          "revenue_usd": 931140000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Korea",
+          "kind": "country",
+          "revenue_usd": 89113000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Malaysia",
+          "kind": "country",
+          "revenue_usd": 16773000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Others",
+          "kind": "country",
+          "revenue_usd": 196660000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Philippines",
+          "kind": "country",
+          "revenue_usd": 66689000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Vietnam",
+          "kind": "country",
+          "revenue_usd": 15337000,
+          "percentage_of_sales_volume": null,
+          "volume": null,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        }
+      ],
+      "market": {
+        "latest": null,
+        "move": null
+      },
+      "sources": {
+        "company": "tmp\\live-coverage-20260911\\company-detail\\GEMS.json",
+        "ownership": "tmp\\live-coverage-20260911\\ownership\\GEMS.json",
+        "financials": "tmp\\live-coverage-20260911\\financials-2024\\GEMS-2024.json",
+        "performance": "tmp\\live-coverage-20260911\\performance-2024\\GEMS-2024.json",
+        "sales": "tmp\\live-coverage-20260911\\sales-destination-2024\\GEMS-2024.json"
+      }
+    },
+    "ITMG": {
+      "symbol": "ITMG",
+      "name": "PT Indo Tambangraya Megah Tbk",
+      "companyType": "Holding",
+      "province": "Jakarta",
+      "district": "Jakarta Selaten",
+      "keyOperation": "Mining",
+      "activities": [
+        "Holding",
+        "Mining Contractor and Services"
+      ],
+      "commodity": [
+        "Coal"
+      ],
+      "licenses": [
+        {
+          "license_type": "IUP",
+          "license_number": "223/BKPMD-PTSP/IX/2015",
+          "wiup_code": "3474052122014023",
+          "province": "Sulawesi Tenggara",
+          "city": "Kabupaten Konawe Selatan",
+          "license_effective_date": "2015-09-17",
+          "license_expiry_date": "2031-02-07",
+          "activity": "Operasi Produksi",
+          "licensed_area_ha": 1758,
+          "cnc": "CNC-1",
+          "generation": null,
+          "location": "Kabupaten Konawe Selatan",
+          "commodity_type": "Nickel"
+        }
+      ],
+      "ownership": {
+        "parents": [],
+        "subsidiaries": [
+          {
+            "name": "PT Kitadin",
+            "slug": "pt-kitadin",
+            "symbol": null,
+            "percentage_ownership": 100
+          },
+          {
+            "name": "PT Indominco Mandiri",
+            "slug": "pt-indominco-mandiri",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Trubaindo Coal Mining",
+            "slug": "pt-trubaindo-coal-mining",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Jorong Barutama Greston",
+            "slug": "pt-jorong-barutama-greston",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Nusa Persada Resources",
+            "slug": "pt-nusa-persada-resources",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Tepian Indah Sukses",
+            "slug": "pt-tepian-indah-sukses",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Tambang Raya Usaha Tama",
+            "slug": "pt-tambang-raya-usaha-tama",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Energi Batubara Perkasa",
+            "slug": "pt-energi-batubara-perkasa",
+            "symbol": null,
+            "percentage_ownership": 99.99
+          },
+          {
+            "name": "PT Bharinto Ekatama",
+            "slug": "pt-bharinto-ekatama",
+            "symbol": null,
+            "percentage_ownership": 99
+          },
+          {
+            "name": "PT Graha Panca Karsa",
+            "slug": "pt-graha-panca-karsa",
+            "symbol": null,
+            "percentage_ownership": 70
+          }
+        ]
+      },
+      "financials": {
+        "year": 2024,
+        "assets": 2406540000,
+        "revenue": 2304500000,
+        "netProfit": 375600000,
+        "costRevenue": 1605690000
+      },
+      "performance": {
+        "year": 2024,
+        "commodityType": "Coal",
+        "commoditySubType": "Thermal Coal",
+        "unit": "Mt",
+        "production": 20.2,
+        "sales": 24,
+        "overburden": null,
+        "stripRatio": 10,
+        "reserves": 354.6,
+        "resources": 93,
+        "measurementYear": 2024,
+        "products": [
+          {
+            "product_name": "IMM",
+            "calorific_value_kcal": {
+              "min": 5600,
+              "max": 6200
+            }
+          },
+          {
+            "product_name": "TCM",
+            "calorific_value_kcal": {
+              "min": 6100,
+              "max": 6500
+            }
+          },
+          {
+            "product_name": "BEK",
+            "calorific_value_kcal": {
+              "min": 6100,
+              "max": 6500
+            }
+          },
+          {
+            "product_name": "JBG",
+            "calorific_value_kcal": {
+              "min": 4300,
+              "max": 4400
+            }
+          },
+          {
+            "product_name": "GPK",
+            "calorific_value_kcal": {
+              "min": 3800,
+              "max": 4100
+            }
+          },
+          {
+            "product_name": "TIS",
+            "calorific_value_kcal": {
+              "min": 6400,
+              "max": 7000
+            }
+          },
+          {
+            "product_name": "NPR",
+            "calorific_value_kcal": {
+              "min": 6100,
+              "max": 6300
+            }
+          }
+        ]
+      },
+      "salesMarkets": [
+        {
+          "name": "China",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 38,
+          "volume": 9.2,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Indonesia",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 23,
+          "volume": 5.6,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Japan",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 18,
+          "volume": 4.3,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "India",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 5,
+          "volume": 1.1,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Philippines",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 5,
+          "volume": 1.3,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Thailand",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 4,
+          "volume": 0.9,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Bangladesh",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 2,
+          "volume": 0.4,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Hong Kong",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 2,
+          "volume": 0.5,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Korea",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 1,
+          "volume": 0.2,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Malaysia",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 1,
+          "volume": 0.2,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Taiwan",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 1,
+          "volume": 0.3,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Vietnam",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": 0,
+          "volume": 0,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Italy",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        }
+      ],
+      "market": {
+        "latest": {
+          "symbol": "ITMG.JK",
+          "date": "2026-09-10",
+          "close": 26100,
+          "open": 26550,
+          "high": 26950,
+          "low": 26100,
+          "volume": 1755400,
+          "market_cap": 29491042500000
+        },
+        "move": -1.694915254237288
+      },
+      "sources": {
+        "company": "tmp\\live-coverage-20260911\\company-detail\\ITMG.json",
+        "ownership": "tmp\\live-coverage-20260911\\ownership\\ITMG.json",
+        "financials": "tmp\\live-coverage-20260911\\financials-2024\\ITMG-2024.json",
+        "performance": "tmp\\live-coverage-20260911\\performance-2024\\ITMG-2024.json",
+        "sales": "tmp\\live-coverage-20260911\\sales-destination-2024\\ITMG-2024.json"
+      }
+    },
+    "BUMI": {
+      "symbol": "BUMI",
+      "name": "PT Bumi Resources Tbk",
+      "companyType": "Holding",
+      "province": "Jakarta",
+      "district": "Jakarta Selatan",
+      "keyOperation": "Mining",
+      "activities": [
+        "Coal Mining"
+      ],
+      "commodity": [
+        "Coal"
+      ],
+      "licenses": [
+        {
+          "license_type": "IUP",
+          "license_number": "212 TAHUN 2013",
+          "wiup_code": "3115073032014001",
+          "province": "Bengkulu",
+          "city": "Kabupaten Lebong",
+          "license_effective_date": "2013-05-27",
+          "license_expiry_date": "2028-05-27",
+          "activity": "Operasi Produksi",
+          "licensed_area_ha": 535,
+          "cnc": "CNC-3",
+          "generation": null,
+          "location": "Kabupaten Lebong",
+          "commodity_type": "Coal"
+        }
+      ],
+      "ownership": {
+        "parents": [],
+        "subsidiaries": [
+          {
+            "name": "PT Arutmin Indonesia",
+            "slug": "pt-arutmin-indonesia",
+            "symbol": null,
+            "percentage_ownership": 90
+          },
+          {
+            "name": "PT Pendopo Energi Batubara",
+            "slug": "pt-pendopo-energi-batubara",
+            "symbol": null,
+            "percentage_ownership": 84.52
+          },
+          {
+            "name": "PT Kaltim Prima Coal",
+            "slug": "pt-kaltim-prima-coal",
+            "symbol": null,
+            "percentage_ownership": 51
+          },
+          {
+            "name": "PT Bumi Resources Minerals Tbk",
+            "slug": "pt-bumi-resources-minerals-tbk",
+            "symbol": "BRMS.JK",
+            "percentage_ownership": 20.92
+          }
+        ]
+      },
+      "financials": {
+        "year": 2024,
+        "assets": 4163000000,
+        "revenue": 1360000000,
+        "netProfit": 90000000,
+        "costRevenue": 1190390000
+      },
+      "performance": {
+        "year": 2024,
+        "commodityType": "Coal",
+        "commoditySubType": "Thermal Coal",
+        "unit": "Mt",
+        "production": 74.7,
+        "sales": 75.8,
+        "overburden": 649.7,
+        "stripRatio": 8.7,
+        "reserves": 2354,
+        "resources": 6817,
+        "measurementYear": 2024,
+        "products": [
+          {
+            "product_name": "Prima",
+            "calorific_value_kcal": {
+              "min": 6976,
+              "max": 6976
+            }
+          },
+          {
+            "product_name": "Pinang 6250 GAR",
+            "calorific_value_kcal": {
+              "min": 6613,
+              "max": 6613
+            }
+          },
+          {
+            "product_name": "Pinang 6150 GAR",
+            "calorific_value_kcal": {
+              "min": 6579,
+              "max": 6579
+            }
+          },
+          {
+            "product_name": "Pinang 6000 GAR",
+            "calorific_value_kcal": {
+              "min": 6275,
+              "max": 6275
+            }
+          },
+          {
+            "product_name": "Pinang 5800 GAR",
+            "calorific_value_kcal": {
+              "min": 6083,
+              "max": 6083
+            }
+          },
+          {
+            "product_name": "Pinang 5500 GAR",
+            "calorific_value_kcal": {
+              "min": 6114,
+              "max": 6114
+            }
+          },
+          {
+            "product_name": "Melawan",
+            "calorific_value_kcal": {
+              "min": 5636,
+              "max": 5636
+            }
+          },
+          {
+            "product_name": "KPC 4700",
+            "calorific_value_kcal": {
+              "min": 5330,
+              "max": 5330
+            }
+          },
+          {
+            "product_name": "KPC 4500",
+            "calorific_value_kcal": {
+              "min": 5212,
+              "max": 5212
+            }
+          },
+          {
+            "product_name": "KPC 4200",
+            "calorific_value_kcal": {
+              "min": 4613,
+              "max": 4613
+            }
+          },
+          {
+            "product_name": "Satui 8",
+            "calorific_value_kcal": {
+              "min": 6902,
+              "max": 6902
+            }
+          },
+          {
+            "product_name": "Satui 10",
+            "calorific_value_kcal": {
+              "min": 6689,
+              "max": 6689
+            }
+          },
+          {
+            "product_name": "Senakin MS",
+            "calorific_value_kcal": {
+              "min": 6632,
+              "max": 6632
+            }
+          },
+          {
+            "product_name": "Ecocoal",
+            "calorific_value_kcal": {
+              "min": 5177,
+              "max": 5177
+            }
+          }
+        ]
+      },
+      "salesMarkets": [
+        {
+          "name": "Bangladesh",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0.172,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Brunei",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 1.09,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Cambodia",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0.341,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "China",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 21.258,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Hong Kong",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0.711,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "India",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 12.767,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Indonesia",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 23.07,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Japan",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 5.661,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Korea",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 1.831,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Malaysia",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 2.267,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Philippines",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 3.451,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Taiwan",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 2.457,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Thailand",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0.057,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        },
+        {
+          "name": "Vietnam",
+          "kind": "country",
+          "revenue_usd": null,
+          "percentage_of_sales_volume": null,
+          "volume": 0.659,
+          "commodity_type": "Coal",
+          "unit": "Mt"
+        }
+      ],
+      "market": {
+        "latest": {
+          "symbol": "BUMI.JK",
+          "date": "2026-09-10",
+          "close": 212,
+          "open": 222,
+          "high": 228,
+          "low": 212,
+          "volume": 4697826700,
+          "market_cap": 78723103118416
+        },
+        "move": -4.504504504504505
+      },
+      "sources": {
+        "company": "tmp\\live-coverage-20260911\\company-detail\\BUMI.json",
+        "ownership": "tmp\\live-coverage-20260911\\ownership\\BUMI.json",
+        "financials": "tmp\\live-coverage-20260911\\financials-2024\\BUMI-2024.json",
+        "performance": "tmp\\live-coverage-20260911\\performance-2024\\BUMI-2024.json",
+        "sales": "tmp\\live-coverage-20260911\\sales-destination-2024\\BUMI-2024.json"
+      }
+    }
+  }
+}

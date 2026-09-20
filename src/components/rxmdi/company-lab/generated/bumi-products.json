@@ -1,0 +1,156 @@
+[
+    {
+        "name":  "Prima",
+        "calorificMin":  6976.0,
+        "calorificMax":  6976.0,
+        "moistureMin":  10.0,
+        "moistureMax":  10.0,
+        "ashMin":  6.0,
+        "ashMax":  6.0,
+        "sulphurMin":  0.6,
+        "sulphurMax":  0.6
+    },
+    {
+        "name":  "Satui 8",
+        "calorificMin":  6902.0,
+        "calorificMax":  6902.0,
+        "moistureMin":  11.0,
+        "moistureMax":  11.0,
+        "ashMin":  8.0,
+        "ashMax":  8.0,
+        "sulphurMin":  0.8,
+        "sulphurMax":  0.8
+    },
+    {
+        "name":  "Satui 10",
+        "calorificMin":  6689.0,
+        "calorificMax":  6689.0,
+        "moistureMin":  11.0,
+        "moistureMax":  11.0,
+        "ashMin":  10.0,
+        "ashMax":  10.0,
+        "sulphurMin":  0.8,
+        "sulphurMax":  0.8
+    },
+    {
+        "name":  "Senakin MS",
+        "calorificMin":  6632.0,
+        "calorificMax":  6632.0,
+        "moistureMin":  10.0,
+        "moistureMax":  10.0,
+        "ashMin":  12.0,
+        "ashMax":  12.0,
+        "sulphurMin":  1.2,
+        "sulphurMax":  1.2
+    },
+    {
+        "name":  "Pinang 6250 GAR",
+        "calorificMin":  6613.0,
+        "calorificMax":  6613.0,
+        "moistureMin":  13.0,
+        "moistureMax":  13.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  0.6,
+        "sulphurMax":  0.6
+    },
+    {
+        "name":  "Pinang 6150 GAR",
+        "calorificMin":  6579.0,
+        "calorificMax":  6579.0,
+        "moistureMin":  14.0,
+        "moistureMax":  14.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  0.6,
+        "sulphurMax":  0.6
+    },
+    {
+        "name":  "Pinang 6000 GAR",
+        "calorificMin":  6275.0,
+        "calorificMax":  6275.0,
+        "moistureMin":  16.0,
+        "moistureMax":  16.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  0.8,
+        "sulphurMax":  0.8
+    },
+    {
+        "name":  "Pinang 5500 GAR",
+        "calorificMin":  6114.0,
+        "calorificMax":  6114.0,
+        "moistureMin":  21.0,
+        "moistureMax":  21.0,
+        "ashMin":  6.0,
+        "ashMax":  6.0,
+        "sulphurMin":  1.3,
+        "sulphurMax":  1.3
+    },
+    {
+        "name":  "Pinang 5800 GAR",
+        "calorificMin":  6083.0,
+        "calorificMax":  6083.0,
+        "moistureMin":  18.0,
+        "moistureMax":  18.0,
+        "ashMin":  5.0,
+        "ashMax":  5.0,
+        "sulphurMin":  1.5,
+        "sulphurMax":  1.5
+    },
+    {
+        "name":  "Melawan",
+        "calorificMin":  5636.0,
+        "calorificMax":  5636.0,
+        "moistureMin":  25.0,
+        "moistureMax":  25.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  1.0,
+        "sulphurMax":  1.0
+    },
+    {
+        "name":  "KPC 4700",
+        "calorificMin":  5330.0,
+        "calorificMax":  5330.0,
+        "moistureMin":  28.0,
+        "moistureMax":  28.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  0.8,
+        "sulphurMax":  0.8
+    },
+    {
+        "name":  "KPC 4500",
+        "calorificMin":  5212.0,
+        "calorificMax":  5212.0,
+        "moistureMin":  30.0,
+        "moistureMax":  30.0,
+        "ashMin":  7.0,
+        "ashMax":  7.0,
+        "sulphurMin":  0.6,
+        "sulphurMax":  0.6
+    },
+    {
+        "name":  "Ecocoal",
+        "calorificMin":  5177.0,
+        "calorificMax":  5177.0,
+        "moistureMin":  35.5,
+        "moistureMax":  35.5,
+        "ashMin":  5.5,
+        "ashMax":  5.5,
+        "sulphurMin":  0.4,
+        "sulphurMax":  0.4
+    },
+    {
+        "name":  "KPC 4200",
+        "calorificMin":  4613.0,
+        "calorificMax":  4613.0,
+        "moistureMin":  35.0,
+        "moistureMax":  35.0,
+        "ashMin":  4.0,
+        "ashMax":  4.0,
+        "sulphurMin":  0.4,
+        "sulphurMax":  0.4
+    }
+]

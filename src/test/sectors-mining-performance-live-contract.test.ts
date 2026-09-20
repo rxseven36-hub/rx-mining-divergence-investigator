@@ -253,7 +253,11 @@ describe(
           });
 
         expect(
-          observations
+          observations.filter(
+            (observation) =>
+              observation.metric === "PRODUCTION" ||
+              observation.metric === "SALES"
+          )
         ).toHaveLength(2);
 
         const production =
@@ -472,7 +476,11 @@ describe(
           });
 
         expect(
-          observations
+          observations.filter(
+            (observation) =>
+              observation.metric === "PRODUCTION" ||
+              observation.metric === "SALES"
+          )
         ).toHaveLength(2);
 
         const production =

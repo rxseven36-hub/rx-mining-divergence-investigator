@@ -1,0 +1,86 @@
+[
+    {
+        "country":  "Indonesia",
+        "volume":  23.07,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "China",
+        "volume":  21.258,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "India",
+        "volume":  12.767,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Japan",
+        "volume":  5.661,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Philippines",
+        "volume":  3.451,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Taiwan",
+        "volume":  2.457,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Malaysia",
+        "volume":  2.267,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Korea",
+        "volume":  1.831,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Brunei",
+        "volume":  1.09,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Hong Kong",
+        "volume":  0.711,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Vietnam",
+        "volume":  0.659,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Cambodia",
+        "volume":  0.341,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Bangladesh",
+        "volume":  0.172,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    },
+    {
+        "country":  "Thailand",
+        "volume":  0.057,
+        "unit":  "Mt",
+        "commodity":  "Coal"
+    }
+]

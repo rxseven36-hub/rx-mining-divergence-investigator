@@ -1,0 +1,58 @@
+{
+  "dataThrough": "2026-09-10T21:11:00",
+  "markets": [
+    {
+      "ticker": "BUMI",
+      "date": "2026-09-10",
+      "close": 212,
+      "move": -4.504504504504505,
+      "volume": 4697826700,
+      "broker": true,
+      "foreign": true
+    },
+    {
+      "ticker": "BYAN",
+      "date": "2026-09-10",
+      "close": 13100,
+      "move": -4.900181488203267,
+      "volume": 1567600,
+      "broker": true,
+      "foreign": true
+    },
+    {
+      "ticker": "ITMG",
+      "date": "2026-09-10",
+      "close": 26100,
+      "move": -1.694915254237288,
+      "volume": 1755400,
+      "broker": true,
+      "foreign": true
+    }
+  ],
+  "news": [
+    {
+      "timestamp": "2026-09-10T21:11:00",
+      "title": "PT Bumi Resources Tbk explains acquisition of Loyal Metals Ltd despite AUD27.26 million cumulative loss",
+      "publisher": "EmitenNews",
+      "url": "https://emitennews.com/news/bumi-beli-tambang-australia-dengan-akumulasi-rugi-jumbo-ini-alasannya"
+    },
+    {
+      "timestamp": "2026-09-10T15:30:00",
+      "title": "Gold stocks under pressure ahead of VanEck benchmark index rebalancing",
+      "publisher": "IDNFinancials",
+      "url": "https://www.idnfinancials.com/id/news/68652/saham-saham-emas-tertekan-jelang-rebalancing-indeks-acuan-vaneck"
+    },
+    {
+      "timestamp": "2026-09-09T07:56:00",
+      "title": "Foreign investors net buy hundreds of billions of rupiah in a day, snapping up ten stocks",
+      "publisher": "Bloomberg Technoz",
+      "url": "https://www.bloombergtechnoz.com/detail-news/120978/net-buy-ratusan-miliar-sehari-investor-asing-borong-10-saham-ini"
+    }
+  ],
+  "counts": {
+    "news": 30,
+    "filings": 17,
+    "corporateActions": 10,
+    "suspensions": 1
+  }
+}

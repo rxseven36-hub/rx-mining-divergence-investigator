@@ -1,6 +1,8 @@
 export type RXMetricKind =
   | "PRODUCTION"
   | "SALES"
+  | "OVERBURDEN"
+  | "STRIP_RATIO"
   | "RESOURCE"
   | "RESERVE"
   | "PRICE"

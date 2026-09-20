@@ -126,10 +126,62 @@ function prepareRequest(
       bindingIssues: [],
     };
   }
+  /**
+   * This preparer binds REST-backed capabilities only.
+   *
+   * MCP-backed capabilities require their own preparation
+   * and execution boundary and must never reach the REST
+   * operation binder.
+   */
+  if (
+    !capability ||
+    capability.executionBoundary !==
+      "SECTORS_ADAPTER"
+  ) {
+    return {
+      status:
+        "REJECTED",
+
+      request,
+
+      executionDecision,
+
+      operation:
+        null,
+
+      bindingIssues: [
+        "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+      ],
+    };
+  }
+
+  const restCapability =
+    request.capability;
+
+  if (
+    restCapability ===
+      "COMPANY_FINANCIAL_REPORT"
+  ) {
+    return {
+      status:
+        "REJECTED",
+
+      request,
+
+      executionDecision,
+
+      operation:
+        null,
+
+      bindingIssues: [
+        "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+      ],
+    };
+  }
 
   const binding =
     bindInvestigationOperationRequest(
-      request.capability,
+      restCapability,
       request.purpose,
       context
     );

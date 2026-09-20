@@ -1,4 +1,12 @@
 import {
+  runSectorsMcpCompanyEnrichment,
+  type RXSectorsMcpCompanyEnrichmentResult,
+} from "../data/sectors-mcp/sectors-mcp-company-enrichment";
+
+import {
+  resolveSectorsMcpCanonicalCompany,
+} from "../data/sectors-mcp/sectors-mcp-canonical-companies";
+import {
   RestSectorsAdapter,
 } from "../data/sectors/sectors-adapter";
 
@@ -132,6 +140,9 @@ export type RXLiveProductionSalesIntelligenceRunResult =
             typeof runProductionSalesInvestigationIntelligence
           >
         >;
+
+      mcpEnrichment:
+        RXSectorsMcpCompanyEnrichmentResult | null;
 
       issues:
         [];
@@ -418,6 +429,37 @@ export async function runLiveProductionSalesIntelligence(
           input.retrievedAt,
       }
     );
+  let mcpEnrichment:
+    RXSectorsMcpCompanyEnrichmentResult | null =
+      null;
+
+  const canonicalCompany =
+    resolveSectorsMcpCanonicalCompany(
+      ticker,
+      sectorsSlug,
+    );
+
+  if (canonicalCompany) {
+    try {
+      mcpEnrichment =
+        await runSectorsMcpCompanyEnrichment({
+          apiKey: sectorsApiKey,
+          company: canonicalCompany,
+        });
+    } catch {
+      mcpEnrichment = {
+        status: "DEGRADED",
+        provider: "sectors-mcp",
+        entity: {
+          ...canonicalCompany,
+          resolved: false,
+        },
+        toolsUsed: [],
+        enrichment: null,
+        issue: "MCP_RUNTIME_FAILURE",
+      };
+    }
+  }
 
   return {
     status:
@@ -429,6 +471,8 @@ export async function runLiveProductionSalesIntelligence(
     discovery,
 
     intelligence,
+    
+    mcpEnrichment,
 
     issues: [],
 

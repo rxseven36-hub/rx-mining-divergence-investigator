@@ -284,9 +284,40 @@ export async function executePreparedInvestigationRequest(
         "UNKNOWN",
     };
   }
+  /**
+   * This executor is deliberately REST-only.
+   *
+   * MCP-backed financial evidence must be executed by the
+   * dedicated Sectors MCP financial runner. It must never
+   * fall through to executeSectorsOperation().
+   */
+  if (
+    preparedRequest.request.capability ===
+      "COMPANY_FINANCIAL_REPORT"
+  ) {
+    return {
+      status:
+        "ADMISSION_NOT_SUPPORTED",
+
+      preparedRequest,
+
+      execution:
+        null as never,
+
+      evidenceCollection:
+        null,
+
+      issue:
+        "CAPABILITY_ADMISSION_NOT_SUPPORTED",
+
+      causalConclusion:
+        "UNKNOWN",
+    };
+  }
 
   const executionCompanyId =
     context.companyId;
+
   const execution =
     await executeSectorsOperation<unknown>(
       adapter,

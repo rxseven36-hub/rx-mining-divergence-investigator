@@ -1,0 +1,1775 @@
+﻿.shell {
+  --rx-bg: #071017;
+  --rx-panel: #09151e;
+  --rx-panel-2: #0c1b26;
+  --rx-line: rgba(255, 255, 255, 0.075);
+  --rx-muted: #718898;
+  --rx-copy: #dbe6ed;
+  --rx-blue: #56c9ff;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--rx-line);
+  border-radius: 22px;
+  background: var(--rx-bg);
+  color: #f4f8fa;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.32);
+}
+
+.header {
+  position: absolute;
+  z-index: 14;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+
+  padding: 18px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  background: rgba(5, 15, 22, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+
+  pointer-events: none;
+}
+.headerCopy,
+.coverage {
+  pointer-events: auto;
+}
+
+.headerCopy {
+  min-width: 0;
+}
+
+.header h2 {
+  margin: 7px 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.header p {
+  max-width: 720px;
+  margin: 0;
+  color: #8296a4;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--rx-blue);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.coverage {
+  display: flex;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.coverage div {
+  min-width: 100px;
+  padding: 12px 14px;
+  border: 1px solid var(--rx-line);
+  border-radius: 13px;
+  background: rgba(12, 27, 38, 0.85);
+}
+
+.coverage strong,
+.coverage span {
+  display: block;
+}
+
+.coverage strong {
+  font-size: 1.08rem;
+  color: #f5fbff;
+}
+
+.coverage span {
+  margin-top: 3px;
+  color: #617887;
+  font-size: 0.66rem;
+}
+
+.filters {
+  position: absolute;
+  z-index: 15;
+  top: 12px;
+  left: 18px;
+  right: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 10px;
+  overflow-x: auto;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  background: rgba(5, 15, 22, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
+}
+
+.filter,
+.filterActive {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: max-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.filter {
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  background: #0b1923;
+  color: #7c919f;
+}
+
+.filter:hover {
+  color: #dfeaf0;
+  border-color: rgba(255, 255, 255, 0.17);
+}
+
+.filterActive {
+  border: 1px solid rgba(76, 194, 255, 0.44);
+  background: rgba(76, 194, 255, 0.12);
+  color: #dff5ff;
+}
+
+.filterDot,
+.companyColorDot {
+  display: inline-block;
+  border-radius: 999px;
+}
+
+.filterDot {
+  width: 7px;
+  height: 7px;
+}
+
+.companyColorDot {
+  width: 10px;
+  height: 10px;
+  box-shadow:
+    0 0 12px currentColor;
+}
+
+.visibleCount {
+  margin-left: auto;
+  min-width: max-content;
+  color: #4f6776;
+  font-size: 0.66rem;
+}
+
+.workspace {
+  position: relative;
+  height: min(86vh, 900px);
+  min-height: 720px;
+}
+
+.mapArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #07131b;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map :global(.maplibregl-canvas) {
+  outline: none;
+}
+
+.map :global(.maplibregl-ctrl-group) {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(7, 17, 24, 0.92);
+  box-shadow: none;
+}
+
+.map :global(.maplibregl-ctrl-group button) {
+  filter: invert(1);
+  opacity: 0.78;
+}
+
+.map :global(.maplibregl-ctrl-attrib) {
+  background: rgba(5, 12, 17, 0.76);
+  color: #718493;
+}
+
+.mapSearch {
+  position: absolute;
+  z-index: 8;
+  top: 70px;
+  left: 16px;
+  width: min(330px, calc(100% - 84px));
+}
+
+.mapSearch > input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 39px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 11px;
+  outline: none;
+  background: rgba(7, 17, 24, 0.94);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.24);
+  color: #e6eff4;
+  font-size: 0.77rem;
+}
+
+.mapSearch > input:focus {
+  border-color: rgba(77, 196, 255, 0.45);
+}
+
+.mapSearch > input::placeholder {
+  color: #546b79;
+}
+
+.searchIcon {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 13px;
+  color: #66808f;
+  font-size: 1rem;
+}
+
+.searchResults {
+  margin-top: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 11px;
+  background: rgba(7, 17, 24, 0.98);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.34);
+}
+
+.searchResults button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.searchResults button:last-child {
+  border-bottom: 0;
+}
+
+.searchResults button:hover {
+  background: rgba(76, 194, 255, 0.07);
+}
+
+.searchResults div {
+  min-width: 0;
+}
+
+.searchResults strong,
+.searchResults span {
+  display: block;
+}
+
+.searchResults strong {
+  overflow: hidden;
+  color: #d9e5eb;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchResults span {
+  margin-top: 3px;
+  overflow: hidden;
+  color: #617887;
+  font-size: 0.61rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchResults em {
+  color: var(--rx-blue);
+  font-size: 0.61rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.siteMarker {
+  --rx-marker-color: #58c7ff;
+
+  position: relative;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.markerCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border: 2px solid rgba(255, 255, 255, 0.96);
+  border-radius: 50%;
+  background: var(--rx-marker-color);
+  box-shadow:
+    0 0 0 2px rgba(4, 12, 17, 0.9),
+    0 0 11px var(--rx-marker-color);
+  transform: translate(-50%, -50%);
+  transition:
+    width 140ms ease,
+    height 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.markerPulse {
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--rx-marker-color);
+  border-radius: 50%;
+  opacity: 0.28;
+}
+
+.siteMarker:hover .markerCore,
+.siteMarkerActive .markerCore {
+  width: 16px;
+  height: 16px;
+  box-shadow:
+    0 0 0 3px rgba(4, 12, 17, 0.92),
+    0 0 18px var(--rx-marker-color);
+}
+
+.siteMarkerActive .markerPulse {
+  inset: -4px;
+  opacity: 0.7;
+  animation: markerPulse 1.7s infinite;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.mapLegend {
+  position: absolute;
+  z-index: 5;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: 440px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 9px;
+  background: rgba(5, 13, 19, 0.88);
+  backdrop-filter: blur(10px);
+  color: #6f8492;
+  font-size: 0.61rem;
+  line-height: 1.45;
+}
+
+.mapLegend b {
+  color: #5dccff;
+}
+
+.state,
+.stateError {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #07131b;
+}
+
+.state {
+  color: #76909f;
+}
+
+.stateError {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stateError span {
+  color: #758995;
+  font-size: 0.75rem;
+}
+
+.sidebar {
+  position: absolute;
+  z-index: 12;
+  top: 70px;
+  right: 18px;
+  bottom: 18px;
+  width: min(370px, calc(100% - 36px));
+  overflow-y: auto;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+
+  background: rgba(7, 17, 24, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.38);
+}
+
+.siteSelector h3 {
+  margin: 7px 0 5px;
+  font-size: 1rem;
+}
+
+.siteSelector p {
+  margin: 0;
+  color: #637b8a;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.companySelectorHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectLabel {
+  display: block;
+  margin-top: 15px;
+  color: #66808f;
+  font-size: 0.64rem;
+  font-weight: 750;
+}
+
+.selectLabel select {
+  width: 100%;
+  height: 39px;
+  margin-top: 6px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 9px;
+  outline: none;
+  background: #0a1a24;
+  color: #dce7ed;
+  font-size: 0.72rem;
+}
+
+.selectLabel select:focus {
+  border-color: rgba(79, 196, 255, 0.42);
+}
+
+.siteList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 186px;
+  margin-top: 10px;
+  overflow-y: auto;
+}
+
+.siteListItem,
+.siteListActive {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  padding: 8px 9px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.siteListItem {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #8296a3;
+}
+
+.siteListActive {
+  border: 1px solid rgba(79, 196, 255, 0.23);
+  background: rgba(79, 196, 255, 0.075);
+  color: #dcebf2;
+}
+
+.siteListItem:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.siteListItem > span,
+.siteListActive > span {
+  margin-top: 1px;
+  color: #5bcaff;
+  font-size: 0.62rem;
+}
+
+.siteListItem div,
+.siteListActive div {
+  min-width: 0;
+}
+
+.siteListItem strong,
+.siteListActive strong,
+.siteListItem small,
+.siteListActive small {
+  display: block;
+}
+
+.siteListItem strong,
+.siteListActive strong {
+  overflow: hidden;
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.siteListItem small,
+.siteListActive small {
+  margin-top: 2px;
+  overflow: hidden;
+  color: #566e7d;
+  font-size: 0.58rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sitePanel,
+.sitePanelEmpty {
+  padding: 21px;
+}
+
+.sitePanelEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.sitePanelEmpty h3 {
+  margin: 9px 0 7px;
+  font-size: 1.18rem;
+}
+
+.sitePanelEmpty p {
+  margin: 0;
+  color: #677f8e;
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
+
+.siteHero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.siteTicker {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  background: rgba(77, 197, 255, 0.1);
+  color: #66cdfd;
+  font-size: 0.58rem;
+  font-weight: 900;
+}
+
+.mappedBadge,
+.unmappedBadge,
+.readyBadge,
+.missingBadge {
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 0.53rem;
+  font-weight: 900;
+  letter-spacing: 0.055em;
+}
+
+.mappedBadge,
+.readyBadge {
+  background: rgba(74, 207, 143, 0.105);
+  color: #67d6a1;
+}
+
+.unmappedBadge,
+.missingBadge {
+  background: rgba(241, 179, 73, 0.105);
+  color: #dda94e;
+}
+
+.siteTitle {
+  margin: 10px 0 4px;
+  font-size: 1.32rem;
+  letter-spacing: -0.025em;
+}
+
+.siteLocation {
+  margin: 0;
+  color: #637a89;
+  font-size: 0.7rem;
+}
+
+.identityGrid,
+.metricGrid,
+.licenseGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.identityGrid {
+  margin-top: 17px;
+}
+
+.identityGrid > div,
+.metricGrid > div,
+.licenseGrid > div,
+.qualityRow {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 8px;
+  background: #0a1923;
+}
+
+.identityGrid span,
+.metricGrid span,
+.licenseGrid span,
+.qualityRow span {
+  display: block;
+  margin-bottom: 4px;
+  color: #566f7e;
+  font-size: 0.58rem;
+}
+
+.identityGrid strong,
+.metricGrid strong,
+.licenseGrid strong,
+.qualityRow strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #d6e1e8;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.intelligenceBlock {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.blockHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.blockHeading h4 {
+  margin: 0;
+  font-size: 0.77rem;
+}
+
+.qualityRow {
+  margin-top: 7px;
+}
+
+.measurementNote {
+  display: block;
+  margin-top: 7px;
+  color: #506877;
+  font-size: 0.58rem;
+  line-height: 1.5;
+}
+
+.dataGap {
+  margin: 0;
+  color: #677d8a;
+  font-size: 0.7rem;
+}
+
+.evidenceNote {
+  margin-top: 18px;
+  padding: 10px;
+  border: 1px solid rgba(79, 196, 255, 0.09);
+  border-radius: 8px;
+  background: rgba(79, 196, 255, 0.035);
+  color: #617988;
+  font-size: 0.61rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .mapArea {
+    min-height: 570px;
+  }
+
+  .sidebar {
+    max-height: none;
+    border-top: 1px solid var(--rx-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 22px 18px;
+  }
+
+  .coverage {
+    width: 100%;
+  }
+
+  .coverage div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .filters {
+    padding-inline: 12px;
+  }
+
+  .visibleCount {
+    display: none;
+  }
+
+  .mapArea {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 520px) {
+  .coverage {
+    gap: 5px;
+  }
+
+  .coverage div {
+    padding: 9px;
+  }
+
+  .coverage span {
+    font-size: 0.58rem;
+  }
+
+  .mapArea {
+    min-height: 440px;
+  }
+
+  .mapSearch {
+    top: 11px;
+    left: 11px;
+    width: calc(100% - 75px);
+  }
+
+  .mapLegend {
+    right: 11px;
+    bottom: 11px;
+    left: 11px;
+  }
+
+  .siteSelector,
+  .sitePanel,
+  .sitePanelEmpty {
+    padding: 17px;
+  }
+
+  .identityGrid,
+  .metricGrid,
+  .licenseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   RX MDI MAP LAB V3
+   Natural satellite + stronger selected-site experience
+   ========================================================== */
+
+.selectedMapCard {
+  position: absolute;
+  z-index: 7;
+  top: 72px;
+  left: 16px;
+  width: min(310px, calc(100% - 84px));
+  padding: 12px;
+  border: 1px solid rgba(98, 205, 255, 0.28);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 20, 29, 0.96),
+      rgba(5, 14, 21, 0.93)
+    );
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(63, 190, 255, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+.selectedMapCardTop {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.selectedMapDot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  border-radius: 50%;
+  box-shadow: 0 0 9px currentColor;
+}
+
+.selectedMapCardTop strong {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  color: #eef8fc;
+  font-size: 0.76rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectedMapCardTop em {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background: rgba(86, 201, 255, 0.1);
+  color: #6dd1ff;
+  font-size: 0.56rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.selectedMapCard > span,
+.selectedMapCard > small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectedMapCard > span {
+  margin-top: 7px;
+  color: #a6bac5;
+  font-size: 0.67rem;
+}
+
+.selectedMapCard > small {
+  margin-top: 3px;
+  color: #607987;
+  font-size: 0.6rem;
+}
+
+.selectedMapCard > button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(75, 195, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(61, 187, 250, 0.1);
+  color: #8ddcff;
+  font-size: 0.65rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.selectedMapCard > button:hover {
+  background: rgba(61, 187, 250, 0.17);
+}
+
+/*
+ * Keep markers geographically anchored.
+ * The outer marker element never changes dimensions on selection.
+ * Only the inner visual core grows.
+ */
+.siteMarker,
+.siteMarkerActive {
+  width: 30px;
+  height: 30px;
+  transform: none;
+}
+
+.markerCore {
+  width: 12px;
+  height: 12px;
+}
+
+.siteMarker:hover .markerCore,
+.siteMarkerActive .markerCore {
+  width: 18px;
+  height: 18px;
+}
+
+.siteMarkerActive .markerCore {
+  border-width: 3px;
+  box-shadow:
+    0 0 0 3px rgba(3, 12, 18, 0.92),
+    0 0 22px var(--rx-marker-color),
+    0 0 40px var(--rx-marker-color);
+}
+
+.siteMarkerActive .markerPulse {
+  inset: 0;
+}
+
+@media (max-width: 520px) {
+  .selectedMapCard {
+    top: 64px;
+    left: 11px;
+    width: calc(100% - 75px);
+  }
+}
+
+/* ==========================================================
+   RX MDI MAP LAB V5
+   Native marker stability + site identity
+   ========================================================== */
+
+.nativeMarker {
+  filter:
+    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.65));
+}
+
+.nativeMarkerSelected {
+  z-index: 20 !important;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 10px rgba(75, 195, 255, 0.9));
+}
+
+.visualIdentity {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.visualPlaceholder {
+  display: flex;
+  min-height: 130px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 13px;
+  overflow: hidden;
+  border: 1px solid rgba(93, 202, 255, 0.13);
+  border-radius: 11px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 98, 126, 0.24),
+      rgba(6, 19, 28, 0.94)
+    ),
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(84, 201, 255, 0.17),
+      transparent 38%
+    );
+}
+
+.visualPlaceholder span {
+  color: #65cef9;
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.visualPlaceholder strong {
+  margin-top: 5px;
+  color: #edf8fc;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.visualPlaceholder small {
+  margin-top: 5px;
+  color: #597584;
+  font-size: 0.56rem;
+  line-height: 1.35;
+}
+
+.visualIdentityText {
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 11px;
+  background: #091a24;
+}
+
+.visualIdentityText span,
+.visualIdentityText strong,
+.visualIdentityText small,
+.visualIdentityText em {
+  display: block;
+}
+
+.visualIdentityText span {
+  margin-top: 9px;
+  color: #587280;
+  font-size: 0.56rem;
+}
+
+.visualIdentityText span:first-child {
+  margin-top: 0;
+}
+
+.visualIdentityText strong {
+  margin-top: 3px;
+  color: #dfeaf0;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.visualIdentityText small {
+  margin-top: 3px;
+  color: #8197a4;
+  font-size: 0.59rem;
+  line-height: 1.35;
+}
+
+.visualIdentityText em {
+  margin-top: 9px;
+  color: #4e6877;
+  font-size: 0.53rem;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+  .visualIdentity {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+==========================================================
+ RX MDI MAP LAB V6
+ Compact national dots + active native marker
+==========================================================
+*/
+
+.mapSiteDot {
+  --rx-site-color: #58c7ff;
+
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.96);
+  border-radius: 999px;
+  background: var(--rx-site-color);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition:
+    width 140ms ease,
+    height 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease;
+}
+
+.mapSiteDot:hover {
+  width: 15px;
+  height: 15px;
+  z-index: 15;
+  box-shadow:
+    0 0 0 3px rgba(3, 12, 18, 0.88),
+    0 0 15px var(--rx-site-color);
+}
+
+/*
+ The map zoom itself provides geographic separation.
+ Keep default markers deliberately compact so national
+ Indonesia view reads as distribution, not a field of pins.
+*/
+
+.nativeMarkerSelected {
+  z-index: 30 !important;
+  filter:
+    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.75))
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.92))
+    drop-shadow(0 0 12px rgba(75, 195, 255, 0.85));
+}
+
+/*
+ Site visual hero.
+ Decorative mining atmosphere only; factual identity remains
+ in the adjacent RX MDI intelligence fields.
+*/
+
+.visualPlaceholder {
+  position: relative;
+  isolation: isolate;
+  min-height: 150px;
+  justify-content: flex-end;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 14, 21, 0.02) 10%,
+      rgba(4, 14, 21, 0.34) 48%,
+      rgba(4, 14, 21, 0.96) 100%
+    ),
+    radial-gradient(
+      circle at 76% 22%,
+      rgba(255, 183, 72, 0.42),
+      transparent 22%
+    ),
+    linear-gradient(
+      155deg,
+      #315263 0%,
+      #1e3c49 31%,
+      #8a6845 32%,
+      #60482f 47%,
+      #172c34 48%,
+      #0b2029 100%
+    );
+  box-shadow:
+    inset 0 0 35px rgba(0, 0, 0, 0.28);
+}
+
+.visualPlaceholder::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -7%;
+  right: -7%;
+  bottom: 24%;
+  height: 42%;
+  opacity: 0.92;
+  clip-path: polygon(
+    0 82%,
+    9% 69%,
+    17% 73%,
+    28% 42%,
+    38% 58%,
+    48% 30%,
+    57% 51%,
+    68% 18%,
+    78% 43%,
+    89% 25%,
+    100% 48%,
+    100% 100%,
+    0 100%
+  );
+  background:
+    linear-gradient(
+      180deg,
+      #75583b,
+      #33291f
+    );
+}
+
+.visualPlaceholder::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 56px;
+  height: 23px;
+  right: 14px;
+  bottom: 23px;
+  border-radius: 4px 15px 4px 4px;
+  background: #d39a35;
+  box-shadow:
+    -20px 7px 0 -4px #b27a27,
+    8px 10px 0 -5px #1e272b,
+    22px 10px 0 -5px #1e272b;
+  opacity: 0.86;
+}
+
+.visualPlaceholder span,
+.visualPlaceholder strong,
+.visualPlaceholder small {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.88);
+}
+
+.visualPlaceholder small {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .mapSiteDot {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+
+/*
+==========================================================
+ RX MDI MAP LAB V7 FINAL
+ Marker geo fix + top site selector + hero intelligence
+==========================================================
+*/
+
+/*
+ IMPORTANT:
+ MapLibre positions markers using absolute positioning +
+ transform. Do not override marker positioning with relative.
+*/
+.mapSiteDot {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  pointer-events: auto;
+  touch-action: manipulation;
+  user-select: none;
+  border: 2px solid rgba(255, 255, 255, 0.96);
+  border-radius: 999px;
+  background: var(--rx-site-color);
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.78),
+    0 0 0 1px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+
+.mapSiteDot:hover {
+  width: 14px;
+  height: 14px;
+  z-index: 20;
+  box-shadow:
+    0 0 0 3px rgba(3, 12, 18, 0.9),
+    0 0 14px var(--rx-site-color);
+}
+
+/*
+ Top company → site selector
+*/
+.topSiteSelect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 245px;
+  margin-left: 8px;
+}
+
+.topSiteSelect > span {
+  color: #607d8c;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.topSiteSelect select {
+  width: 100%;
+  min-width: 210px;
+  height: 34px;
+  padding: 0 34px 0 11px;
+  border: 1px solid rgba(92, 197, 244, 0.18);
+  border-radius: 999px;
+  outline: none;
+  background: #091b25;
+  color: #dcebf2;
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.topSiteSelect select:hover,
+.topSiteSelect select:focus {
+  border-color: rgba(84, 200, 255, 0.48);
+}
+
+/*
+ Site Intelligence now owns the whole right column.
+*/
+.sidebar {
+  align-self: stretch;
+}
+
+.sitePanel,
+.sitePanelEmpty {
+  min-height: 100%;
+}
+
+/*
+ Human visual hero
+*/
+.visualPlaceholder {
+  position: relative;
+  min-height: 190px;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.visualPlaceholder::before,
+.visualPlaceholder::after {
+  content: none !important;
+}
+
+.visualPlaceholder span {
+  color: #7ed9ff;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.visualPlaceholder strong {
+  max-width: 90%;
+  margin-top: 5px;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.95),
+    0 0 12px rgba(0, 0, 0, 0.65);
+}
+
+.visualPlaceholder small {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .topSiteSelect {
+    min-width: 180px;
+    flex: 1 1 220px;
+  }
+
+  .topSiteSelect select {
+    min-width: 0;
+  }
+}
+
+
+/*
+==========================================================
+ RX MDI MAP LAB V8
+ Larger marker hit-area + full-width intelligence hero
+==========================================================
+*/
+
+/*
+ ---------------------------------------------------------
+ MARKER UX
+ Visible dot stays compact.
+ Click / hover target becomes much larger.
+ ---------------------------------------------------------
+*/
+
+.mapSiteDot {
+  width: 30px !important;
+  height: 30px !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 999px;
+
+  background: transparent !important;
+
+  cursor: pointer;
+
+  pointer-events: auto !important;
+  touch-action: manipulation;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  outline: none;
+
+  box-shadow: none !important;
+}
+
+/*
+ Actual visible mining-site dot.
+*/
+.mapSiteDot::before {
+  content: "";
+
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  flex: 0 0 auto;
+
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+
+  background: var(--rx-site-color);
+
+  box-shadow:
+    0 0 0 2px rgba(5, 12, 18, 0.95),
+    0 2px 7px rgba(0, 0, 0, 0.75);
+
+  transition:
+    width 140ms ease,
+    height 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+/*
+ User does NOT need to hit the 9px visual dot exactly.
+ Hover anywhere inside the 30px hit-area responds.
+*/
+.mapSiteDot:hover::before,
+.mapSiteDot:focus-visible::before {
+  width: 16px;
+  height: 16px;
+
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 0 3px rgba(5, 12, 18, 0.95),
+    0 0 0 5px rgba(255, 255, 255, 0.75),
+    0 0 16px var(--rx-site-color);
+}
+
+
+/*
+ ---------------------------------------------------------
+ SITE INTELLIGENCE VISUAL
+ Hero now owns full panel width.
+ Operator / listed company moves underneath.
+ ---------------------------------------------------------
+*/
+
+.visualIdentity {
+  display: grid !important;
+
+  grid-template-columns: 1fr !important;
+
+  gap: 10px !important;
+
+  margin-top: 16px;
+}
+
+
+/*
+ Big human-facing mining visual.
+*/
+.visualPlaceholder {
+  width: 100%;
+
+  min-height: 240px !important;
+
+  padding: 18px !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-radius: 13px !important;
+
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+
+  box-shadow:
+    inset 0 -90px 80px rgba(2, 10, 15, 0.58),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+
+/*
+ Ticker on hero.
+*/
+.visualPlaceholder span {
+  font-size: 0.61rem !important;
+
+  letter-spacing: 0.13em;
+
+  color: #7edcff !important;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+
+/*
+ Site name on hero.
+*/
+.visualPlaceholder strong {
+  max-width: 92%;
+
+  margin-top: 5px !important;
+
+  color: #ffffff !important;
+
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
+
+  text-shadow:
+    0 2px 7px rgba(0, 0, 0, 0.98),
+    0 0 14px rgba(0, 0, 0, 0.52);
+}
+
+
+/*
+ Operator / Listed Group now sits BELOW image.
+*/
+.visualIdentityText {
+  padding: 13px 14px !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.065) !important;
+
+  border-radius: 11px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(11, 31, 42, 0.98),
+      rgba(7, 24, 33, 0.98)
+    ) !important;
+}
+
+
+/*
+ Make company identity stronger now that it is below image.
+*/
+.visualIdentityText span {
+  margin-top: 9px !important;
+
+  color: #668494 !important;
+
+  font-size: 0.58rem !important;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+.visualIdentityText span:first-child {
+  margin-top: 0 !important;
+}
+
+.visualIdentityText strong {
+  margin-top: 3px !important;
+
+  color: #ecf7fb !important;
+
+  font-size: 0.76rem !important;
+
+  line-height: 1.35 !important;
+}
+
+.visualIdentityText small {
+  margin-top: 3px !important;
+
+  color: #8ba4b2 !important;
+
+  font-size: 0.64rem !important;
+
+  line-height: 1.35 !important;
+}
+
+
+/*
+ Keep ecosystem note understated.
+*/
+.visualIdentityText em {
+  margin-top: 11px !important;
+
+  padding-top: 9px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.045);
+
+  color: #526f7e !important;
+
+  font-size: 0.53rem !important;
+
+  line-height: 1.45 !important;
+}
+
+
+/*
+ Desktop panel can carry a larger hero.
+*/
+@media (min-width: 1200px) {
+  .visualPlaceholder {
+    min-height: 260px !important;
+  }
+}
+
+
+/*
+ Mobile stays proportional.
+*/
+@media (max-width: 700px) {
+  .visualPlaceholder {
+    min-height: 205px !important;
+  }
+
+  .mapSiteDot {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .mapSiteDot::before {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ==================================================
+   RX MDI — SITE HOVER POPUP
+   ================================================== */
+
+.siteHoverPopup {
+  pointer-events: none;
+}
+
+.siteHoverPopup :global(.maplibregl-popup-content) {
+  min-width: 220px;
+  max-width: 290px;
+
+  padding: 0;
+
+  border: 1px solid #315161;
+  border-radius: 12px;
+
+  background: #07141c !important;
+
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.6);
+
+  overflow: hidden;
+}
+
+.siteHoverContent {
+  padding: 13px 15px;
+}
+
+.siteHoverTicker {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #ffb84a;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.siteHoverContent strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.siteHoverOperator {
+  display: block;
+  margin-top: 6px;
+
+  color: #d1dde2;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.siteHoverContent small {
+  display: block;
+  margin-top: 5px;
+
+  color: #8fa8b3;
+
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.siteHoverPopup
+  :global(.maplibregl-popup-anchor-top)
+  :global(.maplibregl-popup-tip) {
+  border-bottom-color: #07141c;
+}
+
+.siteHoverPopup
+  :global(.maplibregl-popup-anchor-bottom)
+  :global(.maplibregl-popup-tip) {
+  border-top-color: #07141c;
+}
+
+.siteHoverPopup
+  :global(.maplibregl-popup-anchor-left)
+  :global(.maplibregl-popup-tip) {
+  border-right-color: #07141c;
+}
+
+.siteHoverPopup
+  :global(.maplibregl-popup-anchor-right)
+  :global(.maplibregl-popup-tip) {
+  border-left-color: #07141c;
+}

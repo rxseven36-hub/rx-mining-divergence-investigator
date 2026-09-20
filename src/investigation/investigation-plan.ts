@@ -1,17 +1,20 @@
 import type {
   RXInvestigationCapability,
 } from "./capability";
+
 export type RXInvestigationQuestionKind =
   | "OPERATIONAL_CONTEXT"
   | "HISTORICAL_COMPARISON"
   | "COMMODITY_CONTEXT"
-  | "MARKET_REACTION";
+  | "MARKET_REACTION"
+  | "FINANCIAL_CONTEXT";
 
 export type RXEvidenceRequirementKind =
   | "COMPANY_OPERATIONAL"
   | "HISTORICAL_PERFORMANCE"
   | "COMMODITY_PRICE"
-  | "MARKET_TRANSACTION";
+  | "MARKET_TRANSACTION"
+  | "FINANCIAL_REPORT";
 
 export type RXInvestigationDataSource =
   | "SECTORS";
@@ -68,7 +71,7 @@ export interface RXInvestigationDataRequest {
 
   /**
    * Logical capability requested from the data layer.
-   * This is intentionally NOT a raw URL.
+   * This is intentionally NOT a raw URL or transport command.
    */
   capability: RXInvestigationCapability;
 

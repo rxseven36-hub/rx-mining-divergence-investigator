@@ -1,0 +1,845 @@
+﻿{
+    "type":  "FeatureCollection",
+    "features":  [
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.122998,
+                                                              -3.142556
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ADMR",
+                                            "site_name":  "Batubara Bumbun",
+                                            "site_slug":  "batubara-bumbun",
+                                            "operator_name":  "PT Juloi Coal",
+                                            "operator_slug":  "pt-juloi-coal",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tapin",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              114.710847,
+                                                              0.16375
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ADMR",
+                                            "site_name":  "Batubara Dahlia",
+                                            "site_slug":  "batubara-dahlia",
+                                            "operator_name":  "PT Sumber Barito Coal",
+                                            "operator_slug":  "pt-sumber-barito-coal",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Tengah",
+                                            "city":  "Murung Raya",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              114.835719,
+                                                              -0.314002
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ADMR",
+                                            "site_name":  "Haju Block",
+                                            "site_slug":  "haju-block",
+                                            "operator_name":  "PT Lahai Coal",
+                                            "operator_slug":  "pt-lahai-coal",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Tengah",
+                                            "city":  "Murung Raya",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.84732,
+                                                              -3.21454
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Batubara Batulicin",
+                                            "site_slug":  "batubara-batulicin",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Bumbu",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.288631,
+                                                              -2.796658
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Senakin",
+                                            "site_slug":  "senakin",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Kotabaru",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.288605,
+                                                              -3.679438
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Satui",
+                                            "site_slug":  "satui",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Bumbu",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.37312,
+                                                              -3.790327
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Mulia/Jumbang",
+                                            "site_slug":  "muliajumbang",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Bumbu",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.018748,
+                                                              -3.253772
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Sarongga",
+                                            "site_slug":  "sarongga",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Bumbu",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.04344,
+                                                              -3.94989
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Asam-asam",
+                                            "site_slug":  "asam-asam",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Laut",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.217864,
+                                                              -3.750346
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Kintap",
+                                            "site_slug":  "kintap",
+                                            "operator_name":  "PT Arutmin Indonesia",
+                                            "operator_slug":  "pt-arutmin-indonesia",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Laut",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              103.97845,
+                                                              -3.33306
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Batubara Kertadewa",
+                                            "site_slug":  "batubara-kertadewa",
+                                            "operator_name":  "PT Pendopo Energi Batubara",
+                                            "operator_slug":  "pt-pendopo-energi-batubara",
+                                            "commodity":  "Coal",
+                                            "province":  "Sumatera Selatan",
+                                            "city":  "Penukal Abab Lematang Ilir",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              117.488557,
+                                                              0.599251
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Sangatta",
+                                            "site_slug":  "sangatta",
+                                            "operator_name":  "PT Kaltim Prima Coal",
+                                            "operator_slug":  "pt-kaltim-prima-coal",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              117.464246,
+                                                              0.833614
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BUMI",
+                                            "site_name":  "Bengalon",
+                                            "site_slug":  "bengalon",
+                                            "operator_name":  "PT Kaltim Prima Coal",
+                                            "operator_slug":  "pt-kaltim-prima-coal",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  true,
+                                            "strip_ratio_ready":  true,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.31831,
+                                                              -3.76227
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Sungai Cuka 1",
+                                            "site_slug":  "batubara-sungai-cuka-1",
+                                            "operator_name":  "PT Wahana Baratama Mining",
+                                            "operator_slug":  "pt-wahana-baratama-mining",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Satui",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              117.68223,
+                                                              0.777278
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Beruang",
+                                            "site_slug":  "batubara-beruang",
+                                            "operator_name":  "PT Perkasa Inakakerta",
+                                            "operator_slug":  "pt-perkasa-inakakerta",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.785258,
+                                                              -0.386003
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Lisat",
+                                            "site_slug":  "batubara-lisat",
+                                            "operator_name":  "PT Teguh Sinarabadi",
+                                            "operator_slug":  "pt-teguh-sinarabadi",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Barat",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.413864,
+                                                              0.463562
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Laham",
+                                            "site_slug":  "batubara-laham",
+                                            "operator_name":  "PT Mamahak Coal Mining",
+                                            "operator_slug":  "pt-mamahak-coal-mining",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Mahakam Ulu",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  false
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.157262,
+                                                              0.488912
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Long Lalang 2",
+                                            "site_slug":  "batubara-long-lalang-2",
+                                            "operator_name":  "PT Tiwa Abadi",
+                                            "operator_slug":  "pt-tiwa-abadi",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.200016,
+                                                              0.487386
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Gunung Sari 2",
+                                            "site_slug":  "batubara-gunung-sari-2",
+                                            "operator_name":  "PT Tanur Jaya",
+                                            "operator_slug":  "pt-tanur-jaya",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.088594,
+                                                              0.400533
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Tabang",
+                                            "site_slug":  "batubara-tabang",
+                                            "operator_name":  "PT Brian Anjat Sentosa",
+                                            "operator_slug":  "pt-brian-anjat-sentosa",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.269085,
+                                                              0.459706
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Gunung Sari 3",
+                                            "site_slug":  "batubara-gunung-sari-3",
+                                            "operator_name":  "PT Orkida Makmur",
+                                            "operator_slug":  "pt-orkida-makmur",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.329954,
+                                                              0.371399
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Kelekat 3",
+                                            "site_slug":  "batubara-kelekat-3",
+                                            "operator_name":  "PT Bara Sejati",
+                                            "operator_slug":  "pt-bara-sejati",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.107206,
+                                                              0.534906
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Muara Ritan 2",
+                                            "site_slug":  "batubara-muara-ritan-2",
+                                            "operator_name":  "PT Fajar Sakti Prima",
+                                            "operator_slug":  "pt-fajar-sakti-prima",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              116.1698,
+                                                              0.549093
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "BYAN",
+                                            "site_name":  "Batubara Muara Ritan 1",
+                                            "site_slug":  "batubara-muara-ritan-1",
+                                            "operator_name":  "PT Bara Tabang",
+                                            "operator_slug":  "pt-bara-tabang",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Kartanegara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              117.35399,
+                                                              0.14212
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Pelakan 1",
+                                            "site_slug":  "batubara-pelakan-1",
+                                            "operator_name":  "PT Indominco Mandiri",
+                                            "operator_slug":  "pt-indominco-mandiri",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.68008,
+                                                              -0.71293
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Jelmu Sibak",
+                                            "site_slug":  "batubara-jelmu-sibak",
+                                            "operator_name":  "PT Trubaindo Coal Mining",
+                                            "operator_slug":  "pt-trubaindo-coal-mining",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Barat",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.02445,
+                                                              -3.9069
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Batalang",
+                                            "site_slug":  "batubara-batalang",
+                                            "operator_name":  "PT Jorong Barutama Greston",
+                                            "operator_slug":  "pt-jorong-barutama-greston",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Laut",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.275828,
+                                                              -0.536324
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Karendan 2",
+                                            "site_slug":  "batubara-karendan-2",
+                                            "operator_name":  "PT Nusa Persada Resources",
+                                            "operator_slug":  "pt-nusa-persada-resources",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Tengah",
+                                            "city":  "Barito Utara",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.70551,
+                                                              -0.766081
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Sungai Mega",
+                                            "site_slug":  "batubara-sungai-mega",
+                                            "operator_name":  "PT Tepian Indah Sukses",
+                                            "operator_slug":  "pt-tepian-indah-sukses",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Barat",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.391066,
+                                                              -0.88041
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Benangin 1",
+                                            "site_slug":  "batubara-benangin-1",
+                                            "operator_name":  "PT Bharinto Ekatama",
+                                            "operator_slug":  "pt-bharinto-ekatama",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Barat",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.691134,
+                                                              0.112834
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "ITMG",
+                                            "site_name":  "Batubara Tukul",
+                                            "site_slug":  "batubara-tukul",
+                                            "operator_name":  "PT Graha Panca Karsa",
+                                            "operator_slug":  "pt-graha-panca-karsa",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Timur",
+                                            "city":  "Kutai Barat",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.57178,
+                                                              -3.558935
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "GEMS",
+                                            "site_name":  "Batubara Sumber Arum",
+                                            "site_slug":  "batubara-sumber-arum",
+                                            "operator_name":  "PT Borneo Indobara",
+                                            "operator_slug":  "pt-borneo-indobara",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Selatan",
+                                            "city":  "Tanah Bumbu",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              101.745389,
+                                                              -1.400547
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "GEMS",
+                                            "site_name":  "Batubara Jujuhan 1",
+                                            "site_slug":  "batubara-jujuhan-1",
+                                            "operator_name":  "PT Kuansing Inti Makmur",
+                                            "operator_slug":  "pt-kuansing-inti-makmur",
+                                            "commodity":  "Coal",
+                                            "province":  "Jambi",
+                                            "city":  "Bungo",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              103.3574,
+                                                              -2.38431
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "GEMS",
+                                            "site_name":  "Batubara Lubuk Bintialo 2",
+                                            "site_slug":  "batubara-lubuk-bintialo-2",
+                                            "operator_name":  "PT Barasentosa Lestari",
+                                            "operator_slug":  "pt-barasentosa-lestari",
+                                            "commodity":  "Coal",
+                                            "province":  "Sumatera Selatan",
+                                            "city":  "Musi Rawas Utara, Musi Banyuasin",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              115.193585,
+                                                              -0.943774
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "ticker":  "GEMS",
+                                            "site_name":  "Batubara Liangbuah",
+                                            "site_slug":  "batubara-liangbuah",
+                                            "operator_name":  "PT Trisula Kencana Sakti",
+                                            "operator_slug":  "pt-trisula-kencana-sakti",
+                                            "commodity":  "Coal",
+                                            "province":  "Kalimantan Tengah",
+                                            "city":  "Barito Utara, Barito Timur",
+                                            "resource_ready":  true,
+                                            "production_ready":  false,
+                                            "strip_ratio_ready":  false,
+                                            "license_ready":  true
+                                        }
+                     }
+                 ]
+}

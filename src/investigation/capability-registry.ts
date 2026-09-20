@@ -76,6 +76,24 @@ const definitions:
 
     enabled: true,
   },
+
+  {
+    capability:
+      "COMPANY_FINANCIAL_REPORT",
+
+    source: "SECTORS",
+
+    requirementKind:
+      "FINANCIAL_REPORT",
+
+    description:
+      "Collect provider-supplied company financial statements, financial ratios, and valuation evidence.",
+
+    executionBoundary:
+      "SECTORS_MCP_ADAPTER",
+
+    enabled: true,
+  },
 ];
 
 export const RX_CAPABILITY_REGISTRY:

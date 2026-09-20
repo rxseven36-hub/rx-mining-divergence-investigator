@@ -191,8 +191,16 @@ describe(
           buildNormalizedObservations();
 
         expect(
-          observations
-        ).toHaveLength(2);
+          observations.map(
+            (observation) =>
+              observation.metric
+          )
+        ).toEqual(
+          expect.arrayContaining([
+            "PRODUCTION",
+            "SALES",
+          ])
+        );
 
         const production =
           observations.find(

@@ -1,0 +1,1593 @@
+{
+  "schemaVersion": "rxmdi-event-intelligence-v1",
+  "generatedAt": "2026-09-12T11:40:50.237Z",
+  "company": {
+    "symbol": "BUMI.JK",
+    "name": "PT Bumi Resources Tbk"
+  },
+  "principles": [
+    "Group repeated coverage into understandable company events.",
+    "Preserve source links and reported values.",
+    "Show market observations as context, not proof of causality.",
+    "Never invent missing corporate-action categories."
+  ],
+  "counts": {
+    "news": 30,
+    "filings": 8,
+    "agm": 10,
+    "suspensions": 0
+  },
+  "availableCorporateActions": {
+    "agm": 10,
+    "bonus": null,
+    "warrant": null,
+    "dividend": null,
+    "rightIssue": null,
+    "stockSplit": null,
+    "upcomingDividend": null
+  },
+  "clusters": [
+    {
+      "id": "bumi-loyal-metals-2026-09-07",
+      "kind": "company_event_cluster",
+      "date": "2026-09-07",
+      "symbol": "BUMI.JK",
+      "headline": "BUMI completes acquisition of Loyal Metals",
+      "description": "Multiple collected sources report BUMI's acquisition of Loyal Metals on the same date. RX MDI groups the coverage as one company event without asserting that the event caused any market movement.",
+      "dimensions": [
+        "future",
+        "ownership",
+        "financials",
+        "valuation",
+        "technical"
+      ],
+      "newsIds": [
+        "news-7",
+        "news-8",
+        "news-10",
+        "news-12",
+        "news-13",
+        "news-14",
+        "news-15",
+        "news-16",
+        "news-17",
+        "news-18",
+        "news-19",
+        "news-20"
+      ],
+      "publishers": [
+        "Kontan",
+        "Bisnis",
+        "CNBC Indonesia",
+        "IDNFinancials",
+        "EmitenNews",
+        "Investor.id",
+        "Bloomberg Technoz"
+      ],
+      "sourceCount": 12,
+      "evidenceRule": "same-date explicit acquisition coverage; no causal inference"
+    }
+  ],
+  "filingHighlights": [
+    {
+      "id": "highlight-filing-4",
+      "kind": "ownership_event",
+      "date": "2026-01-21",
+      "filingId": "filing-4",
+      "headline": "Treasure Global Investments Limited sell in BUMI",
+      "holderName": "Treasure Global Investments Limited",
+      "transactionType": "sell",
+      "amountTransaction": 18195000000,
+      "holdingBefore": 30000000000,
+      "holdingAfter": 11805000000,
+      "sharePercentageBefore": 8.08,
+      "sharePercentageAfter": 3.18,
+      "transactionValue": 6914100000000,
+      "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-21012026-4744-00.pdf-0.pdf",
+      "publisher": "IDX",
+      "evidenceRule": "directly reported filing fields; no motive or market causality inferred"
+    },
+    {
+      "id": "highlight-filing-5",
+      "kind": "ownership_event",
+      "date": "2026-01-13",
+      "filingId": "filing-5",
+      "headline": "Chengdong Corporation sell in BUMI",
+      "holderName": "Chengdong Corporation",
+      "transactionType": "sell",
+      "amountTransaction": 3713353900,
+      "holdingBefore": 22276410130,
+      "holdingAfter": 18563056230,
+      "sharePercentageBefore": 5.99,
+      "sharePercentageAfter": 4.99,
+      "transactionValue": 1525912005200,
+      "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-13012026-9517-00.pdf-0.pdf",
+      "publisher": "IDX",
+      "evidenceRule": "directly reported filing fields; no motive or market causality inferred"
+    },
+    {
+      "id": "highlight-filing-6",
+      "kind": "ownership_event",
+      "date": "2026-01-13",
+      "filingId": "filing-6",
+      "headline": "Hsbc-Fund Svs A/C Chengdong Investment Corp-Self sell in BUMI",
+      "holderName": "Hsbc-Fund Svs A/C Chengdong Investment Corp-Self",
+      "transactionType": "sell",
+      "amountTransaction": 3713353900,
+      "holdingBefore": 22276410130,
+      "holdingAfter": 18563056230,
+      "sharePercentageBefore": 5.99,
+      "sharePercentageAfter": 4.99,
+      "transactionValue": 1525912005200,
+      "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-13012026-9439-00.pdf-0.pdf",
+      "publisher": "IDX",
+      "evidenceRule": "directly reported filing fields; no motive or market causality inferred"
+    },
+    {
+      "id": "highlight-filing-3",
+      "kind": "ownership_event",
+      "date": "2026-05-07",
+      "filingId": "filing-3",
+      "headline": "Ubs Ag Ldn Branch A/C Client others in BUMI",
+      "holderName": "Ubs Ag Ldn Branch A/C Client",
+      "transactionType": "others",
+      "amountTransaction": 3544230907,
+      "holdingBefore": 20580099719,
+      "holdingAfter": 17035868812,
+      "sharePercentageBefore": 5.54,
+      "sharePercentageAfter": 4.59,
+      "transactionValue": 0,
+      "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-05052026-2800-00.pdf-0.pdf",
+      "publisher": "IDX",
+      "evidenceRule": "directly reported filing fields; no motive or market causality inferred"
+    },
+    {
+      "id": "highlight-filing-7",
+      "kind": "ownership_event",
+      "date": "2026-01-09",
+      "filingId": "filing-7",
+      "headline": "Ubs Ag, London sell in BUMI",
+      "holderName": "Ubs Ag, London",
+      "transactionType": "sell",
+      "amountTransaction": 289629900,
+      "holdingBefore": 22425165266,
+      "holdingAfter": 22135535366,
+      "sharePercentageBefore": 6.04,
+      "sharePercentageAfter": 5.96,
+      "transactionValue": 133809013800,
+      "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-09012026-6924-00.pdf-0.pdf",
+      "publisher": "IDX",
+      "evidenceRule": "directly reported filing fields; no motive or market causality inferred"
+    }
+  ],
+  "marketContext": {
+    "symbol": "BUMI.JK",
+    "window": "2026-09-04..2026-09-10",
+    "observations": [
+      {
+        "date": "2026-09-04",
+        "close": 210,
+        "volume": 1646574300
+      },
+      {
+        "date": "2026-09-07",
+        "close": 220,
+        "volume": 5737171600
+      },
+      {
+        "date": "2026-09-08",
+        "close": 226,
+        "volume": 4912608300
+      },
+      {
+        "date": "2026-09-09",
+        "close": 222,
+        "volume": 1606273500
+      },
+      {
+        "date": "2026-09-10",
+        "close": 212,
+        "volume": 4697826700
+      }
+    ],
+    "rule": "market observations are contextual only; no event causality is asserted"
+  },
+  "records": {
+    "news": [
+      {
+        "id": "news-1",
+        "type": "news",
+        "timestamp": "2026-09-10T21:11:00",
+        "date": "2026-09-10",
+        "title": "PT Bumi Resources Tbk explains acquisition of Loyal Metals Ltd despite AUD27.26 million cumulative loss",
+        "summary": "PT Bumi Resources Tbk announced its acquisition of Loyal Metals Ltd and outlined the rationale for the deal. Loyal Metals Ltd has not generated revenue, posted a loss of AUD6.71 million in 2025, and its cumulative loss rose to AUD27.26 million in 2025 from AUD20.57 million in 2024. BUMI believes LM's mineral assets, including the Highway Reward Copper-Gold Mine and lithium projects (which have had majority stakes divested), can generate future cash flow, targeting revenue from the copper-gold mine from the second year after acquisition while lithium contributions await further exploration. LM is the parent of four subsidiaries, with Highway Copper Gold Pty Ltd wholly owned and holding a production licence, underscoring the operational assets BUMI intends to develop.",
+        "sourceUrl": "https://emitennews.com/news/bumi-beli-tambang-australia-dengan-akumulasi-rugi-jumbo-ini-alasannya",
+        "publisher": "EmitenNews",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "future",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://ap-south-1.linodeobjects.com/emitennews-02/uploads/news/thumb_1789049356.png?25119ab"
+      },
+      {
+        "id": "news-2",
+        "type": "news",
+        "timestamp": "2026-09-10T15:30:00",
+        "date": "2026-09-10",
+        "title": "Gold stocks under pressure ahead of VanEck benchmark index rebalancing",
+        "summary": "The article reports that Indonesian gold mining stocks are under pressure ahead of the rebalancing of VanEck's Global Gold Miners Index (GDX) and Global Junior Gold Miners Index (GDXJ) scheduled for 12 September 2026. The constituents include PT Amman Mineral Internasional Tbk and PT Bumi Resources Minerals Tbk in GDX, while PT Merdeka Gold Resources Tbk, PT Archi Indonesia Tbk, PT J Resources Asia Pasifik Tbk and PT Bumi Resources Minerals Tbk are in GDXJ, with research suggesting EMAS may move up to GDX and PSAB could be removed from GDXJ. The rebalancing, based on end-August closing prices, is expected to influence foreign capital flows into these stocks, which together form part of VanEck's gold-focused ETFs that manage US$39.48 billion (âRp690 trillion). At the time of writing, PT Amman Mineral Internasional Tbk fell 1.02%, PT Archi Indonesia Tbk 1.12%, PT Bumi Resources Minerals Tbk 1.42%, PT J Resources Asia Pasifik Tbk 0.85%, while PT Merdeka Gold Resources Tbk was unchanged.",
+        "sourceUrl": "https://www.idnfinancials.com/id/news/68652/saham-saham-emas-tertekan-jelang-rebalancing-indeks-acuan-vaneck",
+        "publisher": "IDNFinancials",
+        "symbols": [
+          "AMMN.JK",
+          "BUMI.JK",
+          "EMAS.JK",
+          "ARCI.JK",
+          "PSAB.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "future",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://photos.idnfinancials.com/_idn/_DESIGN%20GRAFIS/ARTIKEL%20IMAGE%20%28ARIF%29/SAHAM-EMAS-06012026.jpg"
+      },
+      {
+        "id": "news-3",
+        "type": "news",
+        "timestamp": "2026-09-09T07:56:00",
+        "date": "2026-09-09",
+        "title": "Foreign investors net buy hundreds of billions of rupiah in a day, snapping up ten stocks",
+        "summary": "On Tuesday, 8 September 2026, foreign investors recorded a net purchase of Rp398.12 billion across the Indonesian stock market. In the regular market segment, net buying reached Rp379.39 billion, with the largest single-stock net buy of Rp269.68 billion in PT Bank Central Asia Tbk, whose shares rose 0.75% to Rp6,675. PT Bumi Resources Tbk experienced the biggest net sell of Rp178.07 billion, yet its stock gained 2.73% to close at Rp226. The broader market reflected the buying trend, as the Indeks Harga Saham Gabungan (IHSG) closed in the green zone at 6,686 points, up 66.77 points (1.01%).",
+        "sourceUrl": "https://www.bloombergtechnoz.com/detail-news/120978/net-buy-ratusan-miliar-sehari-investor-asing-borong-10-saham-ini",
+        "publisher": "Bloomberg Technoz",
+        "symbols": [
+          "BBCA.JK",
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://images.bloombergtechnoz.com/data/2024/10/image-20241021134512.jpg"
+      },
+      {
+        "id": "news-4",
+        "type": "news",
+        "timestamp": "2026-09-08T08:23:00",
+        "date": "2026-09-08",
+        "title": "Summary of stock recommendations for 8 September 2026 from seven Indonesian securities firms.",
+        "summary": "The article summarizes stock recommendations issued by seven Indonesian securities firms for Tuesday, 8 September 2026, following a 0.25% decline in the IHSG to 6,619 on Monday. The index fell amid weakness in financial, raw material, and technology sectors, which dropped 0.75%, 0.71%, and 0.61% respectively, with trading volume of 37.05 billion shares worth Rp13.73 trillion. The brokers recommended a total of 24 stocks: IMPC, TINS, KOTA from BRI Danareksa Sekuritas; SSIA, ADRO, BBRI, ERAA, COCO, COIN from BNI Sekuritas; HMSP, MDIA from Phillip Sekuritas; HRUM, INKP, MDKA, TPIA from MNC Sekuritas; HMSP, INDF, BTPS, TAPG, CMRY, BUMI from CGS International Sekuritas; INDF, INKP, AKRA, BFIN, MNCN from Phintraco Sekuritas; and ADRO, DEWA, INKP from Mirae Asset Sekuritas. Several stocks, including HMSP, INKP, ADRO, and INDF, were recommended by multiple firms.",
+        "sourceUrl": "https://www.bloombergtechnoz.com/detail-news/120829/rangkuman-rekomendasi-saham-hari-ini-8-september-2026",
+        "publisher": "Bloomberg Technoz",
+        "symbols": [
+          "IMPC.JK",
+          "TINS.JK",
+          "KOTA.JK",
+          "SSIA.JK",
+          "ADRO.JK",
+          "BBRI.JK",
+          "ERAA.JK",
+          "COCO.JK",
+          "COIN.JK",
+          "PANS.JK",
+          "HMSP.JK",
+          "MDIA.JK",
+          "HRUM.JK",
+          "INKP.JK",
+          "MDKA.JK",
+          "TPIA.JK",
+          "INDF.JK",
+          "BTPS.JK",
+          "TAPG.JK",
+          "CMRY.JK",
+          "BUMI.JK",
+          "AKRA.JK",
+          "BFIN.JK",
+          "MNCN.JK",
+          "DEWA.JK"
+        ],
+        "dimensions": [],
+        "thumbnail": "https://images.bloombergtechnoz.com/data/2023/06/image-20230609174904.jpg"
+      },
+      {
+        "id": "news-5",
+        "type": "news",
+        "timestamp": "2026-09-08T08:15:00",
+        "date": "2026-09-08",
+        "title": "Foreign investors net sell Rp678.55 bn as Indonesia's IHSG slides 0.25% on 7 Sept 2026",
+        "summary": "On Monday 7 September 2026, the Jakarta Composite Index (IHSG) closed 16.8 points (0.25%) lower at 6,619 as foreign investors continued net selling. Foreign investors recorded a total net sell of Rp678.55 billion across the market, including Rp590.18 billion in the regular market. The largest net seller was PT Chandra Asri Pacific Tbk, which saw a net outflow of Rp121.17 billion and its share price fall 1% to Rp1,975, while the biggest net buyer was PT Bumi Resources Tbk, which attracted Rp180.51 billion of inflows and rose 4.76% to Rp220. The report also lists the ten most heavily net-sold and net-bought stocks for the session.",
+        "sourceUrl": "https://www.bloombergtechnoz.com/detail-news/120825/posisi-investor-asing-kala-ihsg-turun",
+        "publisher": "Bloomberg Technoz",
+        "symbols": [
+          "TPIA.JK",
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "technical",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://images.bloombergtechnoz.com/data/2026/06/image-20260604121736.jpeg"
+      },
+      {
+        "id": "news-6",
+        "type": "news",
+        "timestamp": "2026-09-07T20:40:00",
+        "date": "2026-09-07",
+        "title": "Foreign Investor Outflow Rp590 Billion, Two Prajogo Pangestu-Affiliated Stocks Lead Net Sell",
+        "summary": "Foreign investors recorded a net outflow of Rp590.18 billion on Monday, with the market turning to net sell positions. The top net-sell stocks were PT Chandra Asri Pacific Tbk (Rp121.2 billion, 61.03 million shares) and PT Petrindo Jaya Kreasi Tbk (Rp87.9 billion, 93.60 million shares), followed by PT Indosat Tbk (Rp64.8 billion, 27.53 million shares), PT Kalbe Farma Tbk (Rp62.3 billion, 77.91 million shares) and PT Bank Mandiri Tbk (Rp53.7 billion, 12.21 million shares); the two leading losers are affiliated with Prajogo Pangestu. On the buy side, PT Bumi Resources Tbk led with a net buy of Rp180.5 billion and 830 million shares, while PT Bukit Asam Tbk, PT Adaro Andalan Indonesia Tbk, PT MNC Energy Investments Tbk and PT Puradelta Lestari Tbk recorded net buys of Rp52.2 billion, Rp38.1 billion, Rp31.6 billion and Rp27.2 billion respectively, with volumes of 173.9 million, 3.26 million, 230 million and 130 million shares.",
+        "sourceUrl": "https://www.idnfinancials.com/id/news/68479/outflow-asing-rp590-miliar-dua-saham-prajogo-pangestu-top-net-sell",
+        "publisher": "IDNFinancials",
+        "symbols": [
+          "TPIA.JK",
+          "CUAN.JK",
+          "ISAT.JK",
+          "KLBF.JK",
+          "BMRI.JK",
+          "BUMI.JK",
+          "PTBA.JK",
+          "AADI.JK",
+          "IATA.JK",
+          "DMAS.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://photos.idnfinancials.com/_idn/_DESIGN%20GRAFIS/NET%20FOREIGN%20IMAGE%20%28ARIF%29/NET%20FOREIGN%2016.jpeg"
+      },
+      {
+        "id": "news-7",
+        "type": "news",
+        "timestamp": "2026-09-07T18:54:00",
+        "date": "2026-09-07",
+        "title": "BRI Danareksa Sekuritas analyst highlights expansion prospects and buy recommendations for PT Bumi Resources Tbk, PT Petrosea Tbk, PT United Tractors Tbk and PT Aneka Tambang Tbk.",
+        "summary": "BRI Danareksa Sekuritas analyst Abida Massi Armand reviews the overseas mining expansion of PT Bumi Resources Tbk, PT Petrosea Tbk, PT United Tractors Tbk and PT Aneka Tambang Tbk. PT Bumi Resources Tbk, via its subsidiary Bumi Resources Australia Pty Ltd, completed the acquisition of 100% of Loyal Metals Ltd for Rp 1,004,742,244,136.50 (AUD 79,069,731.75); PT Petrosea Tbk finalized a binding offer for Tolu Minerals Limited, issuing convertible notes worth AUS $23.75 million; PT United Tractors Tbk is exploring mineral asset acquisitions in Australia; and PT Aneka Tambang Tbk is targeting gold production in the Middle East. The analyst recommends buying PT Aneka Tambang Tbk with a target price of Rp 4,900 and PT United Tractors Tbk with a target price of Rp 30,600, noting strong free cash flow and diversification benefits. He cautions that integration risks, possible overpaying and regulatory hurdles may delay profit contributions for two to three years after the deals.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/cek-prospek-dan-rekomendasi-emiten-yang-akuisisi-aset-tambang-di-luar-negeri",
+        "publisher": "Kontan",
+        "symbols": [
+          "BUMI.JK",
+          "PTRO.JK",
+          "UNTR.JK",
+          "ANTM.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "future",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/khbGxw1KuKTsA4Jr4vksfkQd6ms=/smart/2026/04/06/1362614284t.jpg"
+      },
+      {
+        "id": "news-8",
+        "type": "news",
+        "timestamp": "2026-09-07T17:55:00",
+        "date": "2026-09-07",
+        "title": "BUMI Completes 100% Acquisition of Loyal Metals Ltd. via BRA, Expanding Gold Mining Portfolio",
+        "summary": "PT Bumi Resources Tbk (BUMI) has completed a 100% acquisition of Loyal Metals Ltd. through its subsidiary Bumi Resources Australia Pty Ltd (BRA) on 4 September 2026, paying AUD79.07 million (âRp1,004 trillion). BUMI also finalized 64.98% ownership of Jubilee Metals Limited on 18 December 2025 for AUD31.47 million (âRp346.93 billion) and 100% ownership of Wolfram Limited on 7 November 2025 for AUD63.50 million (âRp698.98 billion). The company is pursuing a pending 45% stake in PT Laman Mining Indonesia, with a transaction value of US$59.10 million (âRp988.86 billion) expected to close by 30 October 2026. These acquisitions are part of BUMI's strategy to diversify beyond coal into gold, copper, and critical minerals.",
+        "sourceUrl": "https://market.bisnis.com/read/20260907/192/2002138/jejak-ekspansi-bumi-di-tambang-emas-dari-akuisisi-loyal-metals-jubilee-hingga-wolfram",
+        "publisher": "Bisnis",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "future",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "financials",
+            "score": 1
+          },
+          {
+            "name": "valuation",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://images.bisnis.com/thumb/posts/2026/09/07/2002138/pabrik_cpm_1_1771915890.jpg?w=368&h=208"
+      },
+      {
+        "id": "news-9",
+        "type": "news",
+        "timestamp": "2026-09-07T16:34:38",
+        "date": "2026-09-07",
+        "title": "IHSG Merosot, tapi 4 Saham ARA",
+        "summary": "The Indonesia Composite Index (IHSG) fell 16.8 points (0.25%) to 6,619.6 on Monday, 7 September 2026, while six stocksâPT AKR Corporindo Tbk, PT Bumi Resources Tbk, MEDS, NZIA, SOHO, and SHIDâreached Auto Rejection Atas (ARA) levels. PT AKR Corporindo Tbk and PT Bumi Resources Tbk surged 4.69% and 4.76% respectively, and the four ARA stocks jumped 24% to 34% in price, making them top gainers. The market traded a total of Rp 13.6 trillion, with the industrial sector leading gains at 1.25% and the financial sector falling 0.76%.",
+        "sourceUrl": "https://investor.id/market/453133/ihsg-merosot-tapi-4-sahamara",
+        "publisher": "Investor.id",
+        "symbols": [
+          "AKRA.JK",
+          "BUMI.JK",
+          "MEDS.JK",
+          "NZIA.JK",
+          "SOHO.JK",
+          "SHID.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "technical",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/1673522081.jpeg"
+      },
+      {
+        "id": "news-10",
+        "type": "news",
+        "timestamp": "2026-09-07T13:31:00",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk Acquires Loyal Metals Ltd for Rp 1.004 Trillion, Shares Rise 6.67%",
+        "summary": "PT Bumi Resources Tbk completed the acquisition of 100% of Australian company Loyal Metals Ltd through its wholly-owned subsidiary Bumi Resources Australia Pty Ltd on September 4, 2026. The transaction valued at Rp 1,004 trillion (AUD 79.07 million) involved Bumi Resources Australia Pty Ltd acquiring all 175,710,515 issued and fully paid shares of Loyal Metals. Following the announcement on September 7, 2026, BUMI shares rose 6.67% to Rp 224 per share, extending a five-day gain of 16.06%. The acquisition strengthens BUMI's position in developing its business in Australia.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/bumi-akuisisi-perusahaan-australia-rp-1-triliun-sahamnya-melejit-667",
+        "publisher": "Kontan",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "valuation",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/khbGxw1KuKTsA4Jr4vksfkQd6ms=/smart/2026/04/06/1362614284t.jpg"
+      },
+      {
+        "id": "news-11",
+        "type": "news",
+        "timestamp": "2026-09-07T12:33:09",
+        "date": "2026-09-07",
+        "title": "Foreign Investors Aggressively Net Buy PT Bumi Resources Tbk Shares",
+        "summary": "Foreign investors aggressively net bought shares of PT Bumi Resources Tbk in the first session on Monday 7 September 2026. They recorded a net buy of Rp 218.8 billion for 998.1 million shares, lifting the price 6.6% to Rp 224 and delivering a 25.1% gain over the past month despite a year-to-date decline of 38.8%. Overall foreign activity showed a net sell of Rp 424 billion across the market, while total PT Bumi Resources Tbk trading reached 4,463 billion shares in 63.12 k transactions valued at Rp 978.7 billion, and a prior net buy of Rp 37.8 billion was recorded on 4 September 2026. CGS International Sekuritas Indonesia cites a near-term target of Rp 211-213 with support around Rp 205-207.",
+        "sourceUrl": "https://investor.id/market/453103/saham-bumi-dilahap-asing-habishabisan",
+        "publisher": "Investor.id",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "technical",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          },
+          {
+            "name": "future",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/1645611326.png"
+      },
+      {
+        "id": "news-12",
+        "type": "news",
+        "timestamp": "2026-09-07T10:45:48",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk acquires 100% of Loyal Metals Ltd through subsidiary Bumi Resources Australia Pty Ltd",
+        "summary": "PT Bumi Resources Tbk announced that its Australian subsidiary Bumi Resources Australia Pty Ltd has acquired 100% of Loyal Metals Ltd, taking over 175,710,515 shares representing the entire issued capital. The transaction, completed on 4 September 2026, was valued at Rp1,004,742,244,136.50 (approximately AUD79.07 million).",
+        "sourceUrl": "https://www.cnbcindonesia.com/market/20260907093350-17-765653/bumi-resources--bumi--akuisisi-100-saham-loyal-metals-australia",
+        "publisher": "CNBC Indonesia",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "financials",
+            "score": 1
+          },
+          {
+            "name": "valuation",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://akcdn.detik.net.id/visual/2026/03/12/logo-baru-pt-bumi-resources-tbk-bumi-1773311936994_43.jpeg?w=200&q=90"
+      },
+      {
+        "id": "news-13",
+        "type": "news",
+        "timestamp": "2026-09-07T09:43:00",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk acquires 100% of Loyal Metals Ltd for approx. Rp1 trillion",
+        "summary": "PT Bumi Resources Tbk announced the acquisition of Loyal Metals Ltd through its wholly-owned Australian subsidiary Bumi Resources Australia Pty Ltd. The transaction, executed on 4 September 2026, involved the purchase of 175,710,515 shares representing 100% of Loyal Metals Ltd for a consideration of Rp1,004,742,244,136.50 (approximately Rp1 trillion or AUD 79.07 million). Bumi Resources Australia Pty Ltd is a 100% owned subsidiary of PT Bumi Resources Tbk and acted as the acquirer, making PT Bumi Resources Tbk the indirect 100% shareholder of Loyal Metals Ltd. Loyal Metals Ltd adds copper-gold and lithium projects in Queensland, Australia and Canada to PT Bumi Resources Tbk's portfolio of critical minerals.",
+        "sourceUrl": "https://market.bisnis.com/read/20260907/192/2001930/profil-loyal-metals-perusahaan-australia-yang-diakuisisi-bumi-rp1-triliun",
+        "publisher": "Bisnis",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://images.bisnis.com/thumb/posts/2026/09/07/2001930/pabrik_cpm_1_1771915890.jpg?w=368&h=208"
+      },
+      {
+        "id": "news-14",
+        "type": "news",
+        "timestamp": "2026-09-07T09:25:00",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk completes acquisition of 100% of Loyal Metals Ltd for Rp1 trillion",
+        "summary": "PT Bumi Resources Tbk announced that it has completed the acquisition of all outstanding shares of Loyal Metals Ltd, paying AU$79.06 million (approximately Rp1 trillion) for the transaction. The purchase was executed through Bumi Resources Australia Pty Ltd, which now holds 100 % of Loyal Metals, at a price of AU$0.45 per share representing a 40-50 % premium to the prior market price. Following the announcement, BUMI's shares opened up nearly 5 % higher, while Loyal Metals' shares stabilized at US$0.45 after a prior 60 % rally on the acquisition news. The deal had been approved by Loyal Metals' shareholders in August 2026 after a scheme implementation deed was signed in April 2026.",
+        "sourceUrl": "https://www.idnfinancials.com/id/news/68438/bumi-caplok-100-saham-loyal-metals-senilai-rp1-triliun",
+        "publisher": "IDNFinancials",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://photos.idnfinancials.com/_idn/_DESIGN%20GRAFIS/ARTIKEL%20IMAGE%20%28ARIF%29/BUMI-30032026.jpg"
+      },
+      {
+        "id": "news-15",
+        "type": "news",
+        "timestamp": "2026-09-07T09:23:00",
+        "date": "2026-09-07",
+        "title": "BUMI Completes Acquisition of Australia's Loyal Metals; Shares Hit Auto Reject Top (ARA)",
+        "summary": "PT Bumi Resources Tbk completed its acquisition of Australian mining company Loyal Metals Ltd through its subsidiary Bumi Resources Australia Pty Ltd. The transaction was finalized on September 4, 2026, with the subsidiary acquiring all 175,710,515 shares of Loyal Metals for AUD 79.07 million (approximately Rp1,004 trillion). As a result, Bumi Resources now holds 100% of Loyal Metals via its subsidiary. Following the announcement, BUMI shares surged 4.76% to 220, reaching the Auto Reject Top (ARA) limit during Monday trading.",
+        "sourceUrl": "https://emitennews.com/news/tuntaskan-akuisisi-perusahaan-asal-australia-saham-bumi-ngacir-ara",
+        "publisher": "EmitenNews",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "technical",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://ap-south-1.linodeobjects.com/emitennews-02/uploads/news/thumb_1788747862.webp?25119ab"
+      },
+      {
+        "id": "news-16",
+        "type": "news",
+        "timestamp": "2026-09-07T08:42:00",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk officially acquires 100% of Loyal Metals Ltd",
+        "summary": "The acquisition, valued at Rp1,004,742,244,136.50 (âAUD79.07 million) and completed on 4 September 2026, gave Bumi Resources Australia Pty Ltd, a wholly-owned subsidiary of PT Bumi Resources Tbk, 100% of Loyal Metals Ltd, whose ASX shares were halted on 25 August 2026 and are set for delisting on 7 September 2026 at 17:00 AWST. In the same quarter, BUMI reported net profit of US$35 million and revenue of US$449 million, reflecting strong QoQ and YoY growth and underscoring the strategic boost to its non-coal portfolio.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/resmi-bumi-akuisisi-100-saham-loyal-metals-perusahaan-tambang-emas-australia",
+        "publisher": "Kontan",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          },
+          {
+            "name": "financials",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/4E2rqLgFbtDrMet12m_tR1VyiCI=/smart/2012/09/04/1790707477t.jpg"
+      },
+      {
+        "id": "news-17",
+        "type": "news",
+        "timestamp": "2026-09-07T08:27:47",
+        "date": "2026-09-07",
+        "title": "Bumi Resources (BUMI) completes IDR 1.0047 trillion acquisition of Loyal Metals Ltd",
+        "summary": "Bumi Resources (BUMI) announced that its Australian subsidiary, Bumi Resources Australia Pty Ltd (BRA), completed the acquisition of 100% of Loyal Metals Ltd on 4 September 2026 for a total consideration of IDR 1,0047 trillion (â AUD 79.07 million). The deal gives BUMI full ownership of Loyal Metals, and foreign investors recorded a net purchase of BUMI shares worth IDR 83.2 billion in the week ending 4 September, helping the stock close 1.9% higher at IDR 210. In the same week, BUMI's share price rose 10.5% and has gained 25% over the past month despite a year-to-date decline of 42.6%.",
+        "sourceUrl": "https://investor.id/market/453064/bumi-resources-bumi-terus-terang-aksiakuisisi-triliunan",
+        "publisher": "Investor.id",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/2026/05/1779186680-1700x1100.webp"
+      },
+      {
+        "id": "news-18",
+        "type": "news",
+        "timestamp": "2026-09-07T07:58:00",
+        "date": "2026-09-07",
+        "title": "Bumi Resources Acquires Australian Copper-Gold Miner Loyal Metals for Rp1 Trillion",
+        "summary": "PT Bumi Resources Tbk, through its wholly owned Australian subsidiary Bumi Resources Australia Pty Ltd, acquired 100% of Loyal Metals Ltd for Rp1,004 trillion (AUD79.07 million) on September 4, 2026. The transaction makes Loyal Metals, an Australian copper and gold mining company, a fully owned indirect subsidiary of Bumi Resources. The acquisition supports Bumi Resources' diversification strategy beyond its core coal business, which includes the PT Bumi Etam Chemical coal gasification project targeting 2 million tons of methanol annually with potential foreign exchange savings of Rp7.1 trillion per year. PT Bumi Etam Chemical is a joint venture of Bumi Resources subsidiaries PT Arutmin Indonesia and PT Kaltim Prima Coal.",
+        "sourceUrl": "https://market.bisnis.com/read/20260907/192/2001886/bumi-akuisisi-loyal-metals-llm-rp1-triliun-punya-tambang-emas-tembaga-di-australia",
+        "publisher": "Bisnis",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "future",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://images.bisnis.com/thumb/posts/2026/09/07/2001886/untitled_1_1773306899.jpg?w=368&h=208"
+      },
+      {
+        "id": "news-19",
+        "type": "news",
+        "timestamp": "2026-09-07T07:32:00",
+        "date": "2026-09-07",
+        "title": "PT Bumi Resources Tbk Acquires 100% of Loyal Metals Ltd for AUD79.06 Million (~Rp1 Trillion)",
+        "summary": "PT Bumi Resources Tbk officially acquired 100% of Loyal Metals Ltd through its Australian subsidiary Bumi Resources Australia Pty Ltd on September 4, 2026, for AUD79.06 million (approximately Rp1 trillion). The acquisition grants Bumi Resources access to strategic gold and copper assets in Queensland, Australia, including the Highway Reward project with historical production of 3.65 million tonnes at 5.7% copper and 260,000 tonnes at 4.5 g/t gold between 1987 and 2005. Loyal Metals also holds a lithium project in Canada. This transaction expands the Bakrie and Salim group's Australian copper-gold portfolio, which previously included the acquisitions of Wolfram Limited (owner of the Crush Creek and Mount Carlton assets) and Jubilee Metal.",
+        "sourceUrl": "https://www.bloombergtechnoz.com/detail-news/120659/bumi-resmi-ambil-alih-loyal-metals-rogoh-rp1-triliun",
+        "publisher": "Bloomberg Technoz",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [],
+        "thumbnail": "https://images.bloombergtechnoz.com/data/2026/09/image-20260904185415.jpg"
+      },
+      {
+        "id": "news-20",
+        "type": "news",
+        "timestamp": "2026-09-07T07:25:00",
+        "date": "2026-09-07",
+        "title": "Bumi Resources Completes Acquisition of 100% of Loyal Metals Ltd for Rp1 Trillion via Subsidiary BRA",
+        "summary": "Bumi Resources has completed the acquisition of 100% of Loyal Metals Ltd for Rp1 trillion (AUD79.06 million) through its Australian subsidiary Bumi Resources Australia Pty Ltd (BRA). The transaction, finalized on September 4, 2026, involved the purchase of 175,710,515 shares of Loyal Metals Ltd. BRA is a wholly-owned subsidiary of Bumi Resources established under Australian law. Following the announcement, Bumi Resources shares rose 1.94% to Rp210, extending a five-day gain of 10.53% from Rp190 on August 31, 2026. The company now has a market capitalization of Rp77.98 trillion with a price-to-earnings ratio of 37.06 times.",
+        "sourceUrl": "https://emitennews.com/news/bumi-tuntaskan-akuisisi-100-persen-saham-loyal-segini-nilainya",
+        "publisher": "EmitenNews",
+        "symbols": [
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://ap-south-1.linodeobjects.com/emitennews-02/uploads/news/thumb_1788740754.webp?25119ab"
+      },
+      {
+        "id": "news-21",
+        "type": "news",
+        "timestamp": "2026-09-07T07:23:00",
+        "date": "2026-09-07",
+        "title": "Foreign investors heavily buy big bank stocks PT Bank Rakyat Indonesia Tbk, PT Bank Central Asia Tbk and PT Bank Mandiri Tbk in the past week.",
+        "summary": "The article reports that foreign investors returned to Indonesia's banking sector last week, posting the largest net purchases in the market for the three big banks. PT Bank Rakyat Indonesia Tbk recorded a net buy of Rp 1.41 trillion, PT Bank Central Asia Tbk Rp 1.20 trillion and PT Bank Mandiri Tbk Rp 1.01 trillion, together accounting for about Rp 3.62 trillion of foreign inflows, while PT Bank Negara Indonesia Tbk added Rp 261.39 billion. Other heavily bought stocks included PT Chandra Asri Pacific Tbk (Rp 238.84 billion), PT Dian Swastatika Sentosa Tbk (Rp 168.05 billion), PT Triputra Agro Persada Tbk (Rp 147.58 billion), PT Erajaya Swasembada Tbk (Rp 126.94 billion), PT Adaro Andalan Indonesia Tbk (Rp 93.49 billion) and PT Alamtri Resources Indonesia Tbk (Rp 84.23 billion). Foreign investors sold PT Charoen Pokphand Indonesia Tbk (Rp 485.66 billion), PT Merdeka Gold Resources Tbk (Rp 337.42 billion), PT Indosat Tbk (Rp 225.62 billion), PT Amman Mineral Internasional Tbk (Rp 173 billion), PT Petrosea Tbk (Rp 162.7 billion), PT Astra International Tbk (Rp 150.28 billion), PT Bukalapak.com Tbk (Rp 129.03 billion), PT Bumi Resources Minerals Tbk (Rp 126.97 billion), PT Indo Tambangraya Megah Tbk (Rp 121.57 billion) and PT Unilever Indonesia Tbk (Rp 109.91 billion), contributing to a total foreign net buy of Rp 1.85 trillion and supporting a 1.82 % weekly rise in the IHSG index, which closed at 6,636.47, down 31.4 points (0.47 %) on Friday.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/asing-ramai-borong-saham-big-banks-bbri-bbca-dan-bmri-sepekan-terakhir",
+        "publisher": "Kontan",
+        "symbols": [
+          "BBRI.JK",
+          "BBCA.JK",
+          "BMRI.JK",
+          "BBNI.JK",
+          "TPIA.JK",
+          "DSSA.JK",
+          "TAPG.JK",
+          "ERAA.JK",
+          "AADI.JK",
+          "ADRO.JK",
+          "CPIN.JK",
+          "EMAS.JK",
+          "ISAT.JK",
+          "AMMN.JK",
+          "PTRO.JK",
+          "ASII.JK",
+          "BUKA.JK",
+          "BUMI.JK",
+          "ITMG.JK",
+          "UNVR.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/ed3gViUZoGEWsch2nD_5bKPcueU=/smart/2026/07/16/1914883473t.jpg"
+      },
+      {
+        "id": "news-22",
+        "type": "news",
+        "timestamp": "2026-09-07T05:21:32",
+        "date": "2026-09-07",
+        "title": "Popular News Roundup: CPIN Earnings Surge, Strong Foreign Buying in BBCA, BBRI and BUMI, and Steady Gold Jewelry Prices",
+        "summary": "The roundup highlights PT Charoen Pokphand Indonesia Tbk's Q2 2026 net profit soaring 211% YoY to IDR 1.13 trillion while trading at a PER of 7.18Ã, and strong foreign inflows into PT Bank Central Asia Tbk (IDR 820.2 bn net buy), PT Bank Rakyat Indonesia Tbk (IDR 1.4 trn net buy) and PT Bumi Resources Tbk (IDR 83.2 bn net buy) with target price upside of 41.5% for BBCA and a PBV of 1.9Ã for BBRI. Gold jewelry prices across various karats remained steady, as reported by Raja Emas Indonesia, Hartadinata Abadi and Laku Emas.",
+        "sourceUrl": "https://investor.id/market/453043/berita-populer-potensi-cuan-besar-saham-cpin-hingga-harga-emas-perhiasan-kokoh",
+        "publisher": "Investor.id",
+        "symbols": [
+          "CPIN.JK",
+          "BBCA.JK",
+          "BBRI.JK",
+          "BUMI.JK",
+          "HRTA.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          },
+          {
+            "name": "future",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/1653296841.png"
+      },
+      {
+        "id": "news-23",
+        "type": "news",
+        "timestamp": "2026-09-06T17:28:08",
+        "date": "2026-09-06",
+        "title": "Foreign Investors Return to Bumi Resources (BUMI) as Samuel Sekuritas Maintains Buy Rating with Rp 300 Target",
+        "summary": "Foreign investors reversed course to become net buyers of Bumi Resources (BUMI) shares, recording a net buy of Rp 83.2 billion during August 31âSeptember 4, 2026, after a net sell of Rp 132.1 billion the prior week. The stock closed at Rp 210 on September 4, up 1.9% daily and 10.5% weekly, though still down 42.6% year-to-date. Samuel Sekuritas reiterated a buy recommendation with a Rp 300 target price, implying 42.8% upside, based on a sum-of-the-parts valuation that factors in stronger third-quarter 2026 performance driven by the Wolfram gold mine ramp-up, earnings recovery at subsidiary Bumi Resources Minerals (BRMS), lower fuel costs, and potential coal price gains from El NiÃ±o. The broker also flagged risks including near-term coal price weakness, acquisition execution delays, slower Wolfram production growth, and gold price declines.",
+        "sourceUrl": "https://investor.id/market/453021/putar-arah-aliran-dana-di-saham-bumi-resources-bumi",
+        "publisher": "Investor.id",
+        "symbols": [
+          "BUMI.JK",
+          "BRMS.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "future",
+            "score": 2
+          },
+          {
+            "name": "valuation",
+            "score": 2
+          },
+          {
+            "name": "ownership",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/2026/05/1778805527-725x452.webp"
+      },
+      {
+        "id": "news-24",
+        "type": "news",
+        "timestamp": "2026-09-06T16:16:00",
+        "date": "2026-09-06",
+        "title": "IHSG Predicted Mixed on Monday (Sept 7), Investors Cautioned on Rupiah and US-Iran Conflict",
+        "summary": "Analysts forecast that Indonesia's composite stock index (IHSG) will trade within a narrow range of 6,580â6,700 on Monday, with support at 6,580â6,600 and resistance at 6,680â6,700 amid mixed sentiment. They cite foreign net buying of roughly Rp1.6 trillion in the past week, a Rupiah level near Rp17,642 per USD, and Brent crude around US$95 per barrel as factors that could influence the index while monitoring Fed policy cues and the US-Iran conflict. Specific equities highlighted as potential drivers include PT Bukit Asam Tbk (target Rp3,100), PT Petrindo Jaya Kreasi Tbk (target Rp1,100), PT Bumi Resources Tbk (target Rp250), PT Sinergi Inti Andalan Prima Tbk (target Rp400), PT Petrosea Tbk (buy on break at Rp5,500, resistance Rp5,950) and PT Timah Tbk (trading buy with support Rp4,150, resistance Rp4,720). The outlook remains sensitive to any shift in US labor data, Treasury yields, or escalation of tensions in the Strait of Hormuz, which could affect energy stocks and overall market sentiment.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/ihsg-diprediksi-mixed-senin-79-investor-waspadai-rupiah-dan-konflik-as-iran",
+        "publisher": "Kontan",
+        "symbols": [
+          "PTBA.JK",
+          "CUAN.JK",
+          "BUMI.JK",
+          "INET.JK",
+          "PTRO.JK",
+          "TINS.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "technical",
+            "score": 2
+          },
+          {
+            "name": "future",
+            "score": 1
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/Io3dtvD2iBYKCpT7i588geZrpEI=/smart/2024/08/22/339480344t.jpg"
+      },
+      {
+        "id": "news-25",
+        "type": "news",
+        "timestamp": "2026-09-04T07:01:25",
+        "date": "2026-09-04",
+        "title": "Foreign investors net sell BULL, PT Bumi Resources Tbk and PTRO as the Jakarta Composite Index rises",
+        "summary": "Foreign investors sold large amounts of shares in several Indonesian stocks on Thursday, September 3, 2026. The biggest net-sell positions were in BULL (Rp 97.3 billion), PT Bumi Resources Tbk (Rp 87.9 billion) and PTRO (Rp 84.84 billion), ranking among the ten stocks with the largest foreign net-sell. Despite these outflows, foreign investors recorded a net buy of Rp 1.07 trillion across the market, with the regular market net buy of Rp 1.11 trillion, while the Jakarta Composite Index (IHSG) closed up 72.1 points (1.09%) at 6,667.8. Total transaction value on the exchange reached Rp 18.5 trillion, with 415 stocks advancing, 228 declining and 320 unchanged.",
+        "sourceUrl": "https://investor.id/market/452796/asing-mulai-lepas-pegangan-di-sahamsaham-ini",
+        "publisher": "Investor.id",
+        "symbols": [
+          "BULL.JK",
+          "BUMI.JK",
+          "PTRO.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/2025/11/1763026199-2000x1333.webp"
+      },
+      {
+        "id": "news-26",
+        "type": "news",
+        "timestamp": "2026-09-04T07:00:36",
+        "date": "2026-09-04",
+        "title": "Foreign Investors Net Buy Rp1.07 Trillion, Lifting IHSG 1.09% as Jumbo Banks Lead Inflows",
+        "summary": "Foreign investors recorded a net buy of Rp1.07 trillion in the Indonesian stock market on Thursday, September 3, 2026, propelling the Jakarta Composite Index (IHSG) up 1.09% to 6,667.89. The four jumbo banks â Bank Mandiri, Bank Central Asia, Bank Negara Indonesia, and Bank Rakyat Indonesia â accounted for approximately Rp801 billion, or 75% of total foreign net buying. Other notable foreign purchases included Charoen Pokphand Indonesia, Aneka Tambang, Alamtri Resources Indonesia, and Chandra Asri Pacific. On the sell side, Buana Lintas Lautan, Bumi Resources, and Petrosea topped the net sell list.",
+        "sourceUrl": "https://www.cnbcindonesia.com/market/20260904053931-17-764827/ihsg-naik-1-ditopang-asing-serok-saham-bank-jumbo",
+        "publisher": "CNBC Indonesia",
+        "symbols": [
+          "BMRI.JK",
+          "BBCA.JK",
+          "BBNI.JK",
+          "BBRI.JK",
+          "CPIN.JK",
+          "ANTM.JK",
+          "ADRO.JK",
+          "TPIA.JK",
+          "BULL.JK",
+          "BUMI.JK",
+          "PTRO.JK"
+        ],
+        "dimensions": [],
+        "thumbnail": "https://akcdn.detik.net.id/visual/2019/01/24/bf0c13c3-3fa9-4e23-aec3-2a13d8557c3e_43.jpeg?w=200&q=90"
+      },
+      {
+        "id": "news-27",
+        "type": "news",
+        "timestamp": "2026-09-04T06:22:25",
+        "date": "2026-09-04",
+        "title": "Energy Stock Rally Targets ADRO and BUMI",
+        "summary": "Energy stocks are rallying, with ADRO and BUMI among the companies targeted by the surge. The IDX Energy index rose 12.6% in the past month and gained 1.36% on 3 September 2026, outpacing the broader market. Analysts say the rally is driven by improving earnings prospects, stronger valuations, and investor funds returning to commodity stocks with solid fundamentals, rather than commodity price euphoria alone, and they expect the energy sector to remain a support for the IHSG until the end of 2026. The next phase will focus on stock picking, favoring companies with low production costs, healthy balance sheets, strong cash flows, large reserves, and the ability to maintain production volumes.",
+        "sourceUrl": "https://investor.id/market/452777/reli-saham-energi-adro-hingga-bumi-dalam-bidikan",
+        "publisher": "Investor.id",
+        "symbols": [
+          "ADRO.JK",
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "future",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/2026/03/1774571951-822x550.webp"
+      },
+      {
+        "id": "news-28",
+        "type": "news",
+        "timestamp": "2026-09-03T18:35:00",
+        "date": "2026-09-03",
+        "title": "Ten Indonesian coal issuers report H1 2026 net profit growth led by Adaro Andalan Indonesia Tbk and Bayan Resources Tbk",
+        "summary": "Ten Indonesian coal mining issuers posted year-on-year net profit increases in the first half of 2026, with PT Adaro Andalan Indonesia Tbk recording the highest profit attributable to parent entity owners at US$473.77 million (approximately Rp8.48 trillion), up 10.52%, followed by PT Bayan Resources Tbk at approximately Rp7.34 trillion, up 17.47%. PT Alamtri Resources Indonesia Tbk ranked third with US$309.36 million (Rp5.54 trillion), a 76.83% surge, while PT Alamtri Minerals Indonesia Tbk, PT Bukit Asam Tbk, PT Indo Tambangraya Megah Tbk, PT Bumi Resources Tbk, PT Darma Henwa Tbk, PT Petrindo Jaya Kreasi Tbk, and PT Indika Energy Tbk completed the list with profits ranging from Rp3.12 trillion down to Rp182 billion. PT Petrindo Jaya Kreasi Tbk posted the highest profit growth at approximately 918% to US$19.78 million (Rp354 billion), and PT Indika Energy Tbk followed with a 354.30% increase to US$10.20 million (Rp182 billion). Revenue growth accompanied profit gains across the group, with Adaro's revenue rising 6.13% to US$2.55 billion and Bayan's reaching approximately Rp31.15 trillion.",
+        "sourceUrl": "https://market.bisnis.com/read/20260903/192/2001206/10-emiten-batu-bara-dengan-laba-paling-jumbo-semester-i2026-aadi-byan-teratas",
+        "publisher": "Bisnis",
+        "symbols": [
+          "AADI.JK",
+          "BYAN.JK",
+          "ADRO.JK",
+          "ADMR.JK",
+          "PTBA.JK",
+          "ITMG.JK",
+          "BUMI.JK",
+          "DEWA.JK",
+          "CUAN.JK",
+          "INDY.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "financials",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://images.bisnis.com/thumb/posts/2026/09/03/2001206/28052025-BI-ARF-22-BATU_BARA-3_1775481434.jpg?w=368&h=208"
+      },
+      {
+        "id": "news-29",
+        "type": "news",
+        "timestamp": "2026-09-03T07:27:40",
+        "date": "2026-09-03",
+        "title": "Foreign Investors Heavily Sell Shares of TLKM, ADRO, ASII, and BUMI",
+        "summary": "Foreign investors sold shares of TLKM, ADRO, ASII, and BUMI, with net sell volumes of Rp 101.8 miliar, Rp 89.9 miliar, Rp 63.7 miliar, and Rp 40.7 miliar respectively, contributing to a total net sell of Rp 326.6 miliar across the market. The net sell activity pushed the Indonesia Composite Index (IHSG) down 4.17 points to 6,595.7 on Wednesday, 2 September 2026. In the regular market, foreign investors recorded net sell of Rp 235.1 triliun, while the negotiated and cash market saw Rp 91.4 miliar. Total trading volume for the day reached Rp 16.7 triliun.",
+        "sourceUrl": "https://investor.id/market/452672/sederet-saham-ramai-ditinggal-asing",
+        "publisher": "Investor.id",
+        "symbols": [
+          "TLKM.JK",
+          "ADRO.JK",
+          "ASII.JK",
+          "BUMI.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "ownership",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://img2.beritasatu.com/cache/investor/253x142-2/2026/06/1782277234-5000x3333.webp"
+      },
+      {
+        "id": "news-30",
+        "type": "news",
+        "timestamp": "2026-09-03T06:33:00",
+        "date": "2026-09-03",
+        "title": "List of LQ45 stocks with lowest and highest PER on 2 September 2026, highlighting DEWA and AADI",
+        "summary": "The article lists the LQ45 index stocks with the lowest and highest price-earnings ratios (PER) on 2 September 2026, highlighting PT Darma Henwa and PT Adaro Andalan Indonesia. Trading volume fell as the total transaction value dropped to Rp16.8 trillion from Rp20.7 trillion, and foreign investors posted a net sell of 5.59 billion shares worth Rp326.6 billion. PT Adaro Andalan Indonesia declined 2.07% and PT Darma Henwa slipped 2.16%, while PT Amman Mineral Internasional fell 2.06%, PT United Tractors dropped 2.05%, PT Bukit Asam rose 1.87%, and PT Indah Kiat Pulp & Paper held the lowest price-to-book value at 0.38 times. PT Japfa Comfeed Indonesia, PT Petrindo Jaya Kreasi, PT Bumi Resources, and PT GoTo Gojek Tokopedia were largely stagnant, and six other LQ45 constituents each weakened by less than 2%, all of which are members of the LQ45 index as noted in the article.",
+        "sourceUrl": "https://investasi.kontan.co.id/news/daftar-saham-per-terendah-tertinggi-lq45-2-september-2026-dewa-dan-aadi-disorot",
+        "publisher": "Kontan",
+        "symbols": [
+          "DEWA.JK",
+          "AADI.JK",
+          "AMMN.JK",
+          "UNTR.JK",
+          "PTBA.JK",
+          "INKP.JK",
+          "JPFA.JK",
+          "CUAN.JK",
+          "BUMI.JK",
+          "GOTO.JK"
+        ],
+        "dimensions": [
+          {
+            "name": "valuation",
+            "score": 2
+          }
+        ],
+        "thumbnail": "https://foto.kontan.co.id/GeyTFNKstT6YR8dy40fvLqqHmKA=/smart/2026/01/28/1545644799t.jpg"
+      }
+    ],
+    "filings": [
+      {
+        "id": "filing-1",
+        "type": "filing",
+        "timestamp": "2026-06-19T09:23:00",
+        "date": "2026-06-19",
+        "title": "Adrian Maulana Krisbiantoro sells shares of PT Bumi Resources Tbk",
+        "summary": "This transaction is part of a cluster-sell transaction amidst other insider sells during the last 6 months. Adrian Maulana Krisbiantoro's insider disposal comes after Hsbc-Fund Svs A/C Chengdong Investment Corp-Self, Chengdong Corporation, Ubs Ag, London and Treasure Global Investments Limited in PT Bumi Resources Tbk, totaling a distribution of 33,338,045,700 shares transacted at an average price of IDR 365.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-19062026-1891-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "sell",
+        "holderType": "insider",
+        "holderName": "Adrian Maulana Krisbiantoro",
+        "holdingBefore": 1200,
+        "holdingAfter": 1000,
+        "amountTransaction": 200,
+        "price": 165,
+        "transactionValue": 33000,
+        "sharePercentageBefore": 0,
+        "sharePercentageAfter": 0,
+        "sharePercentageTransaction": 0,
+        "priceTransactions": [
+          {
+            "date": "2026-05-21",
+            "type": "sell",
+            "price": 165,
+            "amount_transacted": 200
+          }
+        ]
+      },
+      {
+        "id": "filing-2",
+        "type": "filing",
+        "timestamp": "2026-05-19T19:05:41",
+        "date": "2026-05-19",
+        "title": "Adrian Maulana Krisbiantoro buys shares of Bumi Resources",
+        "summary": "Adrian Maulana Krisbiantoro bought 1,200 shares of Bumi Resources. This increases their holdings from 0 to 1,200 shares. The stated purpose of the transaction was investment.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-19052026-1250-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "buy",
+        "holderType": "insider",
+        "holderName": "Adrian Maulana Krisbiantoro",
+        "holdingBefore": 0,
+        "holdingAfter": 1200,
+        "amountTransaction": 1200,
+        "price": 316.833,
+        "transactionValue": 380200,
+        "sharePercentageBefore": 0,
+        "sharePercentageAfter": 0,
+        "sharePercentageTransaction": 0,
+        "priceTransactions": [
+          {
+            "date": "2026-01-12",
+            "type": "buy",
+            "price": 462,
+            "amount_transacted": 100
+          },
+          {
+            "date": "2026-01-13",
+            "type": "buy",
+            "price": 436,
+            "amount_transacted": 400
+          },
+          {
+            "date": "2026-03-03",
+            "type": "buy",
+            "price": 252,
+            "amount_transacted": 100
+          },
+          {
+            "date": "2026-03-25",
+            "type": "buy",
+            "price": 228,
+            "amount_transacted": 100
+          },
+          {
+            "date": "2026-04-06",
+            "type": "buy",
+            "price": 244,
+            "amount_transacted": 100
+          },
+          {
+            "date": "2026-04-10",
+            "type": "buy",
+            "price": 246,
+            "amount_transacted": 200
+          },
+          {
+            "date": "2026-05-19",
+            "type": "buy",
+            "price": 190,
+            "amount_transacted": 200
+          }
+        ]
+      },
+      {
+        "id": "filing-3",
+        "type": "filing",
+        "timestamp": "2026-05-07T09:21:00",
+        "date": "2026-05-07",
+        "title": "Change in Ubs Ag Ldn Branch A/C Client's position in Bumi Resources",
+        "summary": "Ubs Ag Ldn Branch A/C Client executed a transaction for 3,544,230,907 shares of Bumi Resources. This decreases their holdings from 20,580,099,719 to 17,035,868,812 shares.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-05052026-2800-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "others",
+        "holderType": "insider",
+        "holderName": "Ubs Ag Ldn Branch A/C Client",
+        "holdingBefore": 20580099719,
+        "holdingAfter": 17035868812,
+        "amountTransaction": 3544230907,
+        "price": 0,
+        "transactionValue": 0,
+        "sharePercentageBefore": 5.54,
+        "sharePercentageAfter": 4.59,
+        "sharePercentageTransaction": 0.95,
+        "priceTransactions": [
+          {
+            "date": "2026-04-30",
+            "type": "others",
+            "price": 0,
+            "amount_transacted": 3544230907
+          }
+        ]
+      },
+      {
+        "id": "filing-4",
+        "type": "filing",
+        "timestamp": "2026-01-21T14:38:18",
+        "date": "2026-01-21",
+        "title": "Treasure Global Investments Limited sells shares of Bumi Resources",
+        "summary": "This transaction is part of a cluster-sell transaction amidst other insider sells during the last 6 months. Treasure Global Investments Limited's insider disposal comes after UBS Group AG, Chengdong Investment Corporation, Ubs Group Ag, Hsbc-Fund Svs A/C Chengdong Investment Corp-Self and 2 other insiders in Bumi Resources, totaling a distribution of 49,881,080,000 shares transacted at an average price of IDR 306.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-21012026-4744-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "sell",
+        "holderType": "insider",
+        "holderName": "Treasure Global Investments Limited",
+        "holdingBefore": 30000000000,
+        "holdingAfter": 11805000000,
+        "amountTransaction": 18195000000,
+        "price": 380,
+        "transactionValue": 6914100000000,
+        "sharePercentageBefore": 8.08,
+        "sharePercentageAfter": 3.18,
+        "sharePercentageTransaction": 4.9,
+        "priceTransactions": [
+          {
+            "date": "2026-01-19",
+            "type": "sell",
+            "price": 380,
+            "amount_transacted": 18195000000
+          }
+        ]
+      },
+      {
+        "id": "filing-5",
+        "type": "filing",
+        "timestamp": "2026-01-13T09:54:33",
+        "date": "2026-01-13",
+        "title": "Chengdong Corporation sells shares of Bumi Resources",
+        "summary": "Chengdong Corporation sold 3,713,353,900 shares of Bumi Resources. This decreases their holdings from 22,276,410,130 to 18,563,056,230 shares. The stated purpose of the transaction was divestment.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-13012026-9517-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "sell",
+        "holderType": "insider",
+        "holderName": "Chengdong Corporation",
+        "holdingBefore": 22276410130,
+        "holdingAfter": 18563056230,
+        "amountTransaction": 3713353900,
+        "price": 410.926,
+        "transactionValue": 1525912005200,
+        "sharePercentageBefore": 5.99,
+        "sharePercentageAfter": 4.99,
+        "sharePercentageTransaction": 1,
+        "priceTransactions": [
+          {
+            "date": "2025-12-23",
+            "type": "sell",
+            "price": 383,
+            "amount_transacted": 224000000
+          },
+          {
+            "date": "2025-12-23",
+            "type": "sell",
+            "price": 386,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-24",
+            "type": "sell",
+            "price": 374,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-24",
+            "type": "sell",
+            "price": 366,
+            "amount_transacted": 57414300
+          },
+          {
+            "date": "2025-12-29",
+            "type": "sell",
+            "price": 367,
+            "amount_transacted": 255000000
+          },
+          {
+            "date": "2025-12-29",
+            "type": "sell",
+            "price": 363,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-30",
+            "type": "sell",
+            "price": 365,
+            "amount_transacted": 254996600
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 409,
+            "amount_transacted": 291410900
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 393,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 409,
+            "amount_transacted": 8589100
+          },
+          {
+            "date": "2026-01-05",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-05",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 200000000
+          },
+          {
+            "date": "2026-01-06",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 209760700
+          },
+          {
+            "date": "2026-01-06",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-07",
+            "type": "sell",
+            "price": 460,
+            "amount_transacted": 161335400
+          },
+          {
+            "date": "2026-01-07",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 200000000
+          },
+          {
+            "date": "2026-01-08",
+            "type": "sell",
+            "price": 453,
+            "amount_transacted": 50846900
+          }
+        ]
+      },
+      {
+        "id": "filing-6",
+        "type": "filing",
+        "timestamp": "2026-01-13T09:40:56",
+        "date": "2026-01-13",
+        "title": "Hsbc-Fund Svs A/C Chengdong Investment Corp-Self sells shares of Bumi Resources",
+        "summary": "Hsbc-Fund Svs A/C Chengdong Investment Corp-Self sold 3,713,353,900 shares of Bumi Resources. This decreases their holdings from 22,276,410,130 to 18,563,056,230 shares. The stated purpose of the transaction was divestment.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-13012026-9439-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "sell",
+        "holderType": "insider",
+        "holderName": "Hsbc-Fund Svs A/C Chengdong Investment Corp-Self",
+        "holdingBefore": 22276410130,
+        "holdingAfter": 18563056230,
+        "amountTransaction": 3713353900,
+        "price": 410.926,
+        "transactionValue": 1525912005200,
+        "sharePercentageBefore": 5.99,
+        "sharePercentageAfter": 4.99,
+        "sharePercentageTransaction": 1,
+        "priceTransactions": [
+          {
+            "date": "2025-12-23",
+            "type": "sell",
+            "price": 386,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-23",
+            "type": "sell",
+            "price": 383,
+            "amount_transacted": 224000000
+          },
+          {
+            "date": "2025-12-24",
+            "type": "sell",
+            "price": 366,
+            "amount_transacted": 57414300
+          },
+          {
+            "date": "2025-12-24",
+            "type": "sell",
+            "price": 374,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-29",
+            "type": "sell",
+            "price": 363,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2025-12-29",
+            "type": "sell",
+            "price": 367,
+            "amount_transacted": 255000000
+          },
+          {
+            "date": "2025-12-30",
+            "type": "sell",
+            "price": 365,
+            "amount_transacted": 254996600
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 409,
+            "amount_transacted": 291410900
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 393,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-02",
+            "type": "sell",
+            "price": 409,
+            "amount_transacted": 8589100
+          },
+          {
+            "date": "2026-01-05",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-05",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 200000000
+          },
+          {
+            "date": "2026-01-06",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 300000000
+          },
+          {
+            "date": "2026-01-06",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 209760700
+          },
+          {
+            "date": "2026-01-07",
+            "type": "sell",
+            "price": 461,
+            "amount_transacted": 200000000
+          },
+          {
+            "date": "2026-01-07",
+            "type": "sell",
+            "price": 460,
+            "amount_transacted": 161335400
+          },
+          {
+            "date": "2026-01-08",
+            "type": "sell",
+            "price": 453,
+            "amount_transacted": 50846900
+          }
+        ]
+      },
+      {
+        "id": "filing-7",
+        "type": "filing",
+        "timestamp": "2026-01-09T21:39:34",
+        "date": "2026-01-09",
+        "title": "Ubs Ag, London sells shares of Bumi Resources",
+        "summary": "This transaction is part of a cluster-sell transaction amidst other insider sells during the last 6 months. Ubs Ag, London's insider disposal comes after UBS Group AG, Chengdong Investment Corporation, Ubs Group Ag, Hsbc-Fund Svs A/C Chengdong Investment Corp-Self and 1 other insiders in Bumi Resources, totaling a distribution of 24,259,372,200 shares transacted at an average price of IDR 219.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-09012026-6924-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "sell",
+        "holderType": "insider",
+        "holderName": "Ubs Ag, London",
+        "holdingBefore": 22425165266,
+        "holdingAfter": 22135535366,
+        "amountTransaction": 289629900,
+        "price": 462,
+        "transactionValue": 133809013800,
+        "sharePercentageBefore": 6.04,
+        "sharePercentageAfter": 5.96,
+        "sharePercentageTransaction": 0.08,
+        "priceTransactions": [
+          {
+            "date": "2026-01-06",
+            "type": "sell",
+            "price": 462,
+            "amount_transacted": 289629900
+          }
+        ]
+      },
+      {
+        "id": "filing-8",
+        "type": "filing",
+        "timestamp": "2026-01-09T21:26:59",
+        "date": "2026-01-09",
+        "title": "Ubs Ag, London buys shares of Bumi Resources",
+        "summary": "Ubs Ag, London bought 185,412,005 shares of Bumi Resources. This increases their holdings from 22,239,753,261 to 22,425,165,266 shares. The stated purpose of the transaction was clients sold shares in the ubs omnibus account.",
+        "sourceUrl": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-09012026-1744-00.pdf-0.pdf",
+        "publisher": "IDX",
+        "symbol": "BUMI.JK",
+        "transactionType": "buy",
+        "holderType": "insider",
+        "holderName": "Ubs Ag, London",
+        "holdingBefore": 22239753261,
+        "holdingAfter": 22425165266,
+        "amountTransaction": 185412005,
+        "price": 453,
+        "transactionValue": 83991638265,
+        "sharePercentageBefore": 5.99,
+        "sharePercentageAfter": 6.04,
+        "sharePercentageTransaction": 0.05,
+        "priceTransactions": [
+          {
+            "date": "2026-01-05",
+            "type": "sell",
+            "price": 453,
+            "amount_transacted": 34124900
+          },
+          {
+            "date": "2026-01-05",
+            "type": "buy",
+            "price": 453,
+            "amount_transacted": 219536905
+          }
+        ]
+      }
+    ],
+    "agm": [
+      {
+        "id": "agm-1",
+        "type": "agm",
+        "date": "2022-07-29",
+        "timestamp": "2022-07-29T14:30:00",
+        "title": "BUMI shareholder meeting - 2022-07-29",
+        "time": "14:30:00",
+        "place": "Dibatalkanjs Luwansa Hotel, Ballroom 2, Lantai 1Jl. H. R. Rasuna Said Kav. C-22Jakarta Selatan 12940",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-2",
+        "type": "agm",
+        "date": "2022-10-11",
+        "timestamp": "2022-10-11T10:00:00",
+        "title": "BUMI shareholder meeting - 2022-10-11",
+        "time": "10:00:00",
+        "place": "Js Luwansa Hotel Ballroom, Lantai 1Jl. H. R. Rasuna Said Kav. C-22Jakarta Selatan 12940",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-3",
+        "type": "agm",
+        "date": "2022-11-29",
+        "timestamp": "2022-11-29T10:10:00",
+        "title": "BUMI shareholder meeting - 2022-11-29",
+        "time": "10:10:00",
+        "place": "Secara Elektronik Melalui Link Registrasibit. Ly/2022Bumiannualpublicexpose",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-4",
+        "type": "agm",
+        "date": "2023-06-30",
+        "timestamp": "2023-06-30T14:00:00",
+        "title": "BUMI shareholder meeting - 2023-06-30",
+        "time": "14:00:00",
+        "place": "Js Luwansa Hotel, Jl. H. R. Rasuna Said No.22, Rt.2/Rw.5, Karet Kuningan, Kec. Setiabudi, Jakarta Selatan 12940",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-5",
+        "type": "agm",
+        "date": "2023-12-06",
+        "timestamp": "2023-12-06T10:10:00",
+        "title": "BUMI shareholder meeting - 2023-12-06",
+        "time": "10:10:00",
+        "place": "Zoom Meeting",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-6",
+        "type": "agm",
+        "date": "2024-05-30",
+        "timestamp": "2024-05-30T14:00:00",
+        "title": "BUMI shareholder meeting - 2024-05-30",
+        "time": "14:00:00",
+        "place": "Dibatalkan",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-7",
+        "type": "agm",
+        "date": "2024-06-28",
+        "timestamp": "2024-06-28T00:00:00",
+        "title": "BUMI shareholder meeting - 2024-06-28",
+        "time": null,
+        "place": "",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-8",
+        "type": "agm",
+        "date": "2025-06-02",
+        "timestamp": "2025-06-02T14:30:00",
+        "title": "BUMI shareholder meeting - 2025-06-02",
+        "time": "14:30:00",
+        "place": "Js Luwansa Hotel Ballroom 2, Lantai 1 Jl. H. R. Rasuna Said Kav. C-22 Jakarta 12940",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-9",
+        "type": "agm",
+        "date": "2025-11-19",
+        "timestamp": "2025-11-19T14:00:00",
+        "title": "BUMI shareholder meeting - 2025-11-19",
+        "time": "14:00:00",
+        "place": "East Java Ballroom, Lantai Dasar The Westin Jakarta Hotel Jl. H. R Rasuna Said Kav. C-22Jakarta 12940",
+        "result": "",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      },
+      {
+        "id": "agm-10",
+        "type": "agm",
+        "date": "2026-06-18",
+        "timestamp": "2026-06-18T15:00:00",
+        "title": "BUMI shareholder meeting - 2026-06-18",
+        "time": "15:00:00",
+        "place": "JS Luwansa Hotel Ballroom 1, Lantai 1 JL. H. R. Rasuna Said Kav. C-22 Jakarta ? 12940, Indonesia",
+        "result": "Agenda #1: Shareholders approved the 2025 Annual Report and the Directors' accountability report for the fiscal year ending December 31, 2025. The decision included the oversight report from the Board of Commissioners and covered the company's operations for the year. Agenda #2: The meeting ratified the 2025 financial statements audited by RSM Indonesia and granted full discharge to the Board for their management and oversight. It was also resolved that no dividends would be distributed for the 2025 fiscal year. Agenda #3: RSM Indonesia was appointed to audit the 2026 financial statements, with authority granted to the Board to determine honorariums and appointment terms. The Board of Commissioners is delegated to handle appointments or dismissals based on Audit Committee recommendations. Agenda #4: The meeting approved the end of terms for two commissioners and the appointment or reappointment of several board members until 2031. The final composition includes 6 members of the Board of Commissioners and 13 members of the Board of Directors. Agenda #5: The Board of Commissioners was authorized to determine board remuneration and duties, while the Directors were empowered to execute all actions related to meeting decisions. This includes the authority to formalize board appointments via notarial deed based on committee recommendations. Agenda #6: The company presented a report on the utilization of funds from Sustainable Bonds I BUMI (Phases I-V) issued in 2025 and 2026. No formal resolution was adopted as this agenda item was for reporting purposes only.",
+        "sourceUrl": null,
+        "publisher": "Corporate action data"
+      }
+    ],
+    "suspensions": []
+  }
+}

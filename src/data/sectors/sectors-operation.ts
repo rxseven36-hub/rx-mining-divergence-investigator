@@ -8,9 +8,15 @@ export type RXSectorsOperation =
   | "GET_COMMODITY_PRICE_HISTORY"
   | "GET_COMPANY_MARKET_TRANSACTION_HISTORY";
 
+export type RXSectorsRestCapability =
+  Exclude<
+    RXInvestigationCapability,
+    "COMPANY_FINANCIAL_REPORT"
+  >;
+
 const operationByCapability:
   Record<
-    RXInvestigationCapability,
+    RXSectorsRestCapability,
     RXSectorsOperation
   > = {
     MINING_OPERATIONAL_CONTEXT:
@@ -27,15 +33,16 @@ const operationByCapability:
   };
 
 /**
- * Maps logical RX investigation capability
- * to an internal typed Sectors operation.
+ * Maps REST-backed logical RX investigation
+ * capabilities to internal typed Sectors operations.
  *
+ * MCP-backed capabilities are intentionally excluded.
  * No URL or HTTP detail crosses into the
  * investigation layer.
  */
 export function resolveSectorsOperation(
   capability:
-    RXInvestigationCapability
+    RXSectorsRestCapability
 ): RXSectorsOperation {
   return operationByCapability[
     capability

@@ -1,0 +1,122 @@
+[
+    {
+        "slug":  "sangatta",
+        "name":  "Sangatta",
+        "operator":  "PT Kaltim Prima Coal",
+        "province":  "Kalimantan Timur",
+        "year":  2023,
+        "production":  44.3,
+        "overburden":  466.0,
+        "stripRatio":  10.5,
+        "reserves":  583.0,
+        "resources":  3954.0
+    },
+    {
+        "slug":  "bengalon",
+        "name":  "Bengalon",
+        "operator":  "PT Kaltim Prima Coal",
+        "province":  "Kalimantan Timur",
+        "year":  2023,
+        "production":  9.3,
+        "overburden":  117.2,
+        "stripRatio":  12.0,
+        "reserves":  96.0,
+        "resources":  443.0
+    },
+    {
+        "slug":  "kintap",
+        "name":  "Kintap",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  8.4,
+        "overburden":  64.1,
+        "stripRatio":  7.7,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "sarongga",
+        "name":  "Sarongga",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  6.3,
+        "overburden":  21.5,
+        "stripRatio":  3.6,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "muliajumbang",
+        "name":  "Mulia/Jumbang",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  3.3,
+        "overburden":  14.2,
+        "stripRatio":  4.3,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "asam-asam",
+        "name":  "Asam-asam",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  3.0,
+        "overburden":  18.1,
+        "stripRatio":  5.8,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "satui",
+        "name":  "Satui",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  2.9,
+        "overburden":  41.7,
+        "stripRatio":  14.5,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "senakin",
+        "name":  "Senakin",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2023,
+        "production":  0.9,
+        "overburden":  22.3,
+        "stripRatio":  25.6,
+        "reserves":  null,
+        "resources":  null
+    },
+    {
+        "slug":  "batubara-batulicin",
+        "name":  "Batubara Batulicin",
+        "operator":  "PT Arutmin Indonesia",
+        "province":  "Kalimantan Selatan",
+        "year":  2024,
+        "production":  null,
+        "overburden":  null,
+        "stripRatio":  null,
+        "reserves":  0.0,
+        "resources":  73.1127
+    },
+    {
+        "slug":  "batubara-kertadewa",
+        "name":  "Batubara Kertadewa",
+        "operator":  "PT Pendopo Energi Batubara",
+        "province":  "Sumatera Selatan",
+        "year":  2024,
+        "production":  null,
+        "overburden":  null,
+        "stripRatio":  null,
+        "reserves":  1305.998,
+        "resources":  2333.0
+    }
+]

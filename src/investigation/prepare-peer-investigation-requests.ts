@@ -408,10 +408,66 @@ function preparePeerRequest(
       bindingIssues: [],
     };
   }
+  /**
+   * Peer preparation currently binds REST-backed
+   * capabilities only.
+   *
+   * MCP-backed financial evidence is intentionally
+   * excluded from this REST operation pipeline.
+   */
+  if (
+    !capability ||
+    capability.executionBoundary !==
+      "SECTORS_ADAPTER"
+  ) {
+    return {
+      status:
+        "REJECTED",
+
+      request,
+
+      executionDecision,
+
+      operation:
+        null,
+
+      targetIssues: [],
+
+      bindingIssues: [
+        "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+      ],
+    };
+  }
+
+  const restCapability =
+    request.capability;
+
+  if (
+    restCapability ===
+      "COMPANY_FINANCIAL_REPORT"
+  ) {
+    return {
+      status:
+        "REJECTED",
+
+      request,
+
+      executionDecision,
+
+      operation:
+        null,
+
+      targetIssues: [],
+
+      bindingIssues: [
+        "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+      ],
+    };
+  }
 
   const binding =
     bindInvestigationOperationRequest(
-      request.capability,
+      restCapability,
       request.purpose,
       targetSelection.context
     );

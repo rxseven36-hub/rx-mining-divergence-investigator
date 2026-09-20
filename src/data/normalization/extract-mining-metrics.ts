@@ -118,6 +118,73 @@ export function extractMiningMetrics(
     });
   }
 
+  if (
+    stats &&
+    hasOwn(
+      stats,
+      "overburden_removal_volume"
+    )
+  ) {
+    result.push({
+      metric: "OVERBURDEN",
+
+      sourceField:
+        "commodity_stats.overburden_removal_volume",
+
+      value:
+        stats.overburden_removal_volume ??
+        null,
+    });
+  } else if (
+    hasOwn(
+      row,
+      "overburden"
+    )
+  ) {
+    result.push({
+      metric: "OVERBURDEN",
+
+      sourceField:
+        "overburden",
+
+      value:
+        row.overburden ?? null,
+    });
+  }
+
+  if (
+    stats &&
+    hasOwn(
+      stats,
+      "strip_ratio"
+    )
+  ) {
+    result.push({
+      metric: "STRIP_RATIO",
+
+      sourceField:
+        "commodity_stats.strip_ratio",
+
+      value:
+        stats.strip_ratio ??
+        null,
+    });
+  } else if (
+    hasOwn(
+      row,
+      "strip_ratio"
+    )
+  ) {
+    result.push({
+      metric: "STRIP_RATIO",
+
+      sourceField:
+        "strip_ratio",
+
+      value:
+        row.strip_ratio ?? null,
+    });
+  }
   /**
    * Legacy resource/reserve extraction is retained only
    * for compatibility with existing provisional fixtures.

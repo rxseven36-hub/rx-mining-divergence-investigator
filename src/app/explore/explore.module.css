@@ -1,0 +1,571 @@
+.page {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 34px 0 76px;
+}
+
+.hero {
+  padding: 8px 0 24px;
+}
+
+.hero > span,
+.workspaceHead > div > span,
+.doctrine > span {
+  color: #48d7ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .15em;
+}
+
+.hero h1 {
+  margin: 9px 0 0;
+  color: #f2f7fa;
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.03;
+  letter-spacing: -.04em;
+}
+
+.hero h1 em {
+  color: #1aa9ff;
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: #819aa7;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.dimensionGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dimensionGrid button {
+  min-height: 92px;
+  padding: 14px;
+  border: 1px solid rgba(69, 138, 165, .18);
+  border-radius: 12px;
+  background: rgba(6, 25, 36, .72);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.dimensionGrid button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(65, 194, 240, .34);
+}
+
+.dimensionGrid .activeDimension {
+  border-color: rgba(41, 193, 246, .48);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(39, 190, 244, .13), transparent 48%),
+    rgba(8, 39, 53, .92);
+}
+
+.dimensionGrid strong {
+  display: block;
+  color: #dcebf1;
+  font-size: 13px;
+}
+
+.dimensionGrid .activeDimension strong {
+  color: #55d5ff;
+}
+
+.dimensionGrid span {
+  display: block;
+  margin-top: 7px;
+  color: #627f8c;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.workspace {
+  padding: 18px;
+  border: 1px solid rgba(69, 138, 165, .19);
+  border-radius: 15px;
+  background: rgba(6, 25, 36, .78);
+}
+
+.workspaceHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(67, 136, 164, .13);
+}
+
+.workspaceHead h2 {
+  margin: 5px 0 0;
+  color: #edf6f9;
+  font-size: 25px;
+  letter-spacing: -.03em;
+}
+
+.workspaceHead p {
+  margin: 5px 0 0;
+  color: #698692;
+  font-size: 11px;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: min(410px, 42vw);
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(70, 149, 180, .22);
+  border-radius: 10px;
+  background: rgba(3, 17, 26, .88);
+}
+
+.searchWrap > span {
+  color: #54c9f2;
+  font-size: 18px;
+}
+
+.searchWrap input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #edf7fa;
+  font: inherit;
+  font-size: 12px;
+}
+
+.searchWrap input::placeholder {
+  color: #5d7885;
+}
+
+.searchWrap button {
+  border: 0;
+  background: transparent;
+  color: #52c9f4;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.resultBar {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 13px 2px 10px;
+}
+
+.resultBar span {
+  color: #5d7a87;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.resultBar strong {
+  color: #dcebf1;
+  font-size: 15px;
+}
+
+.resultBar p {
+  margin: 0 0 0 auto;
+  color: #526f7c;
+  font-size: 9px;
+}
+
+.discoveryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.discoveryCard {
+  min-height: 228px;
+  padding: 17px;
+  border: 1px solid rgba(67, 136, 164, .19);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(29, 164, 216, .055), transparent 30%),
+    linear-gradient(145deg, rgba(7, 29, 41, .96), rgba(5, 22, 33, .96));
+  color: inherit;
+  text-decoration: none;
+}
+
+a.discoveryCard {
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease;
+}
+
+a.discoveryCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(65, 194, 240, .36);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTop span {
+  color: #54c8f1;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.cardTop strong {
+  color: #65d8aa;
+  font-size: 10px;
+}
+
+.discoveryCard h3 {
+  margin: 15px 0 0;
+  color: #edf6f9;
+  font-size: 19px;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.discoveryCard > p {
+  min-height: 48px;
+  margin: 9px 0 0;
+  color: #718c98;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.companyRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.companyRow span {
+  padding: 5px 7px;
+  border-radius: 999px;
+  background: rgba(14, 49, 64, .68);
+  color: #87a4af;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.discoveryCard footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(68, 130, 154, .12);
+}
+
+.discoveryCard footer span {
+  color: #587482;
+  font-size: 8px;
+}
+
+.discoveryCard footer b {
+  color: #49cfff;
+  font-size: 9px;
+}
+
+.empty {
+  padding: 44px 20px;
+  border: 1px dashed rgba(70, 137, 162, .25);
+  border-radius: 13px;
+  text-align: center;
+}
+
+.empty strong {
+  color: #dfeef3;
+  font-size: 18px;
+}
+
+.empty p {
+  margin: 6px 0 0;
+  color: #66818e;
+  font-size: 11px;
+}
+
+.doctrine {
+  margin-top: 14px;
+  padding: 17px 19px;
+  border: 1px solid rgba(66, 200, 157, .13);
+  border-radius: 13px;
+  background: rgba(5, 27, 33, .68);
+}
+
+.doctrine strong {
+  display: block;
+  margin-top: 6px;
+  color: #cfe7e4;
+  font-size: 14px;
+}
+
+.doctrine p {
+  max-width: 850px;
+  margin: 6px 0 0;
+  color: #617f86;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1050px) {
+  .dimensionGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .discoveryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    width: min(100% - 24px, 1240px);
+    padding-top: 24px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .dimensionGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dimensionGrid button {
+    min-height: 100px;
+  }
+
+  .workspace {
+    padding: 13px;
+  }
+
+  .workspaceHead {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .searchWrap {
+    width: 100%;
+  }
+
+  .resultBar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .resultBar p {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .discoveryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .discoveryCard {
+    min-height: 0;
+  }
+}
+
+/* =========================================================
+   EXPLORE VIEW NAVIGATION
+   Discovery | Map
+   ========================================================= */
+
+.viewTabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 18px;
+  padding: 4px;
+  border: 1px solid rgba(69, 138, 165, .19);
+  border-radius: 12px;
+  background: rgba(4, 18, 27, .78);
+}
+
+.viewTabs button {
+  min-width: 108px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6f8d99;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition:
+    color .16s ease,
+    background .16s ease;
+}
+
+.viewTabs button:hover {
+  color: #cde8f1;
+}
+
+.viewTabs .activeViewTab {
+  background: rgba(20, 151, 205, .15);
+  color: #55d5ff;
+}
+
+.mapView {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 650px) {
+  .viewTabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .viewTabs button {
+    min-width: 0;
+  }
+
+  .mapView {
+    width: 100%;
+  }
+}
+/* =========================================================
+   EXPLORE UX HOTFIX
+   Readability + functional Geography navigation
+   ========================================================= */
+
+.dimensionGrid strong {
+  font-size: 14px;
+}
+
+.dimensionGrid span {
+  color: #7894a0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.workspaceHead p {
+  color: #7895a0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.searchWrap input {
+  font-size: 13px;
+}
+
+.searchWrap button {
+  font-size: 11px;
+}
+
+.resultBar span {
+  font-size: 10px;
+}
+
+.resultBar p {
+  color: #698793;
+  font-size: 12px;
+}
+
+.cardTop span {
+  font-size: 10px;
+}
+
+.cardTop strong {
+  font-size: 11px;
+}
+
+.discoveryCard > p {
+  color: #819aa6;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.companyRow span,
+.companyRow a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(14, 49, 64, .68);
+  color: #91adba;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.companyRow a {
+  cursor: pointer;
+  transition:
+    color .16s ease,
+    border-color .16s ease,
+    background .16s ease,
+    transform .16s ease;
+}
+
+.companyRow a:hover,
+.companyRow a:focus-visible {
+  border-color: rgba(73, 207, 255, .42);
+  background: rgba(17, 66, 87, .92);
+  color: #65d9ff;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.discoveryCard footer span {
+  color: #6d8995;
+  font-size: 11px;
+}
+
+.discoveryCard footer b,
+.exploreAction {
+  color: #49cfff;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.exploreAction {
+  cursor: pointer;
+}
+
+.exploreAction:hover,
+.exploreAction:focus-visible {
+  color: #8be2ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+@media (max-width: 650px) {
+  .dimensionGrid span {
+    font-size: 12px;
+  }
+
+  .workspaceHead p,
+  .resultBar p,
+  .discoveryCard > p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,3336 @@
+﻿[
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Bara Block",
+                     "slug":  "bara-block",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Lahai Coal",
+                         "slug":  "pt-lahai-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  "Murung Raya",
+                         "latitude":  null,
+                         "longitude":  null
+                     },
+        "map_ready":  false,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  3.2,
+                                                        "proven_reserves_Mt":  7.6,
+                                                        "total_reserves_Mt":  10.8,
+                                                        "inferred_resources_Mt":  0.3,
+                                                        "indicated_resources_Mt":  4.0,
+                                                        "measured_resources_Mt":  10.6,
+                                                        "total_resources_Mt":  14.9,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Lahai Coal",
+                             "company_slug":  "pt-lahai-coal",
+                             "wiup_code":  "1300003032014008",
+                             "license_number":  "488.K/30/DJB/2015",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah, Kalimantan Timur",
+                             "city":  "Murung Raya, Barito Utara, Mahakam Ulu",
+                             "licensed_area_ha":  46620.0,
+                             "effective_date":  "2015-03-10",
+                             "expiry_date":  "2044-08-19",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  false,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Batubara Bumbun",
+                     "slug":  "batubara-bumbun",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Juloi Coal",
+                         "slug":  "pt-juloi-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tapin",
+                         "latitude":  -3.142556,
+                         "longitude":  115.122998
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  55.5,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  55.5,
+                                                        "inferred_resources_Mt":  56.4,
+                                                        "indicated_resources_Mt":  57.8,
+                                                        "measured_resources_Mt":  60.4,
+                                                        "total_resources_Mt":  174.5,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Juloi Coal",
+                             "company_slug":  "pt-juloi-coal",
+                             "wiup_code":  "1300003032014015",
+                             "license_number":  "170.K/30/DJB/2020",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Murung Raya",
+                             "licensed_area_ha":  24988.0,
+                             "effective_date":  "2019-10-29",
+                             "expiry_date":  "2049-10-28",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Batubara Dahlia",
+                     "slug":  "batubara-dahlia",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Sumber Barito Coal",
+                         "slug":  "pt-sumber-barito-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  "Murung Raya",
+                         "latitude":  0.16375,
+                         "longitude":  114.710847
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  5.6,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  5.6,
+                                                        "inferred_resources_Mt":  2.0,
+                                                        "indicated_resources_Mt":  6.5,
+                                                        "measured_resources_Mt":  6.5,
+                                                        "total_resources_Mt":  15.0,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Sumber Barito Coal",
+                             "company_slug":  "pt-sumber-barito-coal",
+                             "wiup_code":  "1300003032014006",
+                             "license_number":  "169.K/30/DJB/2020",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Murung Raya",
+                             "licensed_area_ha":  24993.0,
+                             "effective_date":  "2019-10-22",
+                             "expiry_date":  "2049-10-21",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Haju Block",
+                     "slug":  "haju-block",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Lahai Coal",
+                         "slug":  "pt-lahai-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  "Murung Raya",
+                         "latitude":  -0.314002,
+                         "longitude":  114.835719
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  1.5,
+                                                        "total_reserves_Mt":  1.5,
+                                                        "inferred_resources_Mt":  0.1,
+                                                        "indicated_resources_Mt":  0.4,
+                                                        "measured_resources_Mt":  3.0,
+                                                        "total_resources_Mt":  3.4,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Lahai Coal",
+                             "company_slug":  "pt-lahai-coal",
+                             "wiup_code":  "1300003032014008",
+                             "license_number":  "488.K/30/DJB/2015",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah, Kalimantan Timur",
+                             "city":  "Murung Raya, Barito Utara, Mahakam Ulu",
+                             "licensed_area_ha":  46620.0,
+                             "effective_date":  "2015-03-10",
+                             "expiry_date":  "2044-08-19",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Juloi Northwest",
+                     "slug":  "juloi-northwest",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Juloi Coal",
+                         "slug":  "pt-juloi-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  null,
+                         "latitude":  null,
+                         "longitude":  null
+                     },
+        "map_ready":  false,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  360.3,
+                                                        "indicated_resources_Mt":  269.6,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  629.9,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Juloi Coal",
+                             "company_slug":  "pt-juloi-coal",
+                             "wiup_code":  "1300003032014015",
+                             "license_number":  "170.K/30/DJB/2020",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Murung Raya",
+                             "licensed_area_ha":  24988.0,
+                             "effective_date":  "2019-10-29",
+                             "expiry_date":  "2049-10-28",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  false,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Lumpunut Block",
+                     "slug":  "lumpunut-block",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Maruwai Coal",
+                         "slug":  "pt-maruwai-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  null,
+                         "latitude":  null,
+                         "longitude":  null
+                     },
+        "map_ready":  false,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  1.5,
+                                                        "proven_reserves_Mt":  84.6,
+                                                        "total_reserves_Mt":  86.1,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  1.2,
+                                                        "measured_resources_Mt":  93.0,
+                                                        "total_resources_Mt":  94.2,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Maruwai Coal",
+                             "company_slug":  "pt-maruwai-coal",
+                             "wiup_code":  "1300003032014083",
+                             "license_number":  "426.K/30/DJB/2017",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Murung Raya",
+                             "licensed_area_ha":  24990.0,
+                             "effective_date":  "2017-11-16",
+                             "expiry_date":  "2047-02-13",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  false,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ADMR",
+        "site":  {
+                     "name":  "Luon Block",
+                     "slug":  "luon-block",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Kalteng Coal",
+                         "slug":  "pt-kalteng-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  null,
+                         "latitude":  null,
+                         "longitude":  null
+                     },
+        "map_ready":  false,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2021,
+                                                        "probable_reserves_Mt":  17.7,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  17.7,
+                                                        "inferred_resources_Mt":  6.9,
+                                                        "indicated_resources_Mt":  19.3,
+                                                        "measured_resources_Mt":  24.7,
+                                                        "total_resources_Mt":  50.9,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Kalteng Coal",
+                             "company_slug":  "pt-kalteng-coal",
+                             "wiup_code":  "1300003032014073",
+                             "license_number":  "171.K/30/DJB/2020",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Murung Raya",
+                             "licensed_area_ha":  24988.0,
+                             "effective_date":  "2019-10-25",
+                             "expiry_date":  "2049-10-24",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  false,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Batubara Batulicin",
+                     "slug":  "batubara-batulicin",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Bumbu",
+                         "latitude":  -3.21454,
+                         "longitude":  115.84732
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  7.36,
+                                                        "indicated_resources_Mt":  23.98,
+                                                        "measured_resources_Mt":  41.7727,
+                                                        "total_resources_Mt":  73.1127,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  7100.0,
+                                                                                     "min":  6100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Senakin",
+                     "slug":  "senakin",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Kotabaru",
+                         "latitude":  -2.796658,
+                         "longitude":  116.288631
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  7100.0,
+                                                                                     "min":  6100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  0.9,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  25.6
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Satui",
+                     "slug":  "satui",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Bumbu",
+                         "latitude":  -3.679438,
+                         "longitude":  115.288605
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  2.9,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  14.5
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Mulia/Jumbang",
+                     "slug":  "muliajumbang",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Bumbu",
+                         "latitude":  -3.790327,
+                         "longitude":  115.37312
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  3.3,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  4.3
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Sarongga",
+                     "slug":  "sarongga",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Bumbu",
+                         "latitude":  -3.253772,
+                         "longitude":  116.018748
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  6.3,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  3.6
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Asam-asam",
+                     "slug":  "asam-asam",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Laut",
+                         "latitude":  -3.94989,
+                         "longitude":  115.04344
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  3.0,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  5.8
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Kintap",
+                     "slug":  "kintap",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Arutmin Indonesia",
+                         "slug":  "pt-arutmin-indonesia"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Laut",
+                         "latitude":  -3.750346,
+                         "longitude":  115.217864
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  null,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  8.4,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  7.7
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014032",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  1151.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014013",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  12030.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014065",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1591.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014060",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  11403.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014063",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  5530.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014034",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Bumbu",
+                             "licensed_area_ha":  1542.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         },
+                         {
+                             "company_name":  "PT Arutmin Indonesia",
+                             "company_slug":  "pt-arutmin-indonesia",
+                             "wiup_code":  "1300003032014144",
+                             "license_number":  "221 K/33/MEM/2020",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Kotabaru",
+                             "licensed_area_ha":  960.0,
+                             "effective_date":  "2020-11-02",
+                             "expiry_date":  "2030-11-01",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Batubara Kertadewa",
+                     "slug":  "batubara-kertadewa",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Pendopo Energi Batubara",
+                         "slug":  "pt-pendopo-energi-batubara"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Sumatera Selatan",
+                         "city":  "Penukal Abab Lematang Ilir",
+                         "latitude":  -3.33306,
+                         "longitude":  103.97845
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  973.0,
+                                                        "proven_reserves_Mt":  332.998,
+                                                        "total_reserves_Mt":  1305.998,
+                                                        "inferred_resources_Mt":  713.0,
+                                                        "indicated_resources_Mt":  1070.0,
+                                                        "measured_resources_Mt":  550.0,
+                                                        "total_resources_Mt":  2333.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Pendopo Energi Batubara",
+                             "company_slug":  "pt-pendopo-energi-batubara",
+                             "wiup_code":  "1100003032014124",
+                             "license_number":  "686.K/30/DJB/2011",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Sumatera Selatan",
+                             "city":  "Kabupaten Muara Enim",
+                             "licensed_area_ha":  17840.0,
+                             "effective_date":  "2011-03-30",
+                             "expiry_date":  "2039-05-04",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Sangatta",
+                     "slug":  "sangatta",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Kaltim Prima Coal",
+                         "slug":  "pt-kaltim-prima-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Timur",
+                         "latitude":  0.599251,
+                         "longitude":  117.488557
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  583.0,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  3954.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  44.3,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  10.5
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Kaltim Prima Coal",
+                             "company_slug":  "pt-kaltim-prima-coal",
+                             "wiup_code":  "1300003032014099",
+                             "license_number":  "90/1/IUP/PMA/2021",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Timur",
+                             "licensed_area_ha":  61543.0,
+                             "effective_date":  "2021-12-31",
+                             "expiry_date":  "2031-12-31",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BUMI",
+        "site":  {
+                     "name":  "Bengalon",
+                     "slug":  "bengalon",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Kaltim Prima Coal",
+                         "slug":  "pt-kaltim-prima-coal"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Timur",
+                         "latitude":  0.833614,
+                         "longitude":  117.464246
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  null,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  96.0,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  443.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  true,
+                                                "volume":  9.3,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  true,
+                                                 "value":  12.0
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Kaltim Prima Coal",
+                             "company_slug":  "pt-kaltim-prima-coal",
+                             "wiup_code":  "1300003032014099",
+                             "license_number":  "90/1/IUP/PMA/2021",
+                             "license_type":  "IUPK",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Timur",
+                             "licensed_area_ha":  61543.0,
+                             "effective_date":  "2021-12-31",
+                             "expiry_date":  "2031-12-31",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  true,
+                         "strip_ratio":  true,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Sungai Cuka 1",
+                     "slug":  "batubara-sungai-cuka-1",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Wahana Baratama Mining",
+                         "slug":  "pt-wahana-baratama-mining"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Satui",
+                         "latitude":  -3.76227,
+                         "longitude":  115.31831
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  3.59,
+                                                        "proven_reserves_Mt":  4.27,
+                                                        "total_reserves_Mt":  7.86,
+                                                        "inferred_resources_Mt":  5.22,
+                                                        "indicated_resources_Mt":  42.1,
+                                                        "measured_resources_Mt":  48.04,
+                                                        "total_resources_Mt":  95.36,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Wahana Baratama Mining",
+                             "company_slug":  "pt-wahana-baratama-mining",
+                             "wiup_code":  "1300003032014062",
+                             "license_number":  "388.K/34.02/DJBP/2007",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Kabupaten Tanah Laut",
+                             "licensed_area_ha":  7811.0,
+                             "effective_date":  "2007-10-26",
+                             "expiry_date":  "2037-10-25",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Beruang",
+                     "slug":  "batubara-beruang",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Perkasa Inakakerta",
+                         "slug":  "pt-perkasa-inakakerta"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Timur",
+                         "latitude":  0.777278,
+                         "longitude":  117.68223
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.36,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.36,
+                                                        "inferred_resources_Mt":  0.83,
+                                                        "indicated_resources_Mt":  7.86,
+                                                        "measured_resources_Mt":  0.59,
+                                                        "total_resources_Mt":  9.28,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Perkasa Inakakerta",
+                             "company_slug":  "pt-perkasa-inakakerta",
+                             "wiup_code":  "1300003032014185",
+                             "license_number":  "443.K/30/DJB/2017",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Timur",
+                             "licensed_area_ha":  19050.0,
+                             "effective_date":  "2017-12-04",
+                             "expiry_date":  "2037-03-29",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Lisat",
+                     "slug":  "batubara-lisat",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Teguh Sinarabadi",
+                         "slug":  "pt-teguh-sinarabadi"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Barat",
+                         "latitude":  -0.386003,
+                         "longitude":  115.785258
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.31,
+                                                        "proven_reserves_Mt":  5.55,
+                                                        "total_reserves_Mt":  5.86,
+                                                        "inferred_resources_Mt":  7.0,
+                                                        "indicated_resources_Mt":  12.5,
+                                                        "measured_resources_Mt":  12.9,
+                                                        "total_resources_Mt":  32.4,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  7100.0,
+                                                                                     "min":  6100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Teguh Sinarabadi",
+                             "company_slug":  "pt-teguh-sinarabadi",
+                             "wiup_code":  "1300003032014095",
+                             "license_number":  "207.K/30/DJB/2015",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Barat",
+                             "licensed_area_ha":  3505.0,
+                             "effective_date":  "2015-01-06",
+                             "expiry_date":  "2038-04-23",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Laham",
+                     "slug":  "batubara-laham",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Mamahak Coal Mining",
+                         "slug":  "pt-mamahak-coal-mining"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Mahakam Ulu",
+                         "latitude":  0.463562,
+                         "longitude":  115.413864
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  0.0,
+                                                        "measured_resources_Mt":  0.0,
+                                                        "total_resources_Mt":  0.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  null,
+                                                                                     "min":  7100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  false
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Long Lalang 2",
+                     "slug":  "batubara-long-lalang-2",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Tiwa Abadi",
+                         "slug":  "pt-tiwa-abadi"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.488912,
+                         "longitude":  116.157262
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  152.58,
+                                                        "proven_reserves_Mt":  221.5,
+                                                        "total_reserves_Mt":  374.08,
+                                                        "inferred_resources_Mt":  238.0,
+                                                        "indicated_resources_Mt":  150.0,
+                                                        "measured_resources_Mt":  282.0,
+                                                        "total_resources_Mt":  670.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Tiwa Abadi",
+                             "company_slug":  "pt-tiwa-abadi",
+                             "wiup_code":  "3364023032014285",
+                             "license_number":  "503/821/IUP-OP/DPMPTSP/V/2018",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  4996.0,
+                             "effective_date":  "2018-05-08",
+                             "expiry_date":  "2038-05-07",
+                             "cnc":  "CNC-13"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Gunung Sari 2",
+                     "slug":  "batubara-gunung-sari-2",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Tanur Jaya",
+                         "slug":  "pt-tanur-jaya"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.487386,
+                         "longitude":  116.200016
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  129.0,
+                                                        "proven_reserves_Mt":  280.0,
+                                                        "total_reserves_Mt":  409.0,
+                                                        "inferred_resources_Mt":  234.0,
+                                                        "indicated_resources_Mt":  166.0,
+                                                        "measured_resources_Mt":  304.0,
+                                                        "total_resources_Mt":  704.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Tanur Jaya",
+                             "company_slug":  "pt-tanur-jaya",
+                             "wiup_code":  "3364023032014093",
+                             "license_number":  "11/1/IUP/PMA/2020",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  5000.0,
+                             "effective_date":  "2020-03-07",
+                             "expiry_date":  "2040-03-06",
+                             "cnc":  "CNC-13"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Tabang",
+                     "slug":  "batubara-tabang",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Brian Anjat Sentosa",
+                         "slug":  "pt-brian-anjat-sentosa"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.400533,
+                         "longitude":  116.088594
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  59.0,
+                                                        "indicated_resources_Mt":  39.0,
+                                                        "measured_resources_Mt":  19.0,
+                                                        "total_resources_Mt":  117.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Brian Anjat Sentosa",
+                             "company_slug":  "pt-brian-anjat-sentosa",
+                             "wiup_code":  "3364023032014067",
+                             "license_number":  "503/820/IUP-OP/DPMPTSP/V/2018",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  4025.0,
+                             "effective_date":  "2018-05-08",
+                             "expiry_date":  "2038-05-07",
+                             "cnc":  "CNC-25"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Gunung Sari 3",
+                     "slug":  "batubara-gunung-sari-3",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Orkida Makmur",
+                         "slug":  "pt-orkida-makmur"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Timur",
+                         "latitude":  0.459706,
+                         "longitude":  116.269085
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  0.0,
+                                                        "measured_resources_Mt":  0.0,
+                                                        "total_resources_Mt":  0.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Orkida Makmur",
+                             "company_slug":  "pt-orkida-makmur",
+                             "wiup_code":  "3364023032014065",
+                             "license_number":  "88/1/IUP/PMA/2021",
+                             "license_type":  "IUP",
+                             "activity":  "Eksplorasi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  310.0,
+                             "effective_date":  "2021-12-31",
+                             "expiry_date":  "2026-03-09",
+                             "cnc":  "I.T"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Kelekat 3",
+                     "slug":  "batubara-kelekat-3",
+                     "year":  2023
+                 },
+        "operator":  {
+                         "name":  "PT Bara Sejati",
+                         "slug":  "pt-bara-sejati"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.371399,
+                         "longitude":  116.329954
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  0.039,
+                                                        "indicated_resources_Mt":  0.18,
+                                                        "measured_resources_Mt":  0.0,
+                                                        "total_resources_Mt":  0.219,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  7100.0,
+                                                                                     "min":  6100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Bara Sejati",
+                             "company_slug":  "pt-bara-sejati",
+                             "wiup_code":  "3364023032014166",
+                             "license_number":  "2191/1/IUP/PMDN/2021",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  2903.0,
+                             "effective_date":  "2021-12-31",
+                             "expiry_date":  "2032-05-26",
+                             "cnc":  "I.T"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Muara Ritan 2",
+                     "slug":  "batubara-muara-ritan-2",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Fajar Sakti Prima",
+                         "slug":  "pt-fajar-sakti-prima"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.534906,
+                         "longitude":  116.107206
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  3.0,
+                                                        "proven_reserves_Mt":  67.2,
+                                                        "total_reserves_Mt":  70.2,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  23.7,
+                                                        "measured_resources_Mt":  297.8,
+                                                        "total_resources_Mt":  321.5,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Fajar Sakti Prima",
+                             "company_slug":  "pt-fajar-sakti-prima",
+                             "wiup_code":  "3364023032014213",
+                             "license_number":  "503/7294/IUP-OP/DPMPTSP/XII/2020",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  3775.0,
+                             "effective_date":  "2020-12-07",
+                             "expiry_date":  "2035-07-22",
+                             "cnc":  "CNC-1"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "BYAN",
+        "site":  {
+                     "name":  "Batubara Muara Ritan 1",
+                     "slug":  "batubara-muara-ritan-1",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Bara Tabang",
+                         "slug":  "pt-bara-tabang"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Kartanegara",
+                         "latitude":  0.549093,
+                         "longitude":  116.1698
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  154.436,
+                                                        "proven_reserves_Mt":  86.51,
+                                                        "total_reserves_Mt":  240.946,
+                                                        "inferred_resources_Mt":  3.54,
+                                                        "indicated_resources_Mt":  164.08,
+                                                        "measured_resources_Mt":  98.93,
+                                                        "total_resources_Mt":  266.55,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Bara Tabang",
+                             "company_slug":  "pt-bara-tabang",
+                             "wiup_code":  "3364023032014343",
+                             "license_number":  "540/070/IUP-OP/MB-PBAT/V/2011",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Kartanegara",
+                             "licensed_area_ha":  3015.56,
+                             "effective_date":  "2011-05-02",
+                             "expiry_date":  "2028-04-07",
+                             "cnc":  "CNC"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Pelakan 1",
+                     "slug":  "batubara-pelakan-1",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Indominco Mandiri",
+                         "slug":  "pt-indominco-mandiri"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Timur",
+                         "latitude":  0.14212,
+                         "longitude":  117.35399
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2024,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  7.3,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Indominco Mandiri",
+                             "company_slug":  "pt-indominco-mandiri",
+                             "wiup_code":  "1300003032014176",
+                             "license_number":  "503.K/30/DJB/2016",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kutai Kartanegara, Kutai Timur",
+                             "licensed_area_ha":  24121.0,
+                             "effective_date":  "1998-04-01",
+                             "expiry_date":  "2028-03-31",
+                             "cnc":  null
+                         },
+                         {
+                             "company_name":  "PT Indominco Mandiri",
+                             "company_slug":  "pt-indominco-mandiri",
+                             "wiup_code":  "1300003032014176",
+                             "license_number":  "503.K/30/DJB/2016",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kutai Kartanegara, Kutai Timur",
+                             "licensed_area_ha":  24121.0,
+                             "effective_date":  "1998-04-01",
+                             "expiry_date":  "2028-03-31",
+                             "cnc":  null
+                         },
+                         {
+                             "company_name":  "PT Indominco Mandiri",
+                             "company_slug":  "pt-indominco-mandiri",
+                             "wiup_code":  "1300003032014176",
+                             "license_number":  "503.K/30/DJB/2016",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kutai Kartanegara, Kutai Timur",
+                             "licensed_area_ha":  24121.0,
+                             "effective_date":  "1998-04-01",
+                             "expiry_date":  "2028-03-31",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Jelmu Sibak",
+                     "slug":  "batubara-jelmu-sibak",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Trubaindo Coal Mining",
+                         "slug":  "pt-trubaindo-coal-mining"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Barat",
+                         "latitude":  -0.71293,
+                         "longitude":  115.68008
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2024,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  2.9,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Trubaindo Coal Mining",
+                             "company_slug":  "pt-trubaindo-coal-mining",
+                             "wiup_code":  "1300003032014011",
+                             "license_number":  "142.K/MB.05/DJB.B/2024",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Barat",
+                             "licensed_area_ha":  22573.36,
+                             "effective_date":  "2005-02-28",
+                             "expiry_date":  "2035-02-27",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Batalang",
+                     "slug":  "batubara-batalang",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Jorong Barutama Greston",
+                         "slug":  "pt-jorong-barutama-greston"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Laut",
+                         "latitude":  -3.9069,
+                         "longitude":  115.02445
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  3.12,
+                                                        "proven_reserves_Mt":  1.37,
+                                                        "total_reserves_Mt":  4.49,
+                                                        "inferred_resources_Mt":  8.42,
+                                                        "indicated_resources_Mt":  19.44,
+                                                        "measured_resources_Mt":  31.02,
+                                                        "total_resources_Mt":  58.88,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Jorong Barutama Greston",
+                             "company_slug":  "pt-jorong-barutama-greston",
+                             "wiup_code":  "1300003032014085",
+                             "license_number":  "462.K/30/DJB/2015",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Tanah Laut",
+                             "licensed_area_ha":  4883.0,
+                             "effective_date":  "2015-02-24",
+                             "expiry_date":  "2029-12-09",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Karendan 2",
+                     "slug":  "batubara-karendan-2",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Nusa Persada Resources",
+                         "slug":  "pt-nusa-persada-resources"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  "Barito Utara",
+                         "latitude":  -0.536324,
+                         "longitude":  115.275828
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  43.55,
+                                                        "proven_reserves_Mt":  12.8,
+                                                        "total_reserves_Mt":  56.35,
+                                                        "inferred_resources_Mt":  38.3,
+                                                        "indicated_resources_Mt":  91.3,
+                                                        "measured_resources_Mt":  62.4,
+                                                        "total_resources_Mt":  192.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Nusa Persada Resources",
+                             "company_slug":  "pt-nusa-persada-resources",
+                             "wiup_code":  "3362053032014093",
+                             "license_number":  "188.45/277/2013",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Barito Utara",
+                             "licensed_area_ha":  4291.0,
+                             "effective_date":  "2013-05-20",
+                             "expiry_date":  "2033-05-20",
+                             "cnc":  "CNC-3"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Sungai Mega",
+                     "slug":  "batubara-sungai-mega",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Tepian Indah Sukses",
+                         "slug":  "pt-tepian-indah-sukses"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Barat",
+                         "latitude":  -0.766081,
+                         "longitude":  115.70551
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  4.063282,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  4.063282,
+                                                        "inferred_resources_Mt":  1.669427,
+                                                        "indicated_resources_Mt":  9.375251,
+                                                        "measured_resources_Mt":  0.0,
+                                                        "total_resources_Mt":  11.044678,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  7100.0,
+                                                                                     "min":  6100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Tepian Indah Sukses",
+                             "company_slug":  "pt-tepian-indah-sukses",
+                             "wiup_code":  "3364073032014246",
+                             "license_number":  "545/K.355A/2010",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Barat",
+                             "licensed_area_ha":  2065.0,
+                             "effective_date":  "2010-04-12",
+                             "expiry_date":  "2029-04-11",
+                             "cnc":  "CNC-1"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Benangin 1",
+                     "slug":  "batubara-benangin-1",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Bharinto Ekatama",
+                         "slug":  "pt-bharinto-ekatama"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Barat",
+                         "latitude":  -0.88041,
+                         "longitude":  115.391066
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2024,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  8.5,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Bharinto Ekatama",
+                             "company_slug":  "pt-bharinto-ekatama",
+                             "wiup_code":  "1300003032014079",
+                             "license_number":  "249.K/30/DJB/2018",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah, Kalimantan Timur",
+                             "city":  "Kutai Barat, Barito Utara",
+                             "licensed_area_ha":  17311.0,
+                             "effective_date":  "2011-06-30",
+                             "expiry_date":  "2041-06-29",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "ITMG",
+        "site":  {
+                     "name":  "Batubara Tukul",
+                     "slug":  "batubara-tukul",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Graha Panca Karsa",
+                         "slug":  "pt-graha-panca-karsa"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Timur",
+                         "city":  "Kutai Barat",
+                         "latitude":  0.112834,
+                         "longitude":  115.691134
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2024,
+                                                        "probable_reserves_Mt":  null,
+                                                        "proven_reserves_Mt":  null,
+                                                        "total_reserves_Mt":  1.1,
+                                                        "inferred_resources_Mt":  null,
+                                                        "indicated_resources_Mt":  null,
+                                                        "measured_resources_Mt":  null,
+                                                        "total_resources_Mt":  null,
+                                                        "calorific_value_kcal":  null
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Graha Panca Karsa",
+                             "company_slug":  "pt-graha-panca-karsa",
+                             "wiup_code":  "3364073032014248",
+                             "license_number":  "545/K.745/2009",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Timur",
+                             "city":  "Kabupaten Kutai Barat",
+                             "licensed_area_ha":  5060.0,
+                             "effective_date":  "2009-09-14",
+                             "expiry_date":  "2029-09-14",
+                             "cnc":  "CNC-1"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "GEMS",
+        "site":  {
+                     "name":  "Batubara Sumber Arum",
+                     "slug":  "batubara-sumber-arum",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Borneo Indobara",
+                         "slug":  "pt-borneo-indobara"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Selatan",
+                         "city":  "Tanah Bumbu",
+                         "latitude":  -3.558935,
+                         "longitude":  115.57178
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  1.734582,
+                                                        "proven_reserves_Mt":  1.282026,
+                                                        "total_reserves_Mt":  3.016608,
+                                                        "inferred_resources_Mt":  2.58371,
+                                                        "indicated_resources_Mt":  2.265903,
+                                                        "measured_resources_Mt":  1.934252,
+                                                        "total_resources_Mt":  6.783865,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Borneo Indobara",
+                             "company_slug":  "pt-borneo-indobara",
+                             "wiup_code":  "1300003032014082",
+                             "license_number":  "374.K/30/DJB/2009",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Selatan",
+                             "city":  "Tanah Bumbu",
+                             "licensed_area_ha":  24100.0,
+                             "effective_date":  "2009-09-15",
+                             "expiry_date":  "2036-02-16",
+                             "cnc":  null
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "GEMS",
+        "site":  {
+                     "name":  "Batubara Jujuhan 1",
+                     "slug":  "batubara-jujuhan-1",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Kuansing Inti Makmur",
+                         "slug":  "pt-kuansing-inti-makmur"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Jambi",
+                         "city":  "Bungo",
+                         "latitude":  -1.400547,
+                         "longitude":  101.745389
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  1.544,
+                                                        "proven_reserves_Mt":  1.36,
+                                                        "total_reserves_Mt":  2.904,
+                                                        "inferred_resources_Mt":  2.1,
+                                                        "indicated_resources_Mt":  2.568,
+                                                        "measured_resources_Mt":  1.75,
+                                                        "total_resources_Mt":  6.418,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Kuansing Inti Makmur",
+                             "company_slug":  "pt-kuansing-inti-makmur",
+                             "wiup_code":  "3115083032014049",
+                             "license_number":  "269/KEP.KA.DPM-PTSP-6.I/IUPOP/X/2017",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Jambi",
+                             "city":  "Kabupaten Bungo",
+                             "licensed_area_ha":  199.0,
+                             "effective_date":  "2017-10-02",
+                             "expiry_date":  "2027-10-02",
+                             "cnc":  "CNC-3"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "GEMS",
+        "site":  {
+                     "name":  "Batubara Lubuk Bintialo 2",
+                     "slug":  "batubara-lubuk-bintialo-2",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Barasentosa Lestari",
+                         "slug":  "pt-barasentosa-lestari"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Sumatera Selatan",
+                         "city":  "Musi Rawas Utara, Musi Banyuasin",
+                         "latitude":  -2.38431,
+                         "longitude":  103.3574
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  0.0,
+                                                        "measured_resources_Mt":  0.0,
+                                                        "total_resources_Mt":  0.0,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  5100.0,
+                                                                                     "min":  null
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Barasentosa Lestari",
+                             "company_slug":  "pt-barasentosa-lestari",
+                             "wiup_code":  "1100003032014040",
+                             "license_number":  "247.K/30/DJB/2018",
+                             "license_type":  "PKP2B",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Sumatera Selatan",
+                             "city":  "Kabupaten Musi Rawas",
+                             "licensed_area_ha":  23300.0,
+                             "effective_date":  "2018-05-21",
+                             "expiry_date":  "2041-03-30",
+                             "cnc":  "I.T"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    },
+    {
+        "ticker":  "GEMS",
+        "site":  {
+                     "name":  "Batubara Liangbuah",
+                     "slug":  "batubara-liangbuah",
+                     "year":  2024
+                 },
+        "operator":  {
+                         "name":  "PT Trisula Kencana Sakti",
+                         "slug":  "pt-trisula-kencana-sakti"
+                     },
+        "commodity":  "Coal",
+        "location":  {
+                         "province":  "Kalimantan Tengah",
+                         "city":  "Barito Utara, Barito Timur",
+                         "latitude":  -0.943774,
+                         "longitude":  115.193585
+                     },
+        "map_ready":  true,
+        "intelligence":  {
+                             "resources_reserves":  {
+                                                        "measurement_year":  2022,
+                                                        "probable_reserves_Mt":  0.0,
+                                                        "proven_reserves_Mt":  0.0,
+                                                        "total_reserves_Mt":  0.0,
+                                                        "inferred_resources_Mt":  0.0,
+                                                        "indicated_resources_Mt":  2.1,
+                                                        "measured_resources_Mt":  1.3,
+                                                        "total_resources_Mt":  3.4,
+                                                        "calorific_value_kcal":  {
+                                                                                     "max":  6100.0,
+                                                                                     "min":  5100.0
+                                                                                 }
+                                                    },
+                             "production":  {
+                                                "available":  false,
+                                                "volume":  null,
+                                                "unit":  "Mt"
+                                            },
+                             "strip_ratio":  {
+                                                 "available":  false,
+                                                 "value":  null
+                                             }
+                         },
+        "licenses":  [
+                         {
+                             "company_name":  "PT Trisula Kencana Sakti",
+                             "company_slug":  "pt-trisula-kencana-sakti",
+                             "wiup_code":  "3362053032014027",
+                             "license_number":  "188.45/207/2010",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Barito Utara",
+                             "licensed_area_ha":  4748.0,
+                             "effective_date":  "2010-04-26",
+                             "expiry_date":  "2026-04-26",
+                             "cnc":  "CNC-2"
+                         },
+                         {
+                             "company_name":  "PT Trisula Kencana Sakti",
+                             "company_slug":  "pt-trisula-kencana-sakti",
+                             "wiup_code":  "3362133032014074",
+                             "license_number":  "570/52/DESDM-IUPOP/VII/DPMPTSP-2019",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Barito Timur",
+                             "licensed_area_ha":  1748.0,
+                             "effective_date":  "2019-08-15",
+                             "expiry_date":  "2026-08-14",
+                             "cnc":  "CNC-16"
+                         },
+                         {
+                             "company_name":  "PT Trisula Kencana Sakti",
+                             "company_slug":  "pt-trisula-kencana-sakti",
+                             "wiup_code":  "3362053032014161",
+                             "license_number":  "188.45/208/2010",
+                             "license_type":  "IUP",
+                             "activity":  "Operasi Produksi",
+                             "commodity_type":  "Coal",
+                             "province":  "Kalimantan Tengah",
+                             "city":  "Kabupaten Barito Utara",
+                             "licensed_area_ha":  4959.0,
+                             "effective_date":  "2010-04-26",
+                             "expiry_date":  "2028-04-26",
+                             "cnc":  "CNC-2"
+                         }
+                     ],
+        "coverage":  {
+                         "map":  true,
+                         "resources_reserves":  true,
+                         "production":  false,
+                         "strip_ratio":  false,
+                         "license":  true
+                     }
+    }
+]

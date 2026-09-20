@@ -261,6 +261,9 @@ export async function POST(
           causalConclusion:
             "UNKNOWN",
 
+          mcpEnrichment:
+            result.mcpEnrichment,
+          
           company: {
             id:
               body.companyId.trim(),
@@ -399,6 +402,9 @@ export async function POST(
 
         causalConclusion:
           "UNKNOWN",
+
+        mcpEnrichment:
+          result.mcpEnrichment,
 
         company: {
           id:

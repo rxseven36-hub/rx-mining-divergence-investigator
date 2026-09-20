@@ -1,0 +1,1 @@
+import{CompanyIntelligence}from"@/components/rxmdi/CompanyIntelligence";export default function Page(){return <CompanyIntelligence symbol="GEMS"/>}

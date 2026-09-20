@@ -65,7 +65,8 @@ const investigationCase:
   truthState:
     "UNINVESTIGATED",
 
-  unknowns: [],
+  unknowns:
+    [],
 
   causalExplanation:
     "UNKNOWN",
@@ -86,8 +87,11 @@ const context:
     "COAL",
 
   period: {
-    kind: "YEAR",
-    year: 2024,
+    kind:
+      "YEAR",
+
+    year:
+      2024,
   },
 };
 
@@ -95,55 +99,120 @@ describe(
   "prepareInvestigationRequests",
   () => {
     it(
-      "prepares all valid investigation requests without executing them",
+      "prepares REST requests and rejects MCP Financial at the REST boundary",
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const result =
           prepareInvestigationRequests(
             plan,
-            context
+            context,
           );
 
         expect(
-          result.planId
+          result.planId,
         ).toBe(
-          plan.planId
+          plan.planId,
         );
 
         expect(
-          result.caseId
+          result.caseId,
         ).toBe(
-          investigationCase.caseId
+          investigationCase.caseId,
         );
 
+        /**
+         * Canonical V2.10I plan:
+         *
+         * R1-R4 = REST
+         * R5    = MCP Financial
+         *
+         * Direct REST preparation sees all five logical
+         * requests, but must fail closed on R5.
+         */
         expect(
-          result.requests
-        ).toHaveLength(4);
+          result.requests,
+        ).toHaveLength(5);
 
         expect(
-          result.readyCount
+          result.readyCount,
         ).toBe(4);
 
         expect(
-          result.rejectedCount
-        ).toBe(0);
+          result.rejectedCount,
+        ).toBe(1);
+
+        const financial =
+          result.requests.find(
+            (request) =>
+              request.request
+                .capability ===
+              "COMPANY_FINANCIAL_REPORT",
+          );
 
         expect(
-          result.requests.every(
+          financial?.status,
+        ).toBe(
+          "REJECTED",
+        );
+
+        if (
+          !financial ||
+          financial.status !==
+            "REJECTED"
+        ) {
+          throw new Error(
+            "Financial request was not rejected by REST preparation boundary.",
+          );
+        }
+
+        expect(
+          financial
+            .executionDecision
+            .status,
+        ).toBe(
+          "READY",
+        );
+
+        expect(
+          financial.bindingIssues,
+        ).toEqual([
+          "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+        ]);
+
+        expect(
+          financial.operation,
+        ).toBeNull();
+
+        const restRequests =
+          result.requests.filter(
+            (request) =>
+              request.request
+                .capability !==
+              "COMPANY_FINANCIAL_REPORT",
+          );
+
+        expect(
+          restRequests,
+        ).toHaveLength(4);
+
+        expect(
+          restRequests.every(
             (request) =>
               request.status ===
-              "READY"
-          )
+              "READY",
+          ),
         ).toBe(true);
 
         expect(
-          result.causalConclusion
-        ).toBe("UNKNOWN");
-      }
+          result.causalConclusion,
+        ).toBe(
+          "UNKNOWN",
+        );
+      },
     );
 
     it(
@@ -151,13 +220,13 @@ describe(
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const result =
           prepareInvestigationRequests(
             plan,
-            context
+            context,
           );
 
         const operational =
@@ -165,12 +234,14 @@ describe(
             (request) =>
               request.request
                 .capability ===
-              "MINING_OPERATIONAL_CONTEXT"
+              "MINING_OPERATIONAL_CONTEXT",
           );
 
         expect(
-          operational?.status
-        ).toBe("READY");
+          operational?.status,
+        ).toBe(
+          "READY",
+        );
 
         if (
           !operational ||
@@ -178,19 +249,19 @@ describe(
             "READY"
         ) {
           throw new Error(
-            "Operational request was not ready"
+            "Operational request was not ready.",
           );
         }
 
         expect(
           operational.operation
-            .operation
+            .operation,
         ).toBe(
-          "GET_MINING_OPERATIONAL_CONTEXT"
+          "GET_MINING_OPERATIONAL_CONTEXT",
         );
 
         expect(
-          operational.operation.params
+          operational.operation.params,
         ).toEqual({
           sectorsSlug:
             "pt-adaro-andalan-indonesia-tbk",
@@ -198,20 +269,20 @@ describe(
 
         expect(
           JSON.stringify(
-            operational.operation.params
-          )
+            operational.operation.params,
+          ),
         ).not.toContain(
-          "company-internal-001"
+          "company-internal-001",
         );
-      }
+      },
     );
 
     it(
-      "rejects mining bindings when sectorsSlug is unavailable",
+      "rejects mining bindings when sectorsSlug is unavailable while preserving MCP boundary rejection",
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const result =
@@ -219,9 +290,10 @@ describe(
             plan,
             {
               ...context,
+
               sectorsSlug:
                 undefined,
-            }
+            },
           );
 
         const operational =
@@ -229,7 +301,7 @@ describe(
             (request) =>
               request.request
                 .capability ===
-              "MINING_OPERATIONAL_CONTEXT"
+              "MINING_OPERATIONAL_CONTEXT",
           );
 
         const historical =
@@ -237,16 +309,34 @@ describe(
             (request) =>
               request.request
                 .capability ===
-              "MINING_HISTORICAL_PERFORMANCE"
+              "MINING_HISTORICAL_PERFORMANCE",
+          );
+
+        const financial =
+          result.requests.find(
+            (request) =>
+              request.request
+                .capability ===
+              "COMPANY_FINANCIAL_REPORT",
           );
 
         expect(
-          operational?.status
-        ).toBe("REJECTED");
+          operational?.status,
+        ).toBe(
+          "REJECTED",
+        );
 
         expect(
-          historical?.status
-        ).toBe("REJECTED");
+          historical?.status,
+        ).toBe(
+          "REJECTED",
+        );
+
+        expect(
+          financial?.status,
+        ).toBe(
+          "REJECTED",
+        );
 
         if (
           !operational ||
@@ -254,7 +344,7 @@ describe(
             "REJECTED"
         ) {
           throw new Error(
-            "Operational request was not rejected"
+            "Operational request was not rejected.",
           );
         }
 
@@ -264,48 +354,70 @@ describe(
             "REJECTED"
         ) {
           throw new Error(
-            "Historical request was not rejected"
+            "Historical request was not rejected.",
+          );
+        }
+
+        if (
+          !financial ||
+          financial.status !==
+            "REJECTED"
+        ) {
+          throw new Error(
+            "Financial request was not rejected.",
           );
         }
 
         expect(
           operational
-            .executionDecision.status
-        ).toBe("READY");
+            .executionDecision
+            .status,
+        ).toBe(
+          "READY",
+        );
 
         expect(
           historical
-            .executionDecision.status
-        ).toBe("READY");
+            .executionDecision
+            .status,
+        ).toBe(
+          "READY",
+        );
 
         expect(
-          operational.bindingIssues
+          operational.bindingIssues,
         ).toEqual([
           "SECTORS_SLUG_REQUIRED",
         ]);
 
         expect(
-          historical.bindingIssues
+          historical.bindingIssues,
         ).toEqual([
           "SECTORS_SLUG_REQUIRED",
         ]);
 
         expect(
-          result.readyCount
+          financial.bindingIssues,
+        ).toEqual([
+          "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+        ]);
+
+        expect(
+          result.readyCount,
         ).toBe(2);
 
         expect(
-          result.rejectedCount
-        ).toBe(2);
-      }
+          result.rejectedCount,
+        ).toBe(3);
+      },
     );
 
     it(
-      "rejects market binding when ticker is unavailable without blocking unrelated requests",
+      "rejects market binding when ticker is unavailable without blocking unrelated REST requests",
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const result =
@@ -313,9 +425,10 @@ describe(
             plan,
             {
               ...context,
+
               ticker:
                 undefined,
-            }
+            },
           );
 
         const market =
@@ -323,12 +436,28 @@ describe(
             (request) =>
               request.request
                 .capability ===
-              "COMPANY_MARKET_TRANSACTION_HISTORY"
+              "COMPANY_MARKET_TRANSACTION_HISTORY",
+          );
+
+        const financial =
+          result.requests.find(
+            (request) =>
+              request.request
+                .capability ===
+              "COMPANY_FINANCIAL_REPORT",
           );
 
         expect(
-          market?.status
-        ).toBe("REJECTED");
+          market?.status,
+        ).toBe(
+          "REJECTED",
+        );
+
+        expect(
+          financial?.status,
+        ).toBe(
+          "REJECTED",
+        );
 
         if (
           !market ||
@@ -336,37 +465,56 @@ describe(
             "REJECTED"
         ) {
           throw new Error(
-            "Market request was not rejected"
+            "Market request was not rejected.",
+          );
+        }
+
+        if (
+          !financial ||
+          financial.status !==
+            "REJECTED"
+        ) {
+          throw new Error(
+            "Financial request was not rejected.",
           );
         }
 
         expect(
           market
-            .executionDecision.status
-        ).toBe("READY");
+            .executionDecision
+            .status,
+        ).toBe(
+          "READY",
+        );
 
         expect(
-          market.bindingIssues
+          market.bindingIssues,
         ).toEqual([
           "TICKER_REQUIRED",
         ]);
 
         expect(
-          result.readyCount
+          financial.bindingIssues,
+        ).toEqual([
+          "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+        ]);
+
+        expect(
+          result.readyCount,
         ).toBe(3);
 
         expect(
-          result.rejectedCount
-        ).toBe(1);
-      }
+          result.rejectedCount,
+        ).toBe(2);
+      },
     );
 
     it(
-      "rejects a request at execution validation when its requirement relationship is invalid",
+      "rejects invalid requirement relationship independently of MCP boundary rejection",
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const corruptedPlan = {
@@ -377,70 +525,108 @@ describe(
               (requirement) =>
                 requirement.requirementId !==
                 plan.dataRequests[0]
-                  .requirementId
+                  .requirementId,
             ),
         };
 
         const result =
           prepareInvestigationRequests(
             corruptedPlan,
-            context
+            context,
           );
 
         const first =
           result.requests[0];
 
-        expect(
-          first.status
-        ).toBe("REJECTED");
+        const financial =
+          result.requests.find(
+            (request) =>
+              request.request
+                .capability ===
+              "COMPANY_FINANCIAL_REPORT",
+          );
 
         expect(
-          first
-            .executionDecision.status
-        ).toBe("REJECTED");
-
-        expect(
-          first
-            .executionDecision.issues
-        ).toContain(
-          "REQUIREMENT_MISMATCH"
+          first.status,
+        ).toBe(
+          "REJECTED",
         );
 
         expect(
-          first.bindingIssues
+          first
+            .executionDecision
+            .status,
+        ).toBe(
+          "REJECTED",
+        );
+
+        expect(
+          first
+            .executionDecision
+            .issues,
+        ).toContain(
+          "REQUIREMENT_MISMATCH",
+        );
+
+        expect(
+          first.bindingIssues,
         ).toEqual([]);
 
         expect(
-          first.operation
+          first.operation,
         ).toBeNull();
 
         expect(
-          result.readyCount
+          financial?.status,
+        ).toBe(
+          "REJECTED",
+        );
+
+        if (
+          !financial ||
+          financial.status !==
+            "REJECTED"
+        ) {
+          throw new Error(
+            "Financial request was not rejected.",
+          );
+        }
+
+        expect(
+          financial.bindingIssues,
+        ).toEqual([
+          "EXECUTION_BOUNDARY_NOT_SUPPORTED",
+        ]);
+
+        expect(
+          result.readyCount,
         ).toBe(3);
 
         expect(
-          result.rejectedCount
-        ).toBe(1);
-      }
+          result.rejectedCount,
+        ).toBe(2);
+      },
     );
 
     it(
-      "preserves UNKNOWN causal boundary during request preparation",
+      "preserves UNKNOWN causal boundary during REST request preparation",
       () => {
         const plan =
           createInvestigationPlan(
-            investigationCase
+            investigationCase,
           );
 
         const result =
           prepareInvestigationRequests(
             plan,
-            context
+            context,
           );
 
         expect(
-          result.causalConclusion
-        ).toBe("UNKNOWN");
+          result.causalConclusion,
+        ).toBe(
+          "UNKNOWN",
+        );
 
         for (
           const prepared
@@ -449,10 +635,12 @@ describe(
           expect(
             prepared
               .executionDecision
-              .causalConclusion
-          ).toBe("UNKNOWN");
+              .causalConclusion,
+          ).toBe(
+            "UNKNOWN",
+          );
         }
-      }
+      },
     );
-  }
+  },
 );

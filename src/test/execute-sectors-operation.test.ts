@@ -194,7 +194,7 @@ describe(
     );
 
     it(
-      "preserves adapter failure as a FAILED execution result",
+      "preserves a generic adapter failure without inventing typed provider metadata",
       async () => {
         const adapterFailure =
           new Error(
@@ -245,7 +245,9 @@ describe(
 
           expect(
             result.issues
-          ).toEqual([]);
+          ).toEqual([
+            "MESSAGE:simulated adapter failure",
+          ]);
 
           expect(
             result.cause
@@ -257,6 +259,125 @@ describe(
         expect(
           requestJson
         ).toHaveBeenCalledTimes(1);
+      }
+    );
+
+    it(
+      "projects bounded typed HTTP failure metadata while preserving the original cause",
+      async () => {
+        const httpFailure =
+          Object.assign(
+            new Error(
+              "Sectors returned HTTP 404"
+            ),
+            {
+              code:
+                "HTTP_ERROR",
+              status:
+                404,
+              retryAfter:
+                undefined,
+            },
+          );
+
+        const adapter: SectorsAdapter = {
+          async requestJson<T>() {
+            throw httpFailure;
+          },
+        };
+
+        const result =
+          await executeSectorsOperation(
+            adapter,
+            {
+              operation:
+                "GET_MINING_HISTORICAL_PERFORMANCE",
+              purpose:
+                "Collect historical mining performance.",
+              params: {
+                sectorsSlug:
+                  "pt-bumi-resources-tbk",
+                period: {
+                  kind:
+                    "YEAR",
+                  year:
+                    2024,
+                },
+              },
+            }
+          );
+
+        expect(result).toEqual({
+          status:
+            "FAILED",
+          data:
+            null,
+          issues: [
+            "HTTP_ERROR",
+            "HTTP_STATUS:404",
+            "MESSAGE:Sectors returned HTTP 404",
+          ],
+          cause:
+            httpFailure,
+        });
+      }
+    );
+
+    it(
+      "projects network failure code and bounded message without inventing HTTP status",
+      async () => {
+        const networkFailure =
+          Object.assign(
+            new Error(
+              "Sectors request failed before receiving an HTTP response"
+            ),
+            {
+              code:
+                "NETWORK_ERROR",
+            },
+          );
+
+        const adapter: SectorsAdapter = {
+          async requestJson<T>() {
+            throw networkFailure;
+          },
+        };
+
+        const result =
+          await executeSectorsOperation(
+            adapter,
+            {
+              operation:
+                "GET_MINING_OPERATIONAL_CONTEXT",
+              purpose:
+                "Collect operational context.",
+              params: {
+                sectorsSlug:
+                  "pt-bumi-resources-tbk",
+              },
+            }
+          );
+
+        expect(result.status).toBe(
+          "FAILED"
+        );
+
+        if (
+          result.status === "FAILED"
+        ) {
+          expect(
+            result.issues
+          ).toEqual([
+            "NETWORK_ERROR",
+            "MESSAGE:Sectors request failed before receiving an HTTP response",
+          ]);
+
+          expect(
+            result.cause
+          ).toBe(
+            networkFailure
+          );
+        }
       }
     );
 

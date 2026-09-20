@@ -22,6 +22,10 @@ import type {
   RXIntelligenceEvidencePackItem,
 } from "../context/intelligence-evidence-pack";
 
+import {
+  projectPeerIntelligenceEvidencePack,
+} from "../context/project-peer-intelligence-evidence-pack";
+
 export type RXEvidenceBoundedIntelligenceBriefIssue =
   | "INVALID_OUTPUT"
   | "CASE_MISMATCH"
