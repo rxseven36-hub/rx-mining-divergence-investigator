@@ -1,4 +1,4 @@
-﻿export type CoverageState = "verified" | "partial" | "none";
+export type CoverageState = "verified" | "partial" | "none";
 
 export type CompanyCoverage = {
   ticker: string;
@@ -39,7 +39,7 @@ export const companyCoverageRegistry: Record<string, CompanyCoverage> = {
     notes: [
       "Live mining-performance recon exists for FY2024.",
       "AADI appears in the collected BUMI peer dataset.",
-      "AADI is the current live investigation case.",
+      "AADI retains verified investigation coverage from the earlier live workflow.",
     ],
   },
 

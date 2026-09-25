@@ -1,201 +1,198 @@
-﻿# RX Mining Divergence Investigator
+# RX Mining Divergence Investigator
 
-> **Find the signal. Challenge the explanation.**
+> **From mining data to investigable intelligence.**
 
-RX Mining Divergence Investigator (RX MDI) is an evidence-first market intelligence system that detects material inconsistencies in mining-company data, investigates them using Sectors evidence, challenges AI-generated explanations, and produces an evidence-bounded intelligence brief.
+RX Mining Divergence Investigator (RX MDI) is an evidence-first market-intelligence system for investigating Indonesian mining-company signals. It turns fragmented company, operational, historical, market, and news context into structured, traceable intelligence while preserving the boundary between observation, inference, and evidence.
 
-Built for **Sectors Hackathon 2026 — Track 3: Market Intelligence**.
+Built for **Sectors Hackathon 2026 - Track 03: Market Intelligence**.
 
 ---
 
 ## The Problem
 
-A difference in company data can be important without explaining itself.
+Mining data can show that something changed without explaining why it changed.
 
-Production may diverge from sales. Historical performance may shift. Operational, commodity, or market context may appear relevant.
+Production and sales can diverge. Operational relationships can shift over time. Market activity, commodity context, licenses, mining sites, resources and reserves, or news events may appear relevant.
 
-But:
+RX MDI is designed around one discipline:
 
-**a divergence is not automatically an anomaly, and an explanation is not automatically true.**
+**A divergence is an investigation signal - not automatic proof of a cause.**
 
-RX MDI is designed to investigate that gap without turning incomplete evidence into confident AI narratives.
+The system helps analysts move from a visible signal to company context, operational divergence, investigation, and evidence without manufacturing certainty where the available evidence does not support it.
 
 ---
 
-## How RX MDI Works
+## Core Workflow
 
 ```text
-DETECT
-  ↓
-PRIORITIZE
-  ↓
-INVESTIGATE
-  ↓
+TODAY
+  v
+SIGNAL
+  v
+COMPANY INTELLIGENCE
+  v
+DIVERGENCE
+  v
+INVESTIGATION
+  v
 EVIDENCE
-  ↓
-HYPOTHESIS
-  ↓
-CHALLENGE
-  ↓
-BRIEF
 ```
 
-RX MDI:
+### TODAY
 
-1. Detects a material divergence from comparable data.
-2. Determines whether the signal deserves investigation.
-3. Builds a structured investigation plan.
-4. Retrieves relevant evidence through Sectors.
-5. Admits validated evidence into the reasoning context.
-6. Lets AI propose an evidence-bounded hypothesis.
-7. Challenges that hypothesis against the admitted evidence.
-8. Produces an intelligence brief while preserving uncertainty.
+Surfaces material changes and investigation-worthy signals so the user can start from what deserves attention.
 
----
+### SIGNAL
 
-## AI PROPOSES. RX PROVES.
+Turns an observed change into a clear investigation entry point rather than presenting it as a conclusion.
 
-AI is not the source of truth in RX MDI.
+### COMPANY INTELLIGENCE
 
-Sectors data and deterministic RX computations establish the evidence boundary first.
+Connects the signal to company-level context, including available financial, operational, mining, market, and related intelligence.
 
-AI is used to interpret that evidence and propose possible explanations. RX then challenges those explanations before they can become part of the final intelligence brief.
+### DIVERGENCE
 
-Unsupported certainty is not treated as intelligence.
+Visual Intelligence helps expose relationships that deserve investigation, including historical production-versus-sales behavior.
 
-When the available evidence does not establish causality:
+### INVESTIGATION
 
-**CAUSAL CONCLUSION: UNKNOWN**
+RX MDI structures the investigation path and keeps reasoning bounded by available evidence.
+
+### EVIDENCE
+
+Source-backed facts, deterministic computations, provenance, and limitations remain inspectable so a finding can be traced back to its basis.
 
 ---
 
-## Featured Demo Case
+## Visual Intelligence
 
-### PT Adaro Andalan Indonesia Tbk — AADI.JK — FY2024
+RX MDI includes historical Production vs Sales Visual Intelligence for five Indonesian mining companies:
 
-The featured demo investigates a real production-sales divergence using Sectors data:
+- **BUMI** - PT Bumi Resources Tbk
+- **ADMR** - PT Alamtri Minerals Indonesia Tbk
+- **BYAN** - PT Bayan Resources Tbk
+- **ITMG** - PT Indo Tambangraya Megah Tbk
+- **GEMS** - PT Golden Energy Mines Tbk
 
-| Metric | FY2024 |
-| --- | ---: |
-| Production | 48.11 Mt |
-| Sales | 55.80 Mt |
-| Observed gap | +7.69 Mt |
+The historical view covers **2020-2024** where source data is available.
 
-RX MDI does **not** treat the 7.69 Mt difference as proof of a particular cause.
+RX MDI does not interpolate or invent missing values. If two values are not comparable or a required value is unavailable, the interface preserves that limitation instead of manufacturing a gap.
 
-It launches an investigation.
+The FY2024 company snapshot remains distinct from the historical trend and is reconciled with the historical evidence boundary.
 
-The live workflow gathers relevant company, operational, historical, commodity, and market evidence through Sectors before allowing AI reasoning to begin.
+---
 
-In the validated demo run, RX MDI admitted **25 evidence items** into the investigation.
+## Investigation Discipline
 
-The AI proposed possible explanations.
+RX MDI separates different kinds of information instead of presenting everything as equally proven.
 
-RX challenged those explanations against the evidence.
+- **Source-backed fact** - information admitted from an identified source.
+- **Computed observation** - a deterministic relationship derived from admitted values.
+- **Investigation signal** - something worth examining further.
+- **Context** - information that can strengthen understanding without proving causality.
+- **Unknown / unsupported** - a conclusion the available evidence does not establish.
 
-The available evidence confirmed the divergence but did not establish a definitive cause.
+A production-sales divergence can therefore be important without being labeled as proof of a specific operational cause.
 
-Therefore the final causal conclusion remained:
+---
 
-**UNKNOWN**
+## News & Event Evidence Boundary
 
-AADI is a curated featured demo case. The investigation engine itself accepts company identity, Sectors slug, ticker, commodity, and year as runtime inputs.
+News and events can strengthen investigation context, but RX MDI does not automatically treat them as causal evidence.
+
+The product explicitly preserves this boundary:
+
+> **Context-only intelligence**
+
+News or event information may help an analyst understand what was happening around a company or period. It becomes causal support only when an admissible investigation path establishes that relationship.
+
+**RX will not fake support.**
+
+Unsupported questions remain unsupported.
 
 ---
 
 ## Why Sectors Is Core
 
-Sectors is not a decorative data source or optional enrichment layer.
+Sectors is a core data source for RX MDI.
 
-The production investigation workflow uses **Sectors REST API v2** to retrieve evidence including:
+The system uses Sectors-backed information across the intelligence workflow, including available company and mining context such as:
 
-- mining company context
-- mining historical performance
-- commodity price history
-- market transaction context
+- company information
+- mining sites and licenses
+- production and sales
+- overburden and strip ratio
+- products and commodity context
+- resources and reserves
+- market-series context
+- news and event context
 
-Sectors evidence passes through validation, normalization, investigation, and evidence-admission boundaries before it can participate in AI reasoning.
+Source availability differs by company and metric. RX MDI preserves those differences instead of filling missing fields with fabricated values.
 
-Without Sectors, the live evidence workflow cannot complete its core investigation.
-
----
-
-## Evidence Discipline
-
-RX MDI maintains an explicit truth boundary:
-
-- **SOURCE FACT** — validated information originating from a source
-- **COMPUTED FACT** — deterministically derived from admitted facts
-- **INFERENCE** — interpretation that must remain evidence-bounded
-- **UNKNOWN** — information or causality not established by available evidence
-
-RX does not force a detector to run when evidence is not semantically, dimensionally, or temporally comparable.
-
-It is better to preserve an unknown than manufacture an explanation.
+Sectors-derived evidence passes through RX MDI's validation, normalization, presentation, and evidence boundaries before it is used as investigation context.
 
 ---
 
-## Architecture
+## Company Coverage
 
-```text
-Sectors REST API v2
-        ↓
-Sectors Adapter
-        ↓
-Validation & Normalization
-        ↓
-Comparability Guard
-        ↓
-Signal Detection
-        ↓
-Materiality & Priority
-        ↓
-Investigation Plan
-        ↓
-Evidence Execution & Admission
-        ↓
-Neutral Evidence Pack
-        ↓
-AI Hypothesis
-        ↓
-RX Challenge
-        ↓
-Intelligence Brief
-        ↓
-Investigation Workspace
-```
+The final hackathon workflow includes focused operational intelligence for:
 
-Deterministic operations remain in code.
+| Company | Ticker |
+| --- | --- |
+| PT Bumi Resources Tbk | BUMI |
+| PT Alamtri Minerals Indonesia Tbk | ADMR |
+| PT Bayan Resources Tbk | BYAN |
+| PT Indo Tambangraya Megah Tbk | ITMG |
+| PT Golden Energy Mines Tbk | GEMS |
 
-AI is introduced only where interpretation adds value.
+Additional company records may exist in the repository as valid development, market, evidence, or test coverage. They should not be interpreted as the current featured judging workflow.
 
 ---
 
-## Jury Experience
+## Evidence & Provenance
 
-The workspace is built around the investigation story:
+RX MDI is designed so that useful intelligence does not require hiding uncertainty.
 
-**Signal → Investigation → Evidence → AI Proposes ↔ RX Challenges → Intelligence Brief**
+The evidence layer preserves source context and provenance, while deterministic processing keeps observations reproducible.
 
-The primary result stays compact for fast review.
+Key principles:
 
-Detailed admitted evidence remains available through an expandable evidence view for traceability.
+1. **Observation is not explanation.**
+2. **Divergence is not automatic causality.**
+3. **Missing data stays missing.**
+4. **Context-only evidence stays context-only.**
+5. **Unsupported certainty is rejected.**
+6. **Source provenance remains inspectable.**
+
+---
+
+## Intended Users
+
+RX MDI is designed for people who need to investigate mining-company information rather than simply consume isolated data points, including:
+
+- analysts
+- researchers
+- market participants
+
+RX MDI is an information and research tool. It is not an automated trading system and does not provide investment recommendations.
 
 ---
 
 ## Technology
 
+The repository includes a Next.js / React / TypeScript application with deterministic intelligence processing, Sectors integration, evidence handling, and automated regression coverage.
+
+Core development and quality tooling includes:
+
 - Next.js
 - React
 - TypeScript
-- Sectors REST API v2
-- Gemini through the RX LLM provider boundary
+- Sectors integration
 - Zod
 - Vitest
-- Prisma
-- Tailwind CSS
+- ESLint
 
-Sectors and LLM credentials remain server-side and are never intentionally exposed to the browser.
+Credentials are intended to remain server-side. Local environment secrets must not be committed to the repository.
 
 ---
 
@@ -221,13 +218,7 @@ to:
 .env.local
 ```
 
-Then configure:
-
-```text
-SECTORS_API_KEY=
-LLM_PROVIDER=
-LLM_API_KEY=
-```
+Configure the required values documented by the example environment file.
 
 Never commit `.env.local`.
 
@@ -248,13 +239,20 @@ http://localhost:3000
 ## Quality Gates
 
 ```bash
-npm test
 npm run lint
 npx tsc --noEmit
+npm test
 npm run build
 ```
 
-The current validated regression baseline contains **113 test files and 751 passing tests**.
+Final pre-submission validation:
+
+- **ESLint:** PASS
+- **TypeScript:** PASS
+- **Test files:** 156 passed, 2 skipped
+- **Tests:** 948 passed, 7 skipped
+- **Production build:** PASS
+- **Static pages:** 34/34 generated
 
 ---
 
@@ -271,19 +269,19 @@ It does not provide:
 - investment recommendations
 - automated trading
 
-The system is designed to surface signals, investigate evidence, challenge explanations, and communicate uncertainty.
+The system is designed to surface signals, connect company and operational context, expose divergences, support investigation, preserve evidence, and communicate limitations.
 
 ---
 
-## Status
+## Hackathon Status
 
-**Working end-to-end hackathon MVP.**
+**Submission-ready build.**
 
-The featured AADI investigation has successfully completed the production workflow:
+The product build is frozen for submission. Final work is limited to submission documentation, media, and submission preparation unless a genuine submission-blocking regression is discovered.
 
-**Sectors → Signal → Investigation → Evidence → Hypothesis → Challenge → Intelligence Brief**
+The judging story follows:
 
-Current work is focused on jury documentation, demo preparation, and final submission readiness.
+**TODAY -> SIGNAL -> COMPANY INTELLIGENCE -> DIVERGENCE -> INVESTIGATION -> EVIDENCE**
 
 ---
 
@@ -295,4 +293,4 @@ Public repository:
 
 ---
 
-**RX MDI — Evidence before explanation.**
+**RX MDI - From mining data to investigable intelligence.**
