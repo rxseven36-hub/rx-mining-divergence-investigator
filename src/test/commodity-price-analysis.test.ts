@@ -138,6 +138,33 @@ describe(
 
           observationCount:
             3,
+
+          series: [
+            {
+              date:
+                "2024-01-01",
+              value:
+                100,
+              unit:
+                "USD/metric ton",
+            },
+            {
+              date:
+                "2024-02-01",
+              value:
+                110,
+              unit:
+                "USD/metric ton",
+            },
+            {
+              date:
+                "2024-03-01",
+              value:
+                120,
+              unit:
+                "USD/metric ton",
+            },
+          ],
         });
 
         expect(

@@ -1,0 +1,366 @@
+.card {
+  min-width: 0;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid rgba(74, 121, 140, 0.34);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 25, 32, 0.94),
+      rgba(5, 16, 22, 0.92)
+    );
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.kicker {
+  color: #789aaa;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.header h3 {
+  margin: 5px 0 0;
+  color: #eef8fb;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.count {
+  flex: none;
+  padding: 5px 8px;
+  border: 1px solid rgba(63, 255, 197, 0.28);
+  border-radius: 999px;
+  color: #3fffc5;
+  background: rgba(63, 255, 197, 0.05);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.chart {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  touch-action: manipulation;
+}
+
+.grid {
+  stroke: rgba(111, 155, 173, 0.13);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.line {
+  fill: none;
+  stroke: #3fffc5;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.pointGroup {
+  cursor: pointer;
+  outline: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hitArea {
+  fill: rgba(0, 0, 0, 0.001);
+  stroke: transparent;
+  pointer-events: all;
+}
+
+.point {
+  fill: #061117;
+  stroke: #3fffc5;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  transition:
+    r 0.14s ease,
+    fill 0.14s ease,
+    filter 0.14s ease;
+  pointer-events: none;
+}
+
+.pointActive {
+  fill: #3fffc5;
+  filter:
+    drop-shadow(
+      0 0 6px
+      rgba(63, 255, 197, 0.8)
+    );
+}
+
+.pointGroup:focus .point {
+  fill: #3fffc5;
+  filter:
+    drop-shadow(
+      0 0 6px
+      rgba(63, 255, 197, 0.8)
+    );
+}
+
+/*
+ * Tooltip positioning is split
+ * into horizontal + vertical rules.
+ *
+ * Horizontal:
+ * left edge  -> extend right
+ * center     -> center on point
+ * right edge -> extend left
+ *
+ * Vertical:
+ * top region -> flip below point
+ * otherwise  -> appear above point
+ */
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  width: max-content;
+  max-width: min(220px, 72%);
+  padding: 10px 12px;
+  border: 1px solid rgba(63, 255, 197, 0.5);
+  border-radius: 9px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5, 22, 27, 0.98),
+      rgba(4, 14, 19, 0.98)
+    );
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.42),
+    0 0 18px rgba(63, 255, 197, 0.08);
+  pointer-events: none;
+
+  --tooltip-x: -50%;
+  --tooltip-y: calc(-100% - 12px);
+
+  transform:
+    translate(
+      var(--tooltip-x),
+      var(--tooltip-y)
+    );
+}
+
+.tooltipLeft {
+  --tooltip-x: -8px;
+}
+
+.tooltipCenter {
+  --tooltip-x: -50%;
+}
+
+.tooltipRight {
+  --tooltip-x: calc(-100% + 8px);
+}
+
+.tooltipAbove {
+  --tooltip-y: calc(-100% - 12px);
+}
+
+.tooltipBelow {
+  --tooltip-y: 12px;
+}
+
+/* Arrow for tooltip shown ABOVE point */
+
+.tooltipAbove::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-right:
+    1px solid
+    rgba(63, 255, 197, 0.5);
+  border-bottom:
+    1px solid
+    rgba(63, 255, 197, 0.5);
+  background:
+    rgba(4, 14, 19, 0.98);
+  content: "";
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+/* Arrow for tooltip flipped BELOW point */
+
+.tooltipBelow::before {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-top:
+    1px solid
+    rgba(63, 255, 197, 0.5);
+  border-left:
+    1px solid
+    rgba(63, 255, 197, 0.5);
+  background:
+    rgba(4, 14, 19, 0.98);
+  content: "";
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+/* Keep arrows near the selected point at edges */
+
+.tooltipLeft.tooltipAbove::after,
+.tooltipLeft.tooltipBelow::before {
+  left: 12px;
+  transform:
+    rotate(45deg);
+}
+
+.tooltipRight.tooltipAbove::after,
+.tooltipRight.tooltipBelow::before {
+  right: 8px;
+  left: auto;
+  transform:
+    rotate(45deg);
+}
+
+.tooltipLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #3fffc5;
+  font-size: 7px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+}
+
+.tooltip strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #dcebf0;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.tooltipValue {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.tooltip small {
+  display: block;
+  margin-top: 5px;
+  color: #80a5b4;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 7px;
+  color: #668694;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.scale strong {
+  color: #a8c2cd;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.footer > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 11px;
+  border: 1px solid rgba(67, 113, 132, 0.22);
+  border-radius: 8px;
+  background: rgba(4, 15, 20, 0.46);
+}
+
+.footer span {
+  color: #668694;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.footer strong {
+  overflow-wrap: anywhere;
+  color: #dcebf0;
+  font-size: 12px;
+}
+
+.footer small {
+  color: #789aaa;
+  font-size: 10px;
+}
+
+.note {
+  margin: 12px 0 0;
+  color: #668694;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+@media (max-width: 680px) {
+  .card {
+    padding: 14px;
+  }
+
+  .chart {
+    height: 180px;
+  }
+
+  .header h3 {
+    font-size: 16px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .tooltip {
+    max-width: 190px;
+    padding: 9px 10px;
+  }
+
+  .tooltipValue {
+    font-size: 12px;
+  }
+}

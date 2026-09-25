@@ -7,6 +7,12 @@ type RXMarketMetric =
   | "VOLUME"
   | "MARKET_CAP";
 
+export interface RXMarketSeriesPoint {
+  date: string;
+  value: number;
+  unit: string;
+}
+
 export interface RXMarketMetricChange {
   metric: RXMarketMetric;
 
@@ -27,6 +33,8 @@ export interface RXMarketMetricChange {
   percentageChange: number | null;
 
   observationCount: number;
+
+  series: RXMarketSeriesPoint[];
 }
 
 export interface RXMarketTransactionAnalysis {
@@ -93,6 +101,13 @@ function analyzeMetric(
       ? null
       : (absoluteChange / first.value) * 100;
 
+  const series: RXMarketSeriesPoint[] =
+    matching.map((observation) => ({
+      date: observationDate(observation),
+      value: observation.value,
+      unit: observation.unit.symbol,
+    }));
+
   return {
     metric,
 
@@ -113,6 +128,8 @@ function analyzeMetric(
     percentageChange,
 
     observationCount: matching.length,
+
+    series,
   };
 }
 

@@ -27,6 +27,11 @@ export interface RXMiningHistoricalPerformanceParams {
   period: RXTimePeriod;
 }
 
+export interface RXMiningSalesDestinationParams {
+  sectorsSlug: NonNullable<RXCompany["sectorsSlug"]>;
+  period: RXTimePeriod;
+}
+
 export interface RXCommodityOperationParams {
   commodity: RXCommodity;
   period: RXTimePeriod;
@@ -47,6 +52,9 @@ export interface RXSectorsOperationParamsMap {
 
   GET_MINING_HISTORICAL_PERFORMANCE:
     RXMiningHistoricalPerformanceParams;
+
+  GET_MINING_SALES_DESTINATION:
+    RXMiningSalesDestinationParams;
 
   GET_COMMODITY_PRICE_HISTORY:
     RXCommodityOperationParams;

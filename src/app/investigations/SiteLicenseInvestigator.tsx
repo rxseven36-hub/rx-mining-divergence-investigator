@@ -139,6 +139,168 @@ function readFactValue<T>(
   return fact.value as T;
 }
 
+function humanizeFieldName(value: string): string {
+  const labels: Record<string, string> = {
+    license_type: "License type",
+    license_number: "License number",
+    license_no: "License number",
+    location: "Location",
+    city: "City",
+    province: "Province",
+    area: "Licensed area",
+    area_ha: "Licensed area (ha)",
+    licensed_area: "Licensed area",
+    activity: "Activity",
+    commodity: "Commodity",
+    effective_date: "Effective date",
+    effective: "Effective date",
+    start_date: "Start date",
+    expiry_date: "Expiry date",
+    expiration_date: "Expiry date",
+    expires: "Expiry date",
+    end_date: "End date",
+    contract_type: "Contract type",
+    contract_number: "Contract number",
+    contract_no: "Contract number",
+    operator: "Operator",
+    holder: "Holder",
+    status: "Status",
+    wiup_code: "WIUP code",
+    cn: "CN",
+    generation: "Generation",
+    licensed_area_ha: "Licensed area (ha)",
+    license_effective_date: "Effective date",
+    license_expiry_date: "Expiry date",
+    commodity_type: "Commodity",
+    activities: "Activities",
+    commodities: "Commodities",
+  };
+
+  const normalized = value.trim().toLowerCase();
+  return labels[normalized] ?? normalized
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function describeEvidence(description: string | undefined) {
+  if (!description) {
+    return {
+      title: "Operational evidence",
+      summary: "A source-backed operational fact was admitted into this investigation.",
+    };
+  }
+
+  const separator = description.indexOf(":");
+  const key = separator >= 0
+    ? description.slice(0, separator).trim().toLowerCase()
+    : "";
+  const value = separator >= 0
+    ? description.slice(separator + 1).trim()
+    : description.trim();
+
+  if (key === "mining_site_count") {
+    return {
+      title: "Mining sites",
+      summary: value === "0"
+        ? "No mining sites were reported in this admitted evidence set."
+        : `The source reported ${value} mining site${value === "1" ? "" : "s"} in this admitted evidence set.`,
+    };
+  }
+
+  if (key === "mining_license" || key === "mining_licenses") {
+    return {
+      title: "Mining licenses",
+      summary: "Source-backed mining license records were admitted. Readable license details are shown below.",
+    };
+  }
+
+  if (key === "mining_contract" || key === "mining_contracts") {
+    return {
+      title: "Mining contracts",
+      summary: "Source-backed mining contract records were admitted. Readable contract details are shown below.",
+    };
+  }
+
+  let readableValue = value;
+
+  if (
+    value.startsWith("[") ||
+    value.startsWith("{")
+  ) {
+    try {
+      const parsed = JSON.parse(value) as unknown;
+      readableValue = formatFieldValue(parsed);
+    } catch {
+      readableValue = "";
+    }
+  }
+
+  return {
+    title: key ? humanizeFieldName(key) : "Operational evidence",
+    summary:
+      readableValue ||
+      "Source-backed operational detail is available in Raw Evidence.",
+  };
+}
+
+function humanizeTruthClass(value: string | undefined): string {
+  const normalized = (value ?? "ADMITTED").toUpperCase();
+  if (normalized === "SOURCE_FACT") return "Source-backed fact";
+  if (normalized === "ADMITTED") return "Admitted evidence";
+  return "Evidence";
+}
+
+function formatFieldValue(value: unknown): string {
+  if (value === null || typeof value === "undefined" || value === "") {
+    return "Not reported";
+  }
+  if (Array.isArray(value)) {
+    return value.length ? value.map(formatFieldValue).join(", ") : "Not reported";
+  }
+  if (typeof value === "object") {
+    return Object.entries(value as Record<string, unknown>)
+      .map(([key, nested]) => `${humanizeFieldName(key)}: ${formatFieldValue(nested)}`)
+      .join(" | ");
+  }
+  if (typeof value === "boolean") return value ? "Yes" : "No";
+  return String(value);
+}
+
+function renderStructuredRecords(
+  records: unknown[],
+  emptyMessage: string,
+  recordLabel: string,
+) {
+  if (!Array.isArray(records) || records.length === 0) {
+    return <p>{emptyMessage}</p>;
+  }
+
+  return records.map((record, index) => {
+    if (!record || typeof record !== "object" || Array.isArray(record)) {
+      return (
+        <article key={index}>
+          <strong>{recordLabel} {index + 1}</strong>
+          <p>{formatFieldValue(record)}</p>
+        </article>
+      );
+    }
+
+    return (
+      <article key={index}>
+        <strong>{recordLabel} {index + 1}</strong>
+        <dl>
+          {Object.entries(record as Record<string, unknown>).map(([key, value]) => (
+            <div key={key}>
+              <dt>{humanizeFieldName(key)}</dt>
+              <dd>{formatFieldValue(value)}</dd>
+            </div>
+          ))}
+        </dl>
+      </article>
+    );
+  });
+}
+
 function formatObject(
   value: unknown,
 ): string {
@@ -748,6 +910,43 @@ export default function SiteLicenseInvestigator({
                   </button>
                 </div>
 
+                <div className="rx-human-evidence">
+                  <section>
+                    <h3>Mining licenses</h3>
+                    <p>
+                      Human-readable view of the admitted license records.
+                    </p>
+                    <div className="rx-human-records">
+                      {renderStructuredRecords(
+                        licenses,
+                        "No mining license records were reported in this admitted evidence set.",
+                        "License",
+                      )}
+                    </div>
+                  </section>
+
+                  <section>
+                    <h3>Mining contracts</h3>
+                    <p>
+                      Human-readable view of the admitted contract records.
+                    </p>
+                    <div className="rx-human-records">
+                      {renderStructuredRecords(
+                        contracts,
+                        "No mining contract records were reported in this admitted evidence set.",
+                        "Contract",
+                      )}
+                    </div>
+                  </section>
+                </div>
+
+                <div className="rx-drawer-heading" style={{ marginTop: 20 }}>
+                  <div>
+                    <span>TRACEABILITY</span>
+                    <h2>Source facts</h2>
+                  </div>
+                </div>
+
                 <div className="rx-evidence-list">
                   {evidenceItems.map(
                     (
@@ -771,25 +970,20 @@ export default function SiteLicenseInvestigator({
 
                         <div>
                           <strong>
-                            {
-                              item.truthClass ??
-                              "ADMITTED"
-                            }
+                            {describeEvidence(item.description).title}
                           </strong>
 
                           <p>
-                            {
-                              item.description ??
-                              "Canonical admitted operational evidence"
-                            }
+                            {describeEvidence(item.description).summary}
                           </p>
+
+                          <small>
+                            {humanizeTruthClass(item.truthClass)}
+                          </small>
                         </div>
 
                         <small>
-                          {
-                            item.source ??
-                            "SECTORS"
-                          }
+                          Source: {item.source ?? "SECTORS"}
                         </small>
                       </article>
                     ),
@@ -804,7 +998,7 @@ export default function SiteLicenseInvestigator({
                 >
                   <details>
                     <summary>
-                      RAW ADMITTED LICENSE RECORDS
+                      RAW EVIDENCE - LICENSE RECORDS
                     </summary>
 
                     <pre
@@ -823,7 +1017,7 @@ export default function SiteLicenseInvestigator({
 
                   <details>
                     <summary>
-                      RAW ADMITTED CONTRACT RECORDS
+                      RAW EVIDENCE - CONTRACT RECORDS
                     </summary>
 
                     <pre

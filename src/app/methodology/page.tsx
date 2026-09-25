@@ -22,9 +22,18 @@ export default function MethodologyPage() {
             </article>
           ))}
         </div>
-        <Link href="/api/coverage" style={{ display: "inline-block", marginTop: 18, color: "#42cfff", fontSize: 12, textDecoration: "none" }}>
-          Open Data Coverage
-        </Link>
+        <section id="data-source" style={{ marginTop: 32, paddingTop: 8 }}>
+          <span style={{ color: "#45d8ff", fontSize: 10, fontWeight: 900, letterSpacing: ".14em" }}>DATA SOURCE</span>
+          <h2 style={{ margin: "8px 0 0", color: "#e8f3f7", fontSize: 24 }}>Traceable source coverage.</h2>
+          <p style={{ margin: "10px 0 0", color: "#7893a0", fontSize: 13, lineHeight: 1.65 }}>RX MDI uses source-backed mining, company, market, and operational evidence. Coverage can vary by company, period, and dataset, so unavailable or partial evidence is kept explicit instead of being filled with invented values.</p>
+          <Link href="/api/coverage" style={{ display: "inline-block", marginTop: 14, color: "#42cfff", fontSize: 12, textDecoration: "none" }}>Open Data Coverage</Link>
+        </section>
+
+        <section id="disclaimer" style={{ marginTop: 32, paddingTop: 8 }}>
+          <span style={{ color: "#45d8ff", fontSize: 10, fontWeight: 900, letterSpacing: ".14em" }}>DISCLAIMER</span>
+          <h2 style={{ margin: "8px 0 0", color: "#e8f3f7", fontSize: 24 }}>Evidence is not causality.</h2>
+          <p style={{ margin: "10px 0 0", color: "#7893a0", fontSize: 13, lineHeight: 1.65 }}>RX MDI presents observed evidence, deterministic analysis, and traceable context for investigation. A divergence, relationship, or market movement should not be treated as proof of causality unless the supporting evidence establishes it. RX MDI is an intelligence and research tool, not investment advice.</p>
+        </section>
       </section>
       <MobileNav />
     </main>

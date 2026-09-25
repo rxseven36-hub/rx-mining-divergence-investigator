@@ -175,6 +175,26 @@ function buildSourceReference(
       ].join(":");
     }
 
+    case "GET_MINING_SALES_DESTINATION": {
+      const period =
+        prepared.operation.params.period;
+
+      const periodReference =
+        period.kind === "YEAR"
+          ? String(
+              period.year ??
+                "unknown-year"
+            )
+          : "unknown-period";
+
+      return [
+        "sectors",
+        "sales-destination",
+        prepared.operation.params
+          .sectorsSlug,
+        periodReference,
+      ].join(":");
+    }
     case "GET_COMMODITY_PRICE_HISTORY":
       return [
         "sectors",

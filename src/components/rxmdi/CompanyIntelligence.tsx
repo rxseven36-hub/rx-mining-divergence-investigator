@@ -4,6 +4,10 @@ import Link from "next/link";
 import { ProductHeader } from "@/components/rxmdi/ProductHeader";
 import { MobileNav } from "@/components/rxmdi/MobileNav";
 import { ProductionSalesVisual } from "@/components/rxmdi/ProductionSalesVisual";
+import { BusinessMoney } from "@/components/rxmdi/BusinessMoney";
+import { MarketCommodityContext } from "@/components/rxmdi/MarketCommodityContext";
+import { SalesGeography } from "@/components/rxmdi/SalesGeography";
+import { OwnershipStructure } from "@/components/rxmdi/OwnershipStructure";
 import data from "@/lib/rxmdi-company-intelligence.json";
 import s from "./CompanyIntelligence.module.css";
 
@@ -276,34 +280,25 @@ export function CompanyIntelligence({
 
           <CompanyFootprintSection ticker={symbol} />
 
-          <article>
-            <header>
-              <span>FINANCIALS · {f.year}</span>
-              <h3>Business scale and earnings</h3>
-            </header>
+          <BusinessMoney
+  	    year={f.year}
+  	    revenue={f.revenue}
+  	    netProfit={f.netProfit}
+  	    assets={f.assets}
+  	    costRevenue={f.costRevenue}
+	  />
 
-            <div className={s.facts}>
-              <b>
-                REVENUE
-                <em>{usd(f.revenue)}</em>
-              </b>
-
-              <b>
-                NET PROFIT
-                <em>{usd(f.netProfit)}</em>
-              </b>
-
-              <b>
-                TOTAL ASSETS
-                <em>{usd(f.assets)}</em>
-              </b>
-
-              <b>
-                COST OF REVENUE
-                <em>{usd(f.costRevenue)}</em>
-              </b>
-            </div>
-          </article>
+          <MarketCommodityContext
+            symbol={symbol}
+            commodity="COAL"
+            market={{
+              date: m.latest?.date ?? null,
+              close: m.latest?.close ?? null,
+              move: m.move ?? null,
+              volume: m.latest?.volume ?? null,
+              marketCap: m.latest?.market_cap ?? null,
+            }}
+          />
 
           <article>
             <header>
@@ -338,82 +333,17 @@ export function CompanyIntelligence({
             </div>
           </article>
 
-          <article>
-            <header>
-              <span>SALES MARKETS · 2024</span>
-              <h3>Where sales are exposed</h3>
-            </header>
+          <SalesGeography
+            symbol={symbol}
+            year={2024}
+            destinations={c.salesMarkets}
+          />
 
-            <div className={s.list}>
-              {c.salesMarkets.length ? (
-                c.salesMarkets.map(
-                  (x: any, i: number) => (
-                    <p key={i}>
-                      <strong>{x.name}</strong>
-
-                      <span>
-                        {x.percentage_of_sales_volume !=
-                        null
-                          ? `${n(
-                              x.percentage_of_sales_volume,
-                            )}% sales volume`
-                          : x.revenue_usd != null
-                            ? `${usd(
-                                x.revenue_usd,
-                              )} revenue`
-                            : x.volume != null
-                              ? `${n(x.volume)} ${
-                                  x.unit || ""
-                                }`
-                              : "—"}
-                      </span>
-                    </p>
-                  ),
-                )
-              ) : (
-                <p>
-                  <strong>
-                    No collected destination detail
-                  </strong>
-                  <span>—</span>
-                </p>
-              )}
-            </div>
-          </article>
-
-          <article>
-            <header>
-              <span>OWNERSHIP STRUCTURE</span>
-              <h3>
-                {c.ownership.subsidiaries.length}{" "}
-                collected subsidiaries
-              </h3>
-            </header>
-
-            <details>
-              <summary>
-                Show all{" "}
-                {c.ownership.subsidiaries.length}
-              </summary>
-
-              <div className={s.list}>
-                {c.ownership.subsidiaries.map(
-                  (x: any, i: number) => (
-                    <p key={i}>
-                      <strong>{x.name}</strong>
-                      <span>
-                        {x.percentage_ownership != null
-                          ? `${n(
-                              x.percentage_ownership,
-                            )}%`
-                          : ""}
-                      </span>
-                    </p>
-                  ),
-                )}
-              </div>
-            </details>
-          </article>
+          <OwnershipStructure
+            symbol={symbol}
+            parents={c.ownership.parents}
+            subsidiaries={c.ownership.subsidiaries}
+          />
 
           <article>
             <header>

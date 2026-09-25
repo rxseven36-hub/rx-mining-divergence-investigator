@@ -4,6 +4,10 @@ import { ProductHeader } from "@/components/rxmdi/ProductHeader";
 import { MobileNav } from "@/components/rxmdi/MobileNav";
 import { CompanyFootprintSection } from "@/components/rxmdi/map/CompanyFootprintSection";
 import { ProductionSalesVisual } from "@/components/rxmdi/ProductionSalesVisual";
+import { BusinessMoney } from "@/components/rxmdi/BusinessMoney";
+import { MarketCommodityContext } from "@/components/rxmdi/MarketCommodityContext";
+import { SalesGeography } from "@/components/rxmdi/SalesGeography";
+import { OwnershipStructure } from "@/components/rxmdi/OwnershipStructure";
 import d from "@/lib/rxmdi-byan-intelligence.json";
 import s from "./byan.module.css";
 
@@ -253,31 +257,25 @@ export default function Page() {
 
           <CompanyFootprintSection ticker="BYAN" />
 
-          <article>
-            <header>
-              <span>FINANCIALS · {f.year}</span>
-              <h3>Business scale and earnings</h3>
-            </header>
+          <BusinessMoney
+            year={f.year}
+            revenue={f.revenue}
+            netProfit={f.netProfit}
+            assets={f.assets}
+            costRevenue={f.costRevenue}
+          />
 
-            <div className={s.facts}>
-              <b>
-                REVENUE
-                <em>{usd(f.revenue)}</em>
-              </b>
-              <b>
-                NET PROFIT
-                <em>{usd(f.netProfit)}</em>
-              </b>
-              <b>
-                TOTAL ASSETS
-                <em>{usd(f.assets)}</em>
-              </b>
-              <b>
-                COST OF REVENUE
-                <em>{usd(f.costRevenue)}</em>
-              </b>
-            </div>
-          </article>
+          <MarketCommodityContext
+            symbol="BYAN"
+            commodity="COAL"
+            market={{
+              date: m.latest?.date ?? null,
+              close: m.latest?.close ?? null,
+              move: m.move ?? null,
+              volume: m.latest?.volume ?? null,
+              marketCap: m.latest?.market_cap ?? null,
+            }}
+          />
 
           <article>
             <header>
@@ -297,71 +295,16 @@ export default function Page() {
             </div>
           </article>
 
-          <article>
-            <header>
-              <span>
-                SALES MARKETS ·{" "}
-                {(d as any).salesMarketsYear || 2024}
-              </span>
-              <h3>Where BYAN sales are exposed</h3>
-            </header>
+          <SalesGeography
+            symbol="BYAN"
+            year={(d as any).salesMarketsYear || 2024}
+            destinations={d.salesMarkets}
+          />
 
-            <div className={s.list}>
-              {d.salesMarkets.map((x: any, i) => (
-                <p key={i}>
-                  <strong>{x.name}</strong>
-                  <span>
-                    {x.percentage_of_sales_volume != null
-                      ? `${n(
-                          x.percentage_of_sales_volume,
-                        )}% of sales volume`
-                      : x.revenue_usd != null
-                        ? `${usd(
-                            x.revenue_usd,
-                          )} revenue`
-                        : "Metric unavailable"}
-                  </span>
-                </p>
-              ))}
-            </div>
-
-            <small>
-              Country rows show collected share of sales
-              volume. Regional rows show collected revenue
-              where available. These are different measures
-              and are not summed together.
-            </small>
-          </article>
-
-          <article>
-            <header>
-              <span>OWNERSHIP STRUCTURE</span>
-              <h3>
-                {d.ownership.subsidiaries.length} collected
-                subsidiaries
-              </h3>
-            </header>
-
-            <details>
-              <summary>
-                Show all{" "}
-                {d.ownership.subsidiaries.length}
-              </summary>
-
-              <div className={s.subs}>
-                {d.ownership.subsidiaries.map(
-                  (x: any, i) => (
-                    <p key={i}>
-                      <strong>{x.name}</strong>
-                      <span>
-                        {n(x.percentage_ownership)}%
-                      </span>
-                    </p>
-                  ),
-                )}
-              </div>
-            </details>
-          </article>
+          <OwnershipStructure
+            symbol="BYAN"
+            subsidiaries={d.ownership.subsidiaries}
+          />
 
           <article>
             <header>

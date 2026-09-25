@@ -130,6 +130,16 @@ export function validateSectorsOperationRequest(
       );
       break;
 
+    case "GET_MINING_SALES_DESTINATION":
+      if (!request.params.sectorsSlug.trim()) {
+        issues.push("SECTORS_SLUG_REQUIRED");
+      }
+
+      validateTemporalPeriod(
+        request,
+        issues
+      );
+      break;
     case "GET_COMMODITY_PRICE_HISTORY":
       if (!request.params.commodity) {
         issues.push("COMMODITY_REQUIRED");

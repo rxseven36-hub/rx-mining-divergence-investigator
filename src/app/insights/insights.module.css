@@ -274,3 +274,43 @@
     flex-direction: column;
   }
 }
+
+/* RXMDI_FINAL_READABILITY_POLISH_20260924 */
+.takeaway > span,
+.cardTop span,
+.cardTop strong,
+.card footer span,
+.card footer a,
+.flow span {
+  font-size: 12px;
+}
+
+.card > p,
+.takeaway p,
+.flow p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.flow strong {
+  font-size: 14px;
+}
+
+.card footer a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  .hero p,
+  .card > p,
+  .takeaway p,
+  .flow p {
+    font-size: 13px;
+  }
+
+  .card footer a {
+    min-height: 44px;
+  }
+}

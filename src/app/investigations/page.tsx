@@ -11,6 +11,7 @@ import ResourcesReservesInvestigator from "./ResourcesReservesInvestigator";
 import MarketInvestigator from "./MarketInvestigator";
 import CommodityInvestigator from "./CommodityInvestigator";
 import ProductQualityInvestigator from "./ProductQualityInvestigator";
+import SalesDestinationInvestigator from "./SalesDestinationInvestigator";
 import FinancialInvestigator from "./FinancialInvestigator";
 
 import {
@@ -82,6 +83,13 @@ const READY_PATHS = [
   },
 
   {
+    path: "sales-destination",
+    label: "Sales Destination",
+    description:
+      "Investigate admitted provider-reported sales-destination evidence without inventing geography classification, missing percentages, concentration scores, or causality.",
+  },
+
+  {
     path: "financial",
     label: "Financial",
     description:
@@ -94,12 +102,6 @@ const FUTURE_PATHS:
 
 
 
-  {
-    path: "sales-destination",
-    label: "Sales Destination",
-    description:
-      "Destination and concentration analysis is not yet connected to the investigation evidence layer.",
-  },
 
 
 
@@ -108,7 +110,7 @@ const FUTURE_PATHS:
     path: "news-event",
     label: "News / Event",
     description:
-      "News can provide context, but RX does not yet treat news as an executable causal investigation path.",
+      "News and events can strengthen investigation context. RX MDI does not treat them as causal evidence without an admissible investigation path.",
   },
 ];
 
@@ -379,7 +381,7 @@ function InvestigationPathSelector({
           >
             <div>
               <span className="rx-kicker">
-                EVIDENCE PATH ROADMAP
+                EVIDENCE PATH BOUNDARY
               </span>
 
               <h2
@@ -390,7 +392,7 @@ function InvestigationPathSelector({
                     28,
                 }}
               >
-                Not executable yet
+                Context-only intelligence
               </h2>
             </div>
 
@@ -449,7 +451,7 @@ function InvestigationPathSelector({
                         ".12em",
                     }}
                   >
-                    NOT READY
+                    CONTEXT ONLY
                   </span>
 
                   <h3
@@ -806,6 +808,19 @@ export default async function InvestigationsPage({
   ) {
     return (
       <ProductQualityInvestigator
+        initialSymbol={
+          requestedSymbol
+        }
+      />
+    );
+  }
+
+  if (
+    resolvedPath ===
+      "sales-destination"
+  ) {
+    return (
+      <SalesDestinationInvestigator
         initialSymbol={
           requestedSymbol
         }

@@ -29,6 +29,7 @@ export type RXSectorsRestCompileResult =
 const VERIFIED_CREDIT_COST = {
   GET_MINING_OPERATIONAL_CONTEXT: 1,
   GET_MINING_HISTORICAL_PERFORMANCE: 1,
+  GET_MINING_SALES_DESTINATION: 1,
   GET_COMMODITY_PRICE_HISTORY: 1,
   GET_COMPANY_MARKET_TRANSACTION_HISTORY: 1,
 } as const;
@@ -198,6 +199,46 @@ export function compileSectorsRestRequest(
       };
     }
 
+    case "GET_MINING_SALES_DESTINATION": {
+      const {
+        sectorsSlug,
+        period,
+      } = operationRequest.params;
+
+      if (
+        period.kind !== "YEAR" ||
+        period.year === undefined
+      ) {
+        return {
+          status: "REJECTED",
+          request: null,
+          issues: [
+            "INVALID_OPERATION_REQUEST",
+          ],
+        };
+      }
+
+      const slug =
+        encodePathPart(sectorsSlug);
+
+      const query = buildQuery([
+        ["year", period.year],
+      ]);
+
+      return {
+        status: "COMPILED",
+        request: {
+          path:
+            `/v2/mining/sales-destination/${slug}/?${query}`,
+          purpose:
+            operationRequest.purpose,
+          estimatedCredits:
+            VERIFIED_CREDIT_COST
+              .GET_MINING_SALES_DESTINATION,
+        },
+        issues: [],
+      };
+    }
     case "GET_COMMODITY_PRICE_HISTORY": {
       const period =
         compileCommodityPeriod(

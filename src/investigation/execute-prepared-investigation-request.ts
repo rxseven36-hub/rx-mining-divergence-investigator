@@ -3,6 +3,9 @@ import type {
 } from "../data/sectors/sectors-adapter";
 
 import {
+  admitMiningSalesDestinationEvidence,
+} from "./admit-mining-sales-destination-evidence";
+import {
   executeSectorsOperation,
 } from "../data/sectors/execute-sectors-operation";
 
@@ -258,6 +261,8 @@ export async function executePreparedInvestigationRequest(
     preparedRequest.request.capability ===
       "MINING_HISTORICAL_PERFORMANCE" ||
     preparedRequest.request.capability ===
+      "MINING_SALES_DESTINATION" ||
+    preparedRequest.request.capability ===
       "MINING_OPERATIONAL_CONTEXT";
 
   if (
@@ -471,6 +476,95 @@ export async function executePreparedInvestigationRequest(
       };
     }
 
+    case "MINING_SALES_DESTINATION": {
+      if (
+        preparedRequest.operation.operation !==
+        "GET_MINING_SALES_DESTINATION"
+      ) {
+        return {
+          status:
+            "EVIDENCE_REJECTED",
+
+          preparedRequest,
+
+          execution,
+
+          evidenceCollection:
+            null as never,
+
+          issue: null,
+
+          causalConclusion:
+            "UNKNOWN",
+        };
+      }
+
+      const period =
+        preparedRequest.operation.params.period;
+
+      if (
+        period.kind !== "YEAR" ||
+        period.year === undefined
+      ) {
+        return {
+          status:
+            "EVIDENCE_REJECTED",
+
+          preparedRequest,
+
+          execution,
+
+          evidenceCollection:
+            null as never,
+
+          issue: null,
+
+          causalConclusion:
+            "UNKNOWN",
+        };
+      }
+
+      const admission =
+        admitMiningSalesDestinationEvidence({
+          request:
+            preparedRequest.request,
+
+          companyId:
+            executionCompanyId!,
+
+          requestedYear:
+            period.year,
+
+          sourceReference:
+            context.sourceReference,
+
+          payload:
+            execution.data,
+
+          retrievedAt:
+            context.retrievedAt,
+        });
+
+      return {
+        status:
+          admission.status ===
+          "ADMITTED"
+            ? "EVIDENCE_ADMITTED"
+            : "EVIDENCE_REJECTED",
+
+        preparedRequest,
+
+        execution,
+
+        evidenceCollection:
+          admission.collection,
+
+        issue: null,
+
+        causalConclusion:
+          "UNKNOWN",
+      };
+    }
     case "COMMODITY_PRICE_HISTORY": {
       /**
        * Commodity and temporal relationship are taken

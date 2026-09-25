@@ -1080,3 +1080,183 @@
     font-size: 11px;
   }
 }
+
+/* RX MDI V2.18A — WATCHLIST + MATERIAL CHANGES */
+.watchlistPanel{margin-top:14px;padding:20px;overflow:visible}
+.watchlistHead{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.watchlistKicker,.watchlistSectionHead span,.watchlistState span,.watchlistState small{color:#4fcff7;font-size:11px;font-weight:900;letter-spacing:.11em}
+.watchlistHead h2{margin:7px 0 0;color:#f0f7fa;font-size:24px;line-height:1.15}
+.watchlistHead p{max-width:700px;margin:8px 0 0;color:#7895a2;font-size:13px;line-height:1.6}
+.watchlistState{flex:0 0 auto;min-width:142px;padding:10px 12px;border:1px solid rgba(74,211,255,.18);border-radius:10px;background:rgba(8,34,47,.68);text-align:right}
+.watchlistState span,.watchlistState strong,.watchlistState small{display:block}
+.watchlistState strong{margin-top:4px;color:#66e0ad;font-size:20px}
+.watchlistState small{margin-top:5px;color:#688d9c;font-size:9px}
+.watchlistChips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:18px}
+.watchlistChip,.watchlistChipActive{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:9px 11px;border-radius:9px;font:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:border-color .16s ease,background .16s ease,transform .16s ease}
+.watchlistChip{border:1px solid rgba(72,137,162,.18);background:rgba(7,29,41,.5);color:#8ba6b2}
+.watchlistChipActive{border:1px solid rgba(70,214,171,.32);background:rgba(14,68,61,.34);color:#eef9f5}
+.watchlistChip:hover,.watchlistChipActive:hover{transform:translateY(-1px);border-color:rgba(79,207,247,.42)}
+.watchlistChip span,.watchlistChipActive span{font-size:9px;letter-spacing:.08em}.watchlistChip span{color:#607f8d}.watchlistChipActive span{color:#66e0ad}
+.watchlistDivider{height:1px;margin:20px 0 16px;background:rgba(72,137,162,.16)}
+.watchlistSectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+.watchlistSectionHead strong{display:block;margin-top:4px;color:#dcebf1;font-size:16px}
+.watchlistSectionHead>small{max-width:470px;color:#607d89;font-size:11px;line-height:1.5;text-align:right}
+.watchlistEvents{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}
+.watchlistEvent{min-width:0;padding:14px;border:1px solid rgba(72,137,162,.16);border-radius:10px;background:rgba(8,31,43,.52)}
+.watchlistEventTop{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.watchlistEventTop a{color:#eef7fb;font-size:16px;font-weight:900;text-decoration:none}
+.watchlistEventTop span,.watchlistEventTop b{padding:3px 6px;border-radius:999px;font-size:10px;line-height:1.3}
+.watchlistEventTop span{color:#7898a7;background:rgba(59,103,121,.12)}
+.watchlistEventTop b{color:#66e0ad;border:1px solid rgba(66,218,166,.18);font-weight:850}
+.watchlistEventTitle{display:block;margin-top:10px;color:#dcebf1;font-size:15px;font-weight:850;line-height:1.4;text-decoration:none}
+.watchlistEventTitle:hover{color:#52cef6;text-decoration:underline}
+.watchlistEvent p{margin:7px 0 0;color:#7895a2;font-size:12px;line-height:1.55}
+.watchlistEventFoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:11px;padding-top:9px;border-top:1px solid rgba(72,130,153,.12)}
+.watchlistEventFoot span{min-width:0;color:#668896;font-size:11px;line-height:1.4}
+.watchlistEventFoot a{flex:0 0 auto;color:#52cef6;font-size:11px;font-weight:850;text-decoration:none}
+.watchlistEmpty{margin-top:14px;padding:18px;border:1px dashed rgba(79,207,247,.2);border-radius:10px;text-align:center}
+.watchlistEmpty strong{color:#dcebf1;font-size:14px}.watchlistEmpty p{margin:5px 0 0;color:#668896;font-size:12px}
+.watchlistGuardrail{display:block;margin-top:14px;color:#607d89;font-size:11px;line-height:1.55}
+@media(max-width:850px){.watchlistHead,.watchlistSectionHead{align-items:flex-start;flex-direction:column}.watchlistState{width:100%;text-align:left}.watchlistSectionHead>small{max-width:none;text-align:left}.watchlistChips{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.watchlistPanel{padding:14px}.watchlistHead h2{font-size:22px}.watchlistChips{grid-template-columns:1fr 1fr}.watchlistChip,.watchlistChipActive{min-height:48px}.watchlistEvents{grid-template-columns:1fr}.watchlistEvent{padding:13px}.watchlistEventTitle{font-size:16px}.watchlistEvent p,.watchlistEventFoot span,.watchlistEventFoot a,.watchlistGuardrail,.watchlistSectionHead>small{font-size:12px}}
+
+/* RX MDI V2.18B — TODAY DESKTOP FLOW POLISH
+   Desktop uses two independent visual flows:
+   Market Pulse -> Watchlist on the left, News & Events on the right.
+   Mobile preserves Market -> News -> Watchlist ordering. */
+.topGrid {
+  grid-template-columns: 1.55fr .85fr;
+  grid-template-areas:
+    "market news"
+    "watch news";
+  align-items: start;
+}
+
+.topGrid > .marketPanel {
+  grid-area: market;
+}
+
+.topGrid > .timelinePanel {
+  grid-area: news;
+}
+
+.topGrid > .watchlistPanel {
+  grid-area: watch;
+  margin-top: 0;
+}
+
+@media (max-width: 850px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "market"
+      "news"
+      "watch";
+  }
+}
+
+
+/* RXMDI_FINAL_READABILITY_POLISH_20260924 */
+.page .kicker,
+.page .snapshot span,
+.page .panelHead span,
+.page .panelHead > strong,
+.page .marketMeta span,
+.page .marketMeta i,
+.page .timelineItems span,
+.page .signalTag,
+.page .signalStats span,
+.page .coverageGrid span,
+.page .path span,
+.page .companyCoverage span,
+.page .signalCoverage span,
+.page .signalMetric span,
+.page .companySignalFoot > span,
+.page .eventLeadTop span,
+.page .eventLeadTop strong,
+.page .eventDimensions span,
+.page .eventCounts span,
+.page .contextSteps span,
+.page .marketNumbers span,
+.page .newsItem > span,
+.page .newsItem > small,
+.page .newsItem small,
+.page .eventPublishers,
+.page .eventRule,
+.page .watchlistChip span,
+.page .watchlistChipActive span,
+.page .watchlistState small {
+  font-size: 11px;
+}
+
+.page .panelFoot,
+.page .action,
+.page .primaryAction,
+.page .pathActions a,
+.page .eventSource,
+.page .eventEvidence span,
+.page .eventEvidence strong,
+.page .companySignalFoot b,
+.page .watchlistSectionHead > small,
+.page .watchlistEventFoot span,
+.page .watchlistEventFoot a,
+.page .watchlistGuardrail {
+  font-size: 12px;
+}
+
+.page .disclaimer,
+.page .contextSteps p,
+.page .signalGuardrail,
+.page .watchlistEvent p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.page .newsHeadline,
+.page .newsItem > strong {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+  .page .kicker,
+  .page .snapshot span,
+  .page .panelHead span,
+  .page .panelHead > strong,
+  .page .marketMeta span,
+  .page .marketMeta i,
+  .page .timelineItems span,
+  .page .signalTag,
+  .page .signalStats span,
+  .page .coverageGrid span,
+  .page .path span,
+  .page .companyCoverage span,
+  .page .signalCoverage span,
+  .page .signalMetric span,
+  .page .companySignalFoot > span,
+  .page .eventLeadTop span,
+  .page .eventLeadTop strong,
+  .page .eventDimensions span,
+  .page .eventCounts span,
+  .page .contextSteps span,
+  .page .marketNumbers span,
+  .page .newsItem > span,
+  .page .newsItem > small,
+  .page .newsItem small,
+  .page .eventPublishers,
+  .page .eventRule,
+  .page .eventSource,
+  .page .watchlistChip span,
+  .page .watchlistChipActive span,
+  .page .watchlistState small {
+    font-size: 12px;
+  }
+
+  .page .newsHeadline,
+  .page .newsItem > strong,
+  .page .contextSteps p,
+  .page .disclaimer,
+  .page .signalGuardrail {
+    font-size: 13px;
+  }
+}

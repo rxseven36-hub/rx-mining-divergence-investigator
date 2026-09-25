@@ -79,6 +79,24 @@ const definitions:
 
   {
     capability:
+      "MINING_SALES_DESTINATION",
+
+    source: "SECTORS",
+
+    requirementKind:
+      "SALES_DESTINATION",
+
+    description:
+      "Collect provider-reported mining sales-destination evidence for an investigation case.",
+
+    executionBoundary:
+      "SECTORS_ADAPTER",
+
+    enabled: true,
+  },
+
+  {
+    capability:
       "COMPANY_FINANCIAL_REPORT",
 
     source: "SECTORS",

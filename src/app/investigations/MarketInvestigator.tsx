@@ -5,6 +5,8 @@ import {
   useState,
 } from "react";
 
+import TimeSeriesChart from "../../components/rxmdi/TimeSeriesChart";
+
 interface MarketInvestigatorProps {
   initialSymbol: string;
 }
@@ -34,6 +36,12 @@ interface MarketMetricResult {
   percentageChange: number | null;
 
   observationCount: number;
+
+  series: Array<{
+    date: string;
+    value: number;
+    unit: string;
+  }>;
 }
 
 interface MarketApiResult {
@@ -269,6 +277,136 @@ function MetricCard({
       )}
     </article>
   );
+}
+
+function humanizeEvidenceField(value: string): string {
+  const labels: Record<string, string> = {
+    company_type: "Company type",
+    activities: "Activities",
+    commodity_type: "Commodity",
+    commodities: "Commodities",
+    operation_province: "Operation province",
+    operation_district: "Operation district",
+    mining_site_count: "Reported mining sites",
+    mining_contract: "Mining contracts",
+    mining_contracts: "Mining contracts",
+    mining_license: "Mining licenses",
+    mining_licenses: "Mining licenses",
+    production: "Production",
+    sales: "Sales",
+    price: "Price",
+    volume: "Trading volume",
+    market_cap: "Market capitalization",
+    marketcap: "Market capitalization",
+    overburden: "Overburden removal",
+    strip_ratio: "Strip ratio",
+  };
+
+  const normalized = value.trim().toLowerCase();
+  return labels[normalized] ??
+    normalized
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function formatEvidenceValue(value: unknown): string {
+  if (
+    value === null ||
+    typeof value === "undefined" ||
+    value === ""
+  ) {
+    return "Not reported";
+  }
+
+  if (Array.isArray(value)) {
+    return value.length > 0
+      ? value.map(formatEvidenceValue).join(", ")
+      : "Not reported";
+  }
+
+  if (typeof value === "object") {
+    return Object.entries(
+      value as Record<string, unknown>,
+    )
+      .map(
+        ([key, nested]) =>
+          `${humanizeEvidenceField(key)}: ${formatEvidenceValue(nested)}`,
+      )
+      .join(" | ");
+  }
+
+  if (typeof value === "boolean") {
+    return value ? "Yes" : "No";
+  }
+
+  return String(value);
+}
+
+function describeEvidence(
+  description: string | undefined,
+): {
+  title: string;
+  summary: string;
+} {
+  if (!description?.trim()) {
+    return {
+      title: "Admitted evidence",
+      summary:
+        "Canonical source-backed evidence was admitted into this investigation.",
+    };
+  }
+
+  const separator = description.indexOf(":");
+  if (separator < 0) {
+    return {
+      title: "Admitted evidence",
+      summary: description.trim(),
+    };
+  }
+
+  const key = description.slice(0, separator).trim();
+  const rawValue = description.slice(separator + 1).trim();
+
+  let readableValue = rawValue;
+  if (
+    rawValue.startsWith("[") ||
+    rawValue.startsWith("{")
+  ) {
+    try {
+      readableValue = formatEvidenceValue(
+        JSON.parse(rawValue) as unknown,
+      );
+    } catch {
+      readableValue =
+        "Source-backed detail is available in the admitted evidence record.";
+    }
+  }
+
+  return {
+    title: humanizeEvidenceField(key),
+    summary:
+      readableValue ||
+      "Source-backed detail is available in the admitted evidence record.",
+  };
+}
+
+function humanizeTruthClass(
+  value: string | undefined,
+): string {
+  const normalized = (value ?? "ADMITTED").toUpperCase();
+
+  if (normalized === "SOURCE_FACT") {
+    return "Source-backed fact";
+  }
+
+  if (normalized === "ADMITTED") {
+    return "Admitted evidence";
+  }
+
+  return normalized
+    .replace(/_/g, " ")
+    .toLowerCase()
+    .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
 export default function MarketInvestigator({
@@ -706,6 +844,37 @@ export default function MarketInvestigator({
               />
             </section>
 
+            <section
+              style={{
+                display: "grid",
+                gridTemplateColumns:
+                  "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+                gap: "12px",
+                margin: "12px 0",
+              }}
+            >
+              {result.market.price ? (
+                <TimeSeriesChart
+                  label="Closing Price Trend"
+                  series={result.market.price.series}
+                />
+              ) : null}
+
+              {result.market.volume ? (
+                <TimeSeriesChart
+                  label="Trading Volume Trend"
+                  series={result.market.volume.series}
+                />
+              ) : null}
+
+              {result.market.marketCap ? (
+                <TimeSeriesChart
+                  label="Market Cap Trend"
+                  series={result.market.marketCap.series}
+                />
+              ) : null}
+            </section>
+
             <section className="rx-market-interpretation-card">
               <span className="rx-kicker">
                 EVIDENCE INTERPRETATION
@@ -771,16 +940,16 @@ export default function MarketInvestigator({
                           }
                         >
                           <strong>
-                            {
-                              item.truthClass
-                            }
+                            {describeEvidence(item.description).title}
                           </strong>
 
                           <p>
-                            {
-                              item.description
-                            }
+                            {describeEvidence(item.description).summary}
                           </p>
+
+                          <small>
+                            {humanizeTruthClass(item.truthClass)}
+                          </small>
 
                           <small>
                             {

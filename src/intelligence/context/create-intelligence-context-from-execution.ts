@@ -27,6 +27,10 @@ function mapCapabilityToScope(
     case "MINING_HISTORICAL_PERFORMANCE":
       return "HISTORICAL";
 
+    case "MINING_SALES_DESTINATION":
+      throw new Error(
+        "MINING_SALES_DESTINATION_REQUIRES_ADMISSION_PIPELINE"
+      );
     case "COMMODITY_PRICE_HISTORY":
       return "COMMODITY";
 

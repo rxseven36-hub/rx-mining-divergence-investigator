@@ -143,6 +143,35 @@ export function bindInvestigationOperationRequest(
         issues: [],
       };
 
+    case "GET_MINING_SALES_DESTINATION":
+      if (
+        !context.sectorsSlug ||
+        !context.sectorsSlug.trim()
+      ) {
+        return {
+          status: "REJECTED",
+          request: null,
+          issues: [
+            "SECTORS_SLUG_REQUIRED",
+          ],
+        };
+      }
+
+      return {
+        status: "BOUND",
+        request: {
+          operation,
+          purpose,
+          params: {
+            sectorsSlug:
+              context.sectorsSlug,
+
+            period:
+              context.period,
+          },
+        },
+        issues: [],
+      };
     case "GET_COMMODITY_PRICE_HISTORY":
       return {
         status: "BOUND",

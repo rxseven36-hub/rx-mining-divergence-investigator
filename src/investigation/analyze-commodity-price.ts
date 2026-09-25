@@ -6,6 +6,12 @@ import type {
   RXCommodity,
 } from "../types/commodity";
 
+export interface RXCommodityPriceSeriesPoint {
+  date: string;
+  value: number;
+  unit: string;
+}
+
 export interface RXCommodityPriceChange {
   first: {
     date: string;
@@ -24,6 +30,8 @@ export interface RXCommodityPriceChange {
   percentageChange: number | null;
 
   observationCount: number;
+
+  series: RXCommodityPriceSeriesPoint[];
 }
 
 export interface RXCommodityPriceAnalysis {
@@ -185,6 +193,20 @@ export function analyzeCommodityPrice(
 
       observationCount:
         observations.length,
+
+      series:
+        observations.map(
+          (observation) => ({
+            date:
+              observationDate(
+                observation,
+              ),
+            value:
+              observation.value,
+            unit:
+              observation.unit.symbol,
+          }),
+        ),
     };
 
   const observedRelationship =

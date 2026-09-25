@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -9,6 +9,26 @@ interface ResourcesReservesInvestigatorProps {
 interface CompanyConfig {
   name: string;
   sectorsSlug: string;
+}
+
+interface GeologicalObservation {
+  value?: number | null;
+}
+
+interface ResourcesReservesEvidence {
+  availability?: string;
+  totalResource?: GeologicalObservation | null;
+  totalReserve?: GeologicalObservation | null;
+  measurementYear?: number | null;
+  sourcePerformanceYear?: number | null;
+  observedRelationship?: string;
+}
+
+interface ResourcesReservesResult {
+  status?: string;
+  issues?: string[];
+  resourcesReserves?: ResourcesReservesEvidence | null;
+  evidence?: unknown;
 }
 
 const COMPANIES: Record<string, CompanyConfig> = {
@@ -41,7 +61,7 @@ function normalizedSymbol(value: string): string {
   return COMPANIES[candidate] ? candidate : "BUMI";
 }
 
-function displayValue(observation: any): string {
+function displayValue(observation: GeologicalObservation | null | undefined): string {
   if (!observation || typeof observation.value !== "number") {
     return "Not admitted";
   }
@@ -56,7 +76,7 @@ export default function ResourcesReservesInvestigator({
     normalizedSymbol(initialSymbol),
   );
   const [year, setYear] = useState<number>(2024);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ResourcesReservesResult | null>(null);
   const [runtimeError, setRuntimeError] =
     useState<string | null>(null);
   const [running, setRunning] = useState(false);
@@ -104,7 +124,7 @@ export default function ResourcesReservesInvestigator({
         },
       );
 
-      const payload = await response.json();
+      const payload = await response.json() as ResourcesReservesResult;
       setResult(payload);
 
       if (!response.ok) {
@@ -399,3 +419,4 @@ export default function ResourcesReservesInvestigator({
     </main>
   );
 }
+

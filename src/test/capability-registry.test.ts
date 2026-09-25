@@ -26,15 +26,16 @@ describe(
           "MINING_HISTORICAL_PERFORMANCE",
           "COMMODITY_PRICE_HISTORY",
           "COMPANY_MARKET_TRANSACTION_HISTORY",
+          "MINING_SALES_DESTINATION",
           "COMPANY_FINANCIAL_REPORT",
         ]);
       }
     );
 
     it(
-      "keeps the original four capabilities on the REST adapter boundary",
+      "keeps REST capabilities on the Sectors adapter boundary",
       () => {
-        const original =
+        const restCapabilities =
           RX_CAPABILITY_REGISTRY.filter(
             (item) =>
               item.capability !==
@@ -42,11 +43,11 @@ describe(
           );
 
         expect(
-          original
-        ).toHaveLength(4);
+          restCapabilities
+        ).toHaveLength(5);
 
         expect(
-          original.every(
+          restCapabilities.every(
             (item) =>
               item.source ===
                 "SECTORS" &&
@@ -107,6 +108,12 @@ describe(
         expect(
           isCapabilityEnabled(
             "COMMODITY_PRICE_HISTORY"
+          )
+        ).toBe(true);
+
+        expect(
+          isCapabilityEnabled(
+            "MINING_SALES_DESTINATION"
           )
         ).toBe(true);
 

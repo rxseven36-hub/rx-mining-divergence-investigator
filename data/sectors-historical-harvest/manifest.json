@@ -1,0 +1,299 @@
+{
+    "harvest":  "RXMDI_HISTORICAL_PERFORMANCE_5X5",
+    "generatedAt":  "2026-09-23T21:08:33.3568919+07:00",
+    "authorizedMaximumRequests":  25,
+    "requestsAttempted":  25,
+    "estimatedCreditsMaximum":  25,
+    "retryPolicy":  "NONE",
+    "companies":  [
+                      "BUMI",
+                      "ADMR",
+                      "BYAN",
+                      "ITMG",
+                      "GEMS"
+                  ],
+    "years":  [
+                  2020,
+                  2021,
+                  2022,
+                  2023,
+                  2024
+              ],
+    "results":  [
+                    {
+                        "symbol":  "BUMI",
+                        "slug":  "pt-bumi-resources-tbk",
+                        "year":  2020,
+                        "requestNumber":  1,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BUMI/2020.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BUMI",
+                        "slug":  "pt-bumi-resources-tbk",
+                        "year":  2021,
+                        "requestNumber":  2,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BUMI/2021.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BUMI",
+                        "slug":  "pt-bumi-resources-tbk",
+                        "year":  2022,
+                        "requestNumber":  3,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BUMI/2022.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BUMI",
+                        "slug":  "pt-bumi-resources-tbk",
+                        "year":  2023,
+                        "requestNumber":  4,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BUMI/2023.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BUMI",
+                        "slug":  "pt-bumi-resources-tbk",
+                        "year":  2024,
+                        "requestNumber":  5,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BUMI/2024.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ADMR",
+                        "slug":  "pt-adaro-minerals-indonesia-tbk",
+                        "year":  2020,
+                        "requestNumber":  6,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ADMR/2020.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ADMR",
+                        "slug":  "pt-adaro-minerals-indonesia-tbk",
+                        "year":  2021,
+                        "requestNumber":  7,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ADMR/2021.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ADMR",
+                        "slug":  "pt-adaro-minerals-indonesia-tbk",
+                        "year":  2022,
+                        "requestNumber":  8,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ADMR/2022.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ADMR",
+                        "slug":  "pt-adaro-minerals-indonesia-tbk",
+                        "year":  2023,
+                        "requestNumber":  9,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ADMR/2023.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ADMR",
+                        "slug":  "pt-adaro-minerals-indonesia-tbk",
+                        "year":  2024,
+                        "requestNumber":  10,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ADMR/2024.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BYAN",
+                        "slug":  "pt-bayan-resources-tbk",
+                        "year":  2020,
+                        "requestNumber":  11,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BYAN/2020.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BYAN",
+                        "slug":  "pt-bayan-resources-tbk",
+                        "year":  2021,
+                        "requestNumber":  12,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BYAN/2021.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BYAN",
+                        "slug":  "pt-bayan-resources-tbk",
+                        "year":  2022,
+                        "requestNumber":  13,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BYAN/2022.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BYAN",
+                        "slug":  "pt-bayan-resources-tbk",
+                        "year":  2023,
+                        "requestNumber":  14,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BYAN/2023.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "BYAN",
+                        "slug":  "pt-bayan-resources-tbk",
+                        "year":  2024,
+                        "requestNumber":  15,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/BYAN/2024.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ITMG",
+                        "slug":  "pt-indo-tambangraya-megah-tbk",
+                        "year":  2020,
+                        "requestNumber":  16,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ITMG/2020.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ITMG",
+                        "slug":  "pt-indo-tambangraya-megah-tbk",
+                        "year":  2021,
+                        "requestNumber":  17,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ITMG/2021.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ITMG",
+                        "slug":  "pt-indo-tambangraya-megah-tbk",
+                        "year":  2022,
+                        "requestNumber":  18,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ITMG/2022.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ITMG",
+                        "slug":  "pt-indo-tambangraya-megah-tbk",
+                        "year":  2023,
+                        "requestNumber":  19,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ITMG/2023.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "ITMG",
+                        "slug":  "pt-indo-tambangraya-megah-tbk",
+                        "year":  2024,
+                        "requestNumber":  20,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/ITMG/2024.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "GEMS",
+                        "slug":  "pt-golden-energy-mines-tbk",
+                        "year":  2020,
+                        "requestNumber":  21,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/GEMS/2020.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "GEMS",
+                        "slug":  "pt-golden-energy-mines-tbk",
+                        "year":  2021,
+                        "requestNumber":  22,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/GEMS/2021.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "GEMS",
+                        "slug":  "pt-golden-energy-mines-tbk",
+                        "year":  2022,
+                        "requestNumber":  23,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/GEMS/2022.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "GEMS",
+                        "slug":  "pt-golden-energy-mines-tbk",
+                        "year":  2023,
+                        "requestNumber":  24,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/GEMS/2023.json",
+                        "issue":  null
+                    },
+                    {
+                        "symbol":  "GEMS",
+                        "slug":  "pt-golden-energy-mines-tbk",
+                        "year":  2024,
+                        "requestNumber":  25,
+                        "status":  "EXECUTED",
+                        "httpStatus":  200,
+                        "estimatedCredits":  1,
+                        "file":  "data/sectors-historical-harvest/GEMS/2024.json",
+                        "issue":  null
+                    }
+                ]
+}

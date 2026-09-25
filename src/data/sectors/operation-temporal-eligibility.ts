@@ -215,6 +215,7 @@ export function evaluateOperationTemporalEligibility(
   switch (operation) {
     case "GET_MINING_OPERATIONAL_CONTEXT":
     case "GET_MINING_HISTORICAL_PERFORMANCE":
+    case "GET_MINING_SALES_DESTINATION":
       return validateSingleYear(period);
 
     case "GET_COMMODITY_PRICE_HISTORY":

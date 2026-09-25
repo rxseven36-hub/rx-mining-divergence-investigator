@@ -1,11 +1,15 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import styles from "./explore.module.css";
 import { IndonesiaMiningMap } from "@/components/rxmdi/map/IndonesiaMiningMap";
 
 type ExploreView = "discovery" | "map";
+
+type ExploreClientProps = {
+  initialView: ExploreView;
+};
 
 type DimensionKey =
   | "operations"
@@ -37,6 +41,17 @@ const dimensions: Array<{ key: DimensionKey; label: string; description: string 
 ];
 
 const discoveries: Discovery[] = [
+  {
+    id: "peer-compare",
+    dimension: "financials",
+    eyebrow: "PEER COMPARISON",
+    title: "Compare reported company observations",
+    description: "Place supported companies side by side across operations, reported financials and collected market context.",
+    metric: "3 companies",
+    detail: "BUMI · BYAN · ITMG",
+    companies: ["BUMI", "BYAN", "ITMG"],
+    href: "/compare?companies=BUMI,BYAN,ITMG",
+  },
   {
     id: "high-production",
     dimension: "operations",
@@ -140,23 +155,17 @@ const discoveries: Discovery[] = [
     id: "destination-map",
     dimension: "geography",
     eyebrow: "SALES FOOTPRINT",
-    title: "Domestic and export destinations",
-    description: "Discover geographic sales exposure from reported country-level destination volumes.",
+    title: "Reported sales destinations",
+    description: "Discover geographic sales exposure from reported destination observations without inferring domestic or export classification.",
     metric: "Country-level",
-    detail: "Available for four companies",
+    detail: "Reported destination coverage · 4 companies",
     companies: ["BUMI", "BYAN", "GEMS", "ITMG"],
     href: "/explore?view=map",
   },
 ];
 
-export function ExploreClient() {
-  const [view, setView] = useState<ExploreView>("discovery");
-
-  useEffect(() => {
-    const requestedView = new URLSearchParams(window.location.search).get("view");
-
-    setView(requestedView === "map" ? "map" : "discovery");
-  }, []);
+export function ExploreClient({ initialView }: ExploreClientProps) {
+  const [view, setView] = useState<ExploreView>(initialView);
 
   const [dimension, setDimension] =
     useState<DimensionKey>("operations");
@@ -328,10 +337,10 @@ export function ExploreClient() {
                       </Link>
                     ) : item.id === "destination-map" ? (
                       <Link
-                        href="/insights"
+                        href="/companies"
                         className={styles.exploreAction}
                       >
-                        Explore
+                        Open Companies
                       </Link>
                     ) : item.href ? (
                       <Link

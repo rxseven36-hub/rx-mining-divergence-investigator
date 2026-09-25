@@ -7,7 +7,7 @@ type Props = {
 
 function format(value: number | null, suffix = "") {
   if (value === null || value === undefined) {
-    return "â€”";
+    return "—";
   }
 
   return `${new Intl.NumberFormat("en-US", {

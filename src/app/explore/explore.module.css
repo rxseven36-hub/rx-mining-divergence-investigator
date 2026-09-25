@@ -403,6 +403,9 @@ a.discoveryCard:hover {
 }
 
 .viewTabs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 108px;
   padding: 10px 16px;
   border: 0;
@@ -441,12 +444,14 @@ a.discoveryCard:hover {
 
   .viewTabs button {
     min-width: 0;
+    width: 100%;
   }
 
   .mapView {
     width: 100%;
   }
 }
+
 /* =========================================================
    EXPLORE UX HOTFIX
    Readability + functional Geography navigation
@@ -567,5 +572,59 @@ a.discoveryCard:hover {
   .resultBar p,
   .discoveryCard > p {
     font-size: 12px;
+  }
+}
+
+/* RXMDI_FINAL_READABILITY_POLISH_20260924 */
+.doctrine > span,
+.searchWrap button,
+.resultBar span,
+.cardTop span,
+.cardTop strong,
+.companyRow span,
+.companyRow a,
+.discoveryCard footer span,
+.discoveryCard footer b,
+.exploreAction {
+  font-size: 12px;
+}
+
+.workspaceHead p,
+.resultBar p,
+.discoveryCard > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.companyRow span,
+.companyRow a {
+  min-height: 30px;
+  padding: 6px 9px;
+}
+
+@media (max-width: 650px) {
+  .doctrine > span,
+  .searchWrap button,
+  .resultBar span,
+  .cardTop span,
+  .cardTop strong,
+  .companyRow span,
+  .companyRow a,
+  .discoveryCard footer span,
+  .discoveryCard footer b,
+  .exploreAction,
+  .dimensionGrid span {
+    font-size: 12px;
+  }
+
+  .workspaceHead p,
+  .resultBar p,
+  .discoveryCard > p {
+    font-size: 13px;
+  }
+
+  .searchWrap button,
+  .exploreAction {
+    min-height: 44px;
   }
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 const navigation = [
   { label: "TODAY", href: "/today" },
@@ -11,27 +11,108 @@ const navigation = [
   { label: "INSIGHTS", href: "/insights" },
 ] as const;
 
+const searchTargets = [
+  { label: "BUMI", detail: "PT Bumi Resources Tbk", keywords: "BUMI company coal", href: "/companies/BUMI" },
+  { label: "ADMR", detail: "PT Alamtri Minerals Indonesia Tbk", keywords: "ADMR company mining", href: "/companies/ADMR" },
+  { label: "BYAN", detail: "PT Bayan Resources Tbk", keywords: "BYAN company coal", href: "/companies/BYAN" },
+  { label: "ITMG", detail: "PT Indo Tambangraya Megah Tbk", keywords: "ITMG company coal", href: "/companies/ITMG" },
+  { label: "GEMS", detail: "PT Golden Energy Mines Tbk", keywords: "GEMS company coal", href: "/companies/GEMS" },
+  { label: "Today", detail: "Current RX MDI watch surface", keywords: "today market news events watch", href: "/today" },
+  { label: "Companies", detail: "Company intelligence", keywords: "companies profiles intelligence", href: "/companies" },
+  { label: "Explore", detail: "Discovery and mining map", keywords: "explore discovery map geography sites", href: "/explore" },
+  { label: "Insights", detail: "Cross-company intelligence", keywords: "insights signals intelligence", href: "/insights" },
+  { label: "Compare", detail: "Side-by-side company comparison", keywords: "compare peer comparison", href: "/compare" },
+  { label: "Investigations", detail: "Deterministic investigation paths", keywords: "investigate investigations evidence", href: "/investigations" },
+  { label: "Methodology", detail: "Sources, method, data coverage and disclaimer", keywords: "methodology methods source data disclaimer", href: "/methodology" },
+] as const;
+
 export function ProductHeader() {
   const pathname = usePathname();
-  const [profileOpen, setProfileOpen] = useState(false);
+  const router = useRouter();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const searchRef = useRef<HTMLDivElement | null>(null);
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return searchTargets.slice(0, 6);
+
+    return searchTargets.filter((item) =>
+      `${item.label} ${item.detail} ${item.keywords}`.toLowerCase().includes(q),
+    );
+  }, [query]);
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (
+        event.key === "/" &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.altKey &&
+        document.activeElement?.tagName !== "INPUT" &&
+        document.activeElement?.tagName !== "TEXTAREA"
+      ) {
+        event.preventDefault();
+        inputRef.current?.focus();
+        setOpen(true);
+      }
+
+      if (event.key === "Escape") {
+        setOpen(false);
+        inputRef.current?.blur();
+      }
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (
+        searchRef.current &&
+        event.target instanceof Node &&
+        !searchRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("pointerdown", onPointerDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, []);
+
+  function goTo(href: string) {
+    setOpen(false);
+    setQuery("");
+    router.push(href);
+  }
+
+  function submitSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (results.length > 0) {
+      goTo(results[0].href);
+    }
+  }
 
   return (
     <header className="rxn-header">
       <Link href="/" className="rxn-brand" aria-label="RX MDI home">
-        <div className="rxn-logo">
-          <span>RX</span>
-          <strong>MDI</strong>
-        </div>
-
+        <div className="rxn-logo"><span>RX</span><strong>MDI</strong></div>
         <small>Mining intelligence</small>
       </Link>
 
       <nav className="rxn-nav" aria-label="Primary navigation">
         {navigation.map((item) => (
           <Link
-            key={item.label}
+            key={item.href}
             href={item.href}
-            className={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "is-active" : undefined}
+            className={
+              pathname === item.href || pathname.startsWith(`${item.href}/`)
+                ? "is-active"
+                : undefined
+            }
           >
             {item.label}
           </Link>
@@ -39,140 +120,57 @@ export function ProductHeader() {
       </nav>
 
       <div className="rxn-header-actions">
-        <Link href="/explore" className="rxn-global-search">
-          <span className="rxn-search-icon" aria-hidden="true" />
-          <span>Search company, ticker, or keyword...</span>
-          <kbd>/</kbd>
-        </Link>
-
-        <span className="rxn-notification" aria-hidden="true">
-          ●
-        </span>
-
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <button
-            type="button"
-            className="rxn-avatar"
-            aria-label="Open RX MDI information menu"
-            aria-expanded={profileOpen}
-            onClick={() => setProfileOpen((open) => !open)}
-            style={{
-              border: 0,
-              padding: 0,
-              cursor: "pointer",
-              font: "inherit",
-            }}
-          >
-            R
-          </button>
-
-          {profileOpen ? (
-            <div
-              role="menu"
-              aria-label="RX MDI information"
-              style={{
-                position: "absolute",
-                top: "calc(100% + 10px)",
-                right: 0,
-                width: 230,
-                padding: 8,
-                border: "1px solid rgba(78, 141, 166, .22)",
-                borderRadius: 12,
-                background: "rgba(5, 20, 30, .98)",
-                boxShadow: "0 18px 42px rgba(0, 0, 0, .34)",
-                zIndex: 1000,
+        <div className="rxn-global-search-shell" ref={searchRef}>
+          <form className="rxn-global-search" role="search" onSubmit={submitSearch}>
+            <span className="rxn-search-icon" aria-hidden="true" />
+            <input
+              ref={inputRef}
+              value={query}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setOpen(true);
               }}
+              onFocus={() => setOpen(true)}
+              placeholder="Search company, ticker, or keyword..."
+              aria-label="Search RX MDI"
+              aria-expanded={open}
+              aria-controls="rxmdi-global-search-results"
+              autoComplete="off"
+            />
+            <kbd>/</kbd>
+          </form>
+
+          {open ? (
+            <div
+              id="rxmdi-global-search-results"
+              className="rxn-global-search-results"
+              role="listbox"
+              aria-label="RX MDI search results"
             >
-              <div
-                style={{
-                  padding: "9px 10px 8px",
-                  borderBottom: "1px solid rgba(78, 141, 166, .12)",
-                  marginBottom: 4,
-                }}
-              >
-                <strong
-                  style={{
-                    display: "block",
-                    color: "#edf7fb",
-                    fontSize: 15,
-                    letterSpacing: ".02em",
-                  }}
-                >
-                  RX MDI
-                </strong>
-                <span
-                  style={{
-                    display: "block",
-                    marginTop: 3,
-                    color: "#668391",
-                    fontSize: 11,
-                  }}
-                >
-                  Indonesian mining intelligence
-                </span>
-              </div>
-
-              <Link
-                href="/about"
-                role="menuitem"
-                onClick={() => setProfileOpen(false)}
-                style={menuItemStyle}
-              >
-                <span style={menuTitleStyle}>About RX MDI</span>
-                <small style={menuTextStyle}>What the product is and why it exists</small>
-              </Link>
-
-              <Link
-                href="/methodology"
-                role="menuitem"
-                onClick={() => setProfileOpen(false)}
-                style={menuItemStyle}
-              >
-                <span style={menuTitleStyle}>Sources & Methodology</span>
-                <small style={menuTextStyle}>How data, evidence, and intelligence are handled</small>
-              </Link>
-
-              <Link
-                href="/api/coverage"
-                role="menuitem"
-                onClick={() => setProfileOpen(false)}
-                style={menuItemStyle}
-              >
-                <span style={menuTitleStyle}>Data Coverage</span>
-                <small style={menuTextStyle}>Current verified, partial, and unavailable coverage</small>
-              </Link>
+              {results.length > 0 ? (
+                results.map((item) => (
+                  <button
+                    key={item.href}
+                    type="button"
+                    role="option"
+                    aria-selected="false"
+                    onClick={() => goTo(item.href)}
+                  >
+                    <strong>{item.label}</strong>
+                    <span>{item.detail}</span>
+                  </button>
+                ))
+              ) : (
+                <div className="rxn-global-search-empty">
+                  No RX MDI destination matched.
+                </div>
+              )}
             </div>
           ) : null}
         </div>
+
+        <span className="rxn-notification" aria-hidden="true">{"\u25cf"}</span>
       </div>
     </header>
   );
 }
-
-const menuItemStyle = {
-  display: "block",
-  padding: "9px 10px",
-  borderRadius: 8,
-  textDecoration: "none",
-} as const;
-
-const menuTitleStyle = {
-  display: "block",
-  color: "#ddecf2",
-  fontSize: 13,
-  fontWeight: 800,
-} as const;
-
-const menuTextStyle = {
-  display: "block",
-  marginTop: 3,
-  color: "#627f8c",
-  fontSize: 10,
-  lineHeight: 1.45,
-} as const;

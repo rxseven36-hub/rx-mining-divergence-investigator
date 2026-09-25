@@ -14,7 +14,7 @@ describe(
   "context-aware investigation paths",
   () => {
     it(
-      "registers the seven executable context-aware investigation paths",
+      "registers the eight executable context-aware investigation paths",
       () => {
         expect(
           RX_INVESTIGATION_PATHS,
@@ -26,6 +26,7 @@ describe(
           "market",
           "commodity-context",
           "product-quality",
+          "sales-destination",
         ]);
       },
     );
@@ -41,6 +42,8 @@ describe(
             "resources-reserves",
             "market",
             "commodity-context",
+            "product-quality",
+            "sales-destination",
           ]
         ) {
           expect(
@@ -52,7 +55,6 @@ describe(
 
         for (
           const unsupported of [
-            "sales-destination",
             "financial",
             "news-event",
             "ngawur",
@@ -117,6 +119,22 @@ describe(
           ).primaryCapability,
         ).toBe(
           "COMMODITY_PRICE_HISTORY",
+        );
+
+        expect(
+          getInvestigationPathDefinition(
+            "product-quality",
+          ).primaryCapability,
+        ).toBe(
+          "MINING_HISTORICAL_PERFORMANCE",
+        );
+
+        expect(
+          getInvestigationPathDefinition(
+            "sales-destination",
+          ).primaryCapability,
+        ).toBe(
+          "MINING_SALES_DESTINATION",
         );
       },
     );

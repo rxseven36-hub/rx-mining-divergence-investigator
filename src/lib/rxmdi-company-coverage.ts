@@ -1,4 +1,4 @@
-export type CoverageState = "verified" | "partial" | "none";
+﻿export type CoverageState = "verified" | "partial" | "none";
 
 export type CompanyCoverage = {
   ticker: string;
@@ -92,7 +92,7 @@ export const companyCoverageRegistry: Record<string, CompanyCoverage> = {
     symbol: "ADMR.JK",
     name: "PT Alamtri Minerals Indonesia Tbk",
     route: "/companies/ADMR",
-    visibleInDirectory: false,
+    visibleInDirectory: true,
     source: {
       companyDetail: "verified",
       financials: "verified",
@@ -114,7 +114,7 @@ export const companyCoverageRegistry: Record<string, CompanyCoverage> = {
     symbol: "BYAN.JK",
     name: "PT Bayan Resources Tbk",
     route: "/companies/BYAN",
-    visibleInDirectory: false,
+    visibleInDirectory: true,
     source: {
       companyDetail: "verified",
       financials: "verified",
@@ -136,7 +136,7 @@ export const companyCoverageRegistry: Record<string, CompanyCoverage> = {
     symbol: "GEMS.JK",
     name: "PT Golden Energy Mines Tbk",
     route: "/companies/GEMS",
-    visibleInDirectory: false,
+    visibleInDirectory: true,
     source: {
       companyDetail: "verified",
       financials: "verified",
@@ -251,3 +251,4 @@ export function coverageScore(company: CompanyCoverage) {
 
   return Number((points / states.length).toFixed(3));
 }
+

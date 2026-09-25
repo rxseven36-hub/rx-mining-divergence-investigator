@@ -61,7 +61,7 @@ const BASE_STYLE = {
       ],
       tileSize: 256,
       maxzoom: 19,
-      attribution: "© OpenStreetMap contributors",
+      attribution: "OpenStreetMap contributors",
     },
   },
 
@@ -98,6 +98,7 @@ export function IndonesiaMiningMap() {
       ? (requestedCompany as MiningTicker)
       : null;
     const mapSectionRef = useRef<HTMLElement | null>(null);
+  const siteIntelligenceRef = useRef<HTMLElement | null>(null);
 
   const mapContainerRef = useRef<HTMLDivElement | null>(
       null,
@@ -450,7 +451,7 @@ export function IndonesiaMiningMap() {
         );
 
         dot.title =
-          `${site.ticker} · ${site.site.name}`;
+          `${site.ticker} / ${site.site.name}`;
 
         marker = new maplibregl.Marker({
           element: dot,
@@ -619,6 +620,21 @@ export function IndonesiaMiningMap() {
               (event) => {
                 event.preventDefault();
                 event.stopPropagation();
+
+                const isMobile =
+                  window.matchMedia("(max-width: 760px)").matches;
+
+                const isSameSite =
+                  selectedSite?.ticker === site.ticker &&
+                  selectedSite.site.slug === site.site.slug;
+
+                if (isMobile && isSameSite) {
+                  setSelectedSite(null);
+                  activeHoverPopupRef.current?.remove();
+                  activeHoverPopupRef.current = null;
+                  return;
+                }
+
                 selectSite(site);
               },
             );
@@ -648,7 +664,7 @@ export function IndonesiaMiningMap() {
         <div className={styles.mapArea}>
           {status === "loading" ? (
             <div className={styles.state}>
-              Loading verified mining sites…
+              Loading verified mining sites...
             </div>
           ) : null}
 
@@ -680,7 +696,7 @@ export function IndonesiaMiningMap() {
                 handleCompanyFilter("ALL")
               }
             >
-              ALL · {mappedCount}
+              ALL / {mappedCount}
             </button>
 
             {MINING_COMPANIES.map((ticker) => {
@@ -709,7 +725,7 @@ export function IndonesiaMiningMap() {
                     }}
                   />
 
-                  {ticker} · {count}
+                  {ticker} / {count}
                 </button>
               );
             })}
@@ -735,7 +751,7 @@ export function IndonesiaMiningMap() {
                     }
                   }}
                 >
-                  <option value="">Choose mining site…</option>
+                  <option value="">Choose mining site...</option>
 
                   {companySites.map((site) => (
                     <option
@@ -745,7 +761,7 @@ export function IndonesiaMiningMap() {
                       {site.site.name}
                       {isMappedSite(site)
                         ? ""
-                        : " · no coordinates"}
+                        : " / no coordinates"}
                     </option>
                   ))}
                 </select>
@@ -760,7 +776,7 @@ export function IndonesiaMiningMap() {
 
           <div className={styles.mapSearch}>
             <span className={styles.searchIcon}>
-              ⌕
+              SEARCH
             </span>
 
             <input
@@ -770,7 +786,7 @@ export function IndonesiaMiningMap() {
                   event.target.value,
                 )
               }
-              placeholder="Search site or operator…"
+              placeholder="Search site or operator..."
               aria-label="Search mining site or operator"
             />
 
@@ -840,18 +856,33 @@ export function IndonesiaMiningMap() {
 
               <button
                 type="button"
-                onClick={() =>
-                  selectSite(selectedSite)
-                }
+                onClick={() => {
+                  if (
+                    window.matchMedia("(max-width: 760px)").matches
+                  ) {
+                    siteIntelligenceRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                    return;
+                  }
+
+                  selectSite(selectedSite);
+                }}
               >
-                ◎ Focus on this site
+                <span className={styles.mobileCloseLabel}>
+                  Open Site Intelligence
+                </span>
+                <span className={styles.desktopFocusLabel}>
+                  Focus on this site
+                </span>
               </button>
             </div>
           ) : null}
 
           <div className={styles.mapLegend}>
             <span>
-              <b>●</b> verified mapped mine
+              <b>*</b> verified mapped mine
             </span>
 
             <span>
@@ -863,7 +894,7 @@ export function IndonesiaMiningMap() {
         </div>
 
         {selectedSite ? (
-          <aside className={styles.sidebar}>
+          <aside ref={siteIntelligenceRef} className={styles.sidebar}>
             <MiningSitePanel
               site={selectedSite}
             />

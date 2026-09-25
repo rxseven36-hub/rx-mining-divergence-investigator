@@ -124,7 +124,7 @@ describe(
         expect(
           source,
         ).toContain(
-          "NOT READY",
+          "CONTEXT ONLY",
         );
       },
     );

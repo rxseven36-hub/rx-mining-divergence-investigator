@@ -6,6 +6,7 @@ export const RX_INVESTIGATION_PATHS = [
   "market",
   "commodity-context",
   "product-quality",
+  "sales-destination",
 ] as const;
 
 export type RXInvestigationPath =
@@ -25,7 +26,8 @@ export interface RXInvestigationPathDefinition {
     | "MINING_HISTORICAL_PERFORMANCE"
     | "MINING_OPERATIONAL_CONTEXT"
     | "COMPANY_MARKET_TRANSACTION_HISTORY"
-    | "COMMODITY_PRICE_HISTORY";
+    | "COMMODITY_PRICE_HISTORY"
+    | "MINING_SALES_DESTINATION";
 }
 
 const definitions:
@@ -129,6 +131,20 @@ const definitions:
 
     primaryCapability:
       "MINING_HISTORICAL_PERFORMANCE",
+  },
+
+  "sales-destination": {
+    path:
+      "sales-destination",
+
+    label:
+      "Sales Destination",
+
+    description:
+      "Investigate provider-reported sales-destination evidence while preserving destination labels and missing values exactly as reported.",
+
+    primaryCapability:
+      "MINING_SALES_DESTINATION",
   },
 };
 
